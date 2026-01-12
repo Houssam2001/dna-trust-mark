@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle2, QrCode, FlaskConical } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -57,10 +58,12 @@ const Hero = () => {
               <Shield className="w-5 h-5 mr-2" />
               Demander le Label
             </Button>
-            <Button variant="outlineHero" size="xl">
-              <QrCode className="w-5 h-5 mr-2" />
-              Vérifier un établissement
-            </Button>
+            <Link to="/verification">
+              <Button variant="outlineHero" size="xl">
+                <QrCode className="w-5 h-5 mr-2" />
+                Vérifier un établissement
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
