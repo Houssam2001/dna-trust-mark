@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight } from "lucide-react";
+import CertificationRequestForm from "./CertificationRequestForm";
 
 const CTA = () => {
+  const [isFormOpen, setIsFormOpen] = useState(false);
   return (
     <section className="py-24 bg-gradient-hero relative overflow-hidden">
       {/* Background Elements */}
@@ -34,7 +37,7 @@ const CTA = () => {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="xl">
+            <Button variant="accent" size="xl" onClick={() => setIsFormOpen(true)}>
               Demander le Label
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
@@ -49,6 +52,8 @@ const CTA = () => {
           </p>
         </div>
       </div>
+
+      <CertificationRequestForm open={isFormOpen} onOpenChange={setIsFormOpen} />
     </section>
   );
 };
