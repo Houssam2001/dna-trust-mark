@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -32,23 +32,30 @@ import {
   Eye,
   Edit,
   Trash2,
+  FileText,
+  Check,
+  X,
 } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
+import { generateCertificatePDF } from "@/lib/generateCertificatePDF";
 import type { Database } from "@/integrations/supabase/types";
 
 type Establishment = Database["public"]["Tables"]["establishments"]["Row"];
 type Control = Database["public"]["Tables"]["controls"]["Row"];
+type Certification = Database["public"]["Tables"]["certifications"]["Row"];
 type EstablishmentType = Database["public"]["Enums"]["establishment_type"];
 type CertificationStatus = Database["public"]["Enums"]["certification_status"];
 
 const AdminDashboard = () => {
   const { user, isAdmin, isAgent, signOut, loading: authLoading } = useAuth();
   const navigate = useNavigate();
+  const qrRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"establishments" | "controls" | "users">("establishments");
+  const [statusFilter, setStatusFilter] = useState<"all" | CertificationStatus>("all");
   const [establishments, setEstablishments] = useState<Establishment[]>([]);
   const [controls, setControls] = useState<(Control & { establishment_name?: string })[]>([]);
   const [loading, setLoading] = useState(true);
@@ -58,6 +65,7 @@ const AdminDashboard = () => {
   const [isEstablishmentDialogOpen, setIsEstablishmentDialogOpen] = useState(false);
   const [isControlDialogOpen, setIsControlDialogOpen] = useState(false);
   const [isQRDialogOpen, setIsQRDialogOpen] = useState(false);
+  const [isStatusDialogOpen, setIsStatusDialogOpen] = useState(false);
   const [selectedEstablishment, setSelectedEstablishment] = useState<Establishment | null>(null);
 
   // Form states
@@ -207,6 +215,108 @@ const AdminDashboard = () => {
     }
   };
 
+  const handleUpdateStatus = async (establishment: Establishment, newStatus: CertificationStatus) => {
+    try {
+      const { error } = await supabase
+        .from("establishments")
+        .update({ status: newStatus })
+        .eq("id", establishment.id);
+
+      if (error) throw error;
+
+      // If status is conforme, create a certification
+      if (newStatus === "conforme") {
+        const validFrom = new Date();
+        const validUntil = new Date();
+        validUntil.setFullYear(validUntil.getFullYear() + 1);
+
+        const qrCodeUrl = `${window.location.origin}/verification?code=${establishment.adnguard_code}`;
+
+        await supabase.from("certifications").insert([
+          {
+            establishment_id: establishment.id,
+            valid_from: validFrom.toISOString().split("T")[0],
+            valid_until: validUntil.toISOString().split("T")[0],
+            qr_code: qrCodeUrl,
+            is_active: true,
+          },
+        ]);
+      }
+
+      toast.success(`Statut mis à jour: ${newStatus}`);
+      setIsStatusDialogOpen(false);
+      fetchData();
+    } catch (error: unknown) {
+      const err = error as Error;
+      toast.error("Erreur: " + err.message);
+    }
+  };
+
+  const handleDownloadCertificate = async (establishment: Establishment) => {
+    // Get the certification data
+    const { data: certData } = await supabase
+      .from("certifications")
+      .select("*")
+      .eq("establishment_id", establishment.id)
+      .eq("is_active", true)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .single();
+
+    // Create a temporary canvas to get QR code as data URL
+    const canvas = document.createElement("canvas");
+    const qrUrl = `${window.location.origin}/verification?code=${establishment.adnguard_code}`;
+    
+    // Use a hidden QR element
+    const tempDiv = document.createElement("div");
+    tempDiv.style.position = "absolute";
+    tempDiv.style.left = "-9999px";
+    document.body.appendChild(tempDiv);
+
+    const QRCodeCanvas = (await import("qrcode.react")).QRCodeCanvas;
+    const { createRoot } = await import("react-dom/client");
+    const root = createRoot(tempDiv);
+    
+    await new Promise<void>((resolve) => {
+      root.render(
+        <QRCodeCanvas
+          value={qrUrl}
+          size={200}
+          level="H"
+          includeMargin
+          id="temp-qr-canvas"
+        />
+      );
+      setTimeout(resolve, 100);
+    });
+
+    const qrCanvas = tempDiv.querySelector("canvas");
+    const qrDataUrl = qrCanvas?.toDataURL("image/png") || "";
+    
+    root.unmount();
+    document.body.removeChild(tempDiv);
+
+    generateCertificatePDF({
+      establishmentName: establishment.name,
+      establishmentType: establishment.type,
+      adnguardCode: establishment.adnguard_code || "",
+      address: establishment.address,
+      city: establishment.city,
+      certifiedSince: establishment.certified_since
+        ? new Date(establishment.certified_since).toLocaleDateString("fr-FR")
+        : undefined,
+      validFrom: certData
+        ? new Date(certData.valid_from).toLocaleDateString("fr-FR")
+        : new Date().toLocaleDateString("fr-FR"),
+      validUntil: certData
+        ? new Date(certData.valid_until).toLocaleDateString("fr-FR")
+        : new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toLocaleDateString("fr-FR"),
+      qrCodeDataUrl: qrDataUrl,
+    });
+
+    toast.success("Certificat PDF généré !");
+  };
+
   const getStatusBadge = (status: CertificationStatus) => {
     const configs = {
       conforme: { icon: CheckCircle2, label: "Conforme", className: "bg-primary/10 text-primary" },
@@ -224,12 +334,16 @@ const AdminDashboard = () => {
     );
   };
 
-  const filteredEstablishments = establishments.filter(
-    (e) =>
+  const filteredEstablishments = establishments.filter((e) => {
+    const matchesSearch =
       e.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       e.adnguard_code?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      e.city.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+      e.city.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesStatus = statusFilter === "all" || e.status === statusFilter;
+    return matchesSearch && matchesStatus;
+  });
+
+  const pendingCount = establishments.filter((e) => e.status === "en_attente").length;
 
   const getQRCodeUrl = (code: string) => {
     return `${window.location.origin}/verification?code=${code}`;
@@ -288,13 +402,19 @@ const AdminDashboard = () => {
 
       <div className="container mx-auto px-4 py-8">
         {/* Tabs */}
-        <div className="flex gap-2 mb-8 overflow-x-auto pb-2">
+        <div className="flex flex-wrap gap-2 mb-8">
           <Button
             variant={activeTab === "establishments" ? "hero" : "outline"}
             onClick={() => setActiveTab("establishments")}
+            className="relative"
           >
             <Building2 className="w-4 h-4 mr-2" />
             Établissements
+            {pendingCount > 0 && (
+              <span className="absolute -top-1 -right-1 w-5 h-5 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
+                {pendingCount}
+              </span>
+            )}
           </Button>
           <Button
             variant={activeTab === "controls" ? "hero" : "outline"}
@@ -318,15 +438,32 @@ const AdminDashboard = () => {
         {activeTab === "establishments" && (
           <div className="space-y-6">
             {/* Header */}
-            <div className="flex flex-col md:flex-row gap-4 justify-between">
-              <div className="relative flex-1 max-w-md">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
-                <Input
-                  placeholder="Rechercher par nom, code ou ville..."
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10"
-                />
+            <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+              <div className="flex flex-col sm:flex-row gap-3 flex-1">
+                <div className="relative flex-1 max-w-md">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+                  <Input
+                    placeholder="Rechercher par nom, code ou ville..."
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
+                    className="pl-10"
+                  />
+                </div>
+                <Select
+                  value={statusFilter}
+                  onValueChange={(v) => setStatusFilter(v as "all" | CertificationStatus)}
+                >
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Filtrer par statut" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">Tous les statuts</SelectItem>
+                    <SelectItem value="en_attente">En attente</SelectItem>
+                    <SelectItem value="conforme">Conforme</SelectItem>
+                    <SelectItem value="non_conforme">Non conforme</SelectItem>
+                    <SelectItem value="suspendu">Suspendu</SelectItem>
+                  </SelectContent>
+                </Select>
               </div>
 
               <Dialog open={isEstablishmentDialogOpen} onOpenChange={setIsEstablishmentDialogOpen}>
@@ -482,7 +619,22 @@ const AdminDashboard = () => {
                           </td>
                           <td className="px-4 py-3">{getStatusBadge(establishment.status)}</td>
                           <td className="px-4 py-3">
-                            <div className="flex gap-2">
+                            <div className="flex gap-1">
+                              {/* Status Update */}
+                              {isAdmin && (
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => {
+                                    setSelectedEstablishment(establishment);
+                                    setIsStatusDialogOpen(true);
+                                  }}
+                                  title="Modifier le statut"
+                                >
+                                  <Edit className="w-4 h-4" />
+                                </Button>
+                              )}
+                              {/* QR Code */}
                               <Button
                                 variant="ghost"
                                 size="icon"
@@ -490,19 +642,57 @@ const AdminDashboard = () => {
                                   setSelectedEstablishment(establishment);
                                   setIsQRDialogOpen(true);
                                 }}
+                                title="Voir le QR Code"
                               >
                                 <QrCode className="w-4 h-4" />
                               </Button>
+                              {/* View */}
                               <Link to={`/verification?code=${establishment.adnguard_code}`}>
-                                <Button variant="ghost" size="icon">
+                                <Button variant="ghost" size="icon" title="Voir la page publique">
                                   <Eye className="w-4 h-4" />
                                 </Button>
                               </Link>
+                              {/* Download Certificate */}
+                              {establishment.status === "conforme" && (
+                                <Button
+                                  variant="ghost"
+                                  size="icon"
+                                  onClick={() => handleDownloadCertificate(establishment)}
+                                  title="Télécharger le certificat PDF"
+                                >
+                                  <FileText className="w-4 h-4 text-primary" />
+                                </Button>
+                              )}
+                              {/* Quick Accept/Reject for pending */}
+                              {isAdmin && establishment.status === "en_attente" && (
+                                <>
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    onClick={() => handleUpdateStatus(establishment, "conforme")}
+                                    title="Accepter"
+                                    className="text-primary hover:text-primary"
+                                  >
+                                    <Check className="w-4 h-4" />
+                                  </Button>
+                                  <Button
+                                    variant="ghost"
+                                    size="icon"
+                                    onClick={() => handleUpdateStatus(establishment, "non_conforme")}
+                                    title="Refuser"
+                                    className="text-destructive hover:text-destructive"
+                                  >
+                                    <X className="w-4 h-4" />
+                                  </Button>
+                                </>
+                              )}
+                              {/* Delete */}
                               {isAdmin && (
                                 <Button
                                   variant="ghost"
                                   size="icon"
                                   onClick={() => handleDeleteEstablishment(establishment.id)}
+                                  title="Supprimer"
                                 >
                                   <Trash2 className="w-4 h-4 text-destructive" />
                                 </Button>
@@ -720,6 +910,56 @@ const AdminDashboard = () => {
               <p className="text-xs text-muted-foreground">
                 Scannez ce QR code pour vérifier la certification de cet établissement.
               </p>
+            </div>
+          )}
+        </DialogContent>
+      </Dialog>
+
+      {/* Status Update Dialog */}
+      <Dialog open={isStatusDialogOpen} onOpenChange={setIsStatusDialogOpen}>
+        <DialogContent className="max-w-sm">
+          <DialogHeader>
+            <DialogTitle>Modifier le statut</DialogTitle>
+          </DialogHeader>
+          {selectedEstablishment && (
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Établissement: <strong>{selectedEstablishment.name}</strong>
+              </p>
+              <p className="text-sm">Statut actuel: {getStatusBadge(selectedEstablishment.status)}</p>
+              <div className="grid grid-cols-2 gap-2">
+                <Button
+                  variant="outline"
+                  className="border-primary text-primary"
+                  onClick={() => handleUpdateStatus(selectedEstablishment, "conforme")}
+                >
+                  <CheckCircle2 className="w-4 h-4 mr-2" />
+                  Conforme
+                </Button>
+                <Button
+                  variant="outline"
+                  className="border-destructive text-destructive"
+                  onClick={() => handleUpdateStatus(selectedEstablishment, "non_conforme")}
+                >
+                  <XCircle className="w-4 h-4 mr-2" />
+                  Non conforme
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => handleUpdateStatus(selectedEstablishment, "en_attente")}
+                >
+                  <Clock className="w-4 h-4 mr-2" />
+                  En attente
+                </Button>
+                <Button
+                  variant="outline"
+                  className="text-muted-foreground"
+                  onClick={() => handleUpdateStatus(selectedEstablishment, "suspendu")}
+                >
+                  <XCircle className="w-4 h-4 mr-2" />
+                  Suspendu
+                </Button>
+              </div>
             </div>
           )}
         </DialogContent>
