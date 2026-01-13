@@ -922,6 +922,24 @@ const AdminDashboard = () => {
                   {selectedEstablishment.name}
                 </p>
               </div>
+              <div className="bg-muted rounded-lg p-3">
+                <p className="text-xs text-muted-foreground mb-1">Lien de vérification :</p>
+                <div className="flex items-center gap-2">
+                  <code className="text-xs text-foreground bg-background px-2 py-1 rounded flex-1 overflow-hidden text-ellipsis">
+                    {getQRCodeUrl(selectedEstablishment.adnguard_code || "")}
+                  </code>
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText(getQRCodeUrl(selectedEstablishment.adnguard_code || ""));
+                      toast.success("Lien copié !");
+                    }}
+                  >
+                    Copier
+                  </Button>
+                </div>
+              </div>
               <p className="text-xs text-muted-foreground">
                 Scannez ce QR code pour vérifier la certification de cet établissement.
               </p>
