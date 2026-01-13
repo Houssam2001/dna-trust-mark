@@ -35,7 +35,9 @@ import {
   FileText,
   Check,
   X,
+  BarChart3,
 } from "lucide-react";
+import StatisticsPanel from "@/components/admin/StatisticsPanel";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -54,7 +56,7 @@ const AdminDashboard = () => {
   const { user, isAdmin, isAgent, signOut, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const qrRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState<"establishments" | "controls" | "users">("establishments");
+  const [activeTab, setActiveTab] = useState<"establishments" | "controls" | "users" | "stats">("establishments");
   const [statusFilter, setStatusFilter] = useState<"all" | CertificationStatus>("all");
   const [establishments, setEstablishments] = useState<Establishment[]>([]);
   const [controls, setControls] = useState<(Control & { establishment_name?: string })[]>([]);
@@ -430,6 +432,15 @@ const AdminDashboard = () => {
             >
               <Users className="w-4 h-4 mr-2" />
               Utilisateurs
+            </Button>
+          )}
+          {isAdmin && (
+            <Button
+              variant={activeTab === "stats" ? "hero" : "outline"}
+              onClick={() => setActiveTab("stats")}
+            >
+              <BarChart3 className="w-4 h-4 mr-2" />
+              Statistiques
             </Button>
           )}
         </div>
@@ -880,6 +891,10 @@ const AdminDashboard = () => {
               Cette fonctionnalité sera disponible prochainement.
             </p>
           </div>
+        )}
+
+        {activeTab === "stats" && isAdmin && (
+          <StatisticsPanel />
         )}
       </div>
 
