@@ -50,6 +50,18 @@ const Verification = () => {
         setEstablishment(establishmentData);
         setNotFound(false);
 
+        // Log QR verification for analytics (fire and forget)
+        try {
+          await supabase
+            .from("qr_verifications")
+            .insert({
+              establishment_id: establishmentData.id,
+              user_agent: navigator.userAgent,
+            });
+        } catch (err) {
+          console.error("Error logging verification:", err);
+        }
+
         // Fetch controls for this establishment
         const { data: controlsData, error: controlsError } = await supabase
           .from("controls")

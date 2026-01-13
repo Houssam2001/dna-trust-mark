@@ -195,6 +195,38 @@ export type Database = {
         }
         Relationships: []
       }
+      qr_verifications: {
+        Row: {
+          establishment_id: string
+          id: string
+          ip_address: string | null
+          user_agent: string | null
+          verified_at: string
+        }
+        Insert: {
+          establishment_id: string
+          id?: string
+          ip_address?: string | null
+          user_agent?: string | null
+          verified_at?: string
+        }
+        Update: {
+          establishment_id?: string
+          id?: string
+          ip_address?: string | null
+          user_agent?: string | null
+          verified_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "qr_verifications_establishment_id_fkey"
+            columns: ["establishment_id"]
+            isOneToOne: false
+            referencedRelation: "establishments"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_roles: {
         Row: {
           created_at: string
