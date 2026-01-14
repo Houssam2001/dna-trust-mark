@@ -77,62 +77,62 @@ const Offers = () => {
         </div>
 
         {/* Offers Grid */}
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {offers.map((offer) => (
             <div
               key={offer.id}
               className={`relative bg-gradient-card rounded-2xl border transition-all duration-300 hover:shadow-card-hover ${
                 offer.popular
-                  ? 'border-primary shadow-card-hover scale-105 z-10'
+                  ? 'border-primary shadow-card-hover lg:scale-105 z-10'
                   : 'border-border shadow-card hover:border-primary/50'
               }`}
             >
               {/* Popular Badge */}
               {offer.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-gradient-accent text-accent-foreground text-sm font-bold px-4 py-1 rounded-full shadow-lg">
+                  <div className="bg-gradient-accent text-accent-foreground text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
                     Le plus populaire
                   </div>
                 </div>
               )}
 
-              <div className="p-8">
+              <div className="p-6 sm:p-8">
                 {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl mb-6 ${
+                <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl mb-4 sm:mb-6 ${
                   offer.popular ? 'bg-primary text-primary-foreground' : 'bg-muted text-primary'
                 }`}>
-                  <offer.icon className="w-7 h-7" />
+                  <offer.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-2xl font-serif font-bold text-foreground mb-1">
+                <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-1">
                   {offer.name}
                 </h3>
-                <p className="text-primary font-semibold text-sm mb-4">
+                <p className="text-primary font-semibold text-sm mb-3 sm:mb-4">
                   {offer.subtitle}
                 </p>
 
                 {/* Price */}
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <span className="text-muted-foreground text-sm">{offer.price}</span>
-                  <div className="text-3xl font-bold text-foreground">{offer.priceValue}</div>
+                  <div className="text-2xl sm:text-3xl font-bold text-foreground">{offer.priceValue}</div>
                 </div>
 
                 {/* Description */}
-                <p className="text-muted-foreground text-sm mb-6">
+                <p className="text-muted-foreground text-sm mb-4 sm:mb-6">
                   {offer.description}
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                   {offer.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-3">
+                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
                       {feature.included ? (
-                        <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
                       ) : (
-                        <X className="w-5 h-5 text-muted-foreground/50 flex-shrink-0" />
+                        <X className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground/50 flex-shrink-0" />
                       )}
-                      <span className={feature.included ? 'text-foreground' : 'text-muted-foreground/50'}>
+                      <span className={`text-sm sm:text-base ${feature.included ? 'text-foreground' : 'text-muted-foreground/50'}`}>
                         {feature.text}
                       </span>
                     </li>
@@ -143,7 +143,7 @@ const Offers = () => {
                 <Button
                   variant={offer.popular ? "hero" : "outline"}
                   size="lg"
-                  className="w-full"
+                  className="w-full text-sm sm:text-base"
                 >
                   {offer.cta}
                 </Button>

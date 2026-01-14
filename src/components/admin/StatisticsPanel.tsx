@@ -370,21 +370,21 @@ const StatisticsPanel = () => {
     trend?: "up" | "down" | "neutral";
   }) => (
     <Card className="bg-gradient-card border-border hover:shadow-card-hover transition-shadow">
-      <CardContent className="p-6">
-        <div className="flex items-start justify-between">
-          <div>
-            <p className="text-sm text-muted-foreground mb-1">{title}</p>
-            <p className="text-3xl font-bold text-foreground">{value}</p>
+      <CardContent className="p-4 sm:p-6">
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 flex-1">
+            <p className="text-xs sm:text-sm text-muted-foreground mb-1 truncate">{title}</p>
+            <p className="text-2xl sm:text-3xl font-bold text-foreground">{value}</p>
             {subtitle && (
-              <p className="text-sm text-muted-foreground mt-1 flex items-center gap-1">
-                {trend === "up" && <TrendingUp className="w-3 h-3 text-primary" />}
-                {trend === "down" && <TrendingDown className="w-3 h-3 text-destructive" />}
-                {subtitle}
+              <p className="text-xs sm:text-sm text-muted-foreground mt-1 flex items-center gap-1">
+                {trend === "up" && <TrendingUp className="w-3 h-3 text-primary shrink-0" />}
+                {trend === "down" && <TrendingDown className="w-3 h-3 text-destructive shrink-0" />}
+                <span className="truncate">{subtitle}</span>
               </p>
             )}
           </div>
-          <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-            <Icon className="w-6 h-6 text-primary" />
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+            <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-primary" />
           </div>
         </div>
       </CardContent>
@@ -392,16 +392,16 @@ const StatisticsPanel = () => {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Export Buttons */}
-      <div className="flex flex-wrap gap-3 justify-end">
-        <Button variant="outline" onClick={exportToPDF}>
-          <FileText className="w-4 h-4 mr-2" />
-          Exporter PDF
+      <div className="flex flex-wrap gap-2 sm:gap-3 justify-end">
+        <Button variant="outline" onClick={exportToPDF} className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4">
+          <FileText className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+          <span className="hidden xs:inline">Exporter</span> PDF
         </Button>
-        <Button variant="outline" onClick={exportToExcel}>
-          <FileSpreadsheet className="w-4 h-4 mr-2" />
-          Exporter Excel
+        <Button variant="outline" onClick={exportToExcel} className="text-xs sm:text-sm h-9 sm:h-10 px-3 sm:px-4">
+          <FileSpreadsheet className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+          <span className="hidden xs:inline">Exporter</span> Excel
         </Button>
       </div>
 
@@ -437,17 +437,17 @@ const StatisticsPanel = () => {
       </div>
 
       {/* Charts Row */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
         {/* Status Distribution Pie Chart */}
         <Card className="border-border">
-          <CardHeader>
-            <CardTitle className="text-lg font-serif flex items-center gap-2">
-              <Building2 className="w-5 h-5 text-primary" />
+          <CardHeader className="pb-2 sm:pb-4">
+            <CardTitle className="text-base sm:text-lg font-serif flex items-center gap-2">
+              <Building2 className="w-4 h-4 sm:w-5 sm:h-5 text-primary" />
               Répartition des statuts
             </CardTitle>
           </CardHeader>
-          <CardContent>
-            <div className="h-[280px]">
+          <CardContent className="pb-4">
+            <div className="h-[220px] sm:h-[280px]">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -456,9 +456,9 @@ const StatisticsPanel = () => {
                     nameKey="name"
                     cx="50%"
                     cy="50%"
-                    outerRadius={100}
+                    outerRadius={typeof window !== 'undefined' && window.innerWidth < 640 ? 70 : 100}
                     label={({ name, percent }) =>
-                      percent > 0 ? `${name} ${(percent * 100).toFixed(0)}%` : ""
+                      percent > 0 ? `${(percent * 100).toFixed(0)}%` : ""
                     }
                     labelLine={false}
                   >
@@ -472,19 +472,20 @@ const StatisticsPanel = () => {
                       background: "hsl(var(--card))",
                       border: "1px solid hsl(var(--border))",
                       borderRadius: "0.5rem",
+                      fontSize: "12px",
                     }}
                   />
                 </PieChart>
               </ResponsiveContainer>
             </div>
-            <div className="flex flex-wrap justify-center gap-4 mt-4">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mt-2 sm:mt-4">
               {stats.statusDistribution.map((item) => (
-                <div key={item.name} className="flex items-center gap-2">
+                <div key={item.name} className="flex items-center gap-1.5 sm:gap-2">
                   <div
-                    className="w-3 h-3 rounded-full"
+                    className="w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full shrink-0"
                     style={{ backgroundColor: item.color }}
                   />
-                  <span className="text-sm text-muted-foreground">
+                  <span className="text-xs sm:text-sm text-muted-foreground">
                     {item.name}: {item.value}
                   </span>
                 </div>

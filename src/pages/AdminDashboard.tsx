@@ -381,40 +381,42 @@ const AdminDashboard = () => {
     <div className="min-h-screen bg-muted/30">
       {/* Header */}
       <header className="bg-card border-b border-border sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2">
-            <Shield className="w-8 h-8 text-primary" />
-            <span className="text-xl font-serif font-bold">
+        <div className="container mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2">
+          <Link to="/" className="flex items-center gap-2 shrink-0">
+            <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
+            <span className="text-lg sm:text-xl font-serif font-bold hidden xs:inline">
               ADN<span className="text-primary">GUARD</span>
             </span>
           </Link>
 
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-muted-foreground hidden md:block">
+          <div className="flex items-center gap-2 sm:gap-4">
+            <span className="text-xs sm:text-sm text-muted-foreground hidden lg:block truncate max-w-[200px]">
               {user?.email}
             </span>
-            <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full font-medium">
+            <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full font-medium shrink-0">
               {isAdmin ? "Admin" : "Agent"}
             </span>
-            <Button variant="ghost" size="sm" onClick={signOut}>
+            <Button variant="ghost" size="sm" onClick={signOut} className="shrink-0">
               <LogOut className="w-4 h-4" />
             </Button>
           </div>
         </div>
       </header>
 
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-3 sm:px-4 py-4 sm:py-8">
         {/* Tabs */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-6 sm:mb-8 overflow-x-auto pb-2">
           <Button
             variant={activeTab === "establishments" ? "hero" : "outline"}
             onClick={() => setActiveTab("establishments")}
-            className="relative"
+            className="relative text-xs sm:text-sm px-3 sm:px-4 shrink-0"
+            size="sm"
           >
-            <Building2 className="w-4 h-4 mr-2" />
-            Établissements
+            <Building2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            <span className="hidden xs:inline">Établissements</span>
+            <span className="xs:hidden">Établ.</span>
             {pendingCount > 0 && (
-              <span className="absolute -top-1 -right-1 w-5 h-5 bg-destructive text-destructive-foreground text-xs rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-destructive text-destructive-foreground text-[10px] sm:text-xs rounded-full flex items-center justify-center">
                 {pendingCount}
               </span>
             )}
@@ -422,51 +424,60 @@ const AdminDashboard = () => {
           <Button
             variant={activeTab === "controls" ? "hero" : "outline"}
             onClick={() => setActiveTab("controls")}
+            className="text-xs sm:text-sm px-3 sm:px-4 shrink-0"
+            size="sm"
           >
-            <FlaskConical className="w-4 h-4 mr-2" />
-            Contrôles ADN
+            <FlaskConical className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            <span className="hidden xs:inline">Contrôles ADN</span>
+            <span className="xs:hidden">Contrôles</span>
           </Button>
           {isAdmin && (
             <Button
               variant={activeTab === "users" ? "hero" : "outline"}
               onClick={() => setActiveTab("users")}
+              className="text-xs sm:text-sm px-3 sm:px-4 shrink-0"
+              size="sm"
             >
-              <Users className="w-4 h-4 mr-2" />
-              Utilisateurs
+              <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+              <span className="hidden xs:inline">Utilisateurs</span>
+              <span className="xs:hidden">Users</span>
             </Button>
           )}
           {isAdmin && (
             <Button
               variant={activeTab === "stats" ? "hero" : "outline"}
               onClick={() => setActiveTab("stats")}
+              className="text-xs sm:text-sm px-3 sm:px-4 shrink-0"
+              size="sm"
             >
-              <BarChart3 className="w-4 h-4 mr-2" />
-              Statistiques
+              <BarChart3 className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+              <span className="hidden xs:inline">Statistiques</span>
+              <span className="xs:hidden">Stats</span>
             </Button>
           )}
         </div>
 
         {/* Content */}
         {activeTab === "establishments" && (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {/* Header */}
-            <div className="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
-              <div className="flex flex-col sm:flex-row gap-3 flex-1">
-                <div className="relative flex-1 max-w-md">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
+            <div className="flex flex-col gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full">
+                <div className="relative flex-1">
+                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground" />
                   <Input
-                    placeholder="Rechercher par nom, code ou ville..."
+                    placeholder="Rechercher..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
+                    className="pl-9 sm:pl-10 text-sm"
                   />
                 </div>
                 <Select
                   value={statusFilter}
                   onValueChange={(v) => setStatusFilter(v as "all" | CertificationStatus)}
                 >
-                  <SelectTrigger className="w-[180px]">
-                    <SelectValue placeholder="Filtrer par statut" />
+                  <SelectTrigger className="w-full sm:w-[160px] text-sm">
+                    <SelectValue placeholder="Filtrer" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="all">Tous les statuts</SelectItem>
@@ -480,36 +491,38 @@ const AdminDashboard = () => {
 
               <Dialog open={isEstablishmentDialogOpen} onOpenChange={setIsEstablishmentDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button variant="hero">
+                  <Button variant="hero" className="w-full sm:w-auto text-sm">
                     <Plus className="w-4 h-4 mr-2" />
-                    Nouvel établissement
+                    <span className="hidden xs:inline">Nouvel établissement</span>
+                    <span className="xs:hidden">Ajouter</span>
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto">
+                <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto mx-2 sm:mx-auto">
                   <DialogHeader>
-                    <DialogTitle>Ajouter un établissement</DialogTitle>
+                    <DialogTitle className="text-lg">Ajouter un établissement</DialogTitle>
                   </DialogHeader>
-                  <form onSubmit={handleCreateEstablishment} className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="col-span-2 space-y-2">
-                        <Label>Nom de l'établissement *</Label>
+                  <form onSubmit={handleCreateEstablishment} className="space-y-3 sm:space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                      <div className="sm:col-span-2 space-y-2">
+                        <Label className="text-sm">Nom de l'établissement *</Label>
                         <Input
                           value={establishmentForm.name}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, name: e.target.value })
                           }
                           required
+                          className="text-sm"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label>Type *</Label>
+                        <Label className="text-sm">Type *</Label>
                         <Select
                           value={establishmentForm.type}
                           onValueChange={(v: EstablishmentType) =>
                             setEstablishmentForm({ ...establishmentForm, type: v })
                           }
                         >
-                          <SelectTrigger>
+                          <SelectTrigger className="text-sm">
                             <SelectValue />
                           </SelectTrigger>
                           <SelectContent>
@@ -522,64 +535,70 @@ const AdminDashboard = () => {
                         </Select>
                       </div>
                       <div className="space-y-2">
-                        <Label>SIRET</Label>
+                        <Label className="text-sm">SIRET</Label>
                         <Input
                           value={establishmentForm.siret}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, siret: e.target.value })
                           }
+                          className="text-sm"
                         />
                       </div>
-                      <div className="col-span-2 space-y-2">
-                        <Label>Adresse *</Label>
+                      <div className="sm:col-span-2 space-y-2">
+                        <Label className="text-sm">Adresse *</Label>
                         <Input
                           value={establishmentForm.address}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, address: e.target.value })
                           }
                           required
+                          className="text-sm"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label>Ville *</Label>
+                        <Label className="text-sm">Ville *</Label>
                         <Input
                           value={establishmentForm.city}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, city: e.target.value })
                           }
                           required
+                          className="text-sm"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label>Code postal</Label>
+                        <Label className="text-sm">Code postal</Label>
                         <Input
                           value={establishmentForm.postal_code}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, postal_code: e.target.value })
                           }
+                          className="text-sm"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label>Téléphone</Label>
+                        <Label className="text-sm">Téléphone</Label>
                         <Input
                           value={establishmentForm.phone}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, phone: e.target.value })
                           }
+                          className="text-sm"
                         />
                       </div>
                       <div className="space-y-2">
-                        <Label>Email</Label>
+                        <Label className="text-sm">Email</Label>
                         <Input
                           type="email"
                           value={establishmentForm.email}
                           onChange={(e) =>
                             setEstablishmentForm({ ...establishmentForm, email: e.target.value })
                           }
+                          className="text-sm"
                         />
                       </div>
                     </div>
-                    <Button type="submit" variant="hero" className="w-full">
+                    <Button type="submit" variant="hero" className="w-full text-sm">
                       Créer l'établissement
                     </Button>
                   </form>
@@ -587,141 +606,174 @@ const AdminDashboard = () => {
               </Dialog>
             </div>
 
-            {/* Table */}
+            {/* Mobile Card View + Desktop Table */}
             {loading ? (
               <div className="flex justify-center py-12">
                 <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary" />
               </div>
             ) : (
-              <div className="bg-card rounded-xl border border-border overflow-hidden">
-                <div className="overflow-x-auto">
-                  <table className="w-full">
-                    <thead className="bg-muted/50">
-                      <tr>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
-                          Code
-                        </th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
-                          Établissement
-                        </th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
-                          Type
-                        </th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
-                          Ville
-                        </th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
-                          Statut
-                        </th>
-                        <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">
-                          Actions
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-border">
-                      {filteredEstablishments.map((establishment) => (
-                        <tr key={establishment.id} className="hover:bg-muted/30">
-                          <td className="px-4 py-3 font-mono text-sm text-primary">
-                            {establishment.adnguard_code}
-                          </td>
-                          <td className="px-4 py-3 font-medium">{establishment.name}</td>
-                          <td className="px-4 py-3 text-sm capitalize">{establishment.type}</td>
-                          <td className="px-4 py-3 text-sm text-muted-foreground">
-                            {establishment.city}
-                          </td>
-                          <td className="px-4 py-3">{getStatusBadge(establishment.status)}</td>
-                          <td className="px-4 py-3">
-                            <div className="flex gap-1">
-                              {/* Status Update */}
-                              {isAdmin && (
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  onClick={() => {
-                                    setSelectedEstablishment(establishment);
-                                    setIsStatusDialogOpen(true);
-                                  }}
-                                  title="Modifier le statut"
-                                >
-                                  <Edit className="w-4 h-4" />
-                                </Button>
-                              )}
-                              {/* QR Code */}
-                              <Button
-                                variant="ghost"
-                                size="icon"
-                                onClick={() => {
-                                  setSelectedEstablishment(establishment);
-                                  setIsQRDialogOpen(true);
-                                }}
-                                title="Voir le QR Code"
-                              >
-                                <QrCode className="w-4 h-4" />
-                              </Button>
-                              {/* View */}
-                              <Link to={`/verification?code=${establishment.adnguard_code}`}>
-                                <Button variant="ghost" size="icon" title="Voir la page publique">
-                                  <Eye className="w-4 h-4" />
-                                </Button>
-                              </Link>
-                              {/* Download Certificate */}
-                              {establishment.status === "conforme" && (
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  onClick={() => handleDownloadCertificate(establishment)}
-                                  title="Télécharger le certificat PDF"
-                                >
-                                  <FileText className="w-4 h-4 text-primary" />
-                                </Button>
-                              )}
-                              {/* Quick Accept/Reject for pending */}
-                              {isAdmin && establishment.status === "en_attente" && (
-                                <>
-                                  <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    onClick={() => handleUpdateStatus(establishment, "conforme")}
-                                    title="Accepter"
-                                    className="text-primary hover:text-primary"
-                                  >
-                                    <Check className="w-4 h-4" />
-                                  </Button>
-                                  <Button
-                                    variant="ghost"
-                                    size="icon"
-                                    onClick={() => handleUpdateStatus(establishment, "non_conforme")}
-                                    title="Refuser"
-                                    className="text-destructive hover:text-destructive"
-                                  >
-                                    <X className="w-4 h-4" />
-                                  </Button>
-                                </>
-                              )}
-                              {/* Delete */}
-                              {isAdmin && (
-                                <Button
-                                  variant="ghost"
-                                  size="icon"
-                                  onClick={() => handleDeleteEstablishment(establishment.id)}
-                                  title="Supprimer"
-                                >
-                                  <Trash2 className="w-4 h-4 text-destructive" />
-                                </Button>
-                              )}
-                            </div>
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
+              <>
+                {/* Mobile Card View */}
+                <div className="block lg:hidden space-y-3">
+                  {filteredEstablishments.map((establishment) => (
+                    <div key={establishment.id} className="bg-card rounded-xl border border-border p-4">
+                      <div className="flex items-start justify-between gap-3 mb-3">
+                        <div className="min-w-0 flex-1">
+                          <p className="font-mono text-xs text-primary mb-1">{establishment.adnguard_code}</p>
+                          <h3 className="font-medium text-sm truncate">{establishment.name}</h3>
+                          <p className="text-xs text-muted-foreground capitalize">{establishment.type} • {establishment.city}</p>
+                        </div>
+                        {getStatusBadge(establishment.status)}
+                      </div>
+                      <div className="flex flex-wrap gap-1 pt-2 border-t border-border">
+                        {isAdmin && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => {
+                              setSelectedEstablishment(establishment);
+                              setIsStatusDialogOpen(true);
+                            }}
+                            className="h-8 px-2 text-xs"
+                          >
+                            <Edit className="w-3.5 h-3.5 mr-1" />
+                            Statut
+                          </Button>
+                        )}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => {
+                            setSelectedEstablishment(establishment);
+                            setIsQRDialogOpen(true);
+                          }}
+                          className="h-8 px-2 text-xs"
+                        >
+                          <QrCode className="w-3.5 h-3.5 mr-1" />
+                          QR
+                        </Button>
+                        {establishment.status === "conforme" && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleDownloadCertificate(establishment)}
+                            className="h-8 px-2 text-xs text-primary"
+                          >
+                            <FileText className="w-3.5 h-3.5 mr-1" />
+                            PDF
+                          </Button>
+                        )}
+                        {isAdmin && establishment.status === "en_attente" && (
+                          <>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleUpdateStatus(establishment, "conforme")}
+                              className="h-8 px-2 text-xs text-primary"
+                            >
+                              <Check className="w-3.5 h-3.5" />
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => handleUpdateStatus(establishment, "non_conforme")}
+                              className="h-8 px-2 text-xs text-destructive"
+                            >
+                              <X className="w-3.5 h-3.5" />
+                            </Button>
+                          </>
+                        )}
+                        {isAdmin && (
+                          <Button
+                            variant="ghost"
+                            size="sm"
+                            onClick={() => handleDeleteEstablishment(establishment.id)}
+                            className="h-8 px-2 text-xs text-destructive ml-auto"
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </Button>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                  {filteredEstablishments.length === 0 && (
+                    <div className="text-center py-12 text-muted-foreground text-sm">
+                      Aucun établissement trouvé
+                    </div>
+                  )}
                 </div>
-                {filteredEstablishments.length === 0 && (
-                  <div className="text-center py-12 text-muted-foreground">
-                    Aucun établissement trouvé
+
+                {/* Desktop Table View */}
+                <div className="hidden lg:block bg-card rounded-xl border border-border overflow-hidden">
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead className="bg-muted/50">
+                        <tr>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Code</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Établissement</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Type</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Ville</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Statut</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-border">
+                        {filteredEstablishments.map((establishment) => (
+                          <tr key={establishment.id} className="hover:bg-muted/30">
+                            <td className="px-4 py-3 font-mono text-sm text-primary">{establishment.adnguard_code}</td>
+                            <td className="px-4 py-3 font-medium">{establishment.name}</td>
+                            <td className="px-4 py-3 text-sm capitalize">{establishment.type}</td>
+                            <td className="px-4 py-3 text-sm text-muted-foreground">{establishment.city}</td>
+                            <td className="px-4 py-3">{getStatusBadge(establishment.status)}</td>
+                            <td className="px-4 py-3">
+                              <div className="flex gap-1">
+                                {isAdmin && (
+                                  <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsStatusDialogOpen(true); }} title="Modifier le statut">
+                                    <Edit className="w-4 h-4" />
+                                  </Button>
+                                )}
+                                <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsQRDialogOpen(true); }} title="Voir le QR Code">
+                                  <QrCode className="w-4 h-4" />
+                                </Button>
+                                <Link to={`/verification?code=${establishment.adnguard_code}`}>
+                                  <Button variant="ghost" size="icon" title="Voir la page publique">
+                                    <Eye className="w-4 h-4" />
+                                  </Button>
+                                </Link>
+                                {establishment.status === "conforme" && (
+                                  <Button variant="ghost" size="icon" onClick={() => handleDownloadCertificate(establishment)} title="Télécharger le certificat PDF">
+                                    <FileText className="w-4 h-4 text-primary" />
+                                  </Button>
+                                )}
+                                {isAdmin && establishment.status === "en_attente" && (
+                                  <>
+                                    <Button variant="ghost" size="icon" onClick={() => handleUpdateStatus(establishment, "conforme")} title="Accepter" className="text-primary hover:text-primary">
+                                      <Check className="w-4 h-4" />
+                                    </Button>
+                                    <Button variant="ghost" size="icon" onClick={() => handleUpdateStatus(establishment, "non_conforme")} title="Refuser" className="text-destructive hover:text-destructive">
+                                      <X className="w-4 h-4" />
+                                    </Button>
+                                  </>
+                                )}
+                                {isAdmin && (
+                                  <Button variant="ghost" size="icon" onClick={() => handleDeleteEstablishment(establishment.id)} title="Supprimer">
+                                    <Trash2 className="w-4 h-4 text-destructive" />
+                                  </Button>
+                                )}
+                              </div>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
                   </div>
-                )}
-              </div>
+                  {filteredEstablishments.length === 0 && (
+                    <div className="text-center py-12 text-muted-foreground">
+                      Aucun établissement trouvé
+                    </div>
+                  )}
+                </div>
+              </>
             )}
           </div>
         )}
