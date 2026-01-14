@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import {
   Building2,
   CheckCircle2,
@@ -9,6 +10,9 @@ import {
   TrendingDown,
   Percent,
   Calendar,
+  FileText,
+  FileSpreadsheet,
+  Download,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import {
@@ -26,6 +30,9 @@ import {
   CartesianGrid,
   Legend,
 } from "recharts";
+import { jsPDF } from "jspdf";
+import * as XLSX from "xlsx";
+import { toast } from "sonner";
 import type { Database } from "@/integrations/supabase/types";
 
 type CertificationStatus = Database["public"]["Enums"]["certification_status"];
@@ -189,6 +196,150 @@ const StatisticsPanel = () => {
     }
   };
 
+  const exportToPDF = () => {
+    if (!stats) return;
+
+    try {
+      const doc = new jsPDF();
+      const now = new Date();
+      const dateStr = now.toLocaleDateString("fr-FR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      });
+
+      // Header
+      doc.setFontSize(20);
+      doc.setTextColor(21, 52, 39); // Dark green
+      doc.text("ADNGUARD - Rapport Statistiques", 20, 25);
+
+      doc.setFontSize(10);
+      doc.setTextColor(100, 100, 100);
+      doc.text(`Généré le ${dateStr}`, 20, 35);
+
+      // KPIs Section
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text("Indicateurs Clés de Performance", 20, 50);
+
+      doc.setFontSize(11);
+      doc.setTextColor(60, 60, 60);
+      const kpis = [
+        `• Établissements labellisés: ${stats.certifiedEstablishments} sur ${stats.totalEstablishments}`,
+        `• Contrôles ce mois: ${stats.monthlyControls} (${stats.totalControls} total)`,
+        `• Taux de conformité: ${stats.complianceRate}%`,
+        `• Visites QR code: ${stats.qrVerifications} (${stats.monthlyQrVerifications} ce mois)`,
+      ];
+      kpis.forEach((kpi, i) => {
+        doc.text(kpi, 25, 60 + i * 8);
+      });
+
+      // Status Distribution
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text("Répartition des Statuts", 20, 100);
+
+      doc.setFontSize(11);
+      doc.setTextColor(60, 60, 60);
+      stats.statusDistribution.forEach((status, i) => {
+        doc.text(`• ${status.name}: ${status.value} établissements`, 25, 110 + i * 8);
+      });
+
+      // Controls by Month
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text("Contrôles par Mois (6 derniers mois)", 20, 150);
+
+      doc.setFontSize(11);
+      doc.setTextColor(60, 60, 60);
+      stats.controlsByMonth.forEach((month, i) => {
+        doc.text(
+          `• ${month.month}: ${month.controls} contrôles (${month.conformes} conformes)`,
+          25,
+          160 + i * 8
+        );
+      });
+
+      // QR Verifications by Month
+      doc.setFontSize(14);
+      doc.setTextColor(0, 0, 0);
+      doc.text("Visites QR Code par Mois", 20, 215);
+
+      doc.setFontSize(11);
+      doc.setTextColor(60, 60, 60);
+      stats.qrByMonth.forEach((month, i) => {
+        doc.text(`• ${month.month}: ${month.verifications} vérifications`, 25, 225 + i * 8);
+      });
+
+      // Footer
+      doc.setFontSize(9);
+      doc.setTextColor(150, 150, 150);
+      doc.text("© ADNGUARD - Certification ADN Halal", 20, 280);
+
+      doc.save(`adnguard-rapport-${now.toISOString().split("T")[0]}.pdf`);
+      toast.success("Rapport PDF téléchargé !");
+    } catch (error) {
+      console.error("Error generating PDF:", error);
+      toast.error("Erreur lors de la génération du PDF");
+    }
+  };
+
+  const exportToExcel = () => {
+    if (!stats) return;
+
+    try {
+      const now = new Date();
+
+      // Create workbook
+      const wb = XLSX.utils.book_new();
+
+      // KPIs Sheet
+      const kpisData = [
+        ["Indicateur", "Valeur"],
+        ["Établissements labellisés", stats.certifiedEstablishments],
+        ["Total établissements", stats.totalEstablishments],
+        ["Contrôles ce mois", stats.monthlyControls],
+        ["Total contrôles", stats.totalControls],
+        ["Taux de conformité (%)", stats.complianceRate],
+        ["Visites QR code total", stats.qrVerifications],
+        ["Visites QR code ce mois", stats.monthlyQrVerifications],
+      ];
+      const wsKpis = XLSX.utils.aoa_to_sheet(kpisData);
+      XLSX.utils.book_append_sheet(wb, wsKpis, "KPIs");
+
+      // Status Distribution Sheet
+      const statusData = [
+        ["Statut", "Nombre d'établissements"],
+        ...stats.statusDistribution.map((s) => [s.name, s.value]),
+      ];
+      const wsStatus = XLSX.utils.aoa_to_sheet(statusData);
+      XLSX.utils.book_append_sheet(wb, wsStatus, "Répartition Statuts");
+
+      // Controls by Month Sheet
+      const controlsData = [
+        ["Mois", "Total Contrôles", "Conformes"],
+        ...stats.controlsByMonth.map((m) => [m.month, m.controls, m.conformes]),
+      ];
+      const wsControls = XLSX.utils.aoa_to_sheet(controlsData);
+      XLSX.utils.book_append_sheet(wb, wsControls, "Contrôles par Mois");
+
+      // QR Verifications by Month Sheet
+      const qrData = [
+        ["Mois", "Vérifications"],
+        ...stats.qrByMonth.map((m) => [m.month, m.verifications]),
+      ];
+      const wsQr = XLSX.utils.aoa_to_sheet(qrData);
+      XLSX.utils.book_append_sheet(wb, wsQr, "Visites QR par Mois");
+
+      // Save file
+      XLSX.writeFile(wb, `adnguard-rapport-${now.toISOString().split("T")[0]}.xlsx`);
+      toast.success("Rapport Excel téléchargé !");
+    } catch (error) {
+      console.error("Error generating Excel:", error);
+      toast.error("Erreur lors de la génération du fichier Excel");
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex items-center justify-center py-12">
@@ -242,6 +393,18 @@ const StatisticsPanel = () => {
 
   return (
     <div className="space-y-6">
+      {/* Export Buttons */}
+      <div className="flex flex-wrap gap-3 justify-end">
+        <Button variant="outline" onClick={exportToPDF}>
+          <FileText className="w-4 h-4 mr-2" />
+          Exporter PDF
+        </Button>
+        <Button variant="outline" onClick={exportToExcel}>
+          <FileSpreadsheet className="w-4 h-4 mr-2" />
+          Exporter Excel
+        </Button>
+      </div>
+
       {/* KPI Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         <StatCard
