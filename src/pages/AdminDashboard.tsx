@@ -38,6 +38,7 @@ import {
   BarChart3,
 } from "lucide-react";
 import StatisticsPanel from "@/components/admin/StatisticsPanel";
+import UserManagement from "@/components/admin/UserManagement";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
@@ -884,13 +885,7 @@ const AdminDashboard = () => {
         )}
 
         {activeTab === "users" && isAdmin && (
-          <div className="bg-card rounded-xl border border-border p-8 text-center">
-            <Users className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
-            <h2 className="text-xl font-serif font-bold mb-2">Gestion des Utilisateurs</h2>
-            <p className="text-muted-foreground">
-              Cette fonctionnalité sera disponible prochainement.
-            </p>
-          </div>
+          <UserManagement />
         )}
 
         {activeTab === "stats" && isAdmin && (
