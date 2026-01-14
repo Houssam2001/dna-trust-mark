@@ -24,14 +24,15 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Search, UserPlus, Shield, UserCog, Trash2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
+import api from "@/services/api";
 import { toast } from "sonner";
-import type { Database } from "@/integrations/supabase/types";
+import { AppRole } from "@/types";
 
-type Profile = Database["public"]["Tables"]["profiles"]["Row"];
-type AppRole = Database["public"]["Enums"]["app_role"];
-
-interface UserWithRoles extends Profile {
+interface UserWithRoles {
+  id: string;
+  email: string;
+  full_name: string | null;
+  created_at: string;
   roles: AppRole[];
 }
 
@@ -46,33 +47,11 @@ const UserManagement = () => {
   const fetchUsers = async () => {
     setLoading(true);
     try {
-      // Fetch all profiles
-      const { data: profiles, error: profilesError } = await supabase
-        .from("profiles")
-        .select("*")
-        .order("created_at", { ascending: false });
-
-      if (profilesError) throw profilesError;
-
-      // Fetch all user roles
-      const { data: roles, error: rolesError } = await supabase
-        .from("user_roles")
-        .select("*");
-
-      if (rolesError) throw rolesError;
-
-      // Combine profiles with their roles
-      const usersWithRoles: UserWithRoles[] = (profiles || []).map((profile) => ({
-        ...profile,
-        roles: (roles || [])
-          .filter((r) => r.user_id === profile.user_id)
-          .map((r) => r.role),
-      }));
-
-      setUsers(usersWithRoles);
-    } catch (error) {
+      const response = await api.get<UserWithRoles[]>("/admin/users");
+      setUsers(response.data);
+    } catch (error: any) {
       console.error("Error fetching users:", error);
-      toast.error("Erreur lors du chargement des utilisateurs");
+      toast.error("Erreur lors du chargement des utilisateurs: " + (error.response?.data?.message || error.message));
     } finally {
       setLoading(false);
     }
@@ -86,27 +65,19 @@ const UserManagement = () => {
     if (!selectedUser || !selectedRole) return;
 
     try {
-      const { error } = await supabase.from("user_roles").insert({
-        user_id: selectedUser.user_id,
-        role: selectedRole,
-      });
-
-      if (error) {
-        if (error.code === "23505") {
-          toast.error("Cet utilisateur a déjà ce rôle");
-        } else {
-          throw error;
-        }
-        return;
-      }
+      await api.post(`/admin/users/${selectedUser.id}/roles`, { role: selectedRole });
 
       toast.success(`Rôle ${selectedRole} ajouté avec succès`);
       setIsRoleDialogOpen(false);
       setSelectedRole("");
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error adding role:", error);
-      toast.error("Erreur lors de l'ajout du rôle");
+      if (error.response?.status === 409) {
+        toast.error("Cet utilisateur a déjà ce rôle");
+      } else {
+        toast.error("Erreur lors de l'ajout du rôle: " + (error.response?.data?.message || error.message));
+      }
     }
   };
 
@@ -114,19 +85,13 @@ const UserManagement = () => {
     if (!confirm(`Êtes-vous sûr de vouloir retirer le rôle ${role} ?`)) return;
 
     try {
-      const { error } = await supabase
-        .from("user_roles")
-        .delete()
-        .eq("user_id", userId)
-        .eq("role", role);
-
-      if (error) throw error;
+      await api.delete(`/admin/users/${userId}/roles/${role}`);
 
       toast.success(`Rôle ${role} retiré avec succès`);
       fetchUsers();
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error removing role:", error);
-      toast.error("Erreur lors du retrait du rôle");
+      toast.error("Erreur lors du retrait du rôle: " + (error.response?.data?.message || error.message));
     }
   };
 
@@ -136,17 +101,18 @@ const UserManagement = () => {
       agent: { class: "bg-primary/10 text-primary border-primary/20", label: "Agent" },
       owner: { class: "bg-muted text-muted-foreground border-border", label: "Propriétaire" },
     };
+    const variant = variants[role] || { class: "bg-gray-100 text-gray-500", label: role };
     return (
-      <Badge variant="outline" className={variants[role].class}>
-        {variants[role].label}
+      <Badge variant="outline" className={variant.class}>
+        {variant.label}
       </Badge>
     );
   };
 
   const filteredUsers = users.filter(
     (user) =>
-      user.full_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      user.email?.toLowerCase().includes(searchTerm.toLowerCase())
+      (user.full_name?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+      (user.email?.toLowerCase() || "").includes(searchTerm.toLowerCase())
   );
 
   const availableRoles: AppRole[] = ["admin", "agent", "owner"];
@@ -210,7 +176,7 @@ const UserManagement = () => {
                               variant="ghost"
                               size="icon"
                               className="h-5 w-5 text-muted-foreground hover:text-destructive"
-                              onClick={() => handleRemoveRole(user.user_id, role)}
+                              onClick={() => handleRemoveRole(user.id, role)}
                               title="Retirer ce rôle"
                             >
                               <Trash2 className="w-3 h-3" />

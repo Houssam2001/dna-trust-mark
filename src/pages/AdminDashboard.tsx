@@ -41,26 +41,19 @@ import StatisticsPanel from "@/components/admin/StatisticsPanel";
 import UserManagement from "@/components/admin/UserManagement";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
-import { supabase } from "@/integrations/supabase/client";
+import api from "@/services/api";
 import { toast } from "sonner";
 import { QRCodeSVG } from "qrcode.react";
 import { generateCertificatePDF } from "@/lib/generateCertificatePDF";
-import type { Database } from "@/integrations/supabase/types";
-
-type Establishment = Database["public"]["Tables"]["establishments"]["Row"];
-type Control = Database["public"]["Tables"]["controls"]["Row"];
-type Certification = Database["public"]["Tables"]["certifications"]["Row"];
-type EstablishmentType = Database["public"]["Enums"]["establishment_type"];
-type CertificationStatus = Database["public"]["Enums"]["certification_status"];
+import { Establishment, Control, CertificationStatus, EstablishmentType } from "@/types";
 
 const AdminDashboard = () => {
   const { user, isAdmin, isAgent, signOut, loading: authLoading } = useAuth();
   const navigate = useNavigate();
-  const qrRef = useRef<HTMLDivElement>(null);
   const [activeTab, setActiveTab] = useState<"establishments" | "controls" | "users" | "stats">("establishments");
   const [statusFilter, setStatusFilter] = useState<"all" | CertificationStatus>("all");
   const [establishments, setEstablishments] = useState<Establishment[]>([]);
-  const [controls, setControls] = useState<(Control & { establishment_name?: string })[]>([]);
+  const [controls, setControls] = useState<(Control & { establishmentName?: string })[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -71,24 +64,24 @@ const AdminDashboard = () => {
   const [isStatusDialogOpen, setIsStatusDialogOpen] = useState(false);
   const [selectedEstablishment, setSelectedEstablishment] = useState<Establishment | null>(null);
 
-  // Form states
+  // Form states - keys updated to match backend expectation (camelCase)
   const [establishmentForm, setEstablishmentForm] = useState({
     name: "",
     type: "boucherie" as EstablishmentType,
     address: "",
     city: "",
-    postal_code: "",
+    postalCode: "",
     phone: "",
     email: "",
     siret: "",
   });
 
   const [controlForm, setControlForm] = useState({
-    establishment_id: "",
+    establishmentId: "",
     result: "en_attente" as CertificationStatus,
-    species_analyzed: "",
-    species_detected: "",
-    anomalies_detected: "",
+    speciesAnalyzed: "",
+    speciesDetected: "",
+    anomaliesDetected: "",
     notes: "",
   });
 
@@ -108,33 +101,19 @@ const AdminDashboard = () => {
     setLoading(true);
     try {
       if (activeTab === "establishments") {
-        const { data, error } = await supabase
-          .from("establishments")
-          .select("*")
-          .order("created_at", { ascending: false });
-
-        if (error) throw error;
-        setEstablishments(data || []);
+        const response = await api.get<Establishment[]>("/establishments");
+        setEstablishments(response.data);
       } else if (activeTab === "controls") {
-        const { data, error } = await supabase
-          .from("controls")
-          .select(`
-            *,
-            establishments (name)
-          `)
-          .order("created_at", { ascending: false });
-
-        if (error) throw error;
-        setControls(
-          (data || []).map((c) => ({
-            ...c,
-            establishment_name: (c.establishments as { name: string } | null)?.name,
-          }))
-        );
+        const response = await api.get<Control[]>("/controls");
+        // Map backend response which includes 'establishment' object
+        const mappedControls = response.data.map((c) => ({
+          ...c,
+          establishmentName: c.establishment?.name || "Unknown",
+        }));
+        setControls(mappedControls);
       }
-    } catch (error: unknown) {
-      const err = error as Error;
-      toast.error("Erreur lors du chargement des données: " + err.message);
+    } catch (error: any) {
+      toast.error("Erreur lors du chargement des données: " + (error.response?.data?.message || error.message));
     } finally {
       setLoading(false);
     }
@@ -143,13 +122,7 @@ const AdminDashboard = () => {
   const handleCreateEstablishment = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const { error } = await supabase.from("establishments").insert([
-        {
-          ...establishmentForm,
-        },
-      ]);
-
-      if (error) throw error;
+      await api.post("/establishments", establishmentForm);
 
       toast.success("Établissement créé avec succès !");
       setIsEstablishmentDialogOpen(false);
@@ -158,49 +131,44 @@ const AdminDashboard = () => {
         type: "boucherie",
         address: "",
         city: "",
-        postal_code: "",
+        postalCode: "",
         phone: "",
         email: "",
         siret: "",
       });
       fetchData();
-    } catch (error: unknown) {
-      const err = error as Error;
-      toast.error("Erreur: " + err.message);
+    } catch (error: any) {
+      toast.error("Erreur: " + (error.response?.data?.message || error.message));
     }
   };
 
   const handleCreateControl = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const { error } = await supabase.from("controls").insert([
-        {
-          establishment_id: controlForm.establishment_id,
-          result: controlForm.result,
-          species_analyzed: controlForm.species_analyzed.split(",").map((s) => s.trim()).filter(Boolean),
-          species_detected: controlForm.species_detected.split(",").map((s) => s.trim()).filter(Boolean),
-          anomalies_detected: controlForm.anomalies_detected || null,
-          notes: controlForm.notes || null,
-          agent_id: user?.id,
-        },
-      ]);
+      const payload = {
+        establishmentId: controlForm.establishmentId,
+        result: controlForm.result,
+        speciesAnalyzed: controlForm.speciesAnalyzed.split(",").map((s) => s.trim()).filter(Boolean),
+        speciesDetected: controlForm.speciesDetected.split(",").map((s) => s.trim()).filter(Boolean),
+        anomaliesDetected: controlForm.anomaliesDetected || undefined,
+        notes: controlForm.notes || undefined,
+      };
 
-      if (error) throw error;
+      await api.post("/controls", payload);
 
       toast.success("Contrôle enregistré avec succès !");
       setIsControlDialogOpen(false);
       setControlForm({
-        establishment_id: "",
+        establishmentId: "",
         result: "en_attente",
-        species_analyzed: "",
-        species_detected: "",
-        anomalies_detected: "",
+        speciesAnalyzed: "",
+        speciesDetected: "",
+        anomaliesDetected: "",
         notes: "",
       });
       fetchData();
-    } catch (error: unknown) {
-      const err = error as Error;
-      toast.error("Erreur: " + err.message);
+    } catch (error: any) {
+      toast.error("Erreur: " + (error.response?.data?.message || error.message));
     }
   };
 
@@ -208,116 +176,95 @@ const AdminDashboard = () => {
     if (!confirm("Êtes-vous sûr de vouloir supprimer cet établissement ?")) return;
 
     try {
-      const { error } = await supabase.from("establishments").delete().eq("id", id);
-      if (error) throw error;
+      await api.delete(`/establishments/${id}`);
       toast.success("Établissement supprimé");
       fetchData();
-    } catch (error: unknown) {
-      const err = error as Error;
-      toast.error("Erreur: " + err.message);
+    } catch (error: any) {
+      toast.error("Erreur: " + (error.response?.data?.message || error.message));
     }
   };
 
   const handleUpdateStatus = async (establishment: Establishment, newStatus: CertificationStatus) => {
     try {
-      const { error } = await supabase
-        .from("establishments")
-        .update({ status: newStatus })
-        .eq("id", establishment.id);
-
-      if (error) throw error;
-
-      // If status is conforme, create a certification
-      if (newStatus === "conforme") {
-        const validFrom = new Date();
-        const validUntil = new Date();
-        validUntil.setFullYear(validUntil.getFullYear() + 1);
-
-        const qrCodeUrl = `${window.location.origin}/verification?code=${establishment.adnguard_code}`;
-
-        await supabase.from("certifications").insert([
-          {
-            establishment_id: establishment.id,
-            valid_from: validFrom.toISOString().split("T")[0],
-            valid_until: validUntil.toISOString().split("T")[0],
-            qr_code: qrCodeUrl,
-            is_active: true,
-          },
-        ]);
-      }
+      // The backend handles certification creation if status becomes 'conforme'
+      await api.put(`/establishments/${establishment.id}`, { status: newStatus });
 
       toast.success(`Statut mis à jour: ${newStatus}`);
       setIsStatusDialogOpen(false);
       fetchData();
-    } catch (error: unknown) {
-      const err = error as Error;
-      toast.error("Erreur: " + err.message);
+    } catch (error: any) {
+      toast.error("Erreur: " + (error.response?.data?.message || error.message));
     }
   };
 
   const handleDownloadCertificate = async (establishment: Establishment) => {
-    // Get the certification data
-    const { data: certData } = await supabase
-      .from("certifications")
-      .select("*")
-      .eq("establishment_id", establishment.id)
-      .eq("is_active", true)
-      .order("created_at", { ascending: false })
-      .limit(1)
-      .single();
+    try {
+      // Fetch all certifications and filter for this establishment
+      // Ideal world: GET /certifications?establishmentId=...
+      // Current world: GET /certifications and find
+      const response = await api.get<any[]>("/certifications"); // Using any temporarily as imported type might differ slightly from backend response if not careful
+      const certData = response.data.find(c => c.establishmentId === establishment.id && c.isActive);
 
-    // Create a temporary canvas to get QR code as data URL
-    const canvas = document.createElement("canvas");
-    const qrUrl = `${window.location.origin}/verification?code=${establishment.adnguard_code}`;
-    
-    // Use a hidden QR element
-    const tempDiv = document.createElement("div");
-    tempDiv.style.position = "absolute";
-    tempDiv.style.left = "-9999px";
-    document.body.appendChild(tempDiv);
+      if (!certData) {
+        toast.error("Aucune certification active trouvée pour cet établissement.");
+        return;
+      }
 
-    const QRCodeCanvas = (await import("qrcode.react")).QRCodeCanvas;
-    const { createRoot } = await import("react-dom/client");
-    const root = createRoot(tempDiv);
-    
-    await new Promise<void>((resolve) => {
-      root.render(
-        <QRCodeCanvas
-          value={qrUrl}
-          size={200}
-          level="H"
-          includeMargin
-          id="temp-qr-canvas"
-        />
-      );
-      setTimeout(resolve, 100);
-    });
+      // Create a temporary canvas to get QR code as data URL
+      const canvas = document.createElement("canvas");
+      const qrUrl = `${window.location.origin}/verification?code=${establishment.adnguardCode}`;
 
-    const qrCanvas = tempDiv.querySelector("canvas");
-    const qrDataUrl = qrCanvas?.toDataURL("image/png") || "";
-    
-    root.unmount();
-    document.body.removeChild(tempDiv);
+      // Use a hidden QR element
+      const tempDiv = document.createElement("div");
+      tempDiv.style.position = "absolute";
+      tempDiv.style.left = "-9999px";
+      document.body.appendChild(tempDiv);
 
-    generateCertificatePDF({
-      establishmentName: establishment.name,
-      establishmentType: establishment.type,
-      adnguardCode: establishment.adnguard_code || "",
-      address: establishment.address,
-      city: establishment.city,
-      certifiedSince: establishment.certified_since
-        ? new Date(establishment.certified_since).toLocaleDateString("fr-FR")
-        : undefined,
-      validFrom: certData
-        ? new Date(certData.valid_from).toLocaleDateString("fr-FR")
-        : new Date().toLocaleDateString("fr-FR"),
-      validUntil: certData
-        ? new Date(certData.valid_until).toLocaleDateString("fr-FR")
-        : new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toLocaleDateString("fr-FR"),
-      qrCodeDataUrl: qrDataUrl,
-    });
+      const QRCodeCanvas = (await import("qrcode.react")).QRCodeCanvas;
+      const { createRoot } = await import("react-dom/client");
+      const root = createRoot(tempDiv);
 
-    toast.success("Certificat PDF généré !");
+      await new Promise<void>((resolve) => {
+        root.render(
+          <QRCodeCanvas
+            value={qrUrl}
+            size={200}
+            level="H"
+            includeMargin
+            id="temp-qr-canvas"
+          />
+        );
+        setTimeout(resolve, 100);
+      });
+
+      const qrCanvas = tempDiv.querySelector("canvas");
+      const qrDataUrl = qrCanvas?.toDataURL("image/png") || "";
+
+      root.unmount();
+      document.body.removeChild(tempDiv);
+
+      generateCertificatePDF({
+        establishmentName: establishment.name,
+        establishmentType: establishment.type,
+        adnguardCode: establishment.adnguardCode || "",
+        address: establishment.address,
+        city: establishment.city,
+        certifiedSince: establishment.certifiedSince
+          ? new Date(establishment.certifiedSince).toLocaleDateString("fr-FR")
+          : undefined,
+        validFrom: certData.validFrom
+          ? new Date(certData.validFrom).toLocaleDateString("fr-FR")
+          : new Date().toLocaleDateString("fr-FR"),
+        validUntil: certData.validUntil
+          ? new Date(certData.validUntil).toLocaleDateString("fr-FR")
+          : new Date(Date.now() + 365 * 24 * 60 * 60 * 1000).toLocaleDateString("fr-FR"),
+        qrCodeDataUrl: qrDataUrl,
+      });
+
+      toast.success("Certificat PDF généré !");
+    } catch (error: any) {
+      toast.error("Erreur lors de la génération du certificat: " + error.message);
+    }
   };
 
   const getStatusBadge = (status: CertificationStatus) => {
@@ -340,7 +287,7 @@ const AdminDashboard = () => {
   const filteredEstablishments = establishments.filter((e) => {
     const matchesSearch =
       e.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      e.adnguard_code?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      e.adnguardCode?.toLowerCase().includes(searchTerm.toLowerCase()) ||
       e.city.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === "all" || e.status === statusFilter;
     return matchesSearch && matchesStatus;
@@ -569,9 +516,9 @@ const AdminDashboard = () => {
                       <div className="space-y-2">
                         <Label className="text-sm">Code postal</Label>
                         <Input
-                          value={establishmentForm.postal_code}
+                          value={establishmentForm.postalCode}
                           onChange={(e) =>
-                            setEstablishmentForm({ ...establishmentForm, postal_code: e.target.value })
+                            setEstablishmentForm({ ...establishmentForm, postalCode: e.target.value })
                           }
                           className="text-sm"
                         />
@@ -619,7 +566,7 @@ const AdminDashboard = () => {
                     <div key={establishment.id} className="bg-card rounded-xl border border-border p-4">
                       <div className="flex items-start justify-between gap-3 mb-3">
                         <div className="min-w-0 flex-1">
-                          <p className="font-mono text-xs text-primary mb-1">{establishment.adnguard_code}</p>
+                          <p className="font-mono text-xs text-primary mb-1">{establishment.adnguardCode}</p>
                           <h3 className="font-medium text-sm truncate">{establishment.name}</h3>
                           <p className="text-xs text-muted-foreground capitalize">{establishment.type} • {establishment.city}</p>
                         </div>
@@ -720,7 +667,7 @@ const AdminDashboard = () => {
                       <tbody className="divide-y divide-border">
                         {filteredEstablishments.map((establishment) => (
                           <tr key={establishment.id} className="hover:bg-muted/30">
-                            <td className="px-4 py-3 font-mono text-sm text-primary">{establishment.adnguard_code}</td>
+                            <td className="px-4 py-3 font-mono text-sm text-primary">{establishment.adnguardCode}</td>
                             <td className="px-4 py-3 font-medium">{establishment.name}</td>
                             <td className="px-4 py-3 text-sm capitalize">{establishment.type}</td>
                             <td className="px-4 py-3 text-sm text-muted-foreground">{establishment.city}</td>
@@ -735,7 +682,7 @@ const AdminDashboard = () => {
                                 <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsQRDialogOpen(true); }} title="Voir le QR Code">
                                   <QrCode className="w-4 h-4" />
                                 </Button>
-                                <Link to={`/verification?code=${establishment.adnguard_code}`}>
+                                <Link to={`/verification?code=${establishment.adnguardCode}`}>
                                   <Button variant="ghost" size="icon" title="Voir la page publique">
                                     <Eye className="w-4 h-4" />
                                   </Button>
@@ -796,9 +743,9 @@ const AdminDashboard = () => {
                     <div className="space-y-2">
                       <Label>Établissement *</Label>
                       <Select
-                        value={controlForm.establishment_id}
+                        value={controlForm.establishmentId}
                         onValueChange={(v) =>
-                          setControlForm({ ...controlForm, establishment_id: v })
+                          setControlForm({ ...controlForm, establishmentId: v })
                         }
                       >
                         <SelectTrigger>
@@ -807,7 +754,7 @@ const AdminDashboard = () => {
                         <SelectContent>
                           {establishments.map((e) => (
                             <SelectItem key={e.id} value={e.id}>
-                              {e.adnguard_code} - {e.name}
+                              {e.adnguardCode} - {e.name}
                             </SelectItem>
                           ))}
                         </SelectContent>
@@ -834,9 +781,9 @@ const AdminDashboard = () => {
                     <div className="space-y-2">
                       <Label>Espèces analysées (séparées par des virgules)</Label>
                       <Input
-                        value={controlForm.species_analyzed}
+                        value={controlForm.speciesAnalyzed}
                         onChange={(e) =>
-                          setControlForm({ ...controlForm, species_analyzed: e.target.value })
+                          setControlForm({ ...controlForm, speciesAnalyzed: e.target.value })
                         }
                         placeholder="Bœuf, Agneau, Poulet"
                       />
@@ -844,9 +791,9 @@ const AdminDashboard = () => {
                     <div className="space-y-2">
                       <Label>Espèces détectées (séparées par des virgules)</Label>
                       <Input
-                        value={controlForm.species_detected}
+                        value={controlForm.speciesDetected}
                         onChange={(e) =>
-                          setControlForm({ ...controlForm, species_detected: e.target.value })
+                          setControlForm({ ...controlForm, speciesDetected: e.target.value })
                         }
                         placeholder="Bœuf, Agneau"
                       />
@@ -854,9 +801,9 @@ const AdminDashboard = () => {
                     <div className="space-y-2">
                       <Label>Anomalies détectées</Label>
                       <Textarea
-                        value={controlForm.anomalies_detected}
+                        value={controlForm.anomaliesDetected}
                         onChange={(e) =>
-                          setControlForm({ ...controlForm, anomalies_detected: e.target.value })
+                          setControlForm({ ...controlForm, anomaliesDetected: e.target.value })
                         }
                         placeholder="Décrivez les anomalies éventuelles..."
                       />
@@ -911,15 +858,15 @@ const AdminDashboard = () => {
                       {controls.map((control) => (
                         <tr key={control.id} className="hover:bg-muted/30">
                           <td className="px-4 py-3 font-mono text-sm text-primary">
-                            {control.report_id}
+                            {control.reportId}
                           </td>
-                          <td className="px-4 py-3 font-medium">{control.establishment_name}</td>
+                          <td className="px-4 py-3 font-medium">{control.establishmentName}</td>
                           <td className="px-4 py-3 text-sm text-muted-foreground">
-                            {new Date(control.control_date).toLocaleDateString("fr-FR")}
+                            {new Date(control.controlDate).toLocaleDateString("fr-FR")}
                           </td>
                           <td className="px-4 py-3">{getStatusBadge(control.result)}</td>
                           <td className="px-4 py-3 text-sm text-muted-foreground">
-                            {control.species_analyzed?.join(", ") || "-"}
+                            {control.speciesAnalyzed?.join(", ") || "-"}
                           </td>
                         </tr>
                       ))}
@@ -947,15 +894,15 @@ const AdminDashboard = () => {
 
       {/* QR Code Dialog */}
       <Dialog open={isQRDialogOpen} onOpenChange={setIsQRDialogOpen}>
-        <DialogContent className="max-w-sm text-center">
+        <DialogContent className="max-w-sm text-center mx-24">
           <DialogHeader>
             <DialogTitle>QR Code de Certification</DialogTitle>
           </DialogHeader>
           {selectedEstablishment && (
-            <div className="space-y-4">
+            <div className="space-y-4  ">
               <div className="bg-white p-4 rounded-xl inline-block mx-auto">
                 <QRCodeSVG
-                  value={getQRCodeUrl(selectedEstablishment.adnguard_code || "")}
+                  value={getQRCodeUrl(selectedEstablishment.adnguardCode || "")}
                   size={200}
                   level="H"
                   includeMargin
@@ -963,7 +910,7 @@ const AdminDashboard = () => {
               </div>
               <div>
                 <p className="font-mono text-lg text-primary font-bold">
-                  {selectedEstablishment.adnguard_code}
+                  {selectedEstablishment.adnguardCode}
                 </p>
                 <p className="text-sm text-muted-foreground mt-1">
                   {selectedEstablishment.name}
@@ -973,13 +920,13 @@ const AdminDashboard = () => {
                 <p className="text-xs text-muted-foreground mb-1">Lien de vérification :</p>
                 <div className="flex items-center gap-2">
                   <code className="text-xs text-foreground bg-background px-2 py-1 rounded flex-1 overflow-hidden text-ellipsis">
-                    {getQRCodeUrl(selectedEstablishment.adnguard_code || "")}
+                    {getQRCodeUrl(selectedEstablishment.adnguardCode || "")}
                   </code>
                   <Button
                     size="sm"
                     variant="outline"
                     onClick={() => {
-                      navigator.clipboard.writeText(getQRCodeUrl(selectedEstablishment.adnguard_code || ""));
+                      navigator.clipboard.writeText(getQRCodeUrl(selectedEstablishment.adnguardCode || ""));
                       toast.success("Lien copié !");
                     }}
                   >

@@ -17,12 +17,11 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { Shield, CheckCircle2, Loader2 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import { toast } from "sonner";
 import { z } from "zod";
-import type { Database } from "@/integrations/supabase/types";
+import api from "@/services/api";
 
-type EstablishmentType = Database["public"]["Enums"]["establishment_type"];
+type EstablishmentType = "boucherie" | "restaurant" | "usine" | "traiteur" | "autre";
 
 const requestSchema = z.object({
   name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100),
@@ -75,28 +74,13 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
 
     setLoading(true);
     try {
-      // Insert establishment with status 'en_attente' (pending)
-      const { error } = await supabase.from("establishments").insert([
-        {
-          name: form.name,
-          type: form.type,
-          address: form.address,
-          city: form.city,
-          postal_code: form.postal_code || null,
-          phone: form.phone || null,
-          email: form.email || null,
-          siret: form.siret || null,
-          status: "en_attente",
-        },
-      ]);
-
-      if (error) throw error;
+      await api.post("/establishments/request", form);
 
       setSuccess(true);
       toast.success("Demande envoyée avec succès !");
-    } catch (error: unknown) {
-      const err = error as Error;
-      toast.error("Erreur lors de l'envoi: " + err.message);
+    } catch (error: any) {
+      console.error("Error submitting request:", error);
+      toast.error("Erreur lors de l'envoi: " + (error.response?.data?.message || error.message));
     } finally {
       setLoading(false);
     }
@@ -160,7 +144,7 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                   />
                   {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
                 </div>
-                
+
                 <div className="space-y-2">
                   <Label>Type d'établissement *</Label>
                   <Select

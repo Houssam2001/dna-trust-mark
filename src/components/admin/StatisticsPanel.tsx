@@ -12,9 +12,7 @@ import {
   Calendar,
   FileText,
   FileSpreadsheet,
-  Download,
 } from "lucide-react";
-import { supabase } from "@/integrations/supabase/client";
 import {
   BarChart,
   Bar,
@@ -33,9 +31,7 @@ import {
 import { jsPDF } from "jspdf";
 import * as XLSX from "xlsx";
 import { toast } from "sonner";
-import type { Database } from "@/integrations/supabase/types";
-
-type CertificationStatus = Database["public"]["Enums"]["certification_status"];
+import api from "@/services/api";
 
 interface StatsData {
   totalEstablishments: number;
@@ -56,141 +52,16 @@ const StatisticsPanel = () => {
 
   useEffect(() => {
     fetchStats();
-    
-    // Subscribe to realtime updates for qr_verifications
-    const channel = supabase
-      .channel("stats-updates")
-      .on(
-        "postgres_changes",
-        { event: "INSERT", schema: "public", table: "qr_verifications" },
-        () => fetchStats()
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
   }, []);
 
   const fetchStats = async () => {
+    setLoading(true);
     try {
-      // Fetch all establishments
-      const { data: establishments, error: estError } = await supabase
-        .from("establishments")
-        .select("id, status, created_at");
-
-      if (estError) throw estError;
-
-      // Fetch all controls
-      const { data: controls, error: ctrlError } = await supabase
-        .from("controls")
-        .select("id, control_date, result");
-
-      if (ctrlError) throw ctrlError;
-
-      // Fetch QR verifications
-      const { data: qrVerifications, error: qrError } = await supabase
-        .from("qr_verifications")
-        .select("id, verified_at");
-
-      if (qrError) throw qrError;
-
-      const now = new Date();
-      const startOfMonth = new Date(now.getFullYear(), now.getMonth(), 1);
-
-      // Calculate stats
-      const totalEstablishments = establishments?.length || 0;
-      const certifiedEstablishments = establishments?.filter(
-        (e) => e.status === "conforme"
-      ).length || 0;
-
-      const totalControls = controls?.length || 0;
-      const monthlyControls = controls?.filter(
-        (c) => new Date(c.control_date) >= startOfMonth
-      ).length || 0;
-
-      const conformeControls = controls?.filter((c) => c.result === "conforme").length || 0;
-      const complianceRate = totalControls > 0 
-        ? Math.round((conformeControls / totalControls) * 100) 
-        : 0;
-
-      const qrTotal = qrVerifications?.length || 0;
-      const monthlyQrVerifications = qrVerifications?.filter(
-        (v) => new Date(v.verified_at) >= startOfMonth
-      ).length || 0;
-
-      // Status distribution
-      const statusCounts: Record<CertificationStatus, number> = {
-        conforme: 0,
-        non_conforme: 0,
-        en_attente: 0,
-        suspendu: 0,
-      };
-
-      establishments?.forEach((e) => {
-        if (e.status in statusCounts) {
-          statusCounts[e.status as CertificationStatus]++;
-        }
-      });
-
-      const statusDistribution = [
-        { name: "Conformes", value: statusCounts.conforme, color: "hsl(152, 69%, 31%)" },
-        { name: "Non conformes", value: statusCounts.non_conforme, color: "hsl(0, 84%, 60%)" },
-        { name: "En attente", value: statusCounts.en_attente, color: "hsl(43, 96%, 56%)" },
-        { name: "Suspendus", value: statusCounts.suspendu, color: "hsl(210, 20%, 45%)" },
-      ];
-
-      // Controls by month (last 6 months)
-      const controlsByMonth: { month: string; controls: number; conformes: number }[] = [];
-      for (let i = 5; i >= 0; i--) {
-        const date = new Date(now.getFullYear(), now.getMonth() - i, 1);
-        const monthEnd = new Date(now.getFullYear(), now.getMonth() - i + 1, 0);
-        const monthName = date.toLocaleDateString("fr-FR", { month: "short" });
-
-        const monthControls = controls?.filter((c) => {
-          const d = new Date(c.control_date);
-          return d >= date && d <= monthEnd;
-        }) || [];
-
-        controlsByMonth.push({
-          month: monthName.charAt(0).toUpperCase() + monthName.slice(1),
-          controls: monthControls.length,
-          conformes: monthControls.filter((c) => c.result === "conforme").length,
-        });
-      }
-
-      // QR verifications by month (last 6 months)
-      const qrByMonth: { month: string; verifications: number }[] = [];
-      for (let i = 5; i >= 0; i--) {
-        const date = new Date(now.getFullYear(), now.getMonth() - i, 1);
-        const monthEnd = new Date(now.getFullYear(), now.getMonth() - i + 1, 0);
-        const monthName = date.toLocaleDateString("fr-FR", { month: "short" });
-
-        const monthVerifications = qrVerifications?.filter((v) => {
-          const d = new Date(v.verified_at);
-          return d >= date && d <= monthEnd;
-        }) || [];
-
-        qrByMonth.push({
-          month: monthName.charAt(0).toUpperCase() + monthName.slice(1),
-          verifications: monthVerifications.length,
-        });
-      }
-
-      setStats({
-        totalEstablishments,
-        certifiedEstablishments,
-        totalControls,
-        monthlyControls,
-        complianceRate,
-        qrVerifications: qrTotal,
-        monthlyQrVerifications,
-        statusDistribution,
-        controlsByMonth,
-        qrByMonth,
-      });
-    } catch (error) {
+      const response = await api.get<StatsData>("/admin/stats");
+      setStats(response.data);
+    } catch (error: any) {
       console.error("Error fetching stats:", error);
+      toast.error("Erreur lors du chargement des statistiques: " + (error.response?.data?.message || error.message));
     } finally {
       setLoading(false);
     }

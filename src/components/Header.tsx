@@ -13,7 +13,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <Shield className="w-8 h-8 md:w-10 md:h-10 text-primary transition-transform group-hover:scale-110" />
+              <img src="/image.png" alt="Logo ADNGUARD" className="w-8 h-8 md:w-10 md:h-10 object-contain transition-transform group-hover:scale-110" />
             </div>
             <span className="text-xl md:text-2xl font-serif font-bold text-foreground">
               ADN<span className="text-primary">GUARD</span>

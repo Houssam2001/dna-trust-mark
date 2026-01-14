@@ -56,7 +56,7 @@ const Login = () => {
         <div className="bg-card rounded-2xl shadow-card border border-border p-8">
           {/* Logo */}
           <div className="flex items-center justify-center gap-2 mb-8">
-            <Shield className="w-10 h-10 text-primary" />
+            <img src="/image.png" alt="Logo ADNGUARD" className="w-12 h-12 object-contain" />
             <span className="text-2xl font-serif font-bold text-foreground">
               ADN<span className="text-primary">GUARD</span>
             </span>
@@ -135,8 +135,8 @@ const Login = () => {
               {loading
                 ? "Chargement..."
                 : isLogin
-                ? "Se connecter"
-                : "Créer mon compte"}
+                  ? "Se connecter"
+                  : "Créer mon compte"}
             </Button>
           </form>
 

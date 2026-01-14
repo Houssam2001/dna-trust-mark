@@ -3,17 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Shield, Search, CheckCircle2, XCircle, Calendar, FlaskConical, MapPin, Clock, ArrowLeft } from "lucide-react";
 import { Link, useSearchParams } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
-import type { Database } from "@/integrations/supabase/types";
-
-type Establishment = Database["public"]["Tables"]["establishments"]["Row"];
-type Control = Database["public"]["Tables"]["controls"]["Row"];
-type CertificationStatus = Database["public"]["Enums"]["certification_status"];
+import api from "@/services/api";
+import { Establishment, Control, CertificationStatus } from "@/types";
 
 const Verification = () => {
   const [searchParams] = useSearchParams();
   const initialCode = searchParams.get("code") || "";
-  
+
   const [searchCode, setSearchCode] = useState(initialCode);
   const [establishment, setEstablishment] = useState<Establishment | null>(null);
   const [controls, setControls] = useState<Control[]>([]);
@@ -30,53 +26,27 @@ const Verification = () => {
   const handleSearch = async (e?: React.FormEvent, codeOverride?: string) => {
     if (e) e.preventDefault();
     const code = (codeOverride || searchCode).toUpperCase().trim();
-    
+
     if (!code) return;
-    
+
     setLoading(true);
     setHasSearched(true);
-    
+    setNotFound(false);
+    setEstablishment(null);
+    setControls([]);
+
     try {
-      // Fetch establishment by ADNGUARD code
-      const { data: establishmentData, error: establishmentError } = await supabase
-        .from("establishments")
-        .select("*")
-        .eq("adnguard_code", code)
-        .maybeSingle();
+      // Use the public verification endpoint
+      const response = await api.get<Establishment & { controls: Control[] }>(`/establishments/verify/${code}`);
 
-      if (establishmentError) throw establishmentError;
-
-      if (establishmentData) {
-        setEstablishment(establishmentData);
-        setNotFound(false);
-
-        // Log QR verification for analytics (fire and forget)
-        try {
-          await supabase
-            .from("qr_verifications")
-            .insert({
-              establishment_id: establishmentData.id,
-              user_agent: navigator.userAgent,
-            });
-        } catch (err) {
-          console.error("Error logging verification:", err);
-        }
-
-        // Fetch controls for this establishment
-        const { data: controlsData, error: controlsError } = await supabase
-          .from("controls")
-          .select("*")
-          .eq("establishment_id", establishmentData.id)
-          .order("control_date", { ascending: false });
-
-        if (controlsError) throw controlsError;
-        setControls(controlsData || []);
+      const data = response.data;
+      if (data) {
+        setEstablishment(data);
+        setControls(data.controls || []);
       } else {
-        setEstablishment(null);
-        setControls([]);
         setNotFound(true);
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error fetching data:", error);
       setNotFound(true);
     } finally {
@@ -121,7 +91,7 @@ const Verification = () => {
     }
   };
 
-  const formatDate = (dateString: string | null) => {
+  const formatDate = (dateString: string | null | undefined) => {
     if (!dateString) return "-";
     return new Date(dateString).toLocaleDateString("fr-FR", {
       day: "numeric",
@@ -150,14 +120,14 @@ const Verification = () => {
             <ArrowLeft className="w-4 h-4" />
             Retour à l'accueil
           </Link>
-          
+
           <div className="flex items-center gap-3 mb-4">
             <Shield className="w-10 h-10 text-primary-foreground" />
             <span className="text-2xl font-serif font-bold text-primary-foreground">
               ADN<span className="text-accent">GUARD</span>
             </span>
           </div>
-          
+
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-2">
             Vérification de Certification
           </h1>
@@ -171,7 +141,7 @@ const Verification = () => {
       <section className="py-12">
         <div className="container mx-auto px-4">
           <div className="max-w-2xl mx-auto">
-            <form onSubmit={handleSearch} className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">
+            <form onSubmit={(e) => handleSearch(e)} className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">
               <label htmlFor="code" className="block text-sm font-medium text-foreground mb-2">
                 Code ADNGUARD de l'établissement
               </label>
@@ -237,13 +207,13 @@ const Verification = () => {
                           </span>
                         </div>
                         <p className="text-foreground/70">
-                          {establishment.status === "conforme" 
+                          {establishment.status === "conforme"
                             ? "Cet établissement a passé avec succès tous les contrôles ADN ADNGUARD."
                             : establishment.status === "non_conforme"
-                            ? "Le dernier contrôle ADN a révélé des non-conformités. La certification est suspendue."
-                            : establishment.status === "suspendu"
-                            ? "La certification de cet établissement est temporairement suspendue."
-                            : "Un contrôle est en cours d'analyse."}
+                              ? "Le dernier contrôle ADN a révélé des non-conformités. La certification est suspendue."
+                              : establishment.status === "suspendu"
+                                ? "La certification de cet établissement est temporairement suspendue."
+                                : "Un contrôle est en cours d'analyse."}
                         </p>
                       </div>
                       <div className="flex-shrink-0">
@@ -262,7 +232,7 @@ const Verification = () => {
                     <span className="inline-block bg-muted text-muted-foreground text-sm px-3 py-1 rounded-full mb-4">
                       {getEstablishmentTypeLabel(establishment.type)}
                     </span>
-                    
+
                     <div className="grid md:grid-cols-3 gap-4 mt-6">
                       <div className="flex items-start gap-3">
                         <MapPin className="w-5 h-5 text-primary mt-0.5" />
@@ -270,7 +240,7 @@ const Verification = () => {
                           <p className="text-sm text-muted-foreground">Adresse</p>
                           <p className="text-foreground">
                             {establishment.address}
-                            {establishment.postal_code && `, ${establishment.postal_code}`} {establishment.city}
+                            {establishment.postalCode && `, ${establishment.postalCode}`} {establishment.city}
                           </p>
                         </div>
                       </div>
@@ -278,14 +248,14 @@ const Verification = () => {
                         <Calendar className="w-5 h-5 text-primary mt-0.5" />
                         <div>
                           <p className="text-sm text-muted-foreground">Certifié depuis</p>
-                          <p className="text-foreground">{formatDate(establishment.certified_since)}</p>
+                          <p className="text-foreground">{formatDate(establishment.certifiedSince)}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <FlaskConical className="w-5 h-5 text-primary mt-0.5" />
                         <div>
                           <p className="text-sm text-muted-foreground">Dernier contrôle</p>
-                          <p className="text-foreground">{formatDate(establishment.last_control_date)}</p>
+                          <p className="text-foreground">{formatDate(establishment.lastControlDate)}</p>
                         </div>
                       </div>
                     </div>
@@ -296,7 +266,7 @@ const Verification = () => {
                     <h3 className="text-xl font-serif font-bold text-foreground mb-6">
                       Historique des Contrôles ADN
                     </h3>
-                    
+
                     {controls.length === 0 ? (
                       <p className="text-muted-foreground text-center py-8">
                         Aucun contrôle enregistré pour cet établissement.
@@ -304,25 +274,23 @@ const Verification = () => {
                     ) : (
                       <div className="space-y-4">
                         {controls.map((control, index) => (
-                          <div 
+                          <div
                             key={control.id}
                             className={`relative pl-8 pb-4 ${index < controls.length - 1 ? 'border-l-2 border-border ml-2' : 'ml-2'}`}
                           >
                             {/* Timeline dot */}
-                            <div className={`absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full ${
-                              control.result === "conforme" ? "bg-primary" : "bg-destructive"
-                            }`} />
-                            
+                            <div className={`absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full ${control.result === "conforme" ? "bg-primary" : "bg-destructive"
+                              }`} />
+
                             <div className="bg-muted/50 rounded-xl p-4">
                               <div className="flex flex-wrap items-center gap-3 mb-2">
                                 <span className="font-semibold text-foreground">
-                                  {formatDate(control.control_date)}
+                                  {formatDate(control.controlDate)}
                                 </span>
-                                <span className={`inline-flex items-center gap-1 text-sm px-2 py-0.5 rounded-full ${
-                                  control.result === "conforme" 
-                                    ? "bg-primary/10 text-primary" 
+                                <span className={`inline-flex items-center gap-1 text-sm px-2 py-0.5 rounded-full ${control.result === "conforme"
+                                    ? "bg-primary/10 text-primary"
                                     : "bg-destructive/10 text-destructive"
-                                }`}>
+                                  }`}>
                                   {control.result === "conforme" ? (
                                     <>
                                       <CheckCircle2 className="w-3 h-3" />
@@ -336,15 +304,15 @@ const Verification = () => {
                                   )}
                                 </span>
                                 <span className="text-muted-foreground text-sm">
-                                  Réf: {control.report_id}
+                                  Réf: {control.reportId}
                                 </span>
                               </div>
                               <p className="text-sm text-muted-foreground">
-                                Espèces analysées : {control.species_analyzed?.join(", ") || "-"}
+                                Espèces analysées : {control.speciesAnalyzed?.join(", ") || "-"}
                               </p>
-                              {control.anomalies_detected && (
+                              {control.anomaliesDetected && (
                                 <p className="text-sm text-destructive mt-1">
-                                  Anomalies : {control.anomalies_detected}
+                                  Anomalies : {control.anomaliesDetected}
                                 </p>
                               )}
                             </div>
