@@ -188,7 +188,7 @@ export const generateCertificatePDF = async (data: CertificateData): Promise<voi
 
   // ===== QR CODE SECTION =====
   
-  const qrY = 195;
+  const qrY = 192;
   const qrSize = 42;
   const qrFramePadding = 8;
   const qrFrameWidth = qrSize + qrFramePadding * 2;
