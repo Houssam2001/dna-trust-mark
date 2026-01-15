@@ -43,93 +43,93 @@ export const generateCertificatePDF = async (data: CertificateData): Promise<voi
 
   // ===== PREMIUM BACKGROUND DESIGN =====
   
-  // Main dark teal header
+  // Main dark teal header (reduced height)
   doc.setFillColor(20, 50, 50);
-  doc.rect(0, 0, pageWidth, 85, "F");
+  doc.rect(0, 0, pageWidth, 72, "F");
   
   // Gradient overlay effect
   doc.setFillColor(26, 61, 61);
-  doc.rect(0, 0, pageWidth, 60, "F");
+  doc.rect(0, 0, pageWidth, 50, "F");
   
   // Decorative corner accents
   doc.setFillColor(213, 157, 83);
-  doc.triangle(0, 0, 30, 0, 0, 30, "F");
-  doc.triangle(pageWidth, 0, pageWidth - 30, 0, pageWidth, 30, "F");
+  doc.triangle(0, 0, 25, 0, 0, 25, "F");
+  doc.triangle(pageWidth, 0, pageWidth - 25, 0, pageWidth, 25, "F");
   
   // Gold accent bar
   doc.setFillColor(213, 157, 83);
-  doc.rect(0, 85, pageWidth, 3, "F");
+  doc.rect(0, 72, pageWidth, 2.5, "F");
   
   // Thin decorative line
   doc.setDrawColor(255, 255, 255);
   doc.setLineWidth(0.2);
-  doc.line(40, 82, pageWidth - 40, 82);
+  doc.line(40, 69, pageWidth - 40, 69);
 
   // ===== LOGO =====
   try {
     const logoBase64 = await getBase64FromUrl(adnguardLogo);
-    doc.addImage(logoBase64, "PNG", pageWidth / 2 - 12, 8, 24, 24);
+    doc.addImage(logoBase64, "PNG", pageWidth / 2 - 10, 6, 20, 20);
   } catch {
     // Fallback circle if logo fails
     doc.setFillColor(213, 157, 83);
-    doc.circle(pageWidth / 2, 20, 10, "F");
+    doc.circle(pageWidth / 2, 16, 8, "F");
   }
 
   // Main title
   doc.setTextColor(255, 255, 255);
-  doc.setFontSize(24);
+  doc.setFontSize(22);
   doc.setFont("helvetica", "bold");
-  doc.text("CERTIFICAT", pageWidth / 2, 45, { align: "center" });
+  doc.text("CERTIFICAT", pageWidth / 2, 38, { align: "center" });
 
-  doc.setFontSize(12);
+  doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
-  doc.text("DE CONFORMITÉ ADNGUARD", pageWidth / 2, 54, { align: "center" });
+  doc.text("DE CONFORMITÉ ADNGUARD", pageWidth / 2, 46, { align: "center" });
 
-  // Tagline with gold color
+  // Tagline with gold color (more compact)
   doc.setTextColor(213, 157, 83);
-  doc.setFontSize(8);
+  doc.setFontSize(7);
   doc.setFont("helvetica", "italic");
-  doc.text("Analyse ADN • Traçabilité • Authenticité Garantie", pageWidth / 2, 65, { align: "center" });
+  doc.text("Analyse ADN • Traçabilité • Authenticité Garantie", pageWidth / 2, 55, { align: "center" });
 
   // ===== MAIN CONTENT AREA =====
   
   // Subtle background for content area
   doc.setFillColor(252, 252, 250);
-  doc.rect(0, 88, pageWidth, pageHeight - 125, "F");
+  doc.rect(0, 74.5, pageWidth, pageHeight - 112, "F");
 
   // Establishment name
   doc.setTextColor(26, 61, 61);
   doc.setFontSize(20);
   doc.setFont("helvetica", "bold");
   const estName = data.establishmentName.toUpperCase();
-  doc.text(estName, pageWidth / 2, 105, { align: "center" });
+  doc.text(estName, pageWidth / 2, 92, { align: "center" });
   
   // Decorative line under name
   const nameWidth = Math.min(doc.getTextWidth(estName), 140);
   doc.setDrawColor(213, 157, 83);
   doc.setLineWidth(0.6);
-  doc.line(pageWidth / 2 - nameWidth / 2 - 8, 109, pageWidth / 2 + nameWidth / 2 + 8, 109);
+  doc.line(pageWidth / 2 - nameWidth / 2 - 8, 96, pageWidth / 2 + nameWidth / 2 + 8, 96);
 
   // Type badge
   const typeText = data.establishmentType.toUpperCase();
   const typeBadgeWidth = Math.max(doc.getTextWidth(typeText) * 1.5 + 16, 45);
   doc.setFillColor(26, 61, 61);
-  doc.roundedRect(pageWidth / 2 - typeBadgeWidth / 2, 113, typeBadgeWidth, 9, 4, 4, "F");
+  doc.roundedRect(pageWidth / 2 - typeBadgeWidth / 2, 100, typeBadgeWidth, 9, 4, 4, "F");
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(8);
   doc.setFont("helvetica", "bold");
-  doc.text(typeText, pageWidth / 2, 119, { align: "center" });
+  doc.text(typeText, pageWidth / 2, 106, { align: "center" });
 
   // Address
   doc.setTextColor(100, 100, 100);
   doc.setFontSize(9);
   doc.setFont("helvetica", "normal");
-  doc.text(data.address, pageWidth / 2, 131, { align: "center" });
-  doc.text(data.city, pageWidth / 2, 137, { align: "center" });
+  doc.text(data.address, pageWidth / 2, 118, { align: "center" });
+  doc.text(data.city, pageWidth / 2, 124, { align: "center" });
 
   // ===== CERTIFICATION DETAILS BOX =====
   
-  const boxY = 147;
+  const boxY = 134;
   const boxHeight = 40;
   
   // Details container
@@ -188,7 +188,7 @@ export const generateCertificatePDF = async (data: CertificateData): Promise<voi
 
   // ===== QR CODE SECTION =====
   
-  const qrY = 192;
+  const qrY = 180;
   const qrSize = 42;
   const qrFramePadding = 8;
   const qrFrameWidth = qrSize + qrFramePadding * 2;
