@@ -76,126 +76,130 @@ export const generateCertificatePDF = (data: CertificateData): void => {
   
   // Subtle background for content area
   doc.setFillColor(252, 252, 250);
-  doc.rect(0, 92, pageWidth, pageHeight - 127, "F");
+  doc.rect(0, 92, pageWidth, pageHeight - 130, "F");
 
   // Establishment name with decorative underline
   doc.setTextColor(26, 61, 61);
-  doc.setFontSize(24);
+  doc.setFontSize(22);
   doc.setFont("helvetica", "bold");
-  doc.text(data.establishmentName, pageWidth / 2, 115, { align: "center" });
+  const estName = data.establishmentName.toUpperCase();
+  doc.text(estName, pageWidth / 2, 112, { align: "center" });
   
   // Decorative line under name
-  const nameWidth = doc.getTextWidth(data.establishmentName);
+  const nameWidth = doc.getTextWidth(estName);
   doc.setDrawColor(213, 157, 83);
   doc.setLineWidth(0.8);
-  doc.line(pageWidth / 2 - nameWidth / 2 - 5, 119, pageWidth / 2 + nameWidth / 2 + 5, 119);
+  doc.line(pageWidth / 2 - nameWidth / 2 - 10, 117, pageWidth / 2 + nameWidth / 2 + 10, 117);
 
   // Type badge with pill shape
   const typeText = data.establishmentType.toUpperCase();
-  const typeWidth = 50;
+  const typeBadgeWidth = Math.max(doc.getTextWidth(typeText) + 20, 50);
   doc.setFillColor(26, 61, 61);
-  doc.roundedRect(pageWidth / 2 - typeWidth / 2, 125, typeWidth, 10, 5, 5, "F");
+  doc.roundedRect(pageWidth / 2 - typeBadgeWidth / 2, 122, typeBadgeWidth, 10, 5, 5, "F");
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(9);
   doc.setFont("helvetica", "bold");
-  doc.text(typeText, pageWidth / 2, 131.5, { align: "center" });
+  doc.text(typeText, pageWidth / 2, 128.5, { align: "center" });
 
   // Address
   doc.setTextColor(100, 100, 100);
-  doc.setFontSize(11);
+  doc.setFontSize(10);
   doc.setFont("helvetica", "normal");
-  doc.text(`${data.address}`, pageWidth / 2, 145, { align: "center" });
-  doc.text(data.city, pageWidth / 2, 152, { align: "center" });
+  doc.text(data.address, pageWidth / 2, 142, { align: "center" });
+  doc.setFontSize(10);
+  doc.text(data.city, pageWidth / 2, 149, { align: "center" });
 
   // ===== CERTIFICATION DETAILS BOX =====
   
-  // Details container with border
-  const boxY = 165;
-  const boxHeight = 50;
-  doc.setDrawColor(220, 220, 220);
-  doc.setLineWidth(0.5);
-  doc.roundedRect(25, boxY, pageWidth - 50, boxHeight, 4, 4, "S");
+  const boxY = 160;
+  const boxHeight = 45;
   
-  // Divider lines inside box
-  doc.setDrawColor(235, 235, 235);
-  doc.line(pageWidth / 2, boxY + 5, pageWidth / 2, boxY + boxHeight - 5);
+  // Details container with border
+  doc.setDrawColor(200, 200, 200);
+  doc.setLineWidth(0.5);
+  doc.roundedRect(20, boxY, pageWidth - 40, boxHeight, 3, 3, "S");
+  
+  // Vertical divider line
+  doc.setDrawColor(220, 220, 220);
+  doc.setLineWidth(0.3);
+  doc.line(pageWidth / 2, boxY + 8, pageWidth / 2, boxY + boxHeight - 8);
 
-  // Left column - Code & Status
-  const leftX = 45;
+  // Left column - Code ADNGUARD
+  const leftColCenter = 20 + (pageWidth - 40) / 4;
+  
   doc.setTextColor(130, 130, 130);
   doc.setFontSize(8);
   doc.setFont("helvetica", "bold");
-  doc.text("CODE ADNGUARD", leftX, boxY + 12);
+  doc.text("CODE ADNGUARD", leftColCenter, boxY + 12, { align: "center" });
   
   doc.setTextColor(26, 61, 61);
-  doc.setFontSize(16);
+  doc.setFontSize(14);
   doc.setFont("helvetica", "bold");
-  doc.text(data.adnguardCode, leftX, boxY + 23);
+  doc.text(data.adnguardCode, leftColCenter, boxY + 24, { align: "center" });
 
-  doc.setTextColor(130, 130, 130);
+  // Status badge - centered below code
+  doc.setFillColor(34, 139, 34);
+  const statusWidth = 55;
+  doc.roundedRect(leftColCenter - statusWidth / 2, boxY + 29, statusWidth, 9, 2, 2, "F");
+  doc.setTextColor(255, 255, 255);
   doc.setFontSize(8);
   doc.setFont("helvetica", "bold");
-  doc.text("STATUT", leftX, boxY + 35);
-  
-  // Status badge
-  doc.setFillColor(34, 139, 34);
-  doc.roundedRect(leftX - 2, boxY + 37, 42, 8, 2, 2, "F");
-  doc.setTextColor(255, 255, 255);
-  doc.setFontSize(9);
-  doc.setFont("helvetica", "bold");
-  doc.text("✓ CONFORME", leftX + 18, boxY + 42.5, { align: "center" });
+  doc.text("CONFORME", leftColCenter, boxY + 35.5, { align: "center" });
 
   // Right column - Validity dates
-  const rightX = pageWidth / 2 + 25;
+  const rightColCenter = pageWidth / 2 + (pageWidth - 40) / 4;
+  
   doc.setTextColor(130, 130, 130);
   doc.setFontSize(8);
   doc.setFont("helvetica", "bold");
-  doc.text("PÉRIODE DE VALIDITÉ", rightX, boxY + 12);
+  doc.text("PÉRIODE DE VALIDITÉ", rightColCenter, boxY + 12, { align: "center" });
   
   doc.setTextColor(26, 61, 61);
   doc.setFontSize(11);
   doc.setFont("helvetica", "normal");
-  doc.text(`Du ${data.validFrom}`, rightX, boxY + 23);
-  doc.text(`Au ${data.validUntil}`, rightX, boxY + 32);
+  doc.text(`Du ${data.validFrom}`, rightColCenter, boxY + 24, { align: "center" });
+  doc.text(`Au ${data.validUntil}`, rightColCenter, boxY + 33, { align: "center" });
 
   if (data.certifiedSince) {
-    doc.setTextColor(130, 130, 130);
-    doc.setFontSize(8);
-    doc.setFont("helvetica", "bold");
-    doc.text("CERTIFIÉ DEPUIS", rightX, boxY + 42);
-    doc.setTextColor(26, 61, 61);
-    doc.setFontSize(10);
-    doc.setFont("helvetica", "normal");
-    doc.text(data.certifiedSince, rightX + 38, boxY + 42);
+    doc.setTextColor(100, 100, 100);
+    doc.setFontSize(7);
+    doc.text(`Certifié depuis ${data.certifiedSince}`, rightColCenter, boxY + 41, { align: "center" });
   }
 
   // ===== QR CODE SECTION =====
   
-  const qrY = 225;
+  const qrY = 215;
+  const qrSize = 45;
+  const qrFrameSize = qrSize + 16;
   
   // QR Code decorative frame
   doc.setFillColor(255, 255, 255);
-  doc.roundedRect(pageWidth / 2 - 38, qrY - 5, 76, 80, 4, 4, "F");
+  doc.roundedRect(pageWidth / 2 - qrFrameSize / 2, qrY, qrFrameSize, qrFrameSize + 25, 4, 4, "F");
   doc.setDrawColor(213, 157, 83);
-  doc.setLineWidth(1.5);
-  doc.roundedRect(pageWidth / 2 - 38, qrY - 5, 76, 80, 4, 4, "S");
+  doc.setLineWidth(1.2);
+  doc.roundedRect(pageWidth / 2 - qrFrameSize / 2, qrY, qrFrameSize, qrFrameSize + 25, 4, 4, "S");
   
   // Corner accents on QR frame
   doc.setFillColor(213, 157, 83);
-  doc.rect(pageWidth / 2 - 38, qrY - 5, 12, 3, "F");
-  doc.rect(pageWidth / 2 - 38, qrY - 5, 3, 12, "F");
-  doc.rect(pageWidth / 2 + 26, qrY - 5, 12, 3, "F");
-  doc.rect(pageWidth / 2 + 35, qrY - 5, 3, 12, "F");
-  doc.rect(pageWidth / 2 - 38, qrY + 72, 12, 3, "F");
-  doc.rect(pageWidth / 2 - 38, qrY + 63, 3, 12, "F");
-  doc.rect(pageWidth / 2 + 26, qrY + 72, 12, 3, "F");
-  doc.rect(pageWidth / 2 + 35, qrY + 63, 3, 12, "F");
+  const cornerSize = 10;
+  const cornerThick = 2.5;
+  // Top-left
+  doc.rect(pageWidth / 2 - qrFrameSize / 2, qrY, cornerSize, cornerThick, "F");
+  doc.rect(pageWidth / 2 - qrFrameSize / 2, qrY, cornerThick, cornerSize, "F");
+  // Top-right
+  doc.rect(pageWidth / 2 + qrFrameSize / 2 - cornerSize, qrY, cornerSize, cornerThick, "F");
+  doc.rect(pageWidth / 2 + qrFrameSize / 2 - cornerThick, qrY, cornerThick, cornerSize, "F");
+  // Bottom-left
+  doc.rect(pageWidth / 2 - qrFrameSize / 2, qrY + qrFrameSize + 25 - cornerThick, cornerSize, cornerThick, "F");
+  doc.rect(pageWidth / 2 - qrFrameSize / 2, qrY + qrFrameSize + 25 - cornerSize, cornerThick, cornerSize, "F");
+  // Bottom-right
+  doc.rect(pageWidth / 2 + qrFrameSize / 2 - cornerSize, qrY + qrFrameSize + 25 - cornerThick, cornerSize, cornerThick, "F");
+  doc.rect(pageWidth / 2 + qrFrameSize / 2 - cornerThick, qrY + qrFrameSize + 25 - cornerSize, cornerThick, cornerSize, "F");
 
   // Add QR code image
   try {
-    doc.addImage(data.qrCodeDataUrl, "PNG", pageWidth / 2 - 27, qrY + 3, 54, 54);
+    doc.addImage(data.qrCodeDataUrl, "PNG", pageWidth / 2 - qrSize / 2, qrY + 8, qrSize, qrSize);
   } catch {
-    // Fallback if QR code fails
     doc.setFontSize(10);
     doc.setTextColor(100, 100, 100);
     doc.text("QR Code", pageWidth / 2, qrY + 30, { align: "center" });
@@ -203,12 +207,12 @@ export const generateCertificatePDF = (data: CertificateData): void => {
 
   // QR instruction text
   doc.setTextColor(80, 80, 80);
-  doc.setFontSize(9);
+  doc.setFontSize(8);
   doc.setFont("helvetica", "normal");
-  doc.text("Scannez pour vérifier", pageWidth / 2, qrY + 65, { align: "center" });
+  doc.text("Scannez pour vérifier", pageWidth / 2, qrY + qrSize + 16, { align: "center" });
   doc.setFontSize(7);
   doc.setTextColor(120, 120, 120);
-  doc.text("la certification en ligne", pageWidth / 2, qrY + 70, { align: "center" });
+  doc.text("la certification en ligne", pageWidth / 2, qrY + qrSize + 22, { align: "center" });
 
   // ===== FOOTER =====
   
