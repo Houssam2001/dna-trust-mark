@@ -299,7 +299,7 @@ const AdminDashboard = () => {
     root.unmount();
     document.body.removeChild(tempDiv);
 
-    generateCertificatePDF({
+    await generateCertificatePDF({
       establishmentName: establishment.name,
       establishmentType: establishment.type,
       adnguardCode: establishment.adnguard_code || "",
