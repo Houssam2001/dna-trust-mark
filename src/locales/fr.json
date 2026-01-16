@@ -1,0 +1,168 @@
+{
+    "nav": {
+        "offers": "Nos Offres",
+        "process": "Comment ça marche",
+        "values": "Nos Valeurs",
+        "contact": "Nous contacter",
+        "language": "Langue"
+    },
+    "hero": {
+        "title": "Ce que vous mangez est",
+        "highlight": "vérifié",
+        "description": "ADNGUARD certifie l'authenticité de la viande grâce à des analyses ADN indépendantes. Protégez vos clients, renforcez votre réputation.",
+        "cta": "Demander le Label"
+    },
+    "footer": {
+        "checkQr": "Vérifier un établissement",
+        "desc": "Contrôle ADN indépendant pour certifier l'authenticité de la viande. Protégez vos clients, renforcez votre réputation.",
+        "navigation": "Navigation",
+        "rights": "© 2026 ADNGUARD. Tous droits réservés.",
+        "legal": "Mentions légales",
+        "terms": "CGU",
+        "privacy": "Politique de confidentialité"
+    },
+    "offers": {
+        "title": "Choisissez votre niveau de certification",
+        "subtitle": "Des solutions adaptées à chaque établissement, de la boucherie de quartier à l'usine de transformation.",
+        "standard": {
+            "title": "Abonnement",
+            "price": "79€",
+            "period": "/mois"
+        },
+        "premium": {
+            "title": "Premium"
+        },
+        "cta": "Commander un test",
+        "features": {
+            "dnaControl": "Contrôles inopinés",
+            "certificate": "Rapports officiels",
+            "sticker": "Logo ADNGUARD officiel",
+            "platform": "QR code client",
+            "support": "Accompagnement dédié"
+        }
+    },
+    "process": {
+        "title": "Comment fonctionne ADNGUARD ?",
+        "subtitle": "Un processus rigoureux et transparent pour garantir l'authenticité de vos produits.",
+        "step1": {
+            "title": "Prélèvement Inopiné",
+            "desc": "Un agent ADNGUARD se rend sur place sans prévenir pour effectuer un prélèvement scellé."
+        },
+        "step2": {
+            "title": "Envoi au Laboratoire",
+            "desc": "L'échantillon est envoyé dans un laboratoire partenaire certifié pour analyse ADN."
+        },
+        "step3": {
+            "title": "Analyse Multi-Espèces",
+            "desc": "Détection de traces de porc, chat, chien et autres espèces non déclarées."
+        },
+        "step4": {
+            "title": "Certification & QR Code",
+            "desc": "Si conforme : rapport officiel, logo ADNGUARD et QR code vérifiable par vos clients."
+        }
+    },
+    "values": {
+        "title": "Ce qui fait notre force",
+        "transparency": {
+            "title": "Inopiné",
+            "desc": "Nos contrôles sont effectués sans prévenir pour garantir des résultats authentiques."
+        },
+        "scientific": {
+            "title": "Preuve Scientifique",
+            "desc": "L'analyse ADN est la seule preuve irréfutable de la composition d'un produit."
+        },
+        "independent": {
+            "title": "Indépendance",
+            "desc": "ADNGUARD est totalement indépendant des établissements contrôlés."
+        }
+    },
+    "cta_section": {
+        "title": "Prêt à afficher votre engagement qualité",
+        "desc": "Rejoignez les établissements qui ont choisi la transparence. Obtenez votre certification ADNGUARD dès aujourd'hui.",
+        "note": "Premier test à tarif préférentiel • Logo offert si conforme"
+    },
+    "form": {
+        "title": "Demander le Label ADNGUARD",
+        "loading": "Envoi en cours...",
+        "submit": "Envoyer ma demande",
+        "disclaimer": "En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe pour la suite de votre demande.",
+        "fields": {
+            "name": "Nom de l'établissement",
+            "type": "Type d'établissement",
+            "siret": "SIRET",
+            "address": "Adresse",
+            "city": "Ville",
+            "postalCode": "Code postal",
+            "phone": "Téléphone",
+            "email": "Email",
+            "message": "Message (optionnel)"
+        },
+        "placeholders": {
+            "name": "Ex: Boucherie Dupont",
+            "address": "12 rue de la République",
+            "city": "Paris",
+            "message": "Informations complémentaires sur votre établissement..."
+        },
+        "validation": {
+            "nameMin": "Le nom doit contenir au moins 2 caractères",
+            "addressRequired": "L'adresse est requise",
+            "cityRequired": "La ville est requise",
+            "emailInvalid": "Email invalide"
+        },
+        "success": {
+            "title": "Demande envoyée !",
+            "desc": "Votre demande de certification ADNGUARD a été enregistrée. Notre équipe vous contactera sous 48h.",
+            "toast": "Demande envoyée avec succès !"
+        },
+        "error": {
+            "toast": "Erreur lors de l'envoi: "
+        }
+    },
+    "common": {
+        "close": "Fermer"
+    },
+    "types": {
+        "boucherie": "Boucherie",
+        "restaurant": "Restaurant",
+        "usine": "Usine agroalimentaire",
+        "traiteur": "Traiteur",
+        "autre": "Autre"
+    },
+    "verification": {
+        "backHome": "Retour à l'accueil",
+        "title": "Vérification de Certification",
+        "subtitle": "Entrez le code ADNGUARD de l'établissement pour vérifier son statut de certification et consulter l'historique des contrôles ADN.",
+        "searchLabel": "Code ADNGUARD de l'établissement",
+        "searchBtn": "Vérifier",
+        "searchHint": "Le code se trouve sur le sticker ADNGUARD affiché dans l'établissement ou sur le QR code.",
+        "notFoundTitle": "Établissement non trouvé",
+        "notFoundDesc": "Aucun établissement ne correspond à ce code. Vérifiez que vous avez bien saisi le code affiché sur le sticker ADNGUARD.",
+        "status": {
+            "compliant": "Certifié Conforme",
+            "nonCompliant": "Non Conforme",
+            "suspended": "Certification Suspendue",
+            "pending": "En Attente",
+            "n_existe_plus": "N'existe plus"
+        },
+        "statusDesc": {
+            "compliant": "Cet établissement a passé avec succès tous les contrôles ADN ADNGUARD.",
+            "nonCompliant": "Le dernier contrôle ADN a révélé des non-conformités. La certification est suspendue.",
+            "suspended": "La certification de cet établissement est temporairement suspendue.",
+            "pending": "Un contrôle est en cours d'analyse.",
+            "n_existe_plus": "Cet établissement n'existe plus ou a cessé son activité."
+        },
+        "info": {
+            "address": "Adresse",
+            "certifiedSince": "Certifié depuis",
+            "lastControl": "Dernier contrôle"
+        },
+        "history": {
+            "title": "Historique des Contrôles ADN",
+            "empty": "Aucun contrôle enregistré pour cet établissement.",
+            "ref": "Réf",
+            "species": "Espèces analysées",
+            "anomalies": "Anomalies"
+        },
+        "footer": "Données certifiées par ADNGUARD • Contrôles ADN indépendants"
+    }
+}

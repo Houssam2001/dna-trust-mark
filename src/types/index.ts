@@ -1,6 +1,6 @@
 export type AppRole = "admin" | "agent" | "owner";
 
-export type CertificationStatus = "conforme" | "non_conforme" | "en_attente" | "suspendu";
+export type CertificationStatus = "conforme" | "non_conforme" | "en_attente" | "suspendu" | "n_existe_plus";
 export type EstablishmentType = "boucherie" | "restaurant" | "usine" | "traiteur" | "autre";
 
 export interface Establishment {

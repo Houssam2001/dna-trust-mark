@@ -1,8 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Shield, CheckCircle2, QrCode, FlaskConical } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const Hero = () => {
+interface HeroProps {
+  onOpenRequest?: () => void;
+}
+
+const Hero = ({ onOpenRequest }: HeroProps) => {
+  const { t } = useTranslation();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-hero pt-20">
       {/* Background Pattern */}
@@ -38,30 +45,28 @@ const Hero = () => {
 
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-serif font-bold text-primary-foreground mb-6 animate-fade-up" style={{ animationDelay: '0.1s' }}>
-            Ce que vous mangez est{' '}
+            {t('hero.title')}{' '}
             <span className="relative inline-block">
-              vérifié
+              {t('hero.highlight')}
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-accent rounded-full" />
-            </span>{' '}
-            par l'ADN
+            </span>
           </h1>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto animate-fade-up" style={{ animationDelay: '0.2s' }}>
-            ADNGUARD certifie l'authenticité de la viande grâce à des analyses ADN indépendantes. 
-            Protégez vos clients, renforcez votre réputation.
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16 animate-fade-up" style={{ animationDelay: '0.3s' }}>
-            <Button variant="accent" size="xl">
+            <Button variant="accent" size="xl" onClick={onOpenRequest}>
               <Shield className="w-5 h-5 mr-2" />
-              Demander le Label
+              {t('hero.cta')}
             </Button>
             <Link to="/verification">
               <Button variant="outlineHero" size="xl">
                 <QrCode className="w-5 h-5 mr-2" />
-                Vérifier un établissement
+                {t('footer.checkQr')}
               </Button>
             </Link>
           </div>
@@ -69,9 +74,9 @@ const Hero = () => {
           {/* Trust Indicators */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-up" style={{ animationDelay: '0.4s' }}>
             {[
-              { icon: CheckCircle2, text: "Contrôles inopinés" },
-              { icon: FlaskConical, text: "Preuve scientifique ADN" },
-              { icon: QrCode, text: "Vérification QR code" },
+              { icon: CheckCircle2, text: t('offers.features.dnaControl') },
+              { icon: FlaskConical, text: t('values.scientific.title') },
+              { icon: QrCode, text: "Vérification QR code" }, // Kept hardcoded or needs specific key
             ].map((item, index) => (
               <div
                 key={index}

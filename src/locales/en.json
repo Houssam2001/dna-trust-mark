@@ -1,0 +1,175 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "verification": "Verification",
+        "dashboard": "Dashboard",
+        "login": "Login",
+        "register": "Register",
+        "getLabel": "Get Label",
+        "offers": "Our Offers",
+        "process": "How It Works",
+        "values": "Our Values",
+        "contact": "Contact Us",
+        "language": "Language"
+    },
+    "hero": {
+        "title": "What you eat is",
+        "highlight": "verified",
+        "description": "ADNGUARD certifies meat authenticity through independent DNA analysis. Protect your customers, strengthen your reputation.",
+        "cta": "Get Certified"
+    },
+    "footer": {
+        "checkQr": "Verify an Establishment",
+        "desc": "Independent DNA control to certify meat authenticity. Protect your customers, strengthen your reputation.",
+        "navigation": "Navigation",
+        "rights": "© 2026 ADNGUARD. All rights reserved.",
+        "legal": "Legal Notice",
+        "terms": "Terms of Service",
+        "privacy": "Privacy Policy"
+    },
+    "offers": {
+        "title": "Choose Your Certification Level",
+        "subtitle": "Solutions adapted to every establishment, from local butchers to processing plants.",
+        "standard": {
+            "title": "Subscription",
+            "price": "79€",
+            "period": "/month"
+        },
+        "premium": {
+            "title": "Premium"
+        },
+        "cta": "Order a Test",
+        "features": {
+            "dnaControl": "Unannounced inspections",
+            "certificate": "Official reports",
+            "sticker": "Official ADNGUARD sticker",
+            "platform": "Customer QR code",
+            "support": "Dedicated support"
+        }
+    },
+    "process": {
+        "title": "How ADNGUARD Works?",
+        "subtitle": "A rigorous and transparent process to guarantee product authenticity.",
+        "step1": {
+            "title": "Unannounced Sampling",
+            "desc": "An ADNGUARD agent visits without notice to collect a sealed sample."
+        },
+        "step2": {
+            "title": "Lab Analysis",
+            "desc": "The sample is sent to a certified partner laboratory for DNA analysis."
+        },
+        "step3": {
+            "title": "Multi-Species Analysis",
+            "desc": "Detection of pork, cat, dog, and other undeclared species traces."
+        },
+        "step4": {
+            "title": "Certification & QR Code",
+            "desc": "If compliant: official report, ADNGUARD logo, and QR code verifiable by your customers."
+        }
+    },
+    "values": {
+        "title": "Our Strengths",
+        "transparency": {
+            "title": "Unannounced",
+            "desc": "Our inspections are performed without notice to guarantee authentic results."
+        },
+        "scientific": {
+            "title": "Scientific Proof",
+            "desc": "DNA analysis is the only irrefutable proof of product composition."
+        },
+        "independent": {
+            "title": "Independence",
+            "desc": "ADNGUARD is completely independent from the controlled establishments."
+        }
+    },
+    "cta_section": {
+        "title": "Ready to Show Your Commitment to Quality?",
+        "desc": "Join the establishments that have chosen transparency. Get your ADNGUARD certification today.",
+        "note": "First test at a preferential rate • Logo offered if compliant"
+    },
+    "form": {
+        "title": "Request ADNGUARD Label",
+        "loading": "Sending...",
+        "submit": "Submit Request",
+        "disclaimer": "By submitting this form, you agree to be contacted by our team regarding your request.",
+        "fields": {
+            "name": "Establishment Name",
+            "type": "Establishment Type",
+            "siret": "SIRET",
+            "address": "Address",
+            "city": "City",
+            "postalCode": "Postal Code",
+            "phone": "Phone",
+            "email": "Email",
+            "message": "Message (optional)"
+        },
+        "placeholders": {
+            "name": "Ex: Dupont Butcher",
+            "address": "12 Republic Street",
+            "city": "Paris",
+            "message": "Additional information about your establishment..."
+        },
+        "validation": {
+            "nameMin": "Name must contain at least 2 characters",
+            "addressRequired": "Address is required",
+            "cityRequired": "City is required",
+            "emailInvalid": "Invalid email"
+        },
+        "success": {
+            "title": "Request Sent!",
+            "desc": "Your ADNGUARD certification request has been recorded. Our team will contact you within 48h.",
+            "toast": "Request sent successfully!"
+        },
+        "error": {
+            "toast": "Error sending request: "
+        }
+    },
+    "common": {
+        "close": "Close"
+    },
+    "types": {
+        "boucherie": "Butcher Shop",
+        "restaurant": "Restaurant",
+        "usine": "Food Processing Plant",
+        "traiteur": "Caterer",
+        "autre": "Other"
+    },
+    "verification": {
+        "backHome": "Back to Home",
+        "title": "Certification Verification",
+        "subtitle": "Enter the establishment's ADNGUARD code to verify its certification status and view DNA control history.",
+        "searchLabel": "Establishment ADNGUARD Code",
+        "searchBtn": "Verify",
+        "searchHint": "The code can be found on the ADNGUARD sticker displayed at the establishment or on the QR code.",
+        "notFoundTitle": "Establishment Not Found",
+        "notFoundDesc": "No establishment matches this code. Please check that you have entered the code displayed on the ADNGUARD sticker correctly.",
+        "status": {
+            "compliant": "Certified Compliant",
+            "nonCompliant": "Non Compliant",
+            "suspended": "Certification Suspended",
+            "pending": "Pending",
+            "n_existe_plus": "No longer exists"
+        },
+        "statusDesc": {
+            "compliant": "This establishment has successfully passed all ADNGUARD DNA controls.",
+            "nonCompliant": "The last DNA control revealed non-compliances. Certification is suspended.",
+            "suspended": "The certification of this establishment is temporarily suspended.",
+            "pending": "A control is currently under analysis.",
+            "n_existe_plus": "This establishment no longer exists or has ceased operations."
+        },
+        "info": {
+            "address": "Address",
+            "certifiedSince": "Certified Since",
+            "lastControl": "Last Control"
+        },
+        "history": {
+            "title": "DNA Control History",
+            "empty": "No control recorded for this establishment.",
+            "ref": "Ref",
+            "species": "Species Analyzed",
+            "anomalies": "Anomalies"
+        },
+        "footer": "Data certified by ADNGUARD • Independent DNA Controls"
+    }
+}

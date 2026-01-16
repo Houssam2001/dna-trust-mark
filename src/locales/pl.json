@@ -1,0 +1,92 @@
+{
+    "nav": {
+        "offers": "Nasze Oferty",
+        "process": "Jak To Działa",
+        "values": "Nasze Wartości",
+        "contact": "Kontakt",
+        "dashboard": "Panel",
+        "login": "Zaloguj się",
+        "getLabel": "Uzyskaj Certyfikat"
+    },
+    "hero": {
+        "title": "Potwierdź Autentyczność Mięsa Poprzez",
+        "highlight": "Analizę DNA",
+        "description": "Pierwszy niezależny certyfikat gwarantujący naukowe pochodzenie i czystość Twoich produktów mięsnych. Zbuduj zaufanie klientów.",
+        "cta": "Uzyskaj Znak ADNGUARD",
+        "trust": "Ponad 500 certyfikowanych placówek"
+    },
+    "offers": {
+        "title": "Nasze Oferty Certyfikacji",
+        "subtitle": "Rozwiązania dostosowane do każdej placówki",
+        "standard": {
+            "title": "Certyfikacja Standard",
+            "price": "299€",
+            "period": "/rok"
+        },
+        "premium": {
+            "title": "Certyfikacja Premium",
+            "price": "599€",
+            "period": "/rok"
+        },
+        "features": {
+            "dnaControl": "Niezapowiedziane kontrole DNA",
+            "sticker": "Oficjalna naklejka",
+            "certificate": "Certyfikat Autentyczności",
+            "platform": "Dostęp do platformy",
+            "support": "Priorytetowe wsparcie",
+            "marketing": "Pełny zestaw marketingowy"
+        },
+        "cta": "Wybierz tę ofertę"
+    },
+    "process": {
+        "title": "Nasz Proces Certyfikacji",
+        "subtitle": "Proste, rygorystyczne i przejrzyste podejście",
+        "step1": {
+            "title": "Rejestracja",
+            "desc": "Załóż konto i wybierz plan subskrypcji w kilka kliknięć."
+        },
+        "step2": {
+            "title": "Pobieranie Próbek",
+            "desc": "Niezależny ekspert pobiera próbki w Twoim lokalu bez zapowiedzi."
+        },
+        "step3": {
+            "title": "Analiza DNA",
+            "desc": "Próbki są analizowane w naszym akredytowanym laboratorium partnerskim ISO 17025."
+        },
+        "step4": {
+            "title": "Certyfikacja",
+            "desc": "Jeśli zgodne: oficjalny raport, logo ADNGUARD i kod QR weryfikowalny przez klientów."
+        }
+    },
+    "values": {
+        "title": "Dlaczego Wybrać ADNGUARD?",
+        "transparency": {
+            "title": "Pełna Przejrzystość",
+            "desc": "Wyniki analiz dostępne dla klientów poprzez kod QR."
+        },
+        "scientific": {
+            "title": "Rygor Naukowy",
+            "desc": "Nowoczesna technologia PCR gwarantująca 99.9% wiarygodności."
+        },
+        "independent": {
+            "title": "Niezależność",
+            "desc": "Pobieranie próbek i analizy przeprowadzane przez zaufane strony trzecie."
+        }
+    },
+    "footer": {
+        "desc": "Niezależna kontrola DNA potwierdzająca autentyczność mięsa. Chroń klientów, wzmacniaj reputację.",
+        "navigation": "Nawigacja",
+        "checkQr": "Sprawdź Kod QR",
+        "contact": "Kontakt",
+        "rights": "© 2026 ADNGUARD. Wszelkie prawa zastrzeżone.",
+        "legal": "Nota prawna",
+        "terms": "Regulamin",
+        "privacy": "Polityka prywatności"
+    },
+    "cta_section": {
+        "title": "Gotowy na certyfikację?",
+        "desc": "Dołącz do sieci ADNGUARD i udowodnij swoje zaangażowanie w jakość.",
+        "button": "Rozpocznij Teraz",
+        "note": "Pierwszy test w promocyjnej cenie • Logo gratis w przypadku zgodności"
+    }
+}

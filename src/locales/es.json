@@ -1,0 +1,92 @@
+{
+    "nav": {
+        "offers": "Nuestras Ofertas",
+        "process": "Cómo Funciona",
+        "values": "Nuestros Valores",
+        "contact": "Contacto",
+        "dashboard": "Panel",
+        "login": "Iniciar Sesión",
+        "getLabel": "Obtener Etiqueta"
+    },
+    "hero": {
+        "title": "Certifica la Autenticidad de tu Carne con",
+        "highlight": "Análisis de ADN",
+        "description": "La primera etiqueta independiente que garantiza científicamente el origen y la pureza de tus productos cárnicos. Construye confianza con tus clientes.",
+        "cta": "Obtener Etiqueta ADNGUARD",
+        "trust": "Más de 500 establecimientos ya certificados"
+    },
+    "offers": {
+        "title": "Nuestras Ofertas de Certificación",
+        "subtitle": "Soluciones adaptadas a cada establecimiento",
+        "standard": {
+            "title": "Certificación Estándar",
+            "price": "299€",
+            "period": "/año"
+        },
+        "premium": {
+            "title": "Certificación Premium",
+            "price": "599€",
+            "period": "/año"
+        },
+        "features": {
+            "dnaControl": "Controles de ADN sorpresa",
+            "sticker": "Adhesivo oficial",
+            "certificate": "Certificado de Autenticidad",
+            "platform": "Acceso a plataforma",
+            "support": "Soporte prioritario",
+            "marketing": "Kit de marketing completo"
+        },
+        "cta": "Elegir esta oferta"
+    },
+    "process": {
+        "title": "Nuestro Proceso de Certificación",
+        "subtitle": "Un enfoque simple, riguroso y transparente",
+        "step1": {
+            "title": "Registro",
+            "desc": "Crea tu cuenta y elige tu plan de suscripción en pocos clics."
+        },
+        "step2": {
+            "title": "Muestreo",
+            "desc": "Un experto independiente toma muestras sorpresa en tu establecimiento."
+        },
+        "step3": {
+            "title": "Análisis de ADN",
+            "desc": "Las muestras se analizan en nuestro laboratorio asociado acreditado ISO 17025."
+        },
+        "step4": {
+            "title": "Certificación",
+            "desc": "Si cumple: informe oficial, logo ADNGUARD y código QR verificable por tus clientes."
+        }
+    },
+    "values": {
+        "title": "¿Por qué elegir ADNGUARD?",
+        "transparency": {
+            "title": "Transparencia Total",
+            "desc": "Resultados de análisis accesibles vía código QR para tus clientes."
+        },
+        "scientific": {
+            "title": "Rigor Científico",
+            "desc": "Tecnología PCR de vanguardia que garantiza 99.9% de fiabilidad."
+        },
+        "independent": {
+            "title": "Independencia",
+            "desc": "Muestreo y análisis realizados por terceros de confianza."
+        }
+    },
+    "footer": {
+        "desc": "Control de ADN independiente para certificar la autenticidad de la carne. Protege a tus clientes, fortalece tu reputación.",
+        "navigation": "Navegación",
+        "checkQr": "Verificar código QR",
+        "contact": "Contacto",
+        "rights": "© 2026 ADNGUARD. Todos los derechos reservados.",
+        "legal": "Aviso Legal",
+        "terms": "Términos de Servicio",
+        "privacy": "Política de Privacidad"
+    },
+    "cta_section": {
+        "title": "¿Listo para certificar tu establecimiento?",
+        "desc": "Únete a la red ADNGUARD y demuestra tu compromiso con la calidad.",
+        "button": "Empezar Ahora",
+        "note": "Primer test a precio preferencial • Logo gratis si cumple"
+    }
+}

@@ -5,8 +5,10 @@ import { Shield, Search, CheckCircle2, XCircle, Calendar, FlaskConical, MapPin, 
 import { Link, useSearchParams } from "react-router-dom";
 import api from "@/services/api";
 import { Establishment, Control, CertificationStatus } from "@/types";
+import { useTranslation } from "react-i18next";
 
 const Verification = () => {
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const initialCode = searchParams.get("code") || "";
 
@@ -58,7 +60,7 @@ const Verification = () => {
     switch (status) {
       case "conforme":
         return {
-          label: "Certifié Conforme",
+          label: t('verification.status.compliant'),
           icon: CheckCircle2,
           bgClass: "bg-primary/10",
           textClass: "text-primary",
@@ -66,7 +68,7 @@ const Verification = () => {
         };
       case "non_conforme":
         return {
-          label: "Non Conforme",
+          label: t('verification.status.nonCompliant'),
           icon: XCircle,
           bgClass: "bg-destructive/10",
           textClass: "text-destructive",
@@ -74,15 +76,23 @@ const Verification = () => {
         };
       case "suspendu":
         return {
-          label: "Certification Suspendue",
+          label: t('verification.status.suspended'),
           icon: XCircle,
           bgClass: "bg-muted",
           textClass: "text-muted-foreground",
           borderClass: "border-muted-foreground/30",
         };
+      case "n_existe_plus":
+        return {
+          label: t('verification.status.n_existe_plus'),
+          icon: XCircle,
+          bgClass: "bg-gray-200",
+          textClass: "text-gray-500",
+          borderClass: "border-gray-300",
+        };
       default:
         return {
-          label: "En Attente",
+          label: t('verification.status.pending'),
           icon: Clock,
           bgClass: "bg-accent/10",
           textClass: "text-accent-foreground",
@@ -102,11 +112,11 @@ const Verification = () => {
 
   const getEstablishmentTypeLabel = (type: string) => {
     const labels: Record<string, string> = {
-      boucherie: "Boucherie",
-      restaurant: "Restaurant",
-      usine: "Usine",
-      traiteur: "Traiteur",
-      autre: "Autre",
+      boucherie: t('types.boucherie'),
+      restaurant: t('types.restaurant'),
+      usine: t('types.usine'),
+      traiteur: t('types.traiteur'),
+      autre: t('types.autre'),
     };
     return labels[type] || type;
   };
@@ -118,7 +128,7 @@ const Verification = () => {
         <div className="container mx-auto px-4">
           <Link to="/" className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground transition-colors mb-6">
             <ArrowLeft className="w-4 h-4" />
-            Retour à l'accueil
+            {t('verification.backHome')}
           </Link>
 
           <div className="flex items-center gap-3 mb-4">
@@ -129,10 +139,10 @@ const Verification = () => {
           </div>
 
           <h1 className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-2">
-            Vérification de Certification
+            {t('verification.title')}
           </h1>
           <p className="text-primary-foreground/80 max-w-xl">
-            Entrez le code ADNGUARD de l'établissement pour vérifier son statut de certification et consulter l'historique des contrôles ADN.
+            {t('verification.subtitle')}
           </p>
         </div>
       </header>
@@ -143,7 +153,7 @@ const Verification = () => {
           <div className="max-w-2xl mx-auto">
             <form onSubmit={(e) => handleSearch(e)} className="bg-card rounded-2xl shadow-card p-6 md:p-8 border border-border">
               <label htmlFor="code" className="block text-sm font-medium text-foreground mb-2">
-                Code ADNGUARD de l'établissement
+                {t('verification.searchLabel')}
               </label>
               <div className="flex gap-3">
                 <Input
@@ -160,13 +170,13 @@ const Verification = () => {
                   ) : (
                     <>
                       <Search className="w-5 h-5 mr-2" />
-                      Vérifier
+                      {t('verification.searchBtn')}
                     </>
                   )}
                 </Button>
               </div>
               <p className="text-muted-foreground text-sm mt-3">
-                Le code se trouve sur le sticker ADNGUARD affiché dans l'établissement ou sur le QR code.
+                {t('verification.searchHint')}
               </p>
             </form>
           </div>
@@ -184,10 +194,10 @@ const Verification = () => {
                     <Search className="w-8 h-8 text-muted-foreground" />
                   </div>
                   <h2 className="text-xl font-serif font-bold text-foreground mb-2">
-                    Établissement non trouvé
+                    {t('verification.notFoundTitle')}
                   </h2>
                   <p className="text-muted-foreground max-w-md mx-auto">
-                    Aucun établissement ne correspond à ce code. Vérifiez que vous avez bien saisi le code affiché sur le sticker ADNGUARD.
+                    {t('verification.notFoundDesc')}
                   </p>
                 </div>
               ) : establishment && (
@@ -208,12 +218,14 @@ const Verification = () => {
                         </div>
                         <p className="text-foreground/70">
                           {establishment.status === "conforme"
-                            ? "Cet établissement a passé avec succès tous les contrôles ADN ADNGUARD."
+                            ? t('verification.statusDesc.compliant')
                             : establishment.status === "non_conforme"
-                              ? "Le dernier contrôle ADN a révélé des non-conformités. La certification est suspendue."
+                              ? t('verification.statusDesc.nonCompliant')
                               : establishment.status === "suspendu"
-                                ? "La certification de cet établissement est temporairement suspendue."
-                                : "Un contrôle est en cours d'analyse."}
+                                ? t('verification.statusDesc.suspended')
+                                : establishment.status === "n_existe_plus"
+                                  ? t('verification.statusDesc.n_existe_plus')
+                                  : t('verification.statusDesc.pending')}
                         </p>
                       </div>
                       <div className="flex-shrink-0">
@@ -237,7 +249,7 @@ const Verification = () => {
                       <div className="flex items-start gap-3">
                         <MapPin className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <p className="text-sm text-muted-foreground">Adresse</p>
+                          <p className="text-sm text-muted-foreground">{t('verification.info.address')}</p>
                           <p className="text-foreground">
                             {establishment.address}
                             {establishment.postalCode && `, ${establishment.postalCode}`} {establishment.city}
@@ -247,14 +259,14 @@ const Verification = () => {
                       <div className="flex items-start gap-3">
                         <Calendar className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <p className="text-sm text-muted-foreground">Certifié depuis</p>
+                          <p className="text-sm text-muted-foreground">{t('verification.info.certifiedSince')}</p>
                           <p className="text-foreground">{formatDate(establishment.certifiedSince)}</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-3">
                         <FlaskConical className="w-5 h-5 text-primary mt-0.5" />
                         <div>
-                          <p className="text-sm text-muted-foreground">Dernier contrôle</p>
+                          <p className="text-sm text-muted-foreground">{t('verification.info.lastControl')}</p>
                           <p className="text-foreground">{formatDate(establishment.lastControlDate)}</p>
                         </div>
                       </div>
@@ -264,12 +276,12 @@ const Verification = () => {
                   {/* Control History */}
                   <div className="bg-card rounded-2xl shadow-card border border-border p-6 md:p-8">
                     <h3 className="text-xl font-serif font-bold text-foreground mb-6">
-                      Historique des Contrôles ADN
+                      {t('verification.history.title')}
                     </h3>
 
                     {controls.length === 0 ? (
                       <p className="text-muted-foreground text-center py-8">
-                        Aucun contrôle enregistré pour cet établissement.
+                        {t('verification.history.empty')}
                       </p>
                     ) : (
                       <div className="space-y-4">
@@ -288,31 +300,31 @@ const Verification = () => {
                                   {formatDate(control.controlDate)}
                                 </span>
                                 <span className={`inline-flex items-center gap-1 text-sm px-2 py-0.5 rounded-full ${control.result === "conforme"
-                                    ? "bg-primary/10 text-primary"
-                                    : "bg-destructive/10 text-destructive"
+                                  ? "bg-primary/10 text-primary"
+                                  : "bg-destructive/10 text-destructive"
                                   }`}>
                                   {control.result === "conforme" ? (
                                     <>
                                       <CheckCircle2 className="w-3 h-3" />
-                                      Conforme
+                                      {t('verification.status.compliant')}
                                     </>
                                   ) : (
                                     <>
                                       <XCircle className="w-3 h-3" />
-                                      Non conforme
+                                      {t('verification.status.nonCompliant')}
                                     </>
                                   )}
                                 </span>
                                 <span className="text-muted-foreground text-sm">
-                                  Réf: {control.reportId}
+                                  {t('verification.history.ref')}: {control.reportId}
                                 </span>
                               </div>
                               <p className="text-sm text-muted-foreground">
-                                Espèces analysées : {control.speciesAnalyzed?.join(", ") || "-"}
+                                {t('verification.history.species')}: {control.speciesAnalyzed?.join(", ") || "-"}
                               </p>
                               {control.anomaliesDetected && (
                                 <p className="text-sm text-destructive mt-1">
-                                  Anomalies : {control.anomaliesDetected}
+                                  {t('verification.history.anomalies')}: {control.anomaliesDetected}
                                 </p>
                               )}
                             </div>
@@ -325,7 +337,7 @@ const Verification = () => {
                   {/* Trust Footer */}
                   <div className="text-center py-6">
                     <p className="text-muted-foreground text-sm">
-                      Données certifiées par ADNGUARD • Contrôles ADN indépendants
+                      {t('verification.footer')}
                     </p>
                   </div>
                 </div>

@@ -1,47 +1,49 @@
 import { FlaskConical, Package, FileCheck, QrCode } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    icon: FlaskConical,
-    title: "Prélèvement Inopiné",
-    description: "Un agent ADNGUARD se rend sur place sans prévenir pour effectuer un prélèvement scellé.",
-  },
-  {
-    number: "02",
-    icon: Package,
-    title: "Envoi au Laboratoire",
-    description: "L'échantillon est envoyé dans un laboratoire partenaire certifié pour analyse ADN.",
-  },
-  {
-    number: "03",
-    icon: FileCheck,
-    title: "Analyse Multi-Espèces",
-    description: "Détection de traces de porc, chat, chien et autres espèces non déclarées.",
-  },
-  {
-    number: "04",
-    icon: QrCode,
-    title: "Certification & QR Code",
-    description: "Si conforme : rapport officiel, logo ADNGUARD et QR code vérifiable par vos clients.",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const Process = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      number: "01",
+      icon: FlaskConical,
+      title: t('process.step1.title'),
+      description: t('process.step1.desc'),
+    },
+    {
+      number: "02",
+      icon: Package,
+      title: t('process.step2.title'),
+      description: t('process.step2.desc'),
+    },
+    {
+      number: "03",
+      icon: FileCheck,
+      title: t('process.step3.title'),
+      description: t('process.step3.desc'),
+    },
+    {
+      number: "04",
+      icon: QrCode,
+      title: t('process.step4.title'),
+      description: t('process.step4.desc'),
+    },
+  ];
+
   return (
     <section id="process" className="py-24 bg-muted/50">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Notre Processus
+            {t('nav.process')}
           </span>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">
-            Comment fonctionne{' '}
-            <span className="text-gradient-hero">ADNGUARD</span> ?
+            {t('process.title')}
           </h2>
           <p className="text-muted-foreground text-lg">
-            Un processus rigoureux et transparent pour garantir l'authenticité de vos produits.
+            {t('process.subtitle')}
           </p>
         </div>
 

@@ -1,0 +1,92 @@
+{
+    "nav": {
+        "offers": "Tekliflerimiz",
+        "process": "Nasıl Çalışır",
+        "values": "Değerlerimiz",
+        "contact": "İletişim",
+        "dashboard": "Panel",
+        "login": "Giriş Yap",
+        "getLabel": "Etiketi Al"
+    },
+    "hero": {
+        "title": "Et Ürünlerinizin Orijinalliğini Belgeleyin:",
+        "highlight": "DNA Analizi",
+        "description": "Et ürünlerinizin kökenini ve saflığını bilimsel olarak garanti eden ilk bağımsız etiket. Müşteri güvenini artırın.",
+        "cta": "ADNGUARD Etiketini Alın",
+        "trust": "500'den fazla sertifikalı işletme"
+    },
+    "offers": {
+        "title": "Sertifikasyon Tekliflerimiz",
+        "subtitle": "Her işletmeye uygun çözümler",
+        "standard": {
+            "title": "Standart Sertifikasyon",
+            "price": "299€",
+            "period": "/yıl"
+        },
+        "premium": {
+            "title": "Premium Sertifikasyon",
+            "price": "599€",
+            "period": "/yıl"
+        },
+        "features": {
+            "dnaControl": "Haber verilmeyen DNA kontrolleri",
+            "sticker": "Resmi vitrin etiketi",
+            "certificate": "Orijinallik Sertifikası",
+            "platform": "Platform erişimi",
+            "support": "Öncelikli destek",
+            "marketing": "Tam pazarlama kiti"
+        },
+        "cta": "Bu teklifi seç"
+    },
+    "process": {
+        "title": "Sertifikasyon Sürecimiz",
+        "subtitle": "Basit, titiz ve şeffaf bir yaklaşım",
+        "step1": {
+            "title": "Kayıt",
+            "desc": "Hesabınızı oluşturun ve abonelik planınızı birkaç tıklamayla seçin."
+        },
+        "step2": {
+            "title": "Numune Alma",
+            "desc": "Bağımsız bir uzman, işletmenizden habersiz numuneler alır."
+        },
+        "step3": {
+            "title": "DNA Analizi",
+            "desc": "Numuneler, ISO 17025 onaylı ortak laboratuvarımızda analiz edilir."
+        },
+        "step4": {
+            "title": "Sertifikasyon",
+            "desc": "Uygunsa: resmi rapor, ADNGUARD logosu ve müşterileriniz tarafından doğrulanabilir QR kodu."
+        }
+    },
+    "values": {
+        "title": "Neden ADNGUARD'ı Seçmelisiniz?",
+        "transparency": {
+            "title": "Tam Şeffaflık",
+            "desc": "Analiz sonuçları müşterileriniz için QR koduyla erişilebilir."
+        },
+        "scientific": {
+            "title": "Bilimsel Titizlik",
+            "desc": "%99.9 güvenilirlik sağlayan son teknoloji PCR teknolojisi."
+        },
+        "independent": {
+            "title": "Bağımsızlık",
+            "desc": "Güvenilir üçüncü taraflarca yapılan numune alma ve analiz."
+        }
+    },
+    "footer": {
+        "desc": "Et orijinalliğini sertifikalandırmak için bağımsız DNA kontrolü. Müşterilerinizi koruyun, itibarınızı güçlendirin.",
+        "navigation": "Navigasyon",
+        "checkQr": "QR Kodunu Doğrula",
+        "contact": "İletişim",
+        "rights": "© 2026 ADNGUARD. Tüm hakları saklıdır.",
+        "legal": "Yasal Uyarı",
+        "terms": "Hizmet Şartları",
+        "privacy": "Gizlilik Politikası"
+    },
+    "cta_section": {
+        "title": "İşletmenizi sertifikalandırmaya hazır mısınız?",
+        "desc": "ADNGUARD ağına katılın ve kalite taahhüdünüzü kanıtlayın.",
+        "button": "Şimdi Başla",
+        "note": "İlk test tercihli fiyatla • Uygunsa ücretsiz logo"
+    }
+}

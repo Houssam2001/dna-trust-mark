@@ -1,0 +1,92 @@
+{
+    "nav": {
+        "offers": "Onze Aanbiedingen",
+        "process": "Hoe Het Werkt",
+        "values": "Onze Waarden",
+        "contact": "Contact",
+        "dashboard": "Dashboard",
+        "login": "Inloggen",
+        "getLabel": "Verkrijg Label"
+    },
+    "hero": {
+        "title": "Certificeer de Authenticiteit van Uw Vlees met",
+        "highlight": "DNA Analyse",
+        "description": "Het eerste onafhankelijke label dat wetenschappelijk de oorsprong en zuiverheid van uw vleesproducten garandeert. Bouw vertrouwen op bij uw klanten.",
+        "cta": "Verkrijg ADNGUARD Label",
+        "trust": "Al meer dan 500 gecertificeerde vestigingen"
+    },
+    "offers": {
+        "title": "Onze Certificeringsaanbiedingen",
+        "subtitle": "Oplossingen aangepast aan elke vestiging",
+        "standard": {
+            "title": "Standaard Certificering",
+            "price": "299€",
+            "period": "/jaar"
+        },
+        "premium": {
+            "title": "Premium Certificering",
+            "price": "599€",
+            "period": "/jaar"
+        },
+        "features": {
+            "dnaControl": "Onaangekondigde DNA-controles",
+            "sticker": "Officiële raamsticker",
+            "certificate": "Certificaat van Authenticiteit",
+            "platform": "Platform toegang",
+            "support": "Prioriteit ondersteuning",
+            "marketing": "Complete marketing kit"
+        },
+        "cta": "Kies dit aanbod"
+    },
+    "process": {
+        "title": "Ons Certificeringsproces",
+        "subtitle": "Een eenvoudige, rigoureuze en transparante aanpak",
+        "step1": {
+            "title": "Registratie",
+            "desc": "Maak uw account aan en kies uw abonnement in een paar klikken."
+        },
+        "step2": {
+            "title": "Bemonstering",
+            "desc": "Een onafhankelijke expert neemt onaangekondigd monsters in uw vestiging."
+        },
+        "step3": {
+            "title": "DNA Analyse",
+            "desc": "Monsters worden geanalyseerd in ons ISO 17025 geaccrediteerde partnerlab."
+        },
+        "step4": {
+            "title": "Certificering",
+            "desc": "Indien conform: officieel rapport, ADNGUARD logo en QR-code verifieerbaar door uw klanten."
+        }
+    },
+    "values": {
+        "title": "Waarom Kiezen Voor ADNGUARD?",
+        "transparency": {
+            "title": "Totale Transparantie",
+            "desc": "Analyseresultaten toegankelijk via QR-code voor uw klanten."
+        },
+        "scientific": {
+            "title": "Wetenschappelijke Rigueur",
+            "desc": "Toonaangevende PCR-technologie garandeert 99.9% betrouwbaarheid."
+        },
+        "independent": {
+            "title": "Onafhankelijkheid",
+            "desc": "Bemonstering en analyse uitgevoerd door vertrouwde derde partijen."
+        }
+    },
+    "footer": {
+        "desc": "Onafhankelijke DNA-controle om de authenticiteit van vlees te certificeren. Bescherm uw klanten, versterk uw reputatie.",
+        "navigation": "Navigatie",
+        "checkQr": "QR-code Verifiëren",
+        "contact": "Contact",
+        "rights": "© 2026 ADNGUARD. Alle rechten voorbehouden.",
+        "legal": "Wettelijke Vermelding",
+        "terms": "Servicevoorwaarden",
+        "privacy": "Privacybeleid"
+    },
+    "cta_section": {
+        "title": "Klaar om uw vestiging te certificeren?",
+        "desc": "Sluit u aan bij het ADNGUARD netwerk en bewijs uw toewijding aan kwaliteit.",
+        "button": "Start Nu",
+        "note": "Eerste test tegen voorkeurstarief • Gratis logo indien conform"
+    }
+}

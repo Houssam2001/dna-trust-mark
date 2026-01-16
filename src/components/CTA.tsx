@@ -1,10 +1,14 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Shield, ArrowRight } from "lucide-react";
-import CertificationRequestForm from "./CertificationRequestForm";
+import { useTranslation } from "react-i18next";
 
-const CTA = () => {
-  const [isFormOpen, setIsFormOpen] = useState(false);
+interface CTAProps {
+  onOpenRequest?: () => void;
+}
+
+const CTA = ({ onOpenRequest }: CTAProps) => {
+  const { t } = useTranslation();
+
   return (
     <section className="py-24 bg-gradient-hero relative overflow-hidden">
       {/* Background Elements */}
@@ -22,38 +26,37 @@ const CTA = () => {
 
           {/* Heading */}
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary-foreground mb-6">
-            Prêt à afficher votre<br />
+            {t('cta_section.title').split(' ').slice(0, 3).join(' ')}<br />
             <span className="relative inline-block">
-              engagement qualité
+              {t('cta_section.title').split(' ').slice(3).join(' ')}
               <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-accent rounded-full" />
             </span>
-            ?
           </h2>
 
           {/* Subtitle */}
           <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-            Rejoignez les établissements qui ont choisi la transparence. Obtenez votre certification ADNGUARD dès aujourd'hui.
+            {t('cta_section.desc')}
           </p>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="xl" onClick={() => setIsFormOpen(true)}>
-              Demander le Label
+            <Button variant="accent" size="xl" onClick={onOpenRequest}>
+              {t('hero.cta')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-            <Button variant="outlineHero" size="xl">
-              Nous contacter
-            </Button>
+            <a href="#contact">
+              <Button variant="outlineHero" size="xl">
+                {t('nav.contact')}
+              </Button>
+            </a>
           </div>
 
           {/* Trust Text */}
           <p className="mt-8 text-primary-foreground/60 text-sm">
-            Premier test à tarif préférentiel • Logo offert si conforme
+            {t('cta_section.note')}
           </p>
         </div>
       </div>
-
-      <CertificationRequestForm open={isFormOpen} onOpenChange={setIsFormOpen} />
     </section>
   );
 };

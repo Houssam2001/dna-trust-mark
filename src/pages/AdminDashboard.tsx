@@ -273,6 +273,7 @@ const AdminDashboard = () => {
       non_conforme: { icon: XCircle, label: "Non conforme", className: "bg-destructive/10 text-destructive" },
       en_attente: { icon: Clock, label: "En attente", className: "bg-accent/10 text-accent-foreground" },
       suspendu: { icon: XCircle, label: "Suspendu", className: "bg-muted text-muted-foreground" },
+      n_existe_plus: { icon: XCircle, label: "N'existe plus", className: "bg-gray-200 text-gray-500" },
     };
     const config = configs[status];
     const Icon = config.icon;
@@ -432,6 +433,7 @@ const AdminDashboard = () => {
                     <SelectItem value="conforme">Conforme</SelectItem>
                     <SelectItem value="non_conforme">Non conforme</SelectItem>
                     <SelectItem value="suspendu">Suspendu</SelectItem>
+                    <SelectItem value="n_existe_plus">N'existe plus</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -985,6 +987,14 @@ const AdminDashboard = () => {
                 >
                   <XCircle className="w-4 h-4 mr-2" />
                   Suspendu
+                </Button>
+                <Button
+                  variant="outline"
+                  className="text-gray-500 border-gray-300"
+                  onClick={() => handleUpdateStatus(selectedEstablishment, "n_existe_plus")}
+                >
+                  <XCircle className="w-4 h-4 mr-2" />
+                  N'existe plus
                 </Button>
               </div>
             </div>

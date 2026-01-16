@@ -19,6 +19,7 @@ enum CertificationStatus {
   non_conforme
   en_attente
   suspendu
+  n_existe_plus
 }
 
 enum EstablishmentType {

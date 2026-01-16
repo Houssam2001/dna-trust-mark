@@ -20,20 +20,9 @@ import { Shield, CheckCircle2, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 import api from "@/services/api";
+import { useTranslation } from "react-i18next";
 
 type EstablishmentType = "boucherie" | "restaurant" | "usine" | "traiteur" | "autre";
-
-const requestSchema = z.object({
-  name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100),
-  type: z.enum(["boucherie", "restaurant", "usine", "traiteur", "autre"]),
-  address: z.string().trim().min(5, "L'adresse est requise").max(200),
-  city: z.string().trim().min(2, "La ville est requise").max(100),
-  postal_code: z.string().trim().max(10).optional(),
-  phone: z.string().trim().max(20).optional(),
-  email: z.string().trim().email("Email invalide").max(255),
-  siret: z.string().trim().max(20).optional(),
-  message: z.string().trim().max(500).optional(),
-});
 
 interface CertificationRequestFormProps {
   open: boolean;
@@ -41,6 +30,7 @@ interface CertificationRequestFormProps {
 }
 
 const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFormProps) => {
+  const { t } = useTranslation();
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -54,6 +44,18 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
     email: "",
     siret: "",
     message: "",
+  });
+
+  const requestSchema = z.object({
+    name: z.string().trim().min(2, t('form.validation.nameMin')).max(100),
+    type: z.enum(["boucherie", "restaurant", "usine", "traiteur", "autre"]),
+    address: z.string().trim().min(5, t('form.validation.addressRequired')).max(200),
+    city: z.string().trim().min(2, t('form.validation.cityRequired')).max(100),
+    postal_code: z.string().trim().max(10).optional(),
+    phone: z.string().trim().max(20).optional(),
+    email: z.string().trim().email(t('form.validation.emailInvalid')).max(255),
+    siret: z.string().trim().max(20).optional(),
+    message: z.string().trim().max(500).optional(),
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -77,10 +79,10 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
       await api.post("/establishments/request", form);
 
       setSuccess(true);
-      toast.success("Demande envoyée avec succès !");
+      toast.success(t('form.success.toast'));
     } catch (error: any) {
       console.error("Error submitting request:", error);
-      toast.error("Erreur lors de l'envoi: " + (error.response?.data?.message || error.message));
+      toast.error(t('form.error.toast') + (error.response?.data?.message || error.message));
     } finally {
       setLoading(false);
     }
@@ -114,12 +116,12 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
             <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-4">
               <CheckCircle2 className="w-8 h-8 text-primary" />
             </div>
-            <h3 className="text-xl font-serif font-bold mb-2">Demande envoyée !</h3>
+            <h3 className="text-xl font-serif font-bold mb-2">{t('form.success.title')}</h3>
             <p className="text-muted-foreground mb-6">
-              Votre demande de certification ADNGUARD a été enregistrée. Notre équipe vous contactera sous 48h.
+              {t('form.success.desc')}
             </p>
             <Button variant="hero" onClick={handleClose}>
-              Fermer
+              {t('common.close')}
             </Button>
           </div>
         ) : (
@@ -129,24 +131,24 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                 <div className="inline-flex items-center justify-center w-10 h-10 bg-primary/10 rounded-full">
                   <Shield className="w-5 h-5 text-primary" />
                 </div>
-                <DialogTitle className="text-xl">Demander le Label ADNGUARD</DialogTitle>
+                <DialogTitle className="text-xl">{t('form.title')}</DialogTitle>
               </div>
             </DialogHeader>
             <form onSubmit={handleSubmit} className="space-y-4 mt-4">
               <div className="grid grid-cols-2 gap-4">
                 <div className="col-span-2 space-y-2">
-                  <Label>Nom de l'établissement *</Label>
+                  <Label>{t('form.fields.name')} *</Label>
                   <Input
                     value={form.name}
                     onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    placeholder="Ex: Boucherie Dupont"
+                    placeholder={t('form.placeholders.name')}
                     className={errors.name ? "border-destructive" : ""}
                   />
                   {errors.name && <p className="text-xs text-destructive">{errors.name}</p>}
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Type d'établissement *</Label>
+                  <Label>{t('form.fields.type')} *</Label>
                   <Select
                     value={form.type}
                     onValueChange={(v: EstablishmentType) => setForm({ ...form, type: v })}
@@ -155,17 +157,17 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="boucherie">Boucherie</SelectItem>
-                      <SelectItem value="restaurant">Restaurant</SelectItem>
-                      <SelectItem value="usine">Usine agroalimentaire</SelectItem>
-                      <SelectItem value="traiteur">Traiteur</SelectItem>
-                      <SelectItem value="autre">Autre</SelectItem>
+                      <SelectItem value="boucherie">{t('types.boucherie')}</SelectItem>
+                      <SelectItem value="restaurant">{t('types.restaurant')}</SelectItem>
+                      <SelectItem value="usine">{t('types.usine')}</SelectItem>
+                      <SelectItem value="traiteur">{t('types.traiteur')}</SelectItem>
+                      <SelectItem value="autre">{t('types.autre')}</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label>SIRET</Label>
+                  <Label>{t('form.fields.siret')}</Label>
                   <Input
                     value={form.siret}
                     onChange={(e) => setForm({ ...form, siret: e.target.value })}
@@ -174,29 +176,29 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                 </div>
 
                 <div className="col-span-2 space-y-2">
-                  <Label>Adresse *</Label>
+                  <Label>{t('form.fields.address')} *</Label>
                   <Input
                     value={form.address}
                     onChange={(e) => setForm({ ...form, address: e.target.value })}
-                    placeholder="12 rue de la République"
+                    placeholder={t('form.placeholders.address')}
                     className={errors.address ? "border-destructive" : ""}
                   />
                   {errors.address && <p className="text-xs text-destructive">{errors.address}</p>}
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Ville *</Label>
+                  <Label>{t('form.fields.city')} *</Label>
                   <Input
                     value={form.city}
                     onChange={(e) => setForm({ ...form, city: e.target.value })}
-                    placeholder="Paris"
+                    placeholder={t('form.placeholders.city')}
                     className={errors.city ? "border-destructive" : ""}
                   />
                   {errors.city && <p className="text-xs text-destructive">{errors.city}</p>}
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Code postal</Label>
+                  <Label>{t('form.fields.postalCode')}</Label>
                   <Input
                     value={form.postal_code}
                     onChange={(e) => setForm({ ...form, postal_code: e.target.value })}
@@ -205,7 +207,7 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Téléphone</Label>
+                  <Label>{t('form.fields.phone')}</Label>
                   <Input
                     value={form.phone}
                     onChange={(e) => setForm({ ...form, phone: e.target.value })}
@@ -214,7 +216,7 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                 </div>
 
                 <div className="space-y-2">
-                  <Label>Email *</Label>
+                  <Label>{t('form.fields.email')} *</Label>
                   <Input
                     type="email"
                     value={form.email}
@@ -226,11 +228,11 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                 </div>
 
                 <div className="col-span-2 space-y-2">
-                  <Label>Message (optionnel)</Label>
+                  <Label>{t('form.fields.message')}</Label>
                   <Textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Informations complémentaires sur votre établissement..."
+                    placeholder={t('form.placeholders.message')}
                     rows={3}
                   />
                 </div>
@@ -240,15 +242,15 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                 {loading ? (
                   <>
                     <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                    Envoi en cours...
+                    {t('form.loading')}
                   </>
                 ) : (
-                  "Envoyer ma demande"
+                  t('form.submit')
                 )}
               </Button>
 
               <p className="text-xs text-muted-foreground text-center">
-                En soumettant ce formulaire, vous acceptez d'être contacté par notre équipe pour la suite de votre demande.
+                {t('form.disclaimer')}
               </p>
             </form>
           </>

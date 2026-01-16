@@ -1,6 +1,9 @@
 import { Shield, Mail, Phone, MapPin } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer id="contact" className="bg-secondary text-secondary-foreground py-16">
       <div className="container mx-auto px-4">
@@ -14,8 +17,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-secondary-foreground/70 mb-6 max-w-sm">
-              Contrôle ADN indépendant pour certifier l'authenticité de la viande.
-              Protégez vos clients, renforcez votre réputation.
+              {t('footer.desc')}
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-secondary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
@@ -38,26 +40,26 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-4">Navigation</h4>
+            <h4 className="font-serif font-bold text-lg mb-4">{t('footer.navigation')}</h4>
             <ul className="space-y-3">
               <li>
                 <a href="#offres" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  Nos Offres
+                  {t('nav.offers')}
                 </a>
               </li>
               <li>
                 <a href="#process" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  Comment ça marche
+                  {t('nav.process')}
                 </a>
               </li>
               <li>
                 <a href="#valeurs" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  Nos Valeurs
+                  {t('nav.values')}
                 </a>
               </li>
               <li>
                 <a href="#" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  Vérifier un QR Code
+                  {t('footer.checkQr')}
                 </a>
               </li>
             </ul>
@@ -65,7 +67,7 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-4">Contact</h4>
+            <h4 className="font-serif font-bold text-lg mb-4">{t('nav.contact')}</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-secondary-foreground/70">
                 <Mail className="w-5 h-5 text-primary" />
@@ -86,17 +88,17 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-secondary-foreground/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-secondary-foreground/50 text-sm">
-            © 2026 ADNGUARD. Tous droits réservés.
+            {t('footer.rights')}
           </p>
           <div className="flex gap-6 text-sm">
             <a href="#" className="text-secondary-foreground/50 hover:text-primary transition-colors">
-              Mentions légales
+              {t('footer.legal')}
             </a>
             <a href="#" className="text-secondary-foreground/50 hover:text-primary transition-colors">
-              CGU
+              {t('footer.terms')}
             </a>
             <a href="#" className="text-secondary-foreground/50 hover:text-primary transition-colors">
-              Politique de confidentialité
+              {t('footer.privacy')}
             </a>
           </div>
         </div>

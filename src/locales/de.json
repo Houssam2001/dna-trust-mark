@@ -1,0 +1,92 @@
+{
+    "nav": {
+        "offers": "Unsere Angebote",
+        "process": "Wie es Funktioniert",
+        "values": "Unsere Werte",
+        "contact": "Kontakt",
+        "dashboard": "Dashboard",
+        "login": "Anmelden",
+        "getLabel": "Label Erhalten"
+    },
+    "hero": {
+        "title": "Zertifizieren Sie die Echtheit Ihres Fleisches durch",
+        "highlight": "DNA-Analyse",
+        "description": "Das erste unabhängige Label, das die Herkunft und Reinheit Ihrer Fleischprodukte wissenschaftlich garantiert. Stärken Sie das Vertrauen Ihrer Kunden.",
+        "cta": "ADNGUARD Label Erhalten",
+        "trust": "Bereits über 500 zertifizierte Betriebe"
+    },
+    "offers": {
+        "title": "Unsere Zertifizierungsangebote",
+        "subtitle": "Lösungen für jeden Betrieb",
+        "standard": {
+            "title": "Standard Zertifizierung",
+            "price": "299€",
+            "period": "/Jahr"
+        },
+        "premium": {
+            "title": "Premium Zertifizierung",
+            "price": "599€",
+            "period": "/Jahr"
+        },
+        "features": {
+            "dnaControl": "Unangekündigte DNA-Kontrollen",
+            "sticker": "Offizieller Fensteraufkleber",
+            "certificate": "Echtheitszertifikat",
+            "platform": "Plattformzugang",
+            "support": "Prioritäts-Support",
+            "marketing": "Komplettes Marketing-Kit"
+        },
+        "cta": "Dieses Angebot wählen"
+    },
+    "process": {
+        "title": "Unser Zertifizierungsprozess",
+        "subtitle": "Ein einfacher, strenger und transparenter Ansatz",
+        "step1": {
+            "title": "Registrierung",
+            "desc": "Erstellen Sie Ihr Konto und wählen Sie Ihren Abonnementplan mit wenigen Klicks."
+        },
+        "step2": {
+            "title": "Probenahme",
+            "desc": "Ein unabhängiger Experte führt unangekündigte Probenahmen in Ihrem Betrieb durch."
+        },
+        "step3": {
+            "title": "DNA-Analyse",
+            "desc": "Proben werden in unserem ISO 17025 akkreditierten Partnerlabor analysiert."
+        },
+        "step4": {
+            "title": "Zertifizierung",
+            "desc": "Bei Konformität: offizieller Bericht, ADNGUARD-Logo und QR-Code, der von Kunden überprüfbar ist."
+        }
+    },
+    "values": {
+        "title": "Warum ADNGUARD Wählen?",
+        "transparency": {
+            "title": "Totale Transparenz",
+            "desc": "Analyseergebnisse für Ihre Kunden über QR-Code zugänglich."
+        },
+        "scientific": {
+            "title": "Wissenschaftliche Strenge",
+            "desc": "Modernste PCR-Technologie garantiert 99,9% Zuverlässigkeit."
+        },
+        "independent": {
+            "title": "Unabhängigkeit",
+            "desc": "Probenahme und Analyse durch vertrauenswürdige Dritte."
+        }
+    },
+    "footer": {
+        "desc": "Unabhängige DNA-Kontrolle zur Zertifizierung der Fleischechtheit. Schützen Sie Ihre Kunden, stärken Sie Ihren Ruf.",
+        "navigation": "Navigation",
+        "checkQr": "QR-Code Überprüfen",
+        "contact": "Kontakt",
+        "rights": "© 2026 ADNGUARD. Alle Rechte vorbehalten.",
+        "legal": "Impressum",
+        "terms": "AGB",
+        "privacy": "Datenschutz"
+    },
+    "cta_section": {
+        "title": "Bereit, Ihren Betrieb zu zertifizieren?",
+        "desc": "Treten Sie dem ADNGUARD-Netzwerk bei und beweisen Sie Ihr Qualitätsengagement.",
+        "button": "Jetzt Starten",
+        "note": "Erster Test zum Vorzugspreis • Kostenloses Logo bei Konformität"
+    }
+}
