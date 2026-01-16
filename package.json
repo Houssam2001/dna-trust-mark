@@ -8,7 +8,7 @@
     "dev:all": "concurrently \"npm run dev\" \"cd backend && npm run dev\"",
     "start": "cd backend && npm start",
     "build:all": "npm run build && cd backend && npm run build",
-    "build": "vite build",
+    "build": "vite build --config ./vite.config.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
