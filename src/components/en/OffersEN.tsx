@@ -1,21 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { Check, X, Star, Building2, FlaskConical } from "lucide-react";
+import { Check, Star, Building2, FlaskConical } from "lucide-react";
 
 const offers = [
   {
     id: 1,
     name: "Single Test",
     subtitle: "Discovery",
-    price: "Starting from",
-    priceValue: "€149",
-    description: "A first check to verify your compliance",
+    description: "A first check to verify your compliance. Perfect for trying our service.",
     icon: FlaskConical,
     features: [
-      { text: "1 unannounced sample", included: true },
-      { text: "1 complete DNA analysis", included: true },
-      { text: "Official PDF report", included: true },
-      { text: "ADNGUARD logo", included: false },
-      { text: "QR code verification", included: false },
+      "1 unannounced sample",
+      "1 complete DNA analysis",
+      "Official PDF report",
     ],
     cta: "Order a test",
     popular: false,
@@ -24,16 +20,13 @@ const offers = [
     id: 2,
     name: "Subscription",
     subtitle: "ADNGUARD",
-    price: "Starting from",
-    priceValue: "€79/month",
-    description: "The complete solution to display your commitment",
+    description: "The complete solution to display your commitment to quality.",
     icon: Star,
     features: [
-      { text: "2 to 4 DNA checks / year", included: true },
-      { text: "Official reports", included: true },
-      { text: "Official ADNGUARD logo", included: true },
-      { text: "Customer QR code", included: true },
-      { text: "Online verification page", included: true },
+      "2 to 4 DNA checks / year",
+      "Official reports",
+      "ADNGUARD logo & QR code",
+      "Online verification page",
     ],
     cta: "Subscribe now",
     popular: true,
@@ -42,16 +35,13 @@ const offers = [
     id: 3,
     name: "Premium",
     subtitle: "Industry",
-    price: "On quote",
-    priceValue: "Custom",
-    description: "For factories and large volumes",
+    description: "For factories and large volumes. Custom solutions.",
     icon: Building2,
     features: [
-      { text: "Unlimited regular checks", included: true },
-      { text: "Batch traceability", included: true },
-      { text: "Authority export reports", included: true },
-      { text: "Dedicated support", included: true },
-      { text: "Official certification", included: true },
+      "Unlimited regular checks",
+      "Batch traceability",
+      "Dedicated support",
+      "Official certification",
     ],
     cta: "Request a quote",
     popular: false,
@@ -60,16 +50,12 @@ const offers = [
 
 const OffersEN = () => {
   return (
-    <section id="offers" className="py-24 bg-background">
+    <section id="offers" className="py-24 bg-muted/30">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Our Offers
-          </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">
-            Choose your level of{' '}
-            <span className="text-gradient-hero">certification</span>
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+            Choose your certification level
           </h2>
           <p className="text-muted-foreground text-lg">
             Solutions adapted to each establishment, from the neighborhood butcher shop to the processing factory.
@@ -77,64 +63,52 @@ const OffersEN = () => {
         </div>
 
         {/* Offers Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
           {offers.map((offer) => (
             <div
               key={offer.id}
-              className={`relative bg-gradient-card rounded-2xl border transition-all duration-300 hover:shadow-card-hover ${
+              className={`relative bg-card rounded-2xl border transition-all duration-300 hover:shadow-lg ${
                 offer.popular
-                  ? 'border-primary shadow-card-hover lg:scale-105 z-10'
-                  : 'border-border shadow-card hover:border-primary/50'
+                  ? 'border-primary shadow-md'
+                  : 'border-border hover:border-primary/50'
               }`}
             >
               {/* Popular Badge */}
               {offer.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <div className="bg-gradient-accent text-accent-foreground text-xs sm:text-sm font-bold px-3 sm:px-4 py-1 rounded-full shadow-lg whitespace-nowrap">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                  <div className="bg-primary text-primary-foreground text-xs font-bold px-4 py-1 rounded-full">
                     Most Popular
                   </div>
                 </div>
               )}
 
-              <div className="p-6 sm:p-8">
+              <div className="p-6">
                 {/* Icon */}
-                <div className={`inline-flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-xl mb-4 sm:mb-6 ${
-                  offer.popular ? 'bg-primary text-primary-foreground' : 'bg-muted text-primary'
+                <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 ${
+                  offer.popular ? 'bg-primary text-primary-foreground' : 'bg-primary/10 text-primary'
                 }`}>
-                  <offer.icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                  <offer.icon className="w-6 h-6" />
                 </div>
 
                 {/* Title */}
-                <h3 className="text-xl sm:text-2xl font-serif font-bold text-foreground mb-1">
+                <h3 className="text-xl font-bold text-foreground mb-1">
                   {offer.name}
                 </h3>
-                <p className="text-primary font-semibold text-sm mb-3 sm:mb-4">
+                <p className="text-primary font-medium text-sm mb-3">
                   {offer.subtitle}
                 </p>
 
-                {/* Price */}
-                <div className="mb-3 sm:mb-4">
-                  <span className="text-muted-foreground text-sm">{offer.price}</span>
-                  <div className="text-2xl sm:text-3xl font-bold text-foreground">{offer.priceValue}</div>
-                </div>
-
                 {/* Description */}
-                <p className="text-muted-foreground text-sm mb-4 sm:mb-6">
+                <p className="text-muted-foreground text-sm mb-6">
                   {offer.description}
                 </p>
 
                 {/* Features */}
-                <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
+                <ul className="space-y-3 mb-6">
                   {offer.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center gap-2 sm:gap-3">
-                      {feature.included ? (
-                        <Check className="w-4 h-4 sm:w-5 sm:h-5 text-primary flex-shrink-0" />
-                      ) : (
-                        <X className="w-4 h-4 sm:w-5 sm:h-5 text-muted-foreground/50 flex-shrink-0" />
-                      )}
-                      <span className={`text-sm sm:text-base ${feature.included ? 'text-foreground' : 'text-muted-foreground/50'}`}>
-                        {feature.text}
-                      </span>
+                    <li key={idx} className="flex items-center gap-3">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-sm text-foreground">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -142,8 +116,7 @@ const OffersEN = () => {
                 {/* CTA */}
                 <Button
                   variant={offer.popular ? "hero" : "outline"}
-                  size="lg"
-                  className="w-full text-sm sm:text-base"
+                  className="w-full"
                 >
                   {offer.cta}
                 </Button>
