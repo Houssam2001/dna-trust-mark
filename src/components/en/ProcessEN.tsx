@@ -29,16 +29,12 @@ const steps = [
 
 const ProcessEN = () => {
   return (
-    <section id="process" className="py-24 bg-muted/50">
+    <section id="process" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
-            Our Process
-          </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">
-            How does{' '}
-            <span className="text-gradient-hero">ADNGUARD</span> work?
+          <h2 className="text-3xl md:text-4xl font-serif font-bold text-foreground mb-4">
+            How does ADNGUARD work?
           </h2>
           <p className="text-muted-foreground text-lg">
             A rigorous and transparent process to guarantee the authenticity of your products.
@@ -49,34 +45,29 @@ const ProcessEN = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {steps.map((step, index) => (
-              <div key={index} className="relative group">
+              <div key={index} className="relative group text-center">
                 {/* Connection Line */}
                 {index < steps.length - 1 && (
-                  <div className="hidden lg:block absolute top-12 left-full w-full h-0.5 bg-border z-0">
-                    <div className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
+                  <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-px bg-border" />
                 )}
 
-                {/* Card */}
-                <div className="relative z-10 bg-card rounded-2xl p-6 shadow-card hover:shadow-card-hover transition-all duration-300 border border-border hover:border-primary/30 group-hover:-translate-y-1">
-                  {/* Number Badge */}
-                  <div className="absolute -top-3 -right-3 w-10 h-10 bg-gradient-hero rounded-full flex items-center justify-center text-primary-foreground font-bold text-sm shadow-lg">
-                    {step.number}
-                  </div>
-
-                  {/* Icon */}
-                  <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                    <step.icon className="w-8 h-8 text-primary" />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-serif font-bold text-foreground mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    {step.description}
-                  </p>
+                {/* Icon */}
+                <div className="relative z-10 w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-4 mx-auto group-hover:bg-primary/20 transition-colors">
+                  <step.icon className="w-8 h-8 text-primary" />
                 </div>
+
+                {/* Number */}
+                <div className="text-xs font-bold text-primary mb-2">
+                  STEP {step.number}
+                </div>
+
+                {/* Content */}
+                <h3 className="text-lg font-bold text-foreground mb-2">
+                  {step.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
@@ -84,9 +75,9 @@ const ProcessEN = () => {
 
         {/* Bottom Note */}
         <div className="mt-16 text-center">
-          <div className="inline-flex items-center gap-3 bg-primary/10 border border-primary/20 rounded-full px-6 py-3">
-            <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-            <span className="text-foreground font-medium">
+          <div className="inline-flex items-center gap-3 bg-primary/5 border border-primary/10 rounded-full px-6 py-3">
+            <div className="w-2 h-2 bg-primary rounded-full" />
+            <span className="text-foreground font-medium text-sm">
               Zero negotiation on results — That's what makes our reputation
             </span>
           </div>
