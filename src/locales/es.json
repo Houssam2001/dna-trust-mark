@@ -1,92 +1,250 @@
 {
     "nav": {
-        "offers": "Nuestras Ofertas",
-        "process": "Cómo Funciona",
-        "values": "Nuestros Valores",
-        "contact": "Contacto",
+        "home": "Inicio",
+        "about": "Nosotros",
+        "howItWorks": "Cómo Funciona",
+        "whatYouGain": "Beneficios",
+        "verification": "Verificación",
         "dashboard": "Panel",
-        "login": "Iniciar Sesión",
-        "getLabel": "Obtener Etiqueta"
+        "login": "Entrar",
+        "register": "Registro",
+        "getLabel": "Obtener Sello",
+        "offers": "Ofertas",
+        "process": "Proceso",
+        "values": "Valores",
+        "contact": "Contacto",
+        "language": "Idioma"
     },
     "hero": {
-        "title": "Certifica la Autenticidad de tu Carne con",
-        "highlight": "Análisis de ADN",
-        "description": "La primera etiqueta independiente que garantiza científicamente el origen y la pureza de tus productos cárnicos. Construye confianza con tus clientes.",
-        "cta": "Obtener Etiqueta ADNGUARD",
-        "trust": "Más de 500 establecimientos ya certificados"
+        "highlight": "Servicio de Pruebas Independiente",
+        "title": "Análisis de ADN de Carne para Total Transparencia",
+        "description": "ADNGUARD certifica la autenticidad de la carne mediante análisis de ADN independiente. Proteja a sus clientes, fortalezca su reputación.",
+        "cta": "Certificarse",
+        "discover": "Descubrir Ahora"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Transparencia Total",
+            "desc": "Verificamos que los establecimientos no sirvan productos porcinos."
+        },
+        "labTesting": {
+            "title": "Pruebas de Laboratorio",
+            "desc": "Muestras aleatorias son analizadas para detectar contaminación."
+        },
+        "surpriseInspections": {
+            "title": "Inspecciones Sorpresa",
+            "desc": "Nuestros equipos realizan visitas inesperadas para asegurar el cumplimiento."
+        },
+        "certification": {
+            "title": "Certificación y Renovación",
+            "desc": "Los establecimientos deben renovar su certificación para mantener el estatus."
+        }
+    },
+    "stats": {
+        "analyzes": "Análisis",
+        "businesses": "Empresas",
+        "experience": "Años de experiencia",
+        "centers": "Centros"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "QUIÉNES SOMOS",
+            "title_prefix": "Restaurando la confianza a través de la",
+            "title_highlight": "Ciencia",
+            "desc1": "En los últimos años, numerosos escándalos alimentarios han sacudido la confianza del consumidor.",
+            "desc2": "ADNGUARD nació con una misión simple: usar el poder del análisis de ADN para proporcionar pruebas irrefutables.",
+            "cta": "LEER MÁS"
+        },
+        "target": {
+            "subtitle": "PARA QUIÉN ES",
+            "title": "ADNGUARD?",
+            "restaurants": "Restaurantes y Comida Rápida",
+            "butchers": "Carnicerías y Charcuterías",
+            "processing": "Plantas de Procesamiento",
+            "wholesalers": "Mayoristas y Distribuidores",
+            "brands": "Marcas de Alimentos",
+            "cta": "DESCUBRIR BENEFICIOS"
+        },
+        "services": {
+            "subtitle": "Qué Hacemos",
+            "title": "Nuestros Servicios Principales",
+            "cta": "VER MÁS",
+            "verification": {
+                "title": "Verificación y Pruebas",
+                "desc": "Nuestro laboratorio analiza muestras aleatorias para detectar fraudes."
+            },
+            "inspection": {
+                "title": "Inspecciones Sorpresa",
+                "desc": "Nuestros agentes realizan visitas sin previo aviso para recolectar muestras."
+            },
+            "lookup": {
+                "title": "Verificación en Línea",
+                "desc": "Verifique la autenticidad de cualquier establecimiento al instante."
+            }
+        },
+        "video": {
+            "subtitle": "PRUEBA DE ADN DE CARNE",
+            "title": "Procedimiento rápido y seguro de recolección de muestras",
+            "btn_info": "Más Info",
+            "btn_view": "Ver Promoción"
+        }
+    },
+    "gain": {
+        "title": "Lo Que Ganas",
+        "subtitle": "Beneficios tangibles para tu negocio y clientes.",
+        "trust": {
+            "title": "Confianza Inquebrantable",
+            "desc": "Al mostrar la etiqueta ADNGUARD, demuestras que no tienes nada que ocultar."
+        },
+        "protection": {
+            "title": "Protección de Marca",
+            "desc": "Protege tu reputación de escándalos en la cadena de suministro."
+        },
+        "growth": {
+            "title": "Crecimiento Empresarial",
+            "desc": "Los consumidores están dispuestos a pagar más por calidad certificada."
+        }
+    },
+    "about": {
+        "heroTitle": "Verificación Independiente para un Mercado Transparente",
+        "heroDesc": "Restauramos la confianza entre consumidores y profesionales.",
+        "missionTitle": "Reconstruyendo Confianza",
+        "missionDesc1": "En un mercado globalizado, el fraude alimentario es común.",
+        "missionDesc2": "ADNGUARD utiliza el ADN como única certeza absoluta.",
+        "networkTitle": "Redes Internacionales de Laboratorios",
+        "networkDesc": "Trabajamos con laboratorios acreditados ISO 17025."
+    },
+    "contact": {
+        "title": "Contáctanos",
+        "subtitle": "¿Tienes preguntas? Estamos aquí para ayudar.",
+        "email": "Correo",
+        "phone": "Teléfono",
+        "address": "Dirección"
+    },
+    "footer": {
+        "checkQr": "Verificar Establecimiento",
+        "desc": "Control de ADN independiente para la autenticidad de la carne.",
+        "rights": "© 2026 ADNGUARD. Todos los derechos reservados."
     },
     "offers": {
-        "title": "Nuestras Ofertas de Certificación",
-        "subtitle": "Soluciones adaptadas a cada establecimiento",
+        "title": "Elija su nivel de certificación",
+        "subtitle": "Soluciones adaptadas a cada establecimiento.",
         "standard": {
-            "title": "Certificación Estándar",
-            "price": "299€",
-            "period": "/año"
+            "title": "Suscripción",
+            "price": "79€",
+            "period": "/mes"
         },
         "premium": {
-            "title": "Certificación Premium",
-            "price": "599€",
-            "period": "/año"
+            "title": "Premium"
         },
+        "cta": "Pedir prueba",
         "features": {
-            "dnaControl": "Controles de ADN sorpresa",
-            "sticker": "Adhesivo oficial",
-            "certificate": "Certificado de Autenticidad",
-            "platform": "Acceso a plataforma",
-            "support": "Soporte prioritario",
-            "marketing": "Kit de marketing completo"
-        },
-        "cta": "Elegir esta oferta"
+            "dnaControl": "Inspecciones no anunciadas",
+            "certificate": "Informes oficiales",
+            "sticker": "Pegatina ADNGUARD",
+            "platform": "Código QR cliente",
+            "support": "Soporte dedicado"
+        }
     },
     "process": {
-        "title": "Nuestro Proceso de Certificación",
-        "subtitle": "Un enfoque simple, riguroso y transparente",
+        "title": "Cómo Funciona",
+        "subtitle": "Proceso riguroso y transparente.",
         "step1": {
-            "title": "Registro",
-            "desc": "Crea tu cuenta y elige tu plan de suscripción en pocos clics."
+            "title": "Muestreo Sorpresa",
+            "desc": "Un agente visita sin aviso para tomar una muestra sellada."
         },
         "step2": {
-            "title": "Muestreo",
-            "desc": "Un experto independiente toma muestras sorpresa en tu establecimiento."
+            "title": "Análisis de Lab",
+            "desc": "La muestra se envía a un laboratorio certificado."
         },
         "step3": {
-            "title": "Análisis de ADN",
-            "desc": "Las muestras se analizan en nuestro laboratorio asociado acreditado ISO 17025."
+            "title": "Análisis Multiespecie",
+            "desc": "Detección de cerdo, gato, perro y otras especies."
         },
         "step4": {
-            "title": "Certificación",
-            "desc": "Si cumple: informe oficial, logo ADNGUARD y código QR verificable por tus clientes."
+            "title": "Certificación y QR",
+            "desc": "Si cumple: informe oficial, logo y código QR."
         }
     },
     "values": {
-        "title": "¿Por qué elegir ADNGUARD?",
+        "title": "Nuestras Fortalezas",
         "transparency": {
-            "title": "Transparencia Total",
-            "desc": "Resultados de análisis accesibles vía código QR para tus clientes."
+            "title": "Inesperado",
+            "desc": "Controles sin previo aviso para resultados auténticos."
         },
         "scientific": {
-            "title": "Rigor Científico",
-            "desc": "Tecnología PCR de vanguardia que garantiza 99.9% de fiabilidad."
+            "title": "Prueba Científica",
+            "desc": "El análisis de ADN es la única prueba irrefutable."
         },
         "independent": {
             "title": "Independencia",
-            "desc": "Muestreo y análisis realizados por terceros de confianza."
+            "desc": "ADNGUARD es totalmente independiente."
         }
     },
-    "footer": {
-        "desc": "Control de ADN independiente para certificar la autenticidad de la carne. Protege a tus clientes, fortalece tu reputación.",
-        "navigation": "Navegación",
-        "checkQr": "Verificar código QR",
-        "contact": "Contacto",
-        "rights": "© 2026 ADNGUARD. Todos los derechos reservados.",
-        "legal": "Aviso Legal",
-        "terms": "Términos de Servicio",
-        "privacy": "Política de Privacidad"
-    },
     "cta_section": {
-        "title": "¿Listo para certificar tu establecimiento?",
-        "desc": "Únete a la red ADNGUARD y demuestra tu compromiso con la calidad.",
-        "button": "Empezar Ahora",
-        "note": "Primer test a precio preferencial • Logo gratis si cumple"
+        "title": "¿Listo para mostrar calidad?",
+        "desc": "Únase a los establecimientos transparentes.",
+        "note": "Primera prueba a tarifa preferencial"
+    },
+    "form": {
+        "title": "Solicitar Sello",
+        "loading": "Enviando...",
+        "submit": "Enviar Solicitud",
+        "disclaimer": "Al enviar, acepta ser contactado.",
+        "fields": {
+            "name": "Nombre",
+            "type": "Tipo",
+            "siret": "SIRET/ID",
+            "address": "Dirección",
+            "city": "Ciudad",
+            "postalCode": "C.P.",
+            "phone": "Teléfono",
+            "email": "Email",
+            "message": "Mensaje"
+        },
+        "placeholders": {
+            "name": "Ej: Carnicería Pepe",
+            "address": "Calle Mayor 12",
+            "city": "Madrid",
+            "message": "Información adicional..."
+        },
+        "validation": {
+            "nameMin": "Mínimo 2 caracteres",
+            "addressRequired": "Dirección requerida",
+            "cityRequired": "Ciudad requerida",
+            "emailInvalid": "Email inválido"
+        },
+        "success": {
+            "title": "¡Enviado!",
+            "desc": "Solicitud registrada.",
+            "toast": "Enviado con éxito"
+        },
+        "error": {
+            "toast": "Error al enviar: "
+        }
+    },
+    "common": {
+        "close": "Cerrar"
+    },
+    "types": {
+        "boucherie": "Carnicería",
+        "restaurant": "Restaurante",
+        "usine": "Fábrica",
+        "traiteur": "Catering",
+        "autre": "Otro"
+    },
+    "verification": {
+        "backHome": "Volver",
+        "title": "Verificación",
+        "subtitle": "Ingrese el código ADNGUARD para verificar.",
+        "searchLabel": "Código ADNGUARD",
+        "searchBtn": "Verificar",
+        "status": {
+            "compliant": "Certificado",
+            "nonCompliant": "No Conforme",
+            "suspended": "Suspendido",
+            "pending": "Pendiente",
+            "n_existe_plus": "No existe"
+        }
     }
 }

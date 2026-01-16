@@ -1,5 +1,7 @@
+
 import { Button } from "@/components/ui/button";
-import { Shield, ArrowRight } from "lucide-react";
+import { PlayCircle } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 interface CTAProps {
@@ -10,51 +12,31 @@ const CTA = ({ onOpenRequest }: CTAProps) => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-24 bg-gradient-hero relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-10 left-20 w-64 h-64 bg-primary-foreground rounded-full blur-3xl" />
-        <div className="absolute bottom-10 right-20 w-80 h-80 bg-accent rounded-full blur-3xl" />
-      </div>
+    <section className="relative py-32 overflow-hidden bg-secondary">
+      {/* Background Image with Tint */}
+      <div
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-overlay"
+        style={{ backgroundImage: 'url("/assets/meat-test.jpg")' }}
+      ></div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Icon */}
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-primary-foreground/10 backdrop-blur-sm rounded-full mb-8 border border-primary-foreground/20 animate-pulse-glow">
-            <Shield className="w-10 h-10 text-primary-foreground" />
-          </div>
+      <div className="container mx-auto px-4 relative z-10 text-center">
+        <h4 className="text-white font-bold tracking-widest text-sm mb-4 uppercase">{t('home.video.subtitle')}</h4>
+        <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8 max-w-3xl mx-auto leading-tight">
+          {t('home.video.title')}
+        </h2>
 
-          {/* Heading */}
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-primary-foreground mb-6">
-            {t('cta_section.title').split(' ').slice(0, 3).join(' ')}<br />
-            <span className="relative inline-block">
-              {t('cta_section.title').split(' ').slice(3).join(' ')}
-              <div className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-accent rounded-full" />
-            </span>
-          </h2>
-
-          {/* Subtitle */}
-          <p className="text-lg md:text-xl text-primary-foreground/80 mb-10 max-w-2xl mx-auto">
-            {t('cta_section.desc')}
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="accent" size="xl" onClick={onOpenRequest}>
-              {t('hero.cta')}
-              <ArrowRight className="w-5 h-5 ml-2" />
+        <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+          <Link to="/contact">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-8 text-lg uppercase font-bold tracking-wider rounded-none">
+              {t('home.video.btn_info')}
             </Button>
-            <a href="#contact">
-              <Button variant="outlineHero" size="xl">
-                {t('nav.contact')}
-              </Button>
-            </a>
-          </div>
-
-          {/* Trust Text */}
-          <p className="mt-8 text-primary-foreground/60 text-sm">
-            {t('cta_section.note')}
-          </p>
+          </Link>
+          <button className="flex items-center gap-3 text-white group hover:text-primary transition-colors">
+            <PlayCircle className="w-16 h-16" strokeWidth={1} />
+            <span className="font-bold uppercase tracking-wider text-sm text-left">
+              {t('home.video.btn_view')}
+            </span>
+          </button>
         </div>
       </div>
     </section>

@@ -67,19 +67,22 @@ const Footer = () => {
 
           {/* Contact */}
           <div>
-            <h4 className="font-serif font-bold text-lg mb-4">{t('nav.contact')}</h4>
+            <h4 className="font-serif font-bold text-lg mb-4">{t('contact.title')}</h4>
             <ul className="space-y-3">
+              <li className="font-bold text-secondary-foreground/90">
+                {t('contact.company')}
+              </li>
               <li className="flex items-center gap-3 text-secondary-foreground/70">
                 <Mail className="w-5 h-5 text-primary" />
-                contact@adnguard.fr
+                {t('contact.details.email')}
               </li>
               <li className="flex items-center gap-3 text-secondary-foreground/70">
                 <Phone className="w-5 h-5 text-primary" />
-                01 23 45 67 89
+                {t('contact.details.phone')}
               </li>
               <li className="flex items-start gap-3 text-secondary-foreground/70">
                 <MapPin className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                Paris, France
+                {t('contact.details.address')}
               </li>
             </ul>
           </div>

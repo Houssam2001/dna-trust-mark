@@ -1,92 +1,251 @@
 {
     "nav": {
-        "offers": "Nasze Oferty",
-        "process": "Jak To Działa",
-        "values": "Nasze Wartości",
-        "contact": "Kontakt",
+        "home": "Strona główna",
+        "about": "O nas",
+        "howItWorks": "Jak to działa",
+        "whatYouGain": "Co zyskujesz",
+        "verification": "Weryfikacja",
         "dashboard": "Panel",
-        "login": "Zaloguj się",
-        "getLabel": "Uzyskaj Certyfikat"
+        "login": "Zaloguj",
+        "register": "Zarejestruj",
+        "getLabel": "Certyfikacja",
+        "offers": "Oferta",
+        "process": "Proces",
+        "values": "Wartości",
+        "contact": "Kontakt",
+        "language": "Język"
     },
     "hero": {
-        "title": "Potwierdź Autentyczność Mięsa Poprzez",
-        "highlight": "Analizę DNA",
-        "description": "Pierwszy niezależny certyfikat gwarantujący naukowe pochodzenie i czystość Twoich produktów mięsnych. Zbuduj zaufanie klientów.",
-        "cta": "Uzyskaj Znak ADNGUARD",
-        "trust": "Ponad 500 certyfikowanych placówek"
+        "highlight": "Niezależne testy",
+        "title": "Analiza DNA Mięsa dla Pełnej Przejrzystości",
+        "description": "ADNGUARD certyfikuje autentyczność mięsa poprzez niezależną analizę DNA. Chroń klientów, buduj reputację.",
+        "cta": "Uzyskaj Certyfikat",
+        "discover": "Odkryj Teraz"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Pełna Przejrzystość",
+            "desc": "Weryfikujemy, że zakłady nie serwują produktów wieprzowych."
+        },
+        "labTesting": {
+            "title": "Badania Laboratoryjne",
+            "desc": "Losowe próbki mięsa są badane pod kątem zanieczyszczenia wieprzowiną."
+        },
+        "surpriseInspections": {
+            "title": "Niezapowiedziane Inspekcje",
+            "desc": "Nasze zespoły przeprowadzają niespodziewane wizyty, aby zapewnić zgodność."
+        },
+        "certification": {
+            "title": "Certyfikacja i Odnowienie",
+            "desc": "Zakłady muszą odnawiać certyfikację, aby utrzymać status."
+        }
+    },
+    "stats": {
+        "analyzes": "Analiz",
+        "businesses": "Firm",
+        "experience": "Lata doświadczenia",
+        "centers": "Ośrodków"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "KIM JESTEŚMY",
+            "title_prefix": "Przywracanie zaufania przez",
+            "title_highlight": "Naukę",
+            "desc1": "W ostatnich latach liczne skandale żywieniowe zachwiały zaufaniem konsumentów. Autentyczność produktów mięsnych nie jest już gwarantowana przez proste etykietowanie.",
+            "desc2": "ADNGUARD powstał z prostej misji: wykorzystać moc analizy DNA, aby dostarczyć niezbity dowód na skład produktu i chronić zarówno konsumentów, jak i uczciwych profesjonalistów.",
+            "cta": "CZYTAJ WIĘCEJ"
+        },
+        "target": {
+            "subtitle": "DLA KOGO JEST",
+            "title": "ADNGUARD?",
+            "restaurants": "Restauracje i Fast Food",
+            "butchers": "Rzeźnicy i Delikatesy",
+            "processing": "Zakłady Przetwórstwa",
+            "wholesalers": "Hurtownicy i Dystrybutorzy",
+            "brands": "Marki Spożywcze",
+            "cta": "ODKRYJ KORZYŚCI"
+        },
+        "services": {
+            "subtitle": "Co robimy",
+            "title": "Nasze Główne Usługi",
+            "cta": "WIĘCEJ",
+            "verification": {
+                "title": "Weryfikacja i Testy Lab.",
+                "desc": "Nasze laboratorium analizuje próbki, aby wykryć ślady oszustwa lub zanieczyszczenia."
+            },
+            "inspection": {
+                "title": "Niezapowiedziane Inspekcje",
+                "desc": "Nasi agenci przeprowadzają wizyty bez zapowiedzi, aby pobrać próbki bezpośrednio z zapasów."
+            },
+            "lookup": {
+                "title": "Weryfikacja Online",
+                "desc": "Sprawdź autentyczność każdego zakładu natychmiast za pomocą naszego unikalnego systemu ID."
+            }
+        },
+        "video": {
+            "subtitle": "TESTY DNA MIĘSA",
+            "title": "Szybka i bezpieczna procedura pobierania próbek do analizy",
+            "btn_info": "Więcej info",
+            "btn_view": "Zobacz Promocję"
+        }
+    },
+    "gain": {
+        "title": "Co Zyskujesz",
+        "subtitle": "Namacalne korzyści dla Twojej firmy i klientów.",
+        "trust": {
+            "title": "Niezachwiane Zaufanie",
+            "desc": "Wyświetlając etykietę ADNGUARD, udowadniasz klientom, że nie masz nic do ukrycia."
+        },
+        "protection": {
+            "title": "Ochrona Marki",
+            "desc": "Chroń swoją reputację przed skandalami w łańcuchu dostaw."
+        },
+        "growth": {
+            "title": "Rozwój Biznesu",
+            "desc": "Konsumenci są gotowi zapłacić więcej za certyfikowaną jakość."
+        }
+    },
+    "about": {
+        "heroTitle": "Niezależna Weryfikacja dla Przejrzystego Rynku",
+        "heroDesc": "Przywracamy zaufanie między konsumentami a profesjonalistami poprzez niepodważalne dowody naukowe.",
+        "missionTitle": "Odbudowa Zaufania",
+        "missionDesc1": "Na zglobalizowanym rynku oszustwa żywnościowe stają się coraz częstsze.",
+        "missionDesc2": "ADNGUARD powstał z prostego spostrzeżenia: tylko DNA daje absolutną pewność co do tego, co jemy.",
+        "networkTitle": "Międzynarodowe Sieci Laboratoriów",
+        "networkDesc": "Współpracujemy z siecią laboratoriów akredytowanych ISO 17025 w całej Europie."
+    },
+    "contact": {
+        "title": "Skontaktuj się",
+        "subtitle": "Masz pytania? Jesteśmy tutaj, aby pomóc.",
+        "email": "Email",
+        "phone": "Telefon",
+        "address": "Adres"
+    },
+    "footer": {
+        "checkQr": "Sprawdź zakład",
+        "desc": "Niezależna kontrola DNA w celu certyfikacji autentyczności mięsa.",
+        "navigation": "Nawigacja",
+        "rights": "© 2026 ADNGUARD. Wszelkie prawa zastrzeżone."
     },
     "offers": {
-        "title": "Nasze Oferty Certyfikacji",
-        "subtitle": "Rozwiązania dostosowane do każdej placówki",
+        "title": "Wybierz poziom certyfikacji",
+        "subtitle": "Rozwiązania dostosowane do każdego zakładu.",
         "standard": {
-            "title": "Certyfikacja Standard",
-            "price": "299€",
-            "period": "/rok"
+            "title": "Subskrypcja",
+            "price": "79€",
+            "period": "/miesiąc"
         },
         "premium": {
-            "title": "Certyfikacja Premium",
-            "price": "599€",
-            "period": "/rok"
+            "title": "Premium"
         },
+        "cta": "Zamów test",
         "features": {
-            "dnaControl": "Niezapowiedziane kontrole DNA",
-            "sticker": "Oficjalna naklejka",
-            "certificate": "Certyfikat Autentyczności",
-            "platform": "Dostęp do platformy",
-            "support": "Priorytetowe wsparcie",
-            "marketing": "Pełny zestaw marketingowy"
-        },
-        "cta": "Wybierz tę ofertę"
+            "dnaControl": "Niezapowiedziane inspekcje",
+            "certificate": "Oficjalne raporty",
+            "sticker": "Naklejka ADNGUARD",
+            "platform": "Kod QR dla klienta",
+            "support": "Wsparcie"
+        }
     },
     "process": {
-        "title": "Nasz Proces Certyfikacji",
-        "subtitle": "Proste, rygorystyczne i przejrzyste podejście",
+        "title": "Jak to działa",
+        "subtitle": "Rygorystyczny i przejrzysty proces.",
         "step1": {
-            "title": "Rejestracja",
-            "desc": "Załóż konto i wybierz plan subskrypcji w kilka kliknięć."
+            "title": "Pobranie Próbki",
+            "desc": "Agent ADNGUARD odwiedza bez zapowiedzi, aby pobrać zapieczętowaną próbkę."
         },
         "step2": {
-            "title": "Pobieranie Próbek",
-            "desc": "Niezależny ekspert pobiera próbki w Twoim lokalu bez zapowiedzi."
+            "title": "Analiza Lab.",
+            "desc": "Próbka jest wysyłana do certyfikowanego laboratorium partnerskiego."
         },
         "step3": {
-            "title": "Analiza DNA",
-            "desc": "Próbki są analizowane w naszym akredytowanym laboratorium partnerskim ISO 17025."
+            "title": "Analiza Wielogatunkowa",
+            "desc": "Wykrywanie śladów wieprzowiny, kota, psa i innych niezadeklarowanych."
         },
         "step4": {
-            "title": "Certyfikacja",
-            "desc": "Jeśli zgodne: oficjalny raport, logo ADNGUARD i kod QR weryfikowalny przez klientów."
+            "title": "Certyfikacja i QR",
+            "desc": "Jeśli zgodne: oficjalny raport, logo i kod QR."
         }
     },
     "values": {
-        "title": "Dlaczego Wybrać ADNGUARD?",
+        "title": "Nasze Atuty",
         "transparency": {
-            "title": "Pełna Przejrzystość",
-            "desc": "Wyniki analiz dostępne dla klientów poprzez kod QR."
+            "title": "Niezapowiedziane",
+            "desc": "Nasze kontrole są przeprowadzane bez uprzedzenia."
         },
         "scientific": {
-            "title": "Rygor Naukowy",
-            "desc": "Nowoczesna technologia PCR gwarantująca 99.9% wiarygodności."
+            "title": "Dowód Naukowy",
+            "desc": "Analiza DNA to jedyny niepodważalny dowód."
         },
         "independent": {
             "title": "Niezależność",
-            "desc": "Pobieranie próbek i analizy przeprowadzane przez zaufane strony trzecie."
+            "desc": "ADNGUARD jest całkowicie niezależny."
         }
     },
-    "footer": {
-        "desc": "Niezależna kontrola DNA potwierdzająca autentyczność mięsa. Chroń klientów, wzmacniaj reputację.",
-        "navigation": "Nawigacja",
-        "checkQr": "Sprawdź Kod QR",
-        "contact": "Kontakt",
-        "rights": "© 2026 ADNGUARD. Wszelkie prawa zastrzeżone.",
-        "legal": "Nota prawna",
-        "terms": "Regulamin",
-        "privacy": "Polityka prywatności"
-    },
     "cta_section": {
-        "title": "Gotowy na certyfikację?",
-        "desc": "Dołącz do sieci ADNGUARD i udowodnij swoje zaangażowanie w jakość.",
-        "button": "Rozpocznij Teraz",
-        "note": "Pierwszy test w promocyjnej cenie • Logo gratis w przypadku zgodności"
+        "title": "Gotowy, by pokazać jakość?",
+        "desc": "Dołącz do firm, które wybrały przejrzystość.",
+        "note": "Pierwszy test w promocyjnej cenie"
+    },
+    "form": {
+        "title": "Poproś o Certyfikat",
+        "loading": "Wysyłanie...",
+        "submit": "Wyślij prośbę",
+        "disclaimer": "Przesyłając formularz, zgadzasz się na kontakt.",
+        "fields": {
+            "name": "Nazwa firmy",
+            "type": "Typ",
+            "siret": "SIRET/NIP",
+            "address": "Adres",
+            "city": "Miasto",
+            "postalCode": "Kod pocztowy",
+            "phone": "Telefon",
+            "email": "Email",
+            "message": "Wiadomość"
+        },
+        "placeholders": {
+            "name": "Np. Rzeźnik Kowalski",
+            "address": "ul. Prosta 12",
+            "city": "Warszawa",
+            "message": "Dodatkowe informacje..."
+        },
+        "validation": {
+            "nameMin": "Min. 2 znaki",
+            "addressRequired": "Adres wymagany",
+            "cityRequired": "Miasto wymagane",
+            "emailInvalid": "Email nieprawidłowy"
+        },
+        "success": {
+            "title": "Wysłano!",
+            "desc": "Twoja prośba została zarejestrowana.",
+            "toast": "Wysłano pomyślnie!"
+        },
+        "error": {
+            "toast": "Błąd wysyłania: "
+        }
+    },
+    "common": {
+        "close": "Zamknij"
+    },
+    "types": {
+        "boucherie": "Rzeźnik",
+        "restaurant": "Restauracja",
+        "usine": "Przetwórnia",
+        "traiteur": "Catering",
+        "autre": "Inne"
+    },
+    "verification": {
+        "backHome": "Powrót",
+        "title": "Weryfikacja",
+        "subtitle": "Wpisz kod ADNGUARD, aby sprawdzić status.",
+        "searchLabel": "Kod ADNGUARD",
+        "searchBtn": "Weryfikuj",
+        "status": {
+            "compliant": "Certyfikowany",
+            "nonCompliant": "Niezgodny",
+            "suspended": "Zawieszony",
+            "pending": "Oczekujący",
+            "n_existe_plus": "Nie istnieje"
+        }
     }
 }

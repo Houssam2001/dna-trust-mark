@@ -2,6 +2,8 @@
     "nav": {
         "home": "Home",
         "about": "About Us",
+        "howItWorks": "How It Works",
+        "whatYouGain": "What You Gain",
         "verification": "Verification",
         "dashboard": "Dashboard",
         "login": "Login",
@@ -14,10 +16,156 @@
         "language": "Language"
     },
     "hero": {
-        "title": "What you eat is",
-        "highlight": "verified",
+        "highlight": "The Science Behind Smarter Solutions",
+        "title": "Trusted Scientific Solutions for a Smarter, Safer World",
         "description": "ADNGUARD certifies meat authenticity through independent DNA analysis. Protect your customers, strengthen your reputation.",
-        "cta": "Get Certified"
+        "cta": "Get Certified",
+        "discover": "Explore Our Service"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Full Transparency",
+            "desc": "We verify that establishments do not serve pork-based products."
+        },
+        "labTesting": {
+            "title": "Laboratory Testing",
+            "desc": "Random meat samples are tested for pork contamination."
+        },
+        "surpriseInspections": {
+            "title": "Surprise Inspections",
+            "desc": "Our teams conduct unexpected visits to ensure compliance."
+        },
+        "certification": {
+            "title": "Certification & Renewal",
+            "desc": "Establishments must renew certification to maintain status."
+        }
+    },
+    "stats": {
+        "analyzes": "Analyzes",
+        "businesses": "Businesses",
+        "experience": "Years Exp.",
+        "centers": "Centers",
+        "scientists": "Scientists",
+        "testsDone": "Tests Done",
+        "awards": "Awards"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "WHO WE ARE",
+            "title_prefix": "Restoring Trust Through",
+            "title_highlight": "Science",
+            "desc1": "In recent years, numerous food scandals have shaken consumer confidence. The authenticity of meat products is no longer guaranteed by simple labeling.",
+            "desc2": "ADNGUARD was born from a simple mission: to use the power of DNA analysis to provide irrefutable proof of product composition and protect both consumers and honest professionals.",
+            "cta": "READ MORE"
+        },
+        "target": {
+            "subtitle": "WHO IS",
+            "title": "ADNGUARD For?",
+            "restaurants": "Restaurants & Fast Food Chains",
+            "butchers": "Butcher Shops & Delis",
+            "processing": "Food Processing Plants",
+            "wholesalers": "Wholesalers & Distributors",
+            "brands": "Food Brands & Private Labels",
+            "cta": "DISCOVER BENEFITS"
+        },
+        "services": {
+            "subtitle": "What We Do",
+            "title": "Our Main Services",
+            "cta": "READ MORE",
+            "verification": {
+                "title": "Verification & Laboratory Testing",
+                "desc": "Meat samples are taken randomly and tested in certified laboratories to ensure compliance. If any trace of pork is found, the certification is immediately revoked."
+            },
+            "inspection": {
+                "title": "Surprise Inspections",
+                "desc": "Our teams perform unannounced inspections to verify that no pork-based products are present in the establishment. Refusal to allow an inspection can lead to loss of certification."
+            },
+            "lookup": {
+                "title": "Online Certification Lookup",
+                "desc": "Customers can easily check the current certification status of any establishment through an online system. Each business is assigned a unique certification ID."
+            }
+        },
+        "video": {
+            "subtitle": "MEAT DNA TESTING",
+            "title": "Fast And Safe Sample Collection Procedure For Analysis",
+            "btn_info": "Get More Info",
+            "btn_view": "View Promotion"
+        },
+        "whyChooseUs": {
+            "subtitle": "Why Choose Us",
+            "title": "WE PROVIDE HIGH QUALITY\nAND ACCURACY",
+            "desc": "Our laboratory is committed to delivering precise and reliable data to support your critical decisions. We combine scientific expertise with cutting-edge technology.",
+            "features": {
+                "environmental": {
+                    "title": "Environmental Testing",
+                    "desc": "Comprehensive analysis of soil and water using advanced DNA sequencing."
+                },
+                "foodSafety": {
+                    "title": "Food Safety",
+                    "desc": "Guaranteed detection of allergens and cross-contamination in food products."
+                },
+                "technology": {
+                    "title": "Advanced Technology",
+                    "desc": "Using state-of-the-art NGS (Next Generation Sequencing) for rapid results."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Guaranteed\nAccuracy"
+            }
+        },
+        "automation": {
+            "subtitle": "Automation",
+            "title": "THE HIGHEST STANDARDS\nOF AUTOMATION",
+            "desc": "We have automated 90% of our analytical processes to reduce human error and increase throughput. From sample reception to result delivery, our workflow is seamless.",
+            "didYouKnow": {
+                "title": "Did you know?",
+                "desc": "Automated DNA extraction typically yields 30% higher purity than manual methods, ensuring more reliable downstream analysis."
+            }
+        }
+    },
+    "gain": {
+        "title": "What You Gain",
+        "subtitle": "Tangible benefits for your business and your customers.",
+        "trust": {
+            "title": "Unshakable Trust",
+            "desc": "By displaying the ADNGUARD label, you prove to your customers that you have nothing to hide. You stand out from competitors who simply make claims without proof."
+        },
+        "protection": {
+            "title": "Brand Protection",
+            "desc": "Protect your reputation from supply chain scandals. Our regular controls ensure that your suppliers remain compliant."
+        },
+        "growth": {
+            "title": "Business Growth",
+            "desc": "Consumers are willing to pay more for certified quality. Increase your customer loyalty and attract new demanding clients."
+        }
+    },
+    "about": {
+        "heroTitle": "Independent Verification for a Transparent Market",
+        "heroDesc": "We restore trust between consumers and food professionals through irrefutable scientific proof.",
+        "missionTitle": "Rebuilding Trust",
+        "missionDesc1": "In a globalized market, food fraud is becoming increasingly common. Consumers have lost trust in labels and claims.",
+        "missionDesc2": "ADNGUARD was born from a simple observation: only DNA provides absolute certainty about what we eat. We act as an independent third party to verify the authenticity of meat products.",
+        "networkTitle": "International Laboratory Networks",
+        "networkDesc": "We work with a network of ISO 17025 accredited laboratories across Europe to guarantee the highest reliability of results."
+    },
+    "contact": {
+        "title": "Contact Us",
+        "subtitle": "Have questions? We are here to help you.",
+        "company": "HV GLOBAL CONSULTING",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address",
+        "hours": {
+            "title": "Opening Hours",
+            "week": "Mon-Fri: 9:30 AM – 6 PM",
+            "weekend": "Saturday - Sunday: Holiday"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, France",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        }
     },
     "footer": {
         "checkQr": "Verify an Establishment",
@@ -49,7 +197,7 @@
         }
     },
     "process": {
-        "title": "How ADNGUARD Works?",
+        "title": "How It Works",
         "subtitle": "A rigorous and transparent process to guarantee product authenticity.",
         "step1": {
             "title": "Unannounced Sampling",
@@ -126,7 +274,8 @@
         }
     },
     "common": {
-        "close": "Close"
+        "close": "Close",
+        "readMore": "Read More"
     },
     "types": {
         "boucherie": "Butcher Shop",

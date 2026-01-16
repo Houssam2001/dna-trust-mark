@@ -1,4 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+@font-face {
+  font-family: 'Neue Einstellung';
+  src: url('/Hanken Design Co - Neue Einstellung Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Einstellung';
+  src: url('/Hanken Design Co - Neue Einstellung Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Einstellung';
+  src: url('/Hanken Design Co - Neue Einstellung Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Neue Einstellung';
+  src: url('/Hanken Design Co - Neue Einstellung Semi Bold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
 
 @tailwind base;
 @tailwind components;
@@ -101,14 +127,10 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Inter', sans-serif;
+
   }
 
-  h1,
-  h2,
-  h3 {
-    font-family: 'Playfair Display', serif;
-  }
+
 }
 
 @layer utilities {

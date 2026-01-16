@@ -1,5 +1,14 @@
 {
     "nav": {
+        "home": "Accueil",
+        "about": "Nous connaître",
+        "howItWorks": "Comment ça marche",
+        "whatYouGain": "Vos avantages",
+        "verification": "Vérification",
+        "dashboard": "Tableau de Bord",
+        "login": "Connexion",
+        "register": "Inscription",
+        "getLabel": "Obtenir le Label",
         "offers": "Nos Offres",
         "process": "Comment ça marche",
         "values": "Nos Valeurs",
@@ -7,10 +16,156 @@
         "language": "Langue"
     },
     "hero": {
-        "title": "Ce que vous mangez est",
-        "highlight": "vérifié",
+        "highlight": "Un service de contrôle indépendant",
+        "title": "Analyse ADN de la viande pour une transparence totale",
         "description": "ADNGUARD certifie l'authenticité de la viande grâce à des analyses ADN indépendantes. Protégez vos clients, renforcez votre réputation.",
-        "cta": "Demander le Label"
+        "cta": "Obtenir le Label",
+        "discover": "Découvrir"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Transparence Totale",
+            "desc": "Nous vérifions que les établissements ne servent pas de produits à base de porc."
+        },
+        "labTesting": {
+            "title": "Analyses en Laboratoire",
+            "desc": "Des échantillons de viande aléatoires sont testés pour détecter la contamination par le porc."
+        },
+        "surpriseInspections": {
+            "title": "Inspections Surprises",
+            "desc": "Nos équipes effectuent des visites inattendues pour assurer la conformité."
+        },
+        "certification": {
+            "title": "Certification & Renouvellement",
+            "desc": "Les établissements doivent renouveler leur certification pour conserver leur statut."
+        }
+    },
+    "stats": {
+        "analyzes": "Analyses",
+        "businesses": "Entreprises",
+        "experience": "Années d'Exp.",
+        "centers": "Centres",
+        "scientists": "Scientifiques",
+        "testsDone": "Tests Effectués",
+        "awards": "Prix"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "QUI SOMMES-NOUS",
+            "title_prefix": "Restaurer la confiance par la",
+            "title_highlight": "Science",
+            "desc1": "Ces dernières années, de nombreux scandales alimentaires ont ébranlé la confiance des consommateurs. L'authenticité des produits carnés n'est plus garantie par un simple étiquetage.",
+            "desc2": "ADNGUARD est né d'une mission simple : utiliser la puissance de l'analyse ADN pour fournir une preuve irréfutable de la composition des produits et protéger à la fois les consommateurs et les professionnels honnêtes.",
+            "cta": "LIRE PLUS"
+        },
+        "target": {
+            "subtitle": "QUI EST",
+            "title": "ADNGUARD Pour ?",
+            "restaurants": "Restaurants & Chaînes de Restauration",
+            "butchers": "Boucheries & Traiteurs",
+            "processing": "Usines de Transformation",
+            "wholesalers": "Grossistes & Distributeurs",
+            "brands": "Marques Alimentaires",
+            "cta": "DÉCOUVRIR LES AVANTAGES"
+        },
+        "services": {
+            "subtitle": "Ce que nous faisons",
+            "title": "Nos Services Principaux",
+            "cta": "LIRE PLUS",
+            "verification": {
+                "title": "Vérification & Tests en Laboratoire",
+                "desc": "Notre laboratoire indépendant analyse des échantillons aléatoires pour détecter toute trace de fraude ou de contamination."
+            },
+            "inspection": {
+                "title": "Inspections Surprises",
+                "desc": "Nos agents effectuent des visites inopinées pour prélever des échantillons directement dans votre stock."
+            },
+            "lookup": {
+                "title": "Vérification de Certification en Ligne",
+                "desc": "Vérifiez l'authenticité de tout établissement instantanément grâce à notre système d'ID de certification unique."
+            }
+        },
+        "video": {
+            "subtitle": "TEST ADN VIANDE",
+            "title": "Procédure de prélèvement rapide et sûre pour analyse",
+            "btn_info": "Plus d'infos",
+            "btn_view": "Voir la Promo"
+        },
+        "whyChooseUs": {
+            "subtitle": "Pourquoi nous choisir",
+            "title": "NOUS FOURNISSONS HAUTE QUALITÉ\nET PRÉCISION",
+            "desc": "Notre laboratoire s'engage à fournir des données précises et fiables pour soutenir vos décisions critiques. Nous combinons expertise scientifique et technologie de pointe.",
+            "features": {
+                "environmental": {
+                    "title": "Tests Environnementaux",
+                    "desc": "Analyse complète du sol et de l'eau utilisant le séquençage ADN avancé."
+                },
+                "foodSafety": {
+                    "title": "Sécurité Alimentaire",
+                    "desc": "Détection garantie des allergènes et de la contamination croisée dans les produits alimentaires."
+                },
+                "technology": {
+                    "title": "Technologie Avancée",
+                    "desc": "Utilisation du NGS (Séquençage de Nouvelle Génération) de pointe pour des résultats rapides."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Précision\nGaranti"
+            }
+        },
+        "automation": {
+            "subtitle": "Automatisation",
+            "title": "LES PLUS HAUTS STANDARDS\nD'AUTOMATISATION",
+            "desc": "Nous avons automatisé 90% de nos processus analytiques pour réduire l'erreur humaine et augmenter le débit. De la réception de l'échantillon à la livraison des résultats, notre flux de travail est fluide.",
+            "didYouKnow": {
+                "title": "Le saviez-vous ?",
+                "desc": "L'extraction automatisée d'ADN donne généralement une pureté 30% supérieure aux méthodes manuelles, assurant une analyse en aval plus fiable."
+            }
+        }
+    },
+    "gain": {
+        "title": "Vos Avantages",
+        "subtitle": "Des bénéfices tangibles pour votre entreprise et vos clients.",
+        "trust": {
+            "title": "Confiance Inébranlable",
+            "desc": "En affichant le label ADNGUARD, vous prouvez à vos clients que vous n'avez rien à cacher. Vous vous démarquez des concurrents qui font de simples promesses."
+        },
+        "protection": {
+            "title": "Protection de la Marque",
+            "desc": "Protégez votre réputation des scandales de la chaîne d'approvisionnement. Nos contrôles réguliers garantissent que vos fournisseurs restent conformes."
+        },
+        "growth": {
+            "title": "Croissance Commerciale",
+            "desc": "Les consommateurs sont prêts à payer plus pour une qualité certifiée. Fidélisez vos clients et attirez une nouvelle clientèle exigeante."
+        }
+    },
+    "about": {
+        "heroTitle": "Vérification Indépendante pour un Marché Transparent",
+        "heroDesc": "Nous restaurons la confiance entre les consommateurs et les professionnels de l'alimentation grâce à des preuves scientifiques irréfutables.",
+        "missionTitle": "Reconstruire la Confiance",
+        "missionDesc1": "Dans un marché mondialisé, la fraude alimentaire devient de plus en plus courante. Les consommateurs ont perdu confiance dans les étiquettes et les allégations.",
+        "missionDesc2": "ADNGUARD est né d'un constat simple : seul l'ADN apporte une certitude absolue sur ce que nous mangeons. Nous agissons en tant que tiers de confiance indépendant pour vérifier l'authenticité des produits carnés.",
+        "networkTitle": "Réseaux Internationaux de Laboratoires",
+        "networkDesc": "Nous travaillons avec un réseau de laboratoires accrédités ISO 17025 à travers l'Europe pour garantir la plus haute fiabilité des résultats."
+    },
+    "contact": {
+        "title": "Contactez-nous",
+        "subtitle": "Des questions ? Nous sommes là pour vous aider.",
+        "company": "HV GLOBAL CONSULTING",
+        "email": "Email",
+        "phone": "Téléphone",
+        "address": "Adresse",
+        "hours": {
+            "title": "Horaires d'ouverture",
+            "week": "Lun-Ven : 9h30 – 18h00",
+            "weekend": "Samedi - Dimanche : Fermé"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, France",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        }
     },
     "footer": {
         "checkQr": "Vérifier un établissement",
@@ -42,7 +197,7 @@
         }
     },
     "process": {
-        "title": "Comment fonctionne ADNGUARD ?",
+        "title": "Comment ça marche",
         "subtitle": "Un processus rigoureux et transparent pour garantir l'authenticité de vos produits.",
         "step1": {
             "title": "Prélèvement Inopiné",
@@ -119,7 +274,8 @@
         }
     },
     "common": {
-        "close": "Fermer"
+        "close": "Fermer",
+        "readMore": "Lire plus"
     },
     "types": {
         "boucherie": "Boucherie",
