@@ -10,8 +10,8 @@ datasource db {
 // Enums matched from Supabase
 enum AppRole {
   admin
-  //agent
-  //owner
+  agent
+  owner
 }
 
 enum CertificationStatus {

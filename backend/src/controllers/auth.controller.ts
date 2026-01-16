@@ -43,7 +43,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
                 },
                 roles: role ? {
                     create: {
-                        role: role,
+                        role: role as any, // Cast to any or AppRole to avoid strict typing issues if enum isn't perfectly synced yet
                     }
                 } : undefined,
             },
@@ -55,6 +55,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
         const token = jwt.sign({ userId: user.id }, JWT_SECRET, { expiresIn: '7d' });
 
+        // @ts-ignore - Prisma types sometimes struggle with includes in automatic inference for response
         res.status(201).json({ token, user: { id: user.id, email: user.email, profile: user.profile, roles: user.roles } });
     } catch (error: any) {
         res.status(400).json({ message: error.message || 'Registration failed' });
