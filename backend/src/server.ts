@@ -43,17 +43,23 @@ app.use('/api/controls', controlRoutes);
 app.use('/api/certifications', certificationRoutes);
 app.use('/api/admin', adminRoutes);
 
-// Serve static files from the React app
-const frontendDist = path.join(__dirname, '../../dist');
-app.use(express.static(frontendDist));
+// Serve static files from the React app (ONLY if not in Vercel/Production API mode) 
+// Vercel handles static files via 'public' or build output, so this is mostly for local dev builds
+// const frontendDist = path.join(__dirname, '../../dist');
+// app.use(express.static(frontendDist));
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendDist, 'index.html'));
-});
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(frontendDist, 'index.html'));
+// });
 
-// Start Server
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-});
+// Export the app for Vercel
+export default app;
+
+// Start Server only if running directly
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+}
