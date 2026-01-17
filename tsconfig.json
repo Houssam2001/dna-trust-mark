@@ -23,8 +23,6 @@
     "strictNullChecks": false
   },
   "include": [
-    "api",
-    "backend/src",
     "src"
   ]
 }
