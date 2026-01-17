@@ -12,7 +12,7 @@ const CTA = ({ onOpenRequest }: CTAProps) => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative py-32 overflow-hidden bg-secondary">
+    <section className="relative py-32 overflow-hidden bg-muted-foreground">
       {/* Background Image with Tint */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-20 mix-blend-overlay"

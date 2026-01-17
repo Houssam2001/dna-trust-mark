@@ -36,13 +36,13 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-end">
           <div>
-            <h4 className="text-secondary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.services.subtitle")}</h4>
+            <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.services.subtitle")}</h4>
             <h2 className="text-5xl md:text-6xl font-bold text-gradient-hero leading-none uppercase">
               {t("home.services.title")}
             </h2>
           </div>
           {/* <div className="md:text-right">
-            <Link to="/services" className="inline-block border-b border-primary pb-1 text-primary font-bold tracking-wider hover:text-secondary transition-colors">
+            <Link to="/services" className="inline-block border-b border-primary pb-1 text-primary font-bold tracking-wider hover:text-primary/80 transition-colors">
               {t("hero.discover")}
             </Link>
           </div> */}

@@ -23,11 +23,11 @@ export const FeaturesBar = () => {
         <section className="py-24 bg-white">
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h4 className="text-secondary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.whyChooseUs.subtitle")}</h4>
+                    <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.whyChooseUs.subtitle")}</h4>
                     <h2 className="text-3xl md:text-4xl font-bold text-gradient-hero mb-8 leading-tight whitespace-pre-line">
                         {t("home.whyChooseUs.title")}
                     </h2>
-                    <p className="text-secondary text-lg leading-relaxed mb-8">
+                    <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                         {t("home.whyChooseUs.desc")}
                     </p>
                     <div className="space-y-6">
@@ -38,7 +38,7 @@ export const FeaturesBar = () => {
                                 </div>
                                 <div>
                                     <h4 className="font-bold text-primary text-xl mb-2">{feature.title}</h4>
-                                    <p className="text-secondary">{feature.desc}</p>
+                                    <p className="text-muted-foreground">{feature.desc}</p>
                                 </div>
                             </div>
                         ))}

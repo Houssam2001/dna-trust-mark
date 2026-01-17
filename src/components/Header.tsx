@@ -47,6 +47,7 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
 
   const isHome = location.pathname === "/";
   const isTransparent = isHome && !isScrolled && !isMenuOpen;
+  const logoSrc = isTransparent ? "/icon white.png" : "/image.png";
 
   // Dynamic text colors based on scroll state and page
   const textColorClass = !isTransparent ? "text-muted-foreground hover:text-primary" : "text-white/90 hover:text-white";
@@ -64,7 +65,7 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <img src="/image.png" alt="Logo ADNGUARD" className="w-8 h-8 md:w-10 md:h-10 object-contain transition-transform group-hover:scale-110" />
+              <img src={logoSrc} alt="Logo ADNGUARD" className="w-12 h-12 md:w-10 md:h-10 object-contain transition-transform group-hover:scale-110" />
             </div>
             <span className={`text-xl md:text-2xl font-serif font-bold ${logoTextClass} transition-colors`}>
               ADN<span className="text-primary">GUARD</span>

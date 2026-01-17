@@ -81,7 +81,7 @@ const StatisticsPanel = () => {
 
       // Header
       doc.setFontSize(20);
-      doc.setTextColor(21, 52, 39); // Dark green
+      doc.setTextColor(23, 37, 84); // Dark blue
       doc.text("ADNGUARD - Rapport Statistiques", 20, 25);
 
       doc.setFontSize(10);

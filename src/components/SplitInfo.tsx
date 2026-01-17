@@ -16,16 +16,16 @@ export const SplitInfo = () => {
                         </div>
                     </div>
                     <div className="order-1 md:order-2">
-                        <h4 className="text-secondary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.automation.subtitle")}</h4>
+                        <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.automation.subtitle")}</h4>
                         <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight whitespace-pre-line">
                             {t("home.automation.title")}
                         </h2>
-                        <p className="text-secondary text-lg leading-relaxed mb-8">
+                        <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                             {t("home.automation.desc")}
                         </p>
                         <div className="bg-white p-8 rounded-[20px] shadow-sm border border-gray-100 mb-8">
                             <h4 className="font-bold text-primary text-xl mb-2">{t("home.automation.didYouKnow.title")}</h4>
-                            <p className="text-secondary">
+                            <p className="text-muted-foreground">
                                 {t("home.automation.didYouKnow.desc")}
                             </p>
                         </div>
