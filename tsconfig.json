@@ -20,9 +20,7 @@
     "skipLibCheck": true,
     "allowJs": true,
     "noUnusedLocals": false,
-    "strictNullChecks": false,
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext"
+    "strictNullChecks": false
   },
   "include": [
     "api",
