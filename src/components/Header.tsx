@@ -52,7 +52,7 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
   // Dynamic text colors based on scroll state and page
   const textColorClass = !isTransparent ? "text-muted-foreground hover:text-primary" : "text-white/90 hover:text-white";
   const logoTextClass = !isTransparent ? "text-foreground" : "text-white";
-  const iconButtonClass = !isTransparent ? "text-foreground hover:text-primary" : "text-white hover:text-white/80";
+  const iconButtonClass = !isTransparent ? "text-foreground hover:text-primary" : "text-white ";
 
   return (
     <header
@@ -108,7 +108,7 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
               </Link>
             ) : (
               <Link to="/login">
-                <Button variant="ghost" size="lg" className={iconButtonClass}><LogIn className="w-4 h-4 mr-2" />{t('nav.login')}</Button>
+                <Button variant="ghost" size="lg" className={iconButtonClass}><LogIn className="w-4  h-4 mr-2" />{t('nav.login')}</Button>
               </Link>
             )}
             <Button variant="hero" size="lg" onClick={onOpenRequest}>{t('nav.getLabel')}</Button>
