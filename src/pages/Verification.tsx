@@ -62,17 +62,17 @@ const Verification = () => {
         return {
           label: t('verification.status.compliant'),
           icon: CheckCircle2,
-          bgClass: "bg-primary/10",
-          textClass: "text-primary",
-          borderClass: "border-primary/30",
+          bgClass: "bg-green-500/10",
+          textClass: "text-green-500",
+          borderClass: "border-green-500/30",
         };
       case "non_conforme":
         return {
           label: t('verification.status.nonCompliant'),
           icon: XCircle,
-          bgClass: "bg-destructive/10",
-          textClass: "text-destructive",
-          borderClass: "border-destructive/30",
+          bgClass: "bg-red-500/10",
+          textClass: "text-red-500",
+          borderClass: "border-red-500/30",
         };
       case "suspendu":
         return {
@@ -274,7 +274,7 @@ const Verification = () => {
                   </div>
 
                   {/* Control History */}
-                  <div className="bg-card rounded-2xl shadow-card border border-border p-6 md:p-8">
+                  {/* <div className="bg-card rounded-2xl shadow-card border border-border p-6 md:p-8">
                     <h3 className="text-xl font-serif font-bold text-foreground mb-6">
                       {t('verification.history.title')}
                     </h3>
@@ -291,10 +291,10 @@ const Verification = () => {
                             className={`relative pl-8 pb-4 ${index < controls.length - 1 ? 'border-l-2 border-border ml-2' : 'ml-2'}`}
                           >
                             {/* Timeline dot */}
-                            <div className={`absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full ${control.result === "conforme" ? "bg-primary" : "bg-destructive"
-                              }`} />
+                  {/* <div className={`absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full ${control.result === "conforme" ? "bg-primary" : "bg-destructive"
+                              }`} /> */}
 
-                            <div className="bg-muted/50 rounded-xl p-4">
+                  {/* <div className="bg-muted/50 rounded-xl p-4">
                               <div className="flex flex-wrap items-center gap-3 mb-2">
                                 <span className="font-semibold text-foreground">
                                   {formatDate(control.controlDate)}
@@ -328,11 +328,11 @@ const Verification = () => {
                                 </p>
                               )}
                             </div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </div>
+                          </div> */}
+                  {/* ))} */}
+                  {/* </div> */}
+                  {/* )} */}
+                  {/* </div> */}
 
                   {/* Trust Footer */}
                   <div className="text-center py-6">
