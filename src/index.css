@@ -41,7 +41,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 40% 11%;
 
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 142.1 76.2% 36.3%;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -58,16 +58,16 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 142.1 76.2% 36.3%;
 
     --radius: 0.75rem;
 
     /* Custom ADNGUARD tokens */
-    --gradient-hero: linear-gradient(135deg, hsl(221.2 83.2% 53.3%) 0%, hsl(210 50% 25%) 50%, hsl(210 60% 20%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(142.1 76.2% 36.3%) 0%, hsl(142.1 70% 20%) 50%, hsl(142.1 70% 15%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(210 30% 98%) 100%);
     --gradient-accent: linear-gradient(135deg, hsl(43 96% 56%) 0%, hsl(38 90% 50%) 100%);
     --shadow-card: 0 4px 24px -4px hsl(210 40% 11% / 0.08);
-    --shadow-card-hover: 0 12px 40px -8px hsl(221.2 83.2% 53.3% / 0.2);
+    --shadow-card-hover: 0 12px 40px -8px hsl(142.1 76.2% 36.3% / 0.2);
     --shadow-hero: 0 25px 50px -12px hsl(210 40% 11% / 0.25);
 
     --sidebar-background: 0 0% 98%;
@@ -90,7 +90,7 @@
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217.2 91.2% 59.8%;
+    --primary: 142.1 70.6% 45.3%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -107,7 +107,7 @@
 
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 217.2 91.2% 59.8%;
+    --ring: 142.1 70.6% 45.3%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
