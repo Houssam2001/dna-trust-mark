@@ -69,19 +69,12 @@ const HowItWorks = () => {
                             </div>
                         </div>
 
-                        {/* Right Column: Images */}
-                        <div className="relative h-[350px] md:h-[500px] w-full">
-                            {/* Background Image (Scientist) */}
-                            <img
-                                src="/assets/how-it-works-background.png"
-                                alt="Laboratory Scientist"
-                                className="absolute top-0 right-0 w-[85%] md:w-3/4 h-auto object-cover rounded-[20px] shadow-lg z-0"
-                            />
-                            {/* Foreground Image (Meat Processing) */}
+                        {/* Right Column: Image */}
+                        <div className="relative h-full w-full flex items-center justify-center">
                             <img
                                 src="/assets/second-image.jpeg"
                                 alt="Meat Processing"
-                                className="absolute top-14 md:top-20 left-0 w-[85%] md:w-3/4 h-auto object-cover rounded-[20px] shadow-2xl z-10 border-4 border-white"
+                                className="w-full md:w-[90%] h-auto object-cover rounded-[20px] shadow-2xl border-4 border-white"
                             />
                         </div>
                     </div>

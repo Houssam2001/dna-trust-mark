@@ -95,7 +95,7 @@
         },
         "whyChooseUs": {
             "subtitle": "Pourquoi nous choisir",
-            "title": "⭐ Pourquoi ADNGUARD ?",
+            "title": "Pourquoi ADNGUARD ?",
             "desc": "",
             "features": {
                 "independent": {
@@ -156,9 +156,9 @@
     },
     "about": {
         "heroTitle": "Le plus grand réseau de services de tests ADN",
-        "heroDesc": "En réponse aux récentes escroqueries — où des bouchers vendaient de la viande de sanglier faussement étiquetée comme halal, et des restaurateurs servaient des kebabs contenant du porc ou de la viande de chat — ADNGUARD a été créé pour protéger les consommateurs et rétablir la confiance dans la chaîne alimentaire.",
+        "heroDesc": "Un acteur de référence des services d’analyses ADN alimentaires.Face aux récentes affaires de fraude alimentaire impliquant la commercialisation de viandes non conformes  notamment la vente de viande de sanglier présentée comme halal ou la présence de porc et d’autres espèces non autorisées dans des produits de restauration  ADNGUARD est né d’une nécessité : protéger les consommateurs et restaurer la confiance au sein de la filière alimentaire.Nous rappelons que, y compris dans des établissements se déclarant ou se revendiquant certifiés halal, des risques subsistent en l’absence de contrôles scientifiques fiables, indépendants et vérifiables.C’est dans ce contexte qu’ADNGUARD a développé un service de tests ADN de haute précision, permettant d’identifier avec exactitude les espèces animales présentes dans les viandes, y compris après cuisson ou transformation.",
         "missionTitle": "Notre mission",
-        "missionDesc1": "Chez ADNGUARD, notre mission est simple : Détecter toute fraude liée à l’origine de la viande. S'assurer de l'absence de porc, de sanglier, de chat, de chien ou de toute autre espèce interdite.",
+        "missionDesc1": "Garantir une transparence totale et fournir une preuve scientifique objective là où la confiance seule ne suffit plus.",
         "missionDesc2": "Nous rappelons à tous que, même si les restaurants et les boucheries certifiés halal peuvent être concernés, tout est possible en l’absence de contrôle fiable.",
         "whoAreWeTitle": "QUI NOUS SOMMES",
         "whoAreWeDesc": "Nous rappelons à tous que, même si les restaurants et les boucheries certifiés halal peuvent être concernés, tout est possible en l’absence de contrôle fiable. C’est pourquoi ADNGUARD propose un service de tests ADN capable d’identifier les espèces animales présentes dans la viande, même après cuisson ou transformation.",
@@ -259,7 +259,7 @@
         }
     },
     "process": {
-        "title": "Comment fonctionne le contrôle ADNGUARD ?",
+        "title": "Notre fonctionnement.",
         "subtitle": "Un processus rigoureux et transparent pour garantir l'authenticité de vos produits.",
         "step1": {
             "title": "Engagement",
