@@ -15,11 +15,11 @@ export const SplitInfo = () => {
                         </div>
                     </div>
                     <div className="order-1 md:order-2">
-                        <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.intro.subtitle")}</h4>
-                        <h2 className="text-4xl md:text-5xl font-bold text-primary mb-6 leading-tight">
+                        <h4 className="text-primary font-bold tracking-widest text-xs md:text-sm mb-3 md:mb-4 uppercase">{t("home.intro.subtitle")}</h4>
+                        <h2 className="text-3xl md:text-5xl font-bold text-primary mb-4 md:mb-6 leading-tight">
                             {t("home.intro.title_prefix")}
                         </h2>
-                        <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                        <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6">
                             {t("home.intro.desc1")}
                         </p>
                         {/* <p className="text-muted-foreground text-lg leading-relaxed mb-8">

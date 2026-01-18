@@ -25,11 +25,11 @@ const VideoSection = () => {
                     </div>
                 </div>
 
-                <h4 className="text-[#EB792D] font-bold tracking-widest text-sm mb-4 uppercase">
+                <h4 className="text-[#EB792D] font-bold tracking-widest text-xs md:text-sm mb-3 md:mb-4 uppercase">
                     {t('home.video.subtitle', 'TEST ADN VIANDE')}
                 </h4>
 
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-8 leading-tight">
+                <h2 className="text-2xl md:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight px-2">
                     {t('home.video.title', "Procédure rapide et sûre de prélèvement d'échantillons à des fins d'analyse.")}
                 </h2>
 
@@ -37,7 +37,7 @@ const VideoSection = () => {
                     <Button
                         variant="default"
                         size="lg"
-                        className="bg-[#EB792D] hover:bg-[#EB792D]/90 text-white font-bold px-8 py-6 text-lg rounded-xl"
+                        className="bg-[#EB792D] hover:bg-[#EB792D]/90 text-white font-bold px-6 py-5 md:px-8 md:py-6 text-base md:text-lg rounded-xl h-auto"
                     >
                         {t('home.video.btn_info', "Obtenir plus d'informations")}
                     </Button>

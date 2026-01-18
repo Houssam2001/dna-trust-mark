@@ -40,35 +40,35 @@ const Hero = ({ onOpenRequest }: HeroProps) => {
           </div>
 
           {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl lg:text-[3.5rem] font-bold text-white leading-[1.1] tracking-tight mb-8">
+          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8">
             {t('hero.title')}
           </h1>
 
           {/* Description */}
-          <p className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed mb-10">
+          <p className="text-base md:text-xl text-white/90 max-w-2xl leading-relaxed mb-8 md:mb-10">
             {t('hero.description')}
           </p>
 
           {/* Buttons */}
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap gap-3 md:gap-4">
             {/* Primary Button - Mint */}
             <Button
               onClick={onOpenRequest}
               variant="hero"
-              className=" text-white font-bold h-14 px-8 text-lg rounded-xl transition-all duration-300 hover:scale-[1.02]"
+              className=" text-white font-bold h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-xl transition-all duration-300 hover:scale-[1.02]"
             >
               {t('hero.cta')}
-              <ArrowUpRight className="ml-2 w-5 h-5" />
+              <ArrowUpRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
             </Button>
 
             {/* Secondary Button - Outline */}
             <Link to="/how-it-works">
               <Button
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white h-14 px-8 text-lg rounded-xl transition-all duration-300 hover:scale-[1.02]"
+                className="bg-transparent border-white text-white hover:bg-white/10 hover:text-white h-12 md:h-14 px-6 md:px-8 text-base md:text-lg rounded-xl transition-all duration-300 hover:scale-[1.02]"
               >
                 {t('hero.discover')}
-                <ArrowUpRight className="ml-2 w-5 h-5" />
+                <ArrowUpRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
               </Button>
             </Link>
           </div>

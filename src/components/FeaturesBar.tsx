@@ -35,22 +35,22 @@ export const FeaturesBar = () => {
         <section className="py-24 bg-white">
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.whyChooseUs.subtitle")}</h4>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gradient-hero mb-8 leading-tight whitespace-pre-line">
+                    <h4 className="text-primary font-bold tracking-widest text-xs md:text-sm mb-3 md:mb-4 uppercase">{t("home.whyChooseUs.subtitle")}</h4>
+                    <h2 className="text-2xl md:text-4xl font-bold text-gradient-hero mb-6 md:mb-8 leading-tight whitespace-pre-line">
                         {t("home.whyChooseUs.title")}
                     </h2>
-                    <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                    <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 md:mb-8">
                         {t("home.whyChooseUs.desc")}
                     </p>
-                    <div className="space-y-6">
+                    <div className="space-y-4 md:space-y-6">
                         {features.map((feature, i) => (
-                            <div key={i} className="flex gap-4">
+                            <div key={i} className="flex gap-3 md:gap-4">
                                 <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary flex items-center justify-center mt-1">
                                     <Check className="w-3 h-3 text-white" />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-primary text-xl mb-2">{feature.title}</h4>
-                                    <p className="text-muted-foreground">{feature.desc}</p>
+                                    <h4 className="font-bold text-primary text-lg md:text-xl mb-1 md:mb-2">{feature.title}</h4>
+                                    <p className="text-muted-foreground text-sm md:text-base">{feature.desc}</p>
                                 </div>
                             </div>
                         ))}
