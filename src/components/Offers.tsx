@@ -13,25 +13,25 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
   const services = [
     {
       title: t("home.services.analysis.title"),
-      desc: t("home.services.analysis.desc"),
+      // desc: t("home.services.analysis.desc"),
       image: "/assets/service-dna-clean.png",
       link: "/how-it-works"
     },
     {
       title: t("home.services.control.title"),
-      desc: t("home.services.control.desc"),
+      // desc: t("home.services.control.desc"),
       image: "/assets/service-meat-clean.png",
       link: "/how-it-works"
     },
     {
       title: t("home.services.report.title"),
-      desc: t("home.services.report.desc"),
+      // desc: t("home.services.report.desc"),
       image: "/assets/service-lab-clean.png",
       link: "/verification"
     },
     {
       title: t("home.services.accreditation.title"),
-      desc: t("home.services.accreditation.desc"),
+      // desc: t("home.services.accreditation.desc"),
       image: "/assets/service-target-clean.png",
       link: "/contact"
     }
@@ -69,9 +69,9 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
                 <h3 className="text-2xl font-bold mb-4">
                   {service.title}
                 </h3>
-                <p className="text-white/80 mb-6 line-clamp-2">
+                {/* <p className="text-white/80 mb-6 line-clamp-2">
                   {service.desc}
-                </p>
+                </p> */}
                 <Link to={service.link} className="inline-flex items-center text-white font-bold transition-opacity hover:opacity-80">
                   {t("common.readMore") || "READ MORE"} <ArrowRight className="w-4 h-4 ml-1" />
                 </Link>
