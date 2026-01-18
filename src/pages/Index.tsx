@@ -8,6 +8,8 @@ import CertificationRequestForm from "@/components/CertificationRequestForm";
 import { FeaturesBar } from "@/components/FeaturesBar";
 import { SplitInfo } from "@/components/SplitInfo";
 import StatsSection from "@/components/StatsSection";
+import TargetAudience from "@/components/TargetAudience";
+import VideoSection from "@/components/VideoSection";
 import { useState } from "react";
 
 const Index = () => {
@@ -19,14 +21,12 @@ const Index = () => {
       <Header onOpenRequest={handleOpenModal} />
       <main>
         <Hero onOpenRequest={handleOpenModal} />
-        {/* Adjusted spacing to correct flow after big Hero */}
-        <div className="-mt-10 md:-mt-20 relative z-10">
-          <ServicesGrid onOpenRequest={handleOpenModal} />
-        </div>
-        <SplitInfo />
-        <StatsSection />
         <FeaturesBar />
-        <CTA onOpenRequest={handleOpenModal} />
+        <SplitInfo />
+        <TargetAudience />
+        <StatsSection />
+        <ServicesGrid onOpenRequest={handleOpenModal} />
+        {/* <CTA onOpenRequest={handleOpenModal} /> */}
       </main>
       <Footer />
       <CertificationRequestForm open={isModalOpen} onOpenChange={setIsModalOpen} />

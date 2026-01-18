@@ -6,16 +6,28 @@ export const FeaturesBar = () => {
 
     const features = [
         {
-            title: t("home.whyChooseUs.features.environmental.title"),
-            desc: t("home.whyChooseUs.features.environmental.desc")
+            title: t("home.whyChooseUs.features.independent.title"),
+            desc: t("home.whyChooseUs.features.independent.desc")
         },
         {
-            title: t("home.whyChooseUs.features.foodSafety.title"),
-            desc: t("home.whyChooseUs.features.foodSafety.desc")
+            title: t("home.whyChooseUs.features.reliable.title"),
+            desc: t("home.whyChooseUs.features.reliable.desc")
         },
         {
-            title: t("home.whyChooseUs.features.technology.title"),
-            desc: t("home.whyChooseUs.features.technology.desc")
+            title: t("home.whyChooseUs.features.controls.title"),
+            desc: t("home.whyChooseUs.features.controls.desc")
+        },
+        {
+            title: t("home.whyChooseUs.features.transparency.title"),
+            desc: t("home.whyChooseUs.features.transparency.desc")
+        },
+        {
+            title: t("home.whyChooseUs.features.protection.title"),
+            desc: t("home.whyChooseUs.features.protection.desc")
+        },
+        {
+            title: t("home.whyChooseUs.features.value.title"),
+            desc: t("home.whyChooseUs.features.value.desc")
         },
     ];
 

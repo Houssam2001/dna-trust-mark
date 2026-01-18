@@ -30,36 +30,36 @@ const WhatYouGain = () => {
             <Header onOpenRequest={() => setIsRequestOpen(true)} />
 
             {/* Hero Section */}
-            <section className="bg-muted py-20 relative overflow-hidden">
+            <section className="bg-white py-20 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-serif font-bold text-foreground mb-6">
+                    <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#0D2B23] mb-6">
                         {t('gain.title', 'What You Gain')}
                     </h1>
-                    <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium">
+                    <div className="w-24 h-1 bg-[#EB792D] mx-auto mb-8"></div>
+                    <p className="text-xl text-[#0D2B23] max-w-2xl mx-auto font-medium">
                         {t('gain.subtitle', 'Tangible benefits for your business and your customers.')}
                     </p>
                 </div>
             </section>
 
-            <section className="py-20 md:py-32">
+            <section className="py-20 md:py-32 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-16 items-start">
                         <div>
                             <img
-                                src="/assets/what-you-gain.png"
-                                alt="Benefits"
-                                className="w-full h-auto shadow-none"
+                                src="/assets/adnguard-sticker.jpg"
+                                alt="ADNGUARD Sticker"
+                                className="w-full max-w-md mx-auto shadow-2xl rounded-[30px] border-8 border-white"
                             />
                         </div>
                         <div className="space-y-10">
                             {benefits.map((benefit, index) => (
                                 <div key={index} className="flex gap-6">
-                                    <div className="flex-shrink-0 w-8 h-8 bg-secondary rounded-none flex items-center justify-center mt-1">
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#EB792D] flex items-center justify-center mt-1">
                                         <Check className="w-5 h-5 text-white" strokeWidth={3} />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-serif font-bold mb-3 text-secondary">{benefit.title}</h3>
+                                        <h3 className="text-2xl font-serif font-bold mb-3 text-[#0D2B23]">{benefit.title}</h3>
                                         <p className="text-muted-foreground text-lg leading-relaxed">
                                             {benefit.desc}
                                         </p>

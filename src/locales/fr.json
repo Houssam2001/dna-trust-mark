@@ -1,7 +1,7 @@
 {
     "nav": {
         "home": "Accueil",
-        "about": "Nous connaître",
+        "about": "À propos de nous",
         "howItWorks": "Comment ça marche",
         "whatYouGain": "Vos avantages",
         "verification": "Vérification",
@@ -17,7 +17,7 @@
     },
     "hero": {
         "highlight": "Un service de contrôle indépendant",
-        "title": "Analyse ADN de la viande pour une transparence totale",
+        "title": "Analyses ADN pour garantir une transparence totale dans les restaurants, boucheries et usines de transformation des viandes",
         "description": "ADNGUARD certifie l'authenticité de la viande grâce à des analyses ADN indépendantes. Protégez vos clients, renforcez votre réputation.",
         "cta": "Obtenir le Label",
         "discover": "Découvrir"
@@ -51,62 +51,76 @@
     },
     "home": {
         "intro": {
-            "subtitle": "QUI SOMMES-NOUS",
-            "title_prefix": "Restaurer la confiance par la",
-            "title_highlight": "Science",
-            "desc1": "Ces dernières années, de nombreux scandales alimentaires ont ébranlé la confiance des consommateurs. L'authenticité des produits carnés n'est plus garantie par un simple étiquetage.",
-            "desc2": "ADNGUARD est né d'une mission simple : utiliser la puissance de l'analyse ADN pour fournir une preuve irréfutable de la composition des produits et protéger à la fois les consommateurs et les professionnels honnêtes.",
+            "subtitle": "À PROPOS DE ADNGUARD",
+            "title_prefix": "Introduction",
+            "desc1": "En réponse aux récents scandales – où des boucheries vendaient de la viande de sanglier faussement étiquetée comme halal et où des restaurateurs servaient des kebabs contenant de la viande de porc ou de chat –, ADNGUARD a été créé pour protéger les consommateurs et rétablir la confiance dans la chaîne alimentaire.",
             "cta": "LIRE PLUS"
         },
         "target": {
             "subtitle": "QUI EST",
             "title": "ADNGUARD Pour ?",
-            "restaurants": "Restaurants & Chaînes de Restauration",
-            "butchers": "Boucheries & Traiteurs",
-            "processing": "Usines de Transformation",
-            "wholesalers": "Grossistes & Distributeurs",
-            "brands": "Marques Alimentaires",
+            "restaurants": "Restaurants",
+            "butchers": "Boucheries",
+            "processing": "Usines de transformation de la viande",
+            "wholesalers": "Grossistes et distributeurs de viande",
+            "brands": "Marques alimentaires souhaitant rassurer leurs clients",
             "cta": "DÉCOUVRIR LES AVANTAGES"
         },
         "services": {
             "subtitle": "Ce que nous faisons",
-            "title": "Nos Services Principaux",
+            "title": "Nos Services",
             "cta": "LIRE PLUS",
-            "verification": {
-                "title": "Vérification & Tests en Laboratoire",
-                "desc": "Notre laboratoire indépendant analyse des échantillons aléatoires pour détecter toute trace de fraude ou de contamination."
+            "analysis": {
+                "title": "Analyses ADN indépendantes",
+                "desc": "Pour identifier les espèces animales présentes (porc, chien, chat), même après cuisson."
             },
-            "inspection": {
-                "title": "Inspections Surprises",
-                "desc": "Nos agents effectuent des visites inopinées pour prélever des échantillons directement dans votre stock."
+            "control": {
+                "title": "Contrôles sans préavis",
+                "desc": "Avec prélèvements sur site."
             },
-            "lookup": {
-                "title": "Vérification de Certification en Ligne",
-                "desc": "Vérifiez l'authenticité de tout établissement instantanément grâce à notre système d'ID de certification unique."
+            "report": {
+                "title": "Rapports fiables",
+                "desc": "Basés sur des preuves scientifiques."
+            },
+            "accreditation": {
+                "title": "Accréditation ADNGUARD",
+                "desc": "Pour informer et rassurer les consommateurs."
             }
         },
         "video": {
             "subtitle": "TEST ADN VIANDE",
-            "title": "Procédure de prélèvement rapide et sûre pour analyse",
-            "btn_info": "Plus d'infos",
+            "title": "Procédure rapide et sûre de prélèvement d'échantillons à des fins d'analyse.",
+            "btn_info": "Obtenir plus d'informations",
             "btn_view": "Voir la Promo"
         },
         "whyChooseUs": {
             "subtitle": "Pourquoi nous choisir",
-            "title": "NOUS FOURNISSONS HAUTE QUALITÉ\nET PRÉCISION",
-            "desc": "Notre laboratoire s'engage à fournir des données précises et fiables pour soutenir vos décisions critiques. Nous combinons expertise scientifique et technologie de pointe.",
+            "title": "⭐ Pourquoi choisir ADNGUARD ?",
+            "desc": "",
             "features": {
-                "environmental": {
-                    "title": "Tests Environnementaux",
-                    "desc": "Analyse complète du sol et de l'eau utilisant le séquençage ADN avancé."
+                "independent": {
+                    "title": "Preuve scientifique indépendante",
+                    "desc": "Analyses ADN réalisées par des laboratoires partenaires, sans conflit d’intérêt."
                 },
-                "foodSafety": {
-                    "title": "Sécurité Alimentaire",
-                    "desc": "Détection garantie des allergènes et de la contamination croisée dans les produits alimentaires."
+                "reliable": {
+                    "title": "Détection fiable des espèces",
+                    "desc": "Identification de l’ADN de porc, de chien ou de chat, même après cuisson ou transformation."
                 },
-                "technology": {
-                    "title": "Technologie Avancée",
-                    "desc": "Utilisation du NGS (Séquençage de Nouvelle Génération) de pointe pour des résultats rapides."
+                "controls": {
+                    "title": "Contrôles sans préavis",
+                    "desc": "Prélèvements effectués sur site dans des conditions réelles."
+                },
+                "transparency": {
+                    "title": "Transparence totale",
+                    "desc": "Rapports clairs, factuels et basés sur des données scientifiques."
+                },
+                "protection": {
+                    "title": "Protection du consommateur",
+                    "desc": "Lutte concrète contre les fraudes et les substitutions d’espèces."
+                },
+                "value": {
+                    "title": "Valorisation des professionnels honnêtes",
+                    "desc": "Un outil crédible pour renforcer la confiance des clients."
                 }
             },
             "badge": {
@@ -141,13 +155,15 @@
         }
     },
     "about": {
-        "heroTitle": "Vérification Indépendante pour un Marché Transparent",
-        "heroDesc": "Nous restaurons la confiance entre les consommateurs et les professionnels de l'alimentation grâce à des preuves scientifiques irréfutables.",
-        "missionTitle": "Reconstruire la Confiance",
-        "missionDesc1": "Dans un marché mondialisé, la fraude alimentaire devient de plus en plus courante. Les consommateurs ont perdu confiance dans les étiquettes et les allégations.",
-        "missionDesc2": "ADNGUARD est né d'un constat simple : seul l'ADN apporte une certitude absolue sur ce que nous mangeons. Nous agissons en tant que tiers de confiance indépendant pour vérifier l'authenticité des produits carnés.",
-        "networkTitle": "Réseaux Internationaux de Laboratoires",
-        "networkDesc": "Nous travaillons avec un réseau de laboratoires accrédités ISO 17025 à travers l'Europe pour garantir la plus haute fiabilité des résultats."
+        "heroTitle": "Le plus grand réseau de services de tests ADN",
+        "heroDesc": "En réponse aux récentes escroqueries — où des bouchers vendaient de la viande de sanglier faussement étiquetée comme halal, et des restaurateurs servaient des kebabs contenant du porc ou de la viande de chat — ADNGUARD a été créé pour protéger les consommateurs et rétablir la confiance dans la chaîne alimentaire.",
+        "missionTitle": "Notre mission",
+        "missionDesc1": "Chez ADNGUARD, notre mission est simple : Détecter toute fraude liée à l’origine de la viande. S'assurer de l'absence de porc, de sanglier, de chat, de chien ou de toute autre espèce interdite.",
+        "missionDesc2": "Nous rappelons à tous que, même si les restaurants et les boucheries certifiés halal peuvent être concernés, tout est possible en l’absence de contrôle fiable.",
+        "whoAreWeTitle": "QUI NOUS SOMMES",
+        "whoAreWeDesc": "Nous rappelons à tous que, même si les restaurants et les boucheries certifiés halal peuvent être concernés, tout est possible en l’absence de contrôle fiable. C’est pourquoi ADNGUARD propose un service de tests ADN capable d’identifier les espèces animales présentes dans la viande, même après cuisson ou transformation.",
+        "networkTitle": "Réseau de services de tests ADN",
+        "networkDesc": "ADNGUARD propose un service de tests ADN capable d’identifier les espèces animales présentes dans la viande, même après cuisson ou transformation, apportant une réponse scientifique, indépendante et fiable."
     },
     "contact": {
         "title": "Contactez-nous",
@@ -158,27 +174,38 @@
         "address": "Adresse",
         "hours": {
             "title": "Horaires d'ouverture",
-            "week": "Lun-Ven : 9h30 – 18h00",
+            "week": "Lundi - Vendredi : 9h00 - 18h00",
             "weekend": "Samedi - Dimanche : Fermé"
         },
         "details": {
             "address": "86 Rue Voltaire, 93100 Montreuil, France",
             "phone": "+33 666820808",
             "email": "adn.hvgc@gmail.com"
+        },
+        "form": {
+            "name": "Nom complet",
+            "email": "Adresse email",
+            "subject": "Sujet",
+            "message": "Message",
+            "send": "Envoyer le message",
+            "success": "Message envoyé avec succès !",
+            "error": "Une erreur est survenue."
         }
     },
     "footer": {
         "checkQr": "Vérifier un établissement",
-        "desc": "Contrôle ADN indépendant pour certifier l'authenticité de la viande. Protégez vos clients, renforcez votre réputation.",
+        "desc": "La référence en matière de certification et de traçabilité par analyses ADN.",
         "navigation": "Navigation",
-        "rights": "© 2026 ADNGUARD. Tous droits réservés.",
+        "rights": "© 2025 – ADNGUARD is a project of HV Global Consulting.",
         "legal": "Mentions légales",
         "terms": "CGU",
-        "privacy": "Politique de confidentialité"
+        "privacy": "Politique de confidentialité",
+        "links": "Liens rapides",
+        "contact": "Contact"
     },
     "offers": {
-        "title": "Choisissez votre niveau de certification",
-        "subtitle": "Des solutions adaptées à chaque établissement, de la boucherie de quartier à l'usine de transformation.",
+        "title": "Nos Offres",
+        "subtitle": "Des solutions adaptées à chaque type d'établissement",
         "standard": {
             "title": "Abonnement",
             "price": "79€",
@@ -194,26 +221,65 @@
             "sticker": "Logo ADNGUARD officiel",
             "platform": "QR code client",
             "support": "Accompagnement dédié"
+        },
+        "starter": {
+            "title": "DÉCOUVERTE",
+            "price": "Sur devis",
+            "features": [
+                "1 prélèvement ADN inopiné",
+                "Analyse multi-espèces",
+                "Rapport confidentiel",
+                "Support par email"
+            ],
+            "cta": "Demander un devis"
+        },
+        "pro": {
+            "title": "CERTIFICATION",
+            "price": "Sur devis",
+            "features": [
+                "4 prélèvements inopinés / an",
+                "Analyse complète + Recherche d'espèces spécifiques",
+                "Certification ADNGUARD si conforme",
+                "Kit marketing (Sticker, QR Code)",
+                "Support dédié"
+            ],
+            "cta": "Demander un devis"
+        },
+        "enterprise": {
+            "title": "RÉSEAU",
+            "price": "Sur devis",
+            "features": [
+                "Programme sur mesure",
+                "Audit complet de la chaîne",
+                "Analyses illimitées",
+                "Formation du personnel",
+                "Accès API résultats"
+            ],
+            "cta": "Contacter l'équipe"
         }
     },
     "process": {
-        "title": "Comment ça marche",
+        "title": "Comment fonctionne le contrôle ADNGUARD ?",
         "subtitle": "Un processus rigoureux et transparent pour garantir l'authenticité de vos produits.",
         "step1": {
-            "title": "Prélèvement Inopiné",
-            "desc": "Un agent ADNGUARD se rend sur place sans prévenir pour effectuer un prélèvement scellé."
+            "title": "Engagement de l’établissement",
+            "desc": "Le professionnel choisit volontairement d’être contrôlé par ADNGUARD dans une logique de transparence."
         },
         "step2": {
-            "title": "Envoi au Laboratoire",
-            "desc": "L'échantillon est envoyé dans un laboratoire partenaire certifié pour analyse ADN."
+            "title": "Contrôles sans avertissement",
+            "desc": "ADNGUARD effectue des visites inopinées et réalise des prélèvements sur place, sans prévenir, afin de refléter la réalité des produits vendus."
         },
         "step3": {
-            "title": "Analyse Multi-Espèces",
-            "desc": "Détection de traces de porc, chat, chien et autres espèces non déclarées."
+            "title": "Analyses ADN fiables",
+            "desc": "Les échantillons sont analysés par des laboratoires indépendants pour identifier les espèces animales réellement présentes, même après cuisson ou transformation."
         },
         "step4": {
-            "title": "Certification & QR Code",
-            "desc": "Si conforme : rapport officiel, logo ADNGUARD et QR code vérifiable par vos clients."
+            "title": "Résultats clairs et confidentiels",
+            "desc": "Les résultats sont consignés dans un rapport précis, garantissant un suivi sérieux et responsable."
+        },
+        "step5": {
+            "title": "Accréditation ADNGUARD",
+            "desc": "Lorsque les contrôles sont conformes, l’établissement reçoit une accréditation ADNGUARD, visible pour informer et rassurer les consommateurs."
         }
     },
     "values": {

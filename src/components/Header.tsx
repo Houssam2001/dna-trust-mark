@@ -12,14 +12,14 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const languages = [
-  { code: "en", label: "EN", name: "English" },
-  { code: "pl", label: "PL", name: "Polski" },
-  { code: "fr", label: "FR", name: "Français" },
-  { code: "ar", label: "AR", name: "العربية" },
-  { code: "es", label: "ES", name: "Español" },
-  { code: "nl", label: "NL", name: "Nederlands" },
-  { code: "de", label: "DE", name: "Deutsch" },
-  { code: "tr", label: "TR", name: "Türkçe" },
+  { code: "en", label: "EN", name: "English", flag: "🇬🇧" },
+  { code: "pl", label: "PL", name: "Polski", flag: "🇵🇱" },
+  { code: "fr", label: "FR", name: "Français", flag: "🇫🇷" },
+  { code: "ar", label: "AR", name: "العربية", flag: "🇸🇦" },
+  { code: "es", label: "ES", name: "Español", flag: "🇪🇸" },
+  { code: "nl", label: "NL", name: "Nederlands", flag: "🇳🇱" },
+  { code: "de", label: "DE", name: "Deutsch", flag: "🇩🇪" },
+  { code: "tr", label: "TR", name: "Türkçe", flag: "🇹🇷" },
 ];
 
 interface HeaderProps {
@@ -54,6 +54,8 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
   const logoTextClass = !isTransparent ? "text-foreground" : "text-white";
   const iconButtonClass = !isTransparent ? "text-foreground hover:text-primary" : "text-white ";
 
+  const currentLang = languages.find(l => l.code === i18n.language) || languages[0];
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${!isTransparent
@@ -65,11 +67,8 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
         <div className="flex items-center justify-between h-16 md:h-20">
           <Link to="/" className="flex items-center gap-2 group">
             <div className="relative">
-              <img src={logoSrc} alt="Logo ADNGUARD" className="w-12 h-12 md:w-10 md:h-10 object-contain transition-transform group-hover:scale-110" />
+              <img src={logoSrc} alt="Logo ADNGUARD" className="w-20 h-20 md:w-24 md:h-24 object-contain transition-transform group-hover:scale-110" />
             </div>
-            <span className={`text-xl md:text-2xl font-serif font-bold ${logoTextClass} transition-colors`}>
-              ADN<span className="text-primary">GUARD</span>
-            </span>
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
@@ -85,8 +84,8 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
             {/* Language Switcher */}
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className={`w-10 h-10 rounded-full ${iconButtonClass}`}>
-                  <Globe className="w-5 h-5" />
+                <Button variant="ghost" size="icon" className={`w-12 h-10 rounded-full ${iconButtonClass} flex items-center justify-center gap-1`}>
+                  <span className="text-xl">{currentLang.flag}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -96,6 +95,7 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
                     onClick={() => changeLanguage(lang.code)}
                     className={i18n.language === lang.code ? "bg-accent" : ""}
                   >
+                    <span className="mr-2 text-lg">{lang.flag}</span>
                     <span className="mr-2 font-bold text-xs">{lang.label}</span> {lang.name}
                   </DropdownMenuItem>
                 ))}
@@ -118,8 +118,8 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
           <div className="flex items-center md:hidden gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon" className={`w-10 h-10 rounded-full ${iconButtonClass}`}>
-                  <Globe className="w-5 h-5" />
+                <Button variant="ghost" size="icon" className={`w-12 h-10 rounded-full ${iconButtonClass} flex items-center justify-center`}>
+                  <span className="text-xl">{currentLang.flag}</span>
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
@@ -129,6 +129,7 @@ const Header = ({ onOpenRequest }: HeaderProps) => {
                     onClick={() => changeLanguage(lang.code)}
                     className={i18n.language === lang.code ? "bg-accent" : ""}
                   >
+                    <span className="mr-2 text-lg">{lang.flag}</span>
                     <span className="mr-2 font-bold text-xs">{lang.label}</span> {lang.name}
                   </DropdownMenuItem>
                 ))}

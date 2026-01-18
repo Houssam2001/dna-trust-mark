@@ -12,19 +12,24 @@ const HowItWorks = () => {
 
     const steps = [
         {
-            icon: Search,
             title: t('process.step1.title'),
             desc: t('process.step1.desc')
         },
         {
-            icon: FlaskConical,
             title: t('process.step2.title'),
             desc: t('process.step2.desc')
         },
         {
-            icon: Shield,
+            title: t('process.step3.title'),
+            desc: t('process.step3.desc')
+        },
+        {
             title: t('process.step4.title'),
             desc: t('process.step4.desc')
+        },
+        {
+            title: t('process.step5.title'),
+            desc: t('process.step5.desc')
         }
     ];
 
@@ -32,35 +37,30 @@ const HowItWorks = () => {
         <div className="min-h-screen flex flex-col pt-20">
             <Header onOpenRequest={() => setIsRequestOpen(true)} />
 
-            <section className="bg-primary/5 py-16">
-                <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-                        {t('process.title', 'How It Works')}
-                    </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        {t('process.subtitle', 'A rigorous and scientific process to guarantee authenticity.')}
-                    </p>
-                </div>
-            </section>
-
-            <section className="py-16 md:py-24">
+            <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="grid md:grid-cols-2 gap-12 items-start">
+                        {/* Left Column: Title and Steps */}
                         <div className="order-2 md:order-1">
-                            <div className="space-y-12">
+                            <h1 className="text-4xl md:text-5xl font-bold text-[#0D2B23] mb-12">
+                                {t('process.title')}
+                            </h1>
+
+                            <div className="space-y-8">
                                 {steps.map((step, index) => (
-                                    <div key={index} className="flex gap-6">
-                                        <div className="flex-shrink-0 w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary">
-                                            <step.icon className="w-6 h-6" />
+                                    <div key={index} className="flex gap-4">
+                                        <div className="flex-shrink-0 mt-1">
+                                            <div className="w-8 h-8 rounded-full bg-[#EB792D] flex items-center justify-center">
+                                                <span className="text-white font-bold text-sm">
+                                                    {index === 0 || index === steps.length - 1 ? '>>' : '>>'}
+                                                </span>
+                                            </div>
                                         </div>
                                         <div>
-                                            <div className="flex items-center gap-3 mb-2">
-                                                <span className="w-6 h-6 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">
-                                                    {index + 1}
-                                                </span>
-                                                <h3 className="text-xl font-bold">{step.title}</h3>
-                                            </div>
-                                            <p className="text-muted-foreground leading-relaxed">
+                                            <h3 className="text-xl font-bold text-[#0D2B23] mb-2">
+                                                {step.title}
+                                            </h3>
+                                            <p className="text-lg text-gray-600 leading-relaxed">
                                                 {step.desc}
                                             </p>
                                         </div>
@@ -68,11 +68,20 @@ const HowItWorks = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="order-1 md:order-2 flex justify-center">
+
+                        {/* Right Column: Images */}
+                        <div className="order-1 md:order-2 relative h-[500px] w-full">
+                            {/* Background Image (Scientist) */}
                             <img
-                                src="/assets/process-foreground.png"
-                                alt="Process"
-                                className="max-w-full h-auto drop-shadow-2xl"
+                                src="/assets/how-it-works-background.png"
+                                alt="Laboratory Scientist"
+                                className="absolute top-0 right-0 w-3/4 h-auto object-cover rounded-[20px] shadow-lg z-0"
+                            />
+                            {/* Foreground Image (Meat Processing) */}
+                            <img
+                                src="/assets/how-it-works-foreground.png"
+                                alt="Meat Processing"
+                                className="absolute bottom-10 left-0 w-3/4 h-auto object-cover rounded-[20px] shadow-2xl z-10 border-4 border-white"
                             />
                         </div>
                     </div>

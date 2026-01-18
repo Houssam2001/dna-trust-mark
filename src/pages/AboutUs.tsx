@@ -13,64 +13,92 @@ const AboutUs = () => {
         <div className="min-h-screen flex flex-col pt-20">
             <Header onOpenRequest={() => setIsRequestOpen(true)} />
 
-            {/* Hero Section */}
-            <section className="bg-primary/5 py-16 md:py-24">
-                <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-                        {t('about.heroTitle', 'Independent Verification for a Transparent Market')}
-                    </h1>
-                    <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                        {t('about.heroDesc', 'We restore trust between consumers and food professionals through irrefutable scientific proof.')}
-                    </p>
+            {/* Who We Are Section (Hero) */}
+            <section className="py-16 md:py-24 bg-white">
+                <div className="container mx-auto px-4">
+                    <div className="grid md:grid-cols-2 gap-12 items-center">
+                        <div className="relative">
+                            <img
+                                src="/assets/service-lab-clean.png"
+                                alt="Laboratory Microscope"
+                                className="w-full h-auto object-cover rounded-tl-[30px] rounded-br-[30px] shadow-lg"
+                                style={{ borderRadius: '20px 0 20px 0' }} // Custom border radius from analysis
+                            />
+                        </div>
+                        <div>
+                            <span className="text-[#EB792D] font-bold tracking-wider text-sm mb-2 block uppercase">
+                                {t('about.whoAreWeTitle', 'QUI NOUS SOMMES')}
+                            </span>
+                            <h1 className="text-4xl md:text-5xl font-bold text-[#0D2B23] mb-6 leading-tight">
+                                {t('about.heroTitle')}
+                            </h1>
+                            <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                                {t('about.heroDesc')}
+                            </p>
+                            <p className="text-lg text-gray-600 leading-relaxed">
+                                {t('about.whoAreWeDesc', 'Nous rappelons à tous que, même si les restaurants et les boucheries certifiés halal peuvent être concernés, tout est possible en l’absence de contrôle fiable.')}
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             {/* Mission Section */}
-            <section className="py-16 md:py-24">
+            <section className="py-16 md:py-24 bg-[#FAFAF8]">
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
-                        <div>
-                            <img
-                                src="/assets/mission.jpg"
-                                alt="Our Mission"
-                                className="rounded-2xl shadow-xl w-full"
-                            />
-                        </div>
-                        <div>
-                            <h2 className="text-3xl font-serif font-bold mb-6 text-foreground">
-                                {t('about.missionTitle', 'Rebuilding Trust')}
+                        <div className="order-2 md:order-1">
+                            <h2 className="text-3xl md:text-4xl font-bold text-[#0D2B23] mb-6">
+                                {t('about.missionTitle')}
                             </h2>
-                            <p className="text-lg text-muted-foreground mb-4">
-                                {t('about.missionDesc1', 'In a globalized market, food fraud is becoming increasingly common. Consumers have lost trust in labels and claims.')}
-                            </p>
-                            <p className="text-lg text-muted-foreground">
-                                {t('about.missionDesc2', 'ADNGUARD was born from a simple observation: only DNA provides absolute certainty about what we eat. We act as an independent third party to verify the authenticity of meat products.')}
-                            </p>
+                            <div className="space-y-6">
+                                <p className="text-lg text-gray-600 leading-relaxed">
+                                    {t('about.missionDesc1')}
+                                </p>
+                                <ul className="space-y-4 mt-6">
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#EB792D] text-xl">✓</span>
+                                        <span className="text-gray-700">Détecter toute fraude liée à l’origine de la viande.</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#EB792D] text-xl">✓</span>
+                                        <span className="text-gray-700">S'assurer de l'absence de porc, de sanglier, de chat, de chien.</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="text-[#EB792D] text-xl">✓</span>
+                                        <span className="text-gray-700">Fournir des preuves scientifiques indépendantes et fiables.</span>
+                                    </li>
+                                </ul>
+                                <p className="text-lg text-gray-600 leading-relaxed mt-6">
+                                    {t('about.missionDesc2')}
+                                </p>
+                            </div>
+                        </div>
+                        <div className="order-1 md:order-2">
+                            <img
+                                src="/assets/service-target-clean.png"
+                                alt="Our Mission Target"
+                                className="w-full h-auto object-cover rounded-tr-[30px] rounded-bl-[30px] shadow-lg"
+                                style={{ borderRadius: '0 20px 0 20px' }}
+                            />
                         </div>
                     </div>
                 </div>
             </section>
 
             {/* Networks Section */}
-            <section className="py-16 md:py-24 bg-muted/30">
+            {/* <section className="py-16 md:py-24 bg-white">
                 <div className="container mx-auto px-4">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-serif font-bold mb-4">
-                            {t('about.networkTitle', 'International Laboratory Networks')}
+                        <h2 className="text-3xl md:text-4xl font-bold text-[#0D2B23] mb-4">
+                            {t('about.networkTitle')}
                         </h2>
-                        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                            {t('about.networkDesc', 'We work with a network of ISO 17025 accredited laboratories across Europe to guarantee the highest reliability of results.')}
+                        <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                            {t('about.networkDesc')}
                         </p>
                     </div>
-                    <div className="flex justify-center">
-                        <img
-                            src="/assets/lab-networks.png"
-                            alt="International Lab Networks"
-                            className="max-w-full md:max-w-4xl"
-                        />
-                    </div>
                 </div>
-            </section>
+            </section> */}
 
             <CertificationRequestForm
                 open={isRequestOpen}

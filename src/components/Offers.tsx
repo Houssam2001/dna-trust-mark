@@ -12,22 +12,28 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
 
   const services = [
     {
-      title: t("home.services.verification.title"),
-      desc: t("home.services.verification.desc"),
-      image: "/assets/meat-test.jpg",
+      title: t("home.services.analysis.title"),
+      desc: t("home.services.analysis.desc"),
+      image: "/assets/service-dna-clean.png",
       link: "/how-it-works"
     },
     {
-      title: t("home.services.inspection.title"),
-      desc: t("home.services.inspection.desc"),
-      image: "/assets/mission.jpg",
+      title: t("home.services.control.title"),
+      desc: t("home.services.control.desc"),
+      image: "/assets/service-meat-clean.png",
       link: "/how-it-works"
     },
     {
-      title: t("home.services.lookup.title"),
-      desc: t("home.services.lookup.desc"),
-      image: "/assets/dna-spiral.jpg",
+      title: t("home.services.report.title"),
+      desc: t("home.services.report.desc"),
+      image: "/assets/service-lab-clean.png",
       link: "/verification"
+    },
+    {
+      title: t("home.services.accreditation.title"),
+      desc: t("home.services.accreditation.desc"),
+      image: "/assets/service-target-clean.png",
+      link: "/contact"
     }
   ];
 
@@ -36,7 +42,7 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-end">
           <div>
-            <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.services.subtitle")}</h4>
+            {/* <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.services.subtitle")}</h4> */}
             <h2 className="text-5xl md:text-6xl font-bold text-gradient-hero leading-none uppercase">
               {t("home.services.title")}
             </h2>
@@ -48,7 +54,7 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
           </div> */}
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
             <div key={index} className="group relative overflow-hidden rounded-[0px] shadow-lg">
               <div className="aspect-[4/5] w-full overflow-hidden">

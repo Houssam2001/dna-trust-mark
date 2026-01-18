@@ -1,39 +1,39 @@
 {
     "nav": {
-        "home": "Anasayfa",
+        "home": "Ana Sayfa",
         "about": "Hakkımızda",
         "howItWorks": "Nasıl Çalışır",
-        "whatYouGain": "Avantajlar",
+        "whatYouGain": "Avantajlarınız",
         "verification": "Doğrulama",
         "dashboard": "Panel",
-        "login": "Giriş",
-        "register": "Kayıt",
+        "login": "Giriş Yap",
+        "register": "Kayıt Ol",
         "getLabel": "Etiketi Al",
-        "offers": "Teklifler",
+        "offers": "Tekliflerimiz",
         "process": "Süreç",
-        "values": "Değerler",
+        "values": "Değerlerimiz",
         "contact": "İletişim",
         "language": "Dil"
     },
     "hero": {
-        "highlight": "Bağımsız Test Hizmeti",
-        "title": "Tam Şeffaflık İçin DNA Et Analizi",
-        "description": "ADNGUARD, bağımsız DNA analizi ile etin orijinalliğini onaylar. Müşterilerinizi koruyun, itibarınızı güçlendirin.",
-        "cta": "Sertifika Al",
+        "highlight": "Bağımsız bir kontrol hizmeti",
+        "title": "Restoranlar, kasaplar ve et işleme tesislerinde tam şeffaflık için DNA analizi",
+        "description": "ADNGUARD, bağımsız DNA analizleri ile etin orijinalliğini belgeler. Müşterilerinizi koruyun, itibarınızı güçlendirin.",
+        "cta": "Etiketi Al",
         "discover": "Keşfet"
     },
     "features": {
         "fullTransparency": {
             "title": "Tam Şeffaflık",
-            "desc": "İşletmelerin domuz ürünleri sunmadığını doğruluyoruz."
+            "desc": "İşletmelerin domuz eti bazlı ürünler sunmadığını doğruluyoruz."
         },
         "labTesting": {
-            "title": "Laboratuvar Testleri",
-            "desc": "Rastgele et numuneleri kontaminasyon için test edilir."
+            "title": "Laboratuvar Analizi",
+            "desc": "Rastgele et örnekleri domuz kontaminasyonunu tespit etmek için test edilir."
         },
         "surpriseInspections": {
             "title": "Sürpriz Denetimler",
-            "desc": "Ekiplerimiz uyumluluğu sağlamak için habersiz ziyaretler gerçekleştirir."
+            "desc": "Ekiplerimiz uyumluluğu sağlamak için beklenmedik ziyaretler gerçekleştirir."
         },
         "certification": {
             "title": "Sertifikasyon ve Yenileme",
@@ -41,210 +41,352 @@
         }
     },
     "stats": {
-        "analyzes": "Analiz",
-        "businesses": "İşletme",
-        "experience": "Yıl tecrübe",
-        "centers": "Merkez"
+        "analyzes": "Analizler",
+        "businesses": "İşletmeler",
+        "experience": "Yıl Deneyim",
+        "centers": "Merkezler",
+        "scientists": "Bilim İnsanları",
+        "testsDone": "Yapılan Testler",
+        "awards": "Ödüller"
     },
     "home": {
         "intro": {
-            "subtitle": "BİZ KİMİZ",
-            "title_prefix": "Bilim ile Güveni",
-            "title_highlight": "Yeniden İnşa Ediyoruz",
-            "desc1": "Son yıllarda gıda skandalları tüketici güvenini sarstı.",
-            "desc2": "ADNGUARD, DNA analizinin gücünü kullanarak değişmez kanıtlar sunmak için doğdu.",
+            "subtitle": "ADNGUARD HAKKINDA",
+            "title_prefix": "Güveni yeniden tesis etmek:",
+            "title_highlight": "Bilim",
+            "desc1": "Son yıllarda birçok gıda sahtekarlığı ortaya çıktı: yanlış etiketlenmiş etler, türlerin değiştirilmesi ve ürünlerin gerçek bileşimi hakkında aldatmaca. ADNGUARD, tüketicileri korumak ve gıdaya olan güveni yeniden tesis etmek için kuruldu.",
+            "desc2": "Bağımsız DNA analizleri sayesinde ADNGUARD, ette bulunan hayvan türlerini, pişirildikten veya işlendikten sonra bile hassas bir şekilde tanımlar. ADNGUARD ile, gerçekten ne tükettiğinize dair güvenilir bilimsel kanıta sahipsiniz. Çünkü gıda şeffaflığı şüpheye yer bırakmamalıdır. ADNGUARD – Güveniniz için bilimsel kanıt.",
             "cta": "DAHA FAZLA OKU"
         },
         "target": {
             "subtitle": "KİMİN İÇİN",
             "title": "ADNGUARD?",
-            "restaurants": "Restoranlar ve Fast Food",
+            "restaurants": "Restoranlar",
             "butchers": "Kasaplar",
-            "processing": "İşleme Tesisleri",
-            "wholesalers": "Toptancılar",
-            "brands": "Gıda Markaları",
+            "processing": "Et İşleme Tesisleri",
+            "wholesalers": "Et Toptancıları ve Distribütörleri",
+            "brands": "Müşterilerine güven vermek isteyen gıda markaları",
             "cta": "AVANTAJLARI KEŞFET"
         },
         "services": {
-            "subtitle": "Ne Yapıyoruz",
-            "title": "Ana Hizmetlerimiz",
-            "cta": "DAHA FAZLA",
-            "verification": {
-                "title": "Doğrulama ve Test",
-                "desc": "Bağımsız laboratuvarımız rastgele numuneleri analiz eder."
+            "subtitle": "Ne yapıyoruz",
+            "title": "Hizmetlerimiz",
+            "cta": "DAHA FAZLA OKU",
+            "analysis": {
+                "title": "Bağımsız DNA Analizi",
+                "desc": "Mevcut hayvan türlerini (domuz, köpek, kedi) tanımlamak için, pişirildikten sonra bile."
             },
-            "inspection": {
-                "title": "Sürpriz Denetimler",
-                "desc": "Ajanlarımız habersiz ziyaretler yapar."
+            "control": {
+                "title": "Habersiz Kontroller",
+                "desc": "Yerinde örnek alma ile."
             },
-            "lookup": {
-                "title": "Online Doğrulama",
-                "desc": "Herhangi bir işletmenin orijinalliğini anında doğrulayın."
+            "report": {
+                "title": "Güvenilir Raporlar",
+                "desc": "Bilimsel kanıtlara dayalı."
+            },
+            "accreditation": {
+                "title": "ADNGUARD Akreditasyonu",
+                "desc": "Tüketicileri bilgilendirmek ve rahatlatmak için."
             }
         },
         "video": {
             "subtitle": "ET DNA TESTİ",
-            "title": "Hızlı ve güvenli numune alma prosedürü",
-            "btn_info": "Daha Fazla Bilgi",
-            "btn_view": "Promosyonu Gör"
+            "title": "Analiz amaçlı hızlı ve güvenli örnekleme prosedürü.",
+            "btn_info": "Daha Fazla Bilgi Al",
+            "btn_view": "Promoyu İzle"
+        },
+        "whyChooseUs": {
+            "subtitle": "Neden Bizi Seçmelisiniz",
+            "title": "⭐ Neden ADNGUARD'ı Seçmelisiniz?",
+            "desc": "",
+            "features": {
+                "independent": {
+                    "title": "Bağımsız bilimsel kanıt",
+                    "desc": "Çıkar çatışması olmaksızın ortak laboratuvarlar tarafından gerçekleştirilen DNA analizleri."
+                },
+                "reliable": {
+                    "title": "Güvenilir tür tespiti",
+                    "desc": "Domuz, köpek veya kedi DNA'sının, pişirildikten veya işlendikten sonra bile tanımlanması."
+                },
+                "controls": {
+                    "title": "Habersiz kontroller",
+                    "desc": "Gerçek koşullar altında yerinde örnek alma."
+                },
+                "transparency": {
+                    "title": "Tam şeffaflık",
+                    "desc": "Bilimsel verilere dayalı net, gerçekçi raporlar."
+                },
+                "protection": {
+                    "title": "Tüketici koruması",
+                    "desc": "Sahtekarlık ve tür değişimiyle somut mücadele."
+                },
+                "value": {
+                    "title": "Dürüst profesyonellerin değerlenmesi",
+                    "desc": "Müşteri güvenini güçlendirmek için güvenilir bir araç."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Hassasiyet\nGarantili"
+            }
+        },
+        "automation": {
+            "subtitle": "Otomasyon",
+            "title": "EN YÜKSEK OTOMASYON\nSTANDARTLARI",
+            "desc": "İnsan hatasını azaltmak ve verimi artırmak için analitik süreçlerimizin %90'ını otomatikleştirdik. Örnek kabulünden sonuç teslimine kadar iş akışımız sorunsuzdur.",
+            "didYouKnow": {
+                "title": "Biliyor muydunuz?",
+                "desc": "Otomatik DNA ekstraksiyonu genellikle manuel yöntemlere göre %30 daha yüksek saflık sağlar ve daha güvenilir bir sonraki analiz garantisi verir."
+            }
         }
     },
     "gain": {
-        "title": "Ne Kazanırsınız",
+        "title": "Avantajlarınız",
         "subtitle": "İşletmeniz ve müşterileriniz için somut faydalar.",
         "trust": {
             "title": "Sarsılmaz Güven",
-            "desc": "ADNGUARD etiketini göstererek saklayacak bir şeyiniz olmadığını kanıtlayın."
+            "desc": "ADNGUARD etiketini görüntüleyerek, müşterilerinize saklayacak hiçbir şeyiniz olmadığını kanıtlarsınız. Sadece vaatlerde bulunan rakiplerden ayrılırsınız."
         },
         "protection": {
             "title": "Marka Koruması",
-            "desc": "Tedarik zinciri skandallarından itibarınızı koruyun."
+            "desc": "İtibarınızı tedarik zinciri skandallarından koruyun. Düzenli kontrollerimiz tedarikçilerinizin uyumlu kalmasını sağlar."
         },
         "growth": {
             "title": "İş Büyümesi",
-            "desc": "Tüketiciler sertifikalı kalite için daha fazlasını ödemeye hazır."
+            "desc": "Tüketiciler sertifikalı kalite için daha fazlasını ödemeye hazır. Müşteri sadakati oluşturun ve yeni talepkar müşterileri çekin."
         }
     },
     "about": {
-        "heroTitle": "Şeffaf Bir Pazar İçin Bağımsız Doğrulama",
-        "heroDesc": "Bilimsel kanıtlarla güveni yeniden tesis ediyoruz.",
-        "missionTitle": "Güveni Yeniden İnşa Etmek",
-        "missionDesc1": "Gıda sahtekarlığı giderek yaygınlaşıyor.",
-        "missionDesc2": "Sadece DNA kesinlik sağlar.",
-        "networkTitle": "Uluslararası Laboratuvar Ağları",
-        "networkDesc": "ISO 17025 akredite laboratuvarlarla çalışıyoruz."
+        "heroTitle": "En Büyük DNA Test Hizmeti Ağı",
+        "heroDesc": "Kasapların yanlış etiketlenmiş yaban domuzu etini helal olarak sattığı ve restoran sahiplerinin domuz veya kedi eti içeren kebaplar servis ettiği son dolandırıcılıklara yanıt olarak — ADNGUARD, tüketicileri korumak ve gıda zincirine olan güveni yeniden tesis etmek için kuruldu.",
+        "missionTitle": "Misyonumuz",
+        "missionDesc1": "ADNGUARD'da misyonumuz basittir: Etin kökeniyle ilgili her türlü sahtekarlığı tespit etmek. Domuz, yaban domuzu, kedi, köpek veya başka herhangi bir yasaklanmış türün bulunmadığından emin olmak.",
+        "missionDesc2": "Herkese hatırlatırız ki, helal sertifikalı restoranlar ve kasaplar söz konusu olsa bile, güvenilir bir kontrolün olmadığı durumlarda her şey mümkündür.",
+        "whoAreWeTitle": "BİZ KİMİZ",
+        "whoAreWeDesc": "Herkese hatırlatırız ki, helal sertifikalı restoranlar ve kasaplar söz konusu olsa bile, güvenilir bir kontrolün olmadığı durumlarda her şey mümkündür. İşte bu yüzden ADNGUARD, pişirildikten veya işlendikten sonra bile ette bulunan hayvan türlerini tanımlayabilen bir DNA test hizmeti sunmaktadır.",
+        "networkTitle": "DNA Test Hizmeti Ağı",
+        "networkDesc": "ADNGUARD, pişirildikten veya işlendikten sonra bile ette bulunan hayvan türlerini tanımlayabilen, bilimsel, bağımsız ve güvenilir bir yanıt sağlayan bir DNA test hizmeti sunmaktadır."
     },
     "contact": {
-        "title": "İletişim",
-        "subtitle": "Sorularınız mı var? Yardımcı olmak için buradayız.",
+        "title": "Bize Ulaşın",
+        "subtitle": "Sorularınız mı var? Yardım etmek için buradayız.",
+        "company": "HV GLOBAL CONSULTING",
         "email": "E-posta",
         "phone": "Telefon",
-        "address": "Adres"
+        "address": "Adres",
+        "hours": {
+            "title": "Çalışma Saatleri",
+            "week": "Pazartesi - Cuma: 9:00 - 18:00",
+            "weekend": "Cumartesi - Pazar: Kapalı"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, Fransa",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        },
+        "form": {
+            "name": "Tam İsim",
+            "email": "E-posta Adresi",
+            "subject": "Konu",
+            "message": "Mesaj",
+            "send": "Mesajı Gönder",
+            "success": "Mesaj başarıyla gönderildi!",
+            "error": "Bir hata oluştu."
+        }
     },
     "footer": {
-        "checkQr": "İşletme Doğrula",
-        "desc": "Et orijinalliği için bağımsız DNA kontrolü.",
-        "rights": "© 2026 ADNGUARD."
+        "checkQr": "Bir İşletmeyi Doğrula",
+        "desc": "DNA analizi ile sertifikasyon ve izlenebilirlik konusunda referans.",
+        "navigation": "Navigasyon",
+        "rights": "© 2025 – ADNGUARD bir HV Global Consulting projesidir.",
+        "legal": "Yasal Uyarı",
+        "terms": "Hizmet Şartları",
+        "privacy": "Gizlilik Politikası",
+        "links": "Hızlı Bağlantılar",
+        "contact": "İletişim"
     },
     "offers": {
-        "title": "Sertifika Seviyenizi Seçin",
-        "subtitle": "Her işletmeye uygun çözümler.",
+        "title": "Tekliflerimiz",
+        "subtitle": "Her tür işletmeye uygun çözümler",
         "standard": {
             "title": "Abonelik",
             "price": "79€",
-            "period": "/ay"
+            "period": "/ ay"
         },
         "premium": {
             "title": "Premium"
         },
-        "cta": "Test Sipariş Et",
+        "cta": "Test Siparişi Ver",
         "features": {
-            "dnaControl": "Habersiz denetimler",
-            "certificate": "Resmi raporlar",
-            "sticker": "ADNGUARD çıkartması",
-            "platform": "Müşteri QR kodu",
-            "support": "Destek"
+            "dnaControl": "Sürpriz Kontroller",
+            "certificate": "Resmi Raporlar",
+            "sticker": "Resmi ADNGUARD Logosu",
+            "platform": "Müşteri QR Kodu",
+            "support": "Özel Destek"
+        },
+        "starter": {
+            "title": "KEŞİF",
+            "price": "Teklif",
+            "features": [
+                "1 sürpriz DNA örneği",
+                "Çoklu tür analizi",
+                "Gizli rapor",
+                "E-posta desteği"
+            ],
+            "cta": "Teklif İste"
+        },
+        "pro": {
+            "title": "SERTİFİKASYON",
+            "price": "Teklif",
+            "features": [
+                "4 sürpriz örnek / yıl",
+                "Tam analiz + Belirli türlerin aranması",
+                "Uygunsa ADNGUARD Sertifikası",
+                "Pazarlama Kiti (Etiket, QR Kodu)",
+                "Özel Destek"
+            ],
+            "cta": "Teklif İste"
+        },
+        "enterprise": {
+            "title": "AĞ",
+            "price": "Teklif",
+            "features": [
+                "Özel program",
+                "Tam tedarik zinciri denetimi",
+                "Sınırsız analizler",
+                "Personel eğitimi",
+                "Sonuçlar için API erişimi"
+            ],
+            "cta": "Ekiple İletişime Geç"
         }
     },
     "process": {
-        "title": "Nasıl Çalışır",
-        "subtitle": "Titiz ve şeffaf süreç.",
+        "title": "ADNGUARD kontrolü nasıl çalışır?",
+        "subtitle": "Ürünlerinizin orijinalliğini garanti etmek için titiz ve şeffaf bir süreç.",
         "step1": {
-            "title": "Habersiz Numune",
-            "desc": "ADNGUARD ajanı habersiz gelir."
+            "title": "İşletme Taahhüdü",
+            "desc": "Profesyonel, şeffaflık mantığıyla ADNGUARD tarafından kontrol edilmeyi gönüllü olarak seçer."
         },
         "step2": {
-            "title": "Laboratuvar Analizi",
-            "desc": "Numune laboratuvara gönderilir."
+            "title": "Habersiz Kontroller",
+            "desc": "ADNGUARD sürpriz ziyaretler gerçekleştirir ve satılan ürünlerin gerçekliğini yansıtmak için uyarı yapmadan yerinde örnek alır."
         },
         "step3": {
-            "title": "Çoklu Tür Analizi",
-            "desc": "Domuz, kedi, köpek izleri taranır."
+            "title": "Güvenilir DNA Analizleri",
+            "desc": "Örnekler, pişirildikten veya işlendikten sonra bile gerçekten mevcut olan hayvan türlerini belirlemek için bağımsız laboratuvarlar tarafından analiz edilir."
         },
         "step4": {
-            "title": "Sertifikasyon ve QR",
-            "desc": "Uygunsa: rapor, logo ve QR kod."
+            "title": "Net ve Gizli Sonuçlar",
+            "desc": "Sonuçlar, ciddi ve sorumlu bir izleme sağlayan kesin bir rapora kaydedilir."
+        },
+        "step5": {
+            "title": "ADNGUARD Akreditasyonu",
+            "desc": "Kontroller uygun olduğunda, işletme tüketicileri bilgilendirmek ve rahatlatmak için görünür bir ADNGUARD akreditasyonu alır."
         }
     },
     "values": {
         "title": "Güçlü Yönlerimiz",
         "transparency": {
-            "title": "Habersiz",
-            "desc": "Kontrollerimiz önceden bildirilmeden yapılır."
+            "title": "Sürpriz",
+            "desc": "Kontrollerimiz otantik sonuçları garanti etmek için uyarı yapılmadan gerçekleştirilir."
         },
         "scientific": {
             "title": "Bilimsel Kanıt",
-            "desc": "DNA analizi tek kesin kanıttır."
+            "desc": "DNA analizi, bir ürünün bileşiminin tek yadsınamaz kanıtıdır."
         },
         "independent": {
             "title": "Bağımsızlık",
-            "desc": "ADNGUARD tamamen bağımsızdır."
+            "desc": "ADNGUARD, kontrol edilen işletmelerden tamamen bağımsızdır."
         }
     },
     "cta_section": {
-        "title": "Kaliteye olan bağlılığınızı göstermeye hazır mısınız?",
-        "desc": "Şeffaflığı seçen işletmelere katılın.",
-        "note": "İlk test indirimli fiyata"
+        "title": "Kalite taahhüdünüzü göstermeye hazır mısınız?",
+        "desc": "Şeffaflığı seçen işletmelere katılın. ADNGUARD sertifikanızı bugün alın.",
+        "note": "İlk test tercihli oranda • Uygunsa logo sunulur"
     },
     "form": {
-        "title": "Etiket Talep Et",
+        "title": "ADNGUARD Etiketi İste",
         "loading": "Gönderiliyor...",
-        "submit": "Gönder",
-        "disclaimer": "Göndererek iletişime geçilmesini kabul ediyorsunuz.",
+        "submit": "İsteği Gönder",
+        "disclaimer": "Bu formu göndererek, ekibimizin isteğinizle ilgili olarak sizinle iletişime geçmesini kabul edersiniz.",
         "fields": {
             "name": "İşletme Adı",
-            "type": "Tip",
-            "siret": "Vergi No",
+            "type": "İşletme Türü",
+            "siret": "Kayıt Numarası",
             "address": "Adres",
             "city": "Şehir",
             "postalCode": "Posta Kodu",
             "phone": "Telefon",
             "email": "E-posta",
-            "message": "Mesaj"
+            "message": "Mesaj (isteğe bağlı)"
         },
         "placeholders": {
-            "name": "Örn: Kasap Ali",
-            "address": "Ana Cadde No:1",
+            "name": "Ör: Kasap Ali",
+            "address": "Cumhuriyet Caddesi 12",
             "city": "İstanbul",
-            "message": "Ek bilgiler..."
+            "message": "İşletmeniz hakkında ek bilgiler..."
         },
         "validation": {
-            "nameMin": "Min 2 karakter",
-            "addressRequired": "Adres gerekli",
-            "cityRequired": "Şehir gerekli",
-            "emailInvalid": "Geçersiz e-posta"
+            "nameMin": "İsim en az 2 karakter içermelidir",
+            "addressRequired": "Adres gereklidir",
+            "cityRequired": "Şehir gereklidir",
+            "emailInvalid": "Geçersiz E-posta"
         },
         "success": {
-            "title": "Gönderildi!",
-            "desc": "Talebiniz alındı.",
-            "toast": "Başarıyla gönderildi"
+            "title": "İstek Gönderildi!",
+            "desc": "ADNGUARD sertifikasyon isteğiniz kaydedildi. Ekibimiz 48 saat içinde sizinle iletişime geçecektir.",
+            "toast": "İstek başarıyla gönderildi!"
         },
         "error": {
-            "toast": "Gönderme hatası: "
+            "toast": "İstek gönderilirken hata oluştu: "
         }
     },
     "common": {
-        "close": "Kapat"
+        "close": "Kapat",
+        "readMore": "Daha Fazla Oku"
     },
     "types": {
         "boucherie": "Kasap",
         "restaurant": "Restoran",
-        "usine": "Fabrika",
-        "traiteur": "Yemek Firması",
+        "usine": "Gıda İşleme Tesisi",
+        "traiteur": "Yemek Hizmeti",
         "autre": "Diğer"
     },
     "verification": {
-        "backHome": "Geri Dön",
-        "title": "Doğrulama",
-        "subtitle": "Kodu girin.",
-        "searchLabel": "Kod",
+        "backHome": "Ana Sayfaya Dön",
+        "title": "Sertifikasyon Doğrulama",
+        "subtitle": "Sertifikasyon durumunu doğrulamak ve DNA kontrol geçmişini görüntülemek için işletmenin ADNGUARD kodunu girin.",
+        "searchLabel": "İşletme ADNGUARD Kodu",
         "searchBtn": "Doğrula",
+        "searchHint": "Kod, işletmede görüntülenen ADNGUARD etiketinde veya QR kodunda bulunabilir.",
+        "notFoundTitle": "İşletme Bulunamadı",
+        "notFoundDesc": "Bu kodla eşleşen işletme yok. Lütfen ADNGUARD etiketinde görüntülenen kodu doğru girdiğinizi kontrol edin.",
         "status": {
-            "compliant": "Sertifikalı",
-            "nonCompliant": "Uygun Değil",
-            "suspended": "Askıya Alındı",
+            "compliant": "Sertifikalı Uyumlu",
+            "nonCompliant": "Uyumsuz",
+            "suspended": "Sertifikasyon Askıya Alındı",
             "pending": "Beklemede",
-            "n_existe_plus": "Mevcut Değil"
-        }
+            "n_existe_plus": "Artık Mevcut Değil"
+        },
+        "statusDesc": {
+            "compliant": "Bu işletme tüm ADNGUARD DNA kontrollerini başarıyla geçti.",
+            "nonCompliant": "Son DNA kontrolü uyumsuzluklar ortaya çıkardı. Sertifikasyon askıya alındı.",
+            "suspended": "Bu işletmenin sertifikasyonu geçici olarak askıya alındı.",
+            "pending": "Bir kontrol şu anda analiz ediliyor.",
+            "n_existe_plus": "Bu işletme artık mevcut değil veya faaliyetini durdurdu."
+        },
+        "info": {
+            "address": "Adres",
+            "certifiedSince": "Sertifikalı",
+            "lastControl": "Son Kontrol"
+        },
+        "history": {
+            "title": "DNA Kontrol Geçmişi",
+            "empty": "Bu işletme için kayıtlı kontrol yok.",
+            "ref": "Ref",
+            "species": "Analiz Edilen Türler",
+            "anomalies": "Anormallikler"
+        },
+        "footer": "Veriler ADNGUARD tarafından sertifikalandırılmıştır • Bağımsız DNA Kontrolleri"
     }
 }

@@ -1,134 +1,213 @@
 {
     "nav": {
         "home": "Home",
-        "about": "Over Ons",
+        "about": "Over ons",
         "howItWorks": "Hoe het werkt",
-        "whatYouGain": "Voordelen",
+        "whatYouGain": "Uw voordelen",
         "verification": "Verificatie",
         "dashboard": "Dashboard",
         "login": "Inloggen",
         "register": "Registreren",
-        "getLabel": "Label Aanvragen",
-        "offers": "Aanbod",
+        "getLabel": "Label verkrijgen",
+        "offers": "Onze aanbiedingen",
         "process": "Proces",
         "values": "Waarden",
         "contact": "Contact",
         "language": "Taal"
     },
     "hero": {
-        "highlight": "Onafhankelijke Testservice",
-        "title": "DNA Vleesanalyse voor Totale Transparantie",
-        "description": "ADNGUARD certificeert de authenticiteit van vlees door onafhankelijke DNA-analyse.",
-        "cta": "Certificeren",
-        "discover": "Ontdek Nu"
+        "highlight": "Een onafhankelijke controledienst",
+        "title": "DNA-analyse voor volledige transparantie in restaurants, slagerijen en vleesverwerkende bedrijven",
+        "description": "ADNGUARD certificeert de authenticiteit van vlees door onafhankelijke DNA-analyse. Bescherm uw klanten, versterk uw reputatie.",
+        "cta": "Label verkrijgen",
+        "discover": "Ontdekken"
     },
     "features": {
         "fullTransparency": {
             "title": "Volledige Transparantie",
-            "desc": "Wij verifiëren dat etablissementen geen varkensproducten serveren."
+            "desc": "We verifiëren dat etablissementen geen producten op basis van varkensvlees serveren."
         },
         "labTesting": {
-            "title": "Laboratoriumtests",
-            "desc": "Willekeurige monsters worden getest op besmetting."
+            "title": "Laboratoriumanalyse",
+            "desc": "Willekeurige vleesmonsters worden getest om besmetting met varkensvlees te detecteren."
         },
         "surpriseInspections": {
             "title": "Verrassingsinspecties",
-            "desc": "Onze teams voeren onverwachte bezoeken uit."
+            "desc": "Onze teams voeren onverwachte bezoeken uit om naleving te garanderen."
         },
         "certification": {
             "title": "Certificering & Verlenging",
-            "desc": "Moet regelmatig worden vernieuwd."
+            "desc": "Etablissementen moeten hun certificering verlengen om hun status te behouden."
         }
     },
     "stats": {
         "analyzes": "Analyses",
         "businesses": "Bedrijven",
-        "experience": "Jaren ervaring",
-        "centers": "Centra"
+        "experience": "Jaren Ervaring",
+        "centers": "Centra",
+        "scientists": "Wetenschappers",
+        "testsDone": "Uitgevoerde Tests",
+        "awards": "Prijzen"
     },
     "home": {
         "intro": {
-            "subtitle": "WIE ZIJN WIJ",
+            "subtitle": "OVER ADNGUARD",
             "title_prefix": "Vertrouwen herstellen door",
             "title_highlight": "Wetenschap",
-            "desc1": "Voedselschandalen hebben het vertrouwen van de consument geschaad.",
-            "desc2": "ADNGUARD gebruikt DNA-analyse als onweerlegbaar bewijs.",
+            "desc1": "In de afgelopen jaren zijn talrijke voedselfraudes aan het licht gekomen: verkeerd geëtiketteerd vlees, vervanging van soorten en misleiding over de ware samenstelling van producten. ADNGUARD is opgericht om consumenten te beschermen en het vertrouwen in voedsel te herstellen.",
+            "desc2": "Door onafhankelijke DNA-analyse identificeert ADNGUARD nauwkeurig de diersoorten die in vlees aanwezig zijn, zelfs na koken of verwerken. Met ADNGUARD heeft u betrouwbaar wetenschappelijk bewijs van wat u werkelijk consumeert. Omdat voedseltransparantie geen ruimte voor twijfel mag laten. ADNGUARD – Het wetenschappelijke bewijs voor uw vertrouwen.",
             "cta": "LEES MEER"
         },
         "target": {
             "subtitle": "VOOR WIE IS",
             "title": "ADNGUARD?",
-            "restaurants": "Restaurants & Fast Food",
-            "butchers": "Slagers",
-            "processing": "Verwerkingsfabrieken",
-            "wholesalers": "Groothandels",
-            "brands": "Voedselmerken",
+            "restaurants": "Restaurants",
+            "butchers": "Slagerijen",
+            "processing": "Vleesverwerkende fabrieken",
+            "wholesalers": "Vleesgroothandels en distributeurs",
+            "brands": "Voedselmerken die hun klanten gerust willen stellen",
             "cta": "ONTDEK VOORDELEN"
         },
         "services": {
             "subtitle": "Wat we doen",
-            "title": "Onze Diensten",
-            "cta": "MEER",
-            "verification": {
-                "title": "Verificatie & Testen",
-                "desc": "Analyses van willekeurige monsters."
+            "title": "Onze diensten",
+            "cta": "LEES MEER",
+            "analysis": {
+                "title": "Onafhankelijke DNA-analyse",
+                "desc": "Om aanwezige diersoorten (varken, hond, kat) te identificeren, zelfs na koken."
             },
-            "inspection": {
-                "title": "Inspecties",
-                "desc": "Onaangekondigde bezoeken."
+            "control": {
+                "title": "Onaangekondigde controles",
+                "desc": "Met monsterneming ter plaatse."
             },
-            "lookup": {
-                "title": "Online Check",
-                "desc": "Verifieer authenticiteit direct."
+            "report": {
+                "title": "Betrouwbare rapporten",
+                "desc": "Gebaseerd op wetenschappelijk bewijs."
+            },
+            "accreditation": {
+                "title": "ADNGUARD Accreditatie",
+                "desc": "Om consumenten te informeren en gerust te stellen."
             }
         },
         "video": {
             "subtitle": "VLEES DNA TEST",
-            "title": "Snelle en veilige monstername",
-            "btn_info": "Meer Info",
-            "btn_view": "Bekijk Promo"
+            "title": "Snelle en veilige bemonsteringsprocedure voor analysedoeleinden.",
+            "btn_info": "Meer informatie krijgen",
+            "btn_view": "Promo bekijken"
+        },
+        "whyChooseUs": {
+            "subtitle": "Waarom voor ons kiezen",
+            "title": "⭐ Waarom kiezen voor ADNGUARD?",
+            "desc": "",
+            "features": {
+                "independent": {
+                    "title": "Onafhankelijk wetenschappelijk bewijs",
+                    "desc": "DNA-analyses uitgevoerd door partnerlaboratoria, zonder belangenconflict."
+                },
+                "reliable": {
+                    "title": "Betrouwbare sooortdetectie",
+                    "desc": "Identificatie van varkens-, honden- of katten-DNA, zelfs na koken of verwerken."
+                },
+                "controls": {
+                    "title": "Onaangekondigde controles",
+                    "desc": "Monsterneming ter plaatse onder echte omstandigheden."
+                },
+                "transparency": {
+                    "title": "Volledige transparantie",
+                    "desc": "Duidelijke, feitelijke rapporten gebaseerd op wetenschappelijke gegevens."
+                },
+                "protection": {
+                    "title": "Consumentenbescherming",
+                    "desc": "Concrete strijd tegen fraude en vervanging van soorten."
+                },
+                "value": {
+                    "title": "Waardering van eerlijke professionals",
+                    "desc": "Een geloofwaardig instrument om het vertrouwen van klanten te versterken."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Precisie\nGegarandeerd"
+            }
+        },
+        "automation": {
+            "subtitle": "Automatisering",
+            "title": "HOOGSTE NORMEN\nVAN AUTOMATISERING",
+            "desc": "We hebben 90% van onze analyseprocessen geautomatiseerd om menselijke fouten te verminderen en de doorvoer te verhogen. Van monsterontvangst tot resultaatlevering is onze workflow naadloos.",
+            "didYouKnow": {
+                "title": "Wist je dat?",
+                "desc": "Geautomatiseerde DNA-extractie levert over het algemeen een zuiverheid op die 30% hoger is dan handmatige methoden, wat een betrouwbaardere downstream-analyse garandeert."
+            }
         }
     },
     "gain": {
-        "title": "Wat U Wint",
-        "subtitle": "Concrete voordelen voor uw bedrijf.",
+        "title": "Uw voordelen",
+        "subtitle": "Tastbare voordelen voor uw bedrijf en uw klanten.",
         "trust": {
             "title": "Onwankelbaar Vertrouwen",
-            "desc": "U bewijst dat u niets te verbergen heeft."
+            "desc": "Door het ADNGUARD-label te tonen, bewijst u aan uw klanten dat u niets te verbergen heeft. U onderscheidt zich van concurrenten die alleen maar beloftes doen."
         },
         "protection": {
             "title": "Merkbescherming",
-            "desc": "Bescherm uw reputatie."
+            "desc": "Bescherm uw reputatie tegen schandalen in de toeleveringsketen. Onze regelmatige controles zorgen ervoor dat uw leveranciers compliant blijven."
         },
         "growth": {
             "title": "Bedrijfsgroei",
-            "desc": "Klanten betalen voor zekerheid."
+            "desc": "Consumenten zijn bereid meer te betalen voor gecertificeerde kwaliteit. Bouw klantloyaliteit op en trek nieuwe veeleisende klanten aan."
         }
     },
     "about": {
-        "heroTitle": "Onafhankelijke Verificatie",
-        "heroDesc": "Wij herstellen vertrouwen.",
-        "missionTitle": "Vertrouwen Herbouwen",
-        "missionDesc1": "Voedselfraude komt vaak voor.",
-        "missionDesc2": "Alleen DNA biedt zekerheid.",
-        "networkTitle": "Internationaal Netwerk",
-        "networkDesc": "Wij werken met ISO 17025 labs."
+        "heroTitle": "Het grootste netwerk van DNA-testdiensten",
+        "heroDesc": "Als reactie op recente oplichting — waarbij slagers ten onrechte als halal geëtiketteerd wild zwijnenvlees verkochten en restauranteigenaren kebab serveerden met varkens- of kattenvlees — werd ADNGUARD opgericht om consumenten te beschermen en het vertrouwen in de voedselketen te herstellen.",
+        "missionTitle": "Onze missie",
+        "missionDesc1": "Bij ADNGUARD is onze missie eenvoudig: Elke fraude met betrekking tot de herkomst van vlees opsporen. Zorgen voor de afwezigheid van varken, wild zwijn, kat, hond of elke andere verboden soort.",
+        "missionDesc2": "We herinneren iedereen eraan dat, zelfs als halal-gecertificeerde restaurants en slagerijen betrokken kunnen zijn, alles mogelijk is bij gebrek aan betrouwbare controle.",
+        "whoAreWeTitle": "WIE ZIJN WIJ",
+        "whoAreWeDesc": "We herinneren iedereen eraan dat, zelfs als halal-gecertificeerde restaurants en slagerijen betrokken kunnen zijn, alles mogelijk is bij gebrek aan betrouwbare controle. Daarom biedt ADNGUARD een DNA-testdienst aan die in staat is om diersoorten in vlees te identificeren, zelfs na koken of verwerken.",
+        "networkTitle": "Netwerk van DNA-testdiensten",
+        "networkDesc": "ADNGUARD biedt een DNA-testdienst aan die in staat is om diersoorten in vlees te identificeren, zelfs na koken of verwerken, en biedt een wetenschappelijk, onafhankelijk en betrouwbaar antwoord."
     },
     "contact": {
-        "title": "Contact",
-        "subtitle": "Vragen? Wij helpen u.",
-        "email": "Email",
+        "title": "Neem contact op",
+        "subtitle": "Vragen? We zijn hier om te helpen.",
+        "company": "HV GLOBAL CONSULTING",
+        "email": "E-mail",
         "phone": "Telefoon",
-        "address": "Adres"
+        "address": "Adres",
+        "hours": {
+            "title": "Openingstijden",
+            "week": "Maandag - Vrijdag: 9:00 - 18:00",
+            "weekend": "Zaterdag - Zondag: Gesloten"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, Frankrijk",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        },
+        "form": {
+            "name": "Volledige Naam",
+            "email": "E-mailadres",
+            "subject": "Onderwerp",
+            "message": "Bericht",
+            "send": "Bericht versturen",
+            "success": "Bericht succesvol verzonden!",
+            "error": "Er is een fout opgetreden."
+        }
     },
     "footer": {
-        "checkQr": "Check Etablissement",
-        "desc": "Onafhankelijke DNA-controle.",
-        "rights": "© 2026 ADNGUARD."
+        "checkQr": "Controleer een etablissement",
+        "desc": "De referentie op het gebied van certificering en traceerbaarheid door DNA-analyse.",
+        "navigation": "Navigatie",
+        "rights": "© 2025 – ADNGUARD is een project van HV Global Consulting.",
+        "legal": "Juridische kennisgeving",
+        "terms": "Algemene voorwaarden",
+        "privacy": "Privacybeleid",
+        "links": "Snelle links",
+        "contact": "Contact"
     },
     "offers": {
-        "title": "Kies uw niveau",
-        "subtitle": "Oplossingen op maat.",
+        "title": "Onze aanbiedingen",
+        "subtitle": "Oplossingen aangepast aan elk type etablissement",
         "standard": {
             "title": "Abonnement",
             "price": "79€",
@@ -137,114 +216,177 @@
         "premium": {
             "title": "Premium"
         },
-        "cta": "Bestel Test",
+        "cta": "Bestel een test",
         "features": {
-            "dnaControl": "Onaangekondigde inspecties",
+            "dnaControl": "Verrassingscontroles",
             "certificate": "Officiële rapporten",
-            "sticker": "ADNGUARD sticker",
-            "platform": "QR-code",
-            "support": "Support"
+            "sticker": "Officieel ADNGUARD-logo",
+            "platform": "Klant QR-code",
+            "support": "Toegewijde ondersteuning"
+        },
+        "starter": {
+            "title": "ONTDEKKING",
+            "price": "Offerte",
+            "features": [
+                "1 verrassings-DNA-monster",
+                "Meerderesoortenanalyse",
+                "Vertrouwelijk rapport",
+                "E-mailondersteuning"
+            ],
+            "cta": "Offerte aanvragen"
+        },
+        "pro": {
+            "title": "CERTIFICERING",
+            "price": "Offerte",
+            "features": [
+                "4 verrassingsmonsters / jaar",
+                "Volledige analyse + Zoeken naar specifieke soorten",
+                "ADNGUARD Certificering indien conform",
+                "Marketingkit (Sticker, QR-code)",
+                "Toegewijde ondersteuning"
+            ],
+            "cta": "Offerte aanvragen"
+        },
+        "enterprise": {
+            "title": "NETWERK",
+            "price": "Offerte",
+            "features": [
+                "Op maat gemaakt programma",
+                "Volledige toeleveringsketen audit",
+                "Onbeperkte analyses",
+                "Personeelstraining",
+                "API-toegang voor resultaten"
+            ],
+            "cta": "Neem contact op met team"
         }
     },
     "process": {
-        "title": "Hoe het werkt",
-        "subtitle": "Transparant proces.",
+        "title": "Hoe werkt de ADNGUARD controle?",
+        "subtitle": "Een rigoureus en transparant proces om de authenticiteit van uw producten te garanderen.",
         "step1": {
-            "title": "Monstername",
-            "desc": "Onaangekondigd bezoek."
+            "title": "Betrokkenheid van het etablissement",
+            "desc": "De professional kiest er vrijwillig voor om door ADNGUARD gecontroleerd te worden in een logica van transparantie."
         },
         "step2": {
-            "title": "Lab Analyse",
-            "desc": "Verzending naar lab."
+            "title": "Onaangekondigde controles",
+            "desc": "ADNGUARD voert verrassingsbezoeken uit en neemt monsters ter plaatse, zonder waarschuwing, om de realiteit van de verkochte producten weer te geven."
         },
         "step3": {
-            "title": "Multi-species",
-            "desc": "Detectie van varken, etc."
+            "title": "Betrouwbare DNA-analyses",
+            "desc": "Monsters worden geanalyseerd door onafhankelijke laboratoria om de daadwerkelijk aanwezige diersoorten te identificeren, zelfs na koken of verwerken."
         },
         "step4": {
-            "title": "Certificering",
-            "desc": "Rapport en QR-code."
+            "title": "Duidelijke en vertrouwelijke resultaten",
+            "desc": "Resultaten worden vastgelegd in een nauwkeurig rapport, wat zorgt voor een serieuze en verantwoorde monitoring."
+        },
+        "step5": {
+            "title": "ADNGUARD Accreditatie",
+            "desc": "Wanneer controles conform zijn, ontvangt het etablissement een ADNGUARD-accreditatie, zichtbaar om consumenten te informeren en gerust te stellen."
         }
     },
     "values": {
-        "title": "Onze Kracht",
+        "title": "Onze sterke punten",
         "transparency": {
-            "title": "Onaangekondigd",
-            "desc": "Geen waarschuwing vooraf."
+            "title": "Verrassing",
+            "desc": "Onze controles worden zonder waarschuwing uitgevoerd om authentieke resultaten te garanderen."
         },
         "scientific": {
-            "title": "Wetenschappelijk",
-            "desc": "DNA is onweerlegbaar."
+            "title": "Wetenschappelijk bewijs",
+            "desc": "DNA-analyse is het enige onweerlegbare bewijs van de samenstelling van een product."
         },
         "independent": {
-            "title": "Onafhankelijk",
-            "desc": "Volledig onafhankelijk."
+            "title": "Onafhankelijkheid",
+            "desc": "ADNGUARD is volledig onafhankelijk van de gecontroleerde etablissementen."
         }
     },
     "cta_section": {
-        "title": "Klaar voor kwaliteit?",
-        "desc": "Kies voor transparantie.",
-        "note": "Eerste test met korting"
+        "title": "Klaar om uw kwaliteitsbetrokkenheid te tonen?",
+        "desc": "Sluit u aan bij de etablissementen die voor transparantie hebben gekozen. Verkrijg vandaag nog uw ADNGUARD-certificering.",
+        "note": "Eerste test tegen voorkeurstarief • Logo aangeboden indien conform"
     },
     "form": {
-        "title": "Aanvragen",
+        "title": "ADNGUARD Label aanvragen",
         "loading": "Verzenden...",
-        "submit": "Verstuur",
-        "disclaimer": "Akkoord met contact.",
+        "submit": "Aanvraag versturen",
+        "disclaimer": "Door dit formulier in te dienen, gaat u ermee akkoord dat ons team contact met u opneemt over uw verzoek.",
         "fields": {
-            "name": "Naam",
-            "type": "Type",
-            "siret": "KVK",
+            "name": "Naam van etablissement",
+            "type": "Type etablissement",
+            "siret": "Registratienummer",
             "address": "Adres",
             "city": "Stad",
             "postalCode": "Postcode",
             "phone": "Telefoon",
-            "email": "Email",
-            "message": "Bericht"
+            "email": "E-mail",
+            "message": "Bericht (optioneel)"
         },
         "placeholders": {
-            "name": "Bijv. Slagerij Jan",
-            "address": "Hoofdstraat 1",
+            "name": "Bijv: Slagerij De Vries",
+            "address": "Hoofdstraat 12",
             "city": "Amsterdam",
-            "message": "Extra info..."
+            "message": "Aanvullende informatie over uw etablissement..."
         },
         "validation": {
-            "nameMin": "Min 2 tekens",
-            "addressRequired": "Adres verplicht",
-            "cityRequired": "Stad verplicht",
-            "emailInvalid": "Email ongeldig"
+            "nameMin": "Naam moet minstens 2 tekens bevatten",
+            "addressRequired": "Adres is verplicht",
+            "cityRequired": "Stad is verplicht",
+            "emailInvalid": "Ongeldig e-mailadres"
         },
         "success": {
-            "title": "Verzonden!",
-            "desc": "Aanvraag ontvangen.",
-            "toast": "Succesvol verzonden"
+            "title": "Aanvraag verzonden!",
+            "desc": "Uw aanvraag voor ADNGUARD-certificering is geregistreerd. Ons team neemt binnen 48 uur contact met u op.",
+            "toast": "Aanvraag succesvol verzonden!"
         },
         "error": {
-            "toast": "Fout bij verzenden: "
+            "toast": "Fout bij verzenden aanvraag: "
         }
     },
     "common": {
-        "close": "Sluiten"
+        "close": "Sluiten",
+        "readMore": "Lees meer"
     },
     "types": {
-        "boucherie": "Slager",
+        "boucherie": "Slagerij",
         "restaurant": "Restaurant",
-        "usine": "Fabriek",
+        "usine": "Voedselverwerkingsfabriek",
         "traiteur": "Catering",
-        "autre": "Anders"
+        "autre": "Andere"
     },
     "verification": {
-        "backHome": "Terug",
-        "title": "Verificatie",
-        "subtitle": "Voer ADNGUARD code in.",
-        "searchLabel": "Code",
-        "searchBtn": "Check",
+        "backHome": "Terug naar Home",
+        "title": "Certificering Verificatie",
+        "subtitle": "Voer de ADNGUARD-code van het etablissement in om de certificeringsstatus te verifiëren en de geschiedenis van DNA-controles te bekijken.",
+        "searchLabel": "ADNGUARD-Code van Etablissement",
+        "searchBtn": "Verifiëren",
+        "searchHint": "De code is te vinden op de ADNGUARD-sticker die in het etablissement wordt weergegeven of op de QR-code.",
+        "notFoundTitle": "Etablissement niet gevonden",
+        "notFoundDesc": "Geen etablissement komt overeen met deze code. Controleer of u de code die op de ADNGUARD-sticker wordt weergegeven correct hebt ingevoerd.",
         "status": {
-            "compliant": "Gecertificeerd",
-            "nonCompliant": "Niet conform",
-            "suspended": "Geschorst",
+            "compliant": "Gecertificeerd Conform",
+            "nonCompliant": "Niet Conform",
+            "suspended": "Certificering Opgeschort",
             "pending": "In afwachting",
             "n_existe_plus": "Bestaat niet meer"
-        }
+        },
+        "statusDesc": {
+            "compliant": "Dit etablissement heeft alle ADNGUARD DNA-controles met succes doorstaan.",
+            "nonCompliant": "De laatste DNA-controle onthulde afwijkingen. Certificering is opgeschort.",
+            "suspended": "De certificering van dit etablissement is tijdelijk opgeschort.",
+            "pending": "Een controle wordt momenteel geanalyseerd.",
+            "n_existe_plus": "Dit etablissement bestaat niet meer of heeft zijn activiteit gestaakt."
+        },
+        "info": {
+            "address": "Adres",
+            "certifiedSince": "Gecertificeerd sinds",
+            "lastControl": "Laatste controle"
+        },
+        "history": {
+            "title": "DNA-controlegeschiedenis",
+            "empty": "Geen controles geregistreerd voor dit etablissement.",
+            "ref": "Ref",
+            "species": "Geanalyseerde soorten",
+            "anomalies": "Afwijkingen"
+        },
+        "footer": "Gegevens gecertificeerd door ADNGUARD • Onafhankelijke DNA-Controles"
     }
 }
