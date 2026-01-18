@@ -24,7 +24,7 @@ const Index = () => {
         <FeaturesBar />
         <SplitInfo />
         <TargetAudience />
-        <StatsSection />
+        {/* <StatsSection /> */}
         <ServicesGrid onOpenRequest={handleOpenModal} />
         {/* <CTA onOpenRequest={handleOpenModal} /> */}
       </main>
