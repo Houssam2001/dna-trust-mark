@@ -38,6 +38,50 @@ const Verification = () => {
     setControls([]);
 
     try {
+      // Mock for demo
+      if (code === "REQ-322131") {
+        await new Promise(resolve => setTimeout(resolve, 800)); // Simulate delay
+        setEstablishment({
+          id: "mock-1",
+          name: "Boucherie L'Excellence",
+          type: "boucherie",
+          status: "conforme",
+          address: "15 Avenue des Champs-Élysées",
+          city: "Paris",
+          postalCode: "75008",
+          certifiedSince: "2024-06-15T00:00:00.000Z",
+          lastControlDate: "2025-01-10T00:00:00.000Z",
+          createdAt: "2024-01-01T00:00:00.000Z",
+          updatedAt: "2025-01-10T00:00:00.000Z"
+        });
+        setControls([
+          {
+            id: "ctrl-1",
+            establishmentId: "mock-1",
+            result: "conforme",
+            reportId: "RP-2025-0042",
+            speciesAnalyzed: ["Porc", "Cheval", "Chat", "Chien"],
+            speciesDetected: [],
+            controlDate: "2025-01-10T00:00:00.000Z",
+            createdAt: "2025-01-15T00:00:00.000Z",
+            updatedAt: "2025-01-15T00:00:00.000Z"
+          },
+          {
+            id: "ctrl-2",
+            establishmentId: "mock-1",
+            result: "conforme",
+            reportId: "RP-2024-0891",
+            speciesAnalyzed: ["Porc", "Sanglier"],
+            speciesDetected: [],
+            controlDate: "2024-09-05T00:00:00.000Z",
+            createdAt: "2024-09-10T00:00:00.000Z",
+            updatedAt: "2024-09-10T00:00:00.000Z"
+          }
+        ]);
+        setLoading(false);
+        return;
+      }
+
       // Use the public verification endpoint
       const response = await api.get<Establishment & { controls: Control[] }>(`/establishments/verify/${code}`);
 
