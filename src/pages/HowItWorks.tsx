@@ -41,8 +41,8 @@ const HowItWorks = () => {
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         {/* Left Column: Title and Steps */}
-                        <div className="order-2 md:order-1">
-                            <h1 className="text-4xl md:text-5xl font-bold text-[#0D2B23] mb-12">
+                        <div>
+                            <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-12">
                                 {t('process.title')}
                             </h1>
 
@@ -70,18 +70,18 @@ const HowItWorks = () => {
                         </div>
 
                         {/* Right Column: Images */}
-                        <div className="order-1 md:order-2 relative h-[500px] w-full">
+                        <div className="relative h-[350px] md:h-[500px] w-full">
                             {/* Background Image (Scientist) */}
                             <img
                                 src="/assets/how-it-works-background.png"
                                 alt="Laboratory Scientist"
-                                className="absolute top-0 right-0 w-3/4 h-auto object-cover rounded-[20px] shadow-lg z-0"
+                                className="absolute top-0 right-0 w-[85%] md:w-3/4 h-auto object-cover rounded-[20px] shadow-lg z-0"
                             />
                             {/* Foreground Image (Meat Processing) */}
                             <img
-                                src="/assets/how-it-works-foreground.png"
+                                src="/assets/second-image.jpeg"
                                 alt="Meat Processing"
-                                className="absolute bottom-10 left-0 w-3/4 h-auto object-cover rounded-[20px] shadow-2xl z-10 border-4 border-white"
+                                className="absolute top-14 md:top-20 left-0 w-[85%] md:w-3/4 h-auto object-cover rounded-[20px] shadow-2xl z-10 border-4 border-white"
                             />
                         </div>
                     </div>

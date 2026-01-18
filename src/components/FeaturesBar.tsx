@@ -36,7 +36,7 @@ export const FeaturesBar = () => {
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                 <div>
                     <h4 className="text-primary font-bold tracking-widest text-xs md:text-sm mb-3 md:mb-4 uppercase">{t("home.whyChooseUs.subtitle")}</h4>
-                    <h2 className="text-2xl md:text-4xl font-bold text-gradient-hero mb-6 md:mb-8 leading-tight whitespace-pre-line">
+                    <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6 md:mb-8 leading-tight whitespace-pre-line">
                         {t("home.whyChooseUs.title")}
                     </h2>
                     <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 md:mb-8">

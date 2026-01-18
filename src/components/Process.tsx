@@ -39,7 +39,7 @@ const Process = () => {
           <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
             {t('nav.process')}
           </span>
-          <h2 className="text-3xl md:text-5xl font-serif font-bold text-foreground mb-6">
+          <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6">
             {t('process.title')}
           </h2>
           <p className="text-muted-foreground text-lg">

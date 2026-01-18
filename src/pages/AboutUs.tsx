@@ -29,7 +29,7 @@ const AboutUs = () => {
                             <span className="text-[#EB792D] font-bold tracking-wider text-sm mb-2 block uppercase">
                                 {t('about.whoAreWeTitle', 'QUI NOUS SOMMES')}
                             </span>
-                            <h1 className="text-4xl md:text-5xl font-bold text-[#0D2B23] mb-6 leading-tight">
+                            <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6 leading-tight">
                                 {t('about.heroTitle')}
                             </h1>
                             <p className="text-lg text-gray-600 mb-6 leading-relaxed">
@@ -48,7 +48,7 @@ const AboutUs = () => {
                 <div className="container mx-auto px-4">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <div className="order-2 md:order-1">
-                            <h2 className="text-3xl md:text-4xl font-bold text-[#0D2B23] mb-6">
+                            <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6">
                                 {t('about.missionTitle')}
                             </h2>
                             <div className="space-y-6">

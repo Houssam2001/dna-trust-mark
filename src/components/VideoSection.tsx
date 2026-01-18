@@ -29,7 +29,7 @@ const VideoSection = () => {
                     {t('home.video.subtitle', 'TEST ADN VIANDE')}
                 </h4>
 
-                <h2 className="text-2xl md:text-5xl font-bold text-white mb-6 md:mb-8 leading-tight px-2">
+                <h2 className="text-3xl md:text-5xl font-bold text-white uppercase mb-6 md:mb-8 leading-tight px-2">
                     {t('home.video.title', "Procédure rapide et sûre de prélèvement d'échantillons à des fins d'analyse.")}
                 </h2>
 

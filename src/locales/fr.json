@@ -262,15 +262,15 @@
         "title": "Comment fonctionne le contrôle ADNGUARD ?",
         "subtitle": "Un processus rigoureux et transparent pour garantir l'authenticité de vos produits.",
         "step1": {
-            "title": "Engagement de l’établissement",
+            "title": "Engagement",
             "desc": "Le professionnel choisit volontairement d’être contrôlé par ADNGUARD dans une logique de transparence."
         },
         "step2": {
-            "title": "Contrôles sans avertissement",
+            "title": "Contrôle sans préavis",
             "desc": "ADNGUARD effectue des visites inopinées et réalise des prélèvements sur place, sans prévenir, afin de refléter la réalité des produits vendus."
         },
         "step3": {
-            "title": "Analyses ADN fiables",
+            "title": "Analyses ADN",
             "desc": "Les échantillons sont analysés par des laboratoires indépendants pour identifier les espèces animales réellement présentes, même après cuisson ou transformation."
         },
         "step4": {
@@ -279,7 +279,7 @@
         },
         "step5": {
             "title": "Accréditation ADNGUARD",
-            "desc": "Lorsque les contrôles sont conformes, l’établissement reçoit une accréditation ADNGUARD, visible pour informer et rassurer les consommateurs."
+            "desc": "Lorsque les restaurants et les boucheries font l’objet de contrôles ADN inopinés en laboratoire et que les résultats sont conformes, ils obtiennent l’accréditation ADNGUARD, visible dans l’établissement pour informer et rassurer les consommateurs."
         }
     },
     "values": {

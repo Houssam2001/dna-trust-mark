@@ -32,15 +32,15 @@ const Hero = ({ onOpenRequest }: HeroProps) => {
         <div className="max-w-4xl mr-auto text-left mb-16 pl-4 md:pl-0">
 
           {/* Eyebrow Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
             <div className="w-2 h-2 rounded-full bg-[#BFDBFE]"></div>
             <span className="text-white font-medium text-sm md:text-base tracking-wide">
               {t('hero.highlight')}
             </span>
-          </div>
+          </div> */}
 
           {/* Main Title */}
-          <h1 className="text-3xl md:text-5xl lg:text-7xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8">
+          <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-[1.1] tracking-tight mb-6 md:mb-8">
             {t('hero.title')}
           </h1>
 

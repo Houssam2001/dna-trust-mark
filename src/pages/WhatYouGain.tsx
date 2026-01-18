@@ -32,7 +32,7 @@ const WhatYouGain = () => {
             {/* Hero Section */}
             <section className="bg-white py-20 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#0D2B23] mb-6">
+                    <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6">
                         {t('gain.title', 'What You Gain')}
                     </h1>
                     <div className="w-24 h-1 bg-[#EB792D] mx-auto mb-8"></div>
