@@ -3,7 +3,7 @@
         "home": "Accueil",
         "about": "À propos de nous",
         "howItWorks": "Comment ça marche",
-        "whatYouGain": "Vos avantages",
+        "whatYouGain": "Avantages",
         "verification": "Vérification",
         "dashboard": "Tableau de Bord",
         "login": "Connexion",
@@ -139,7 +139,7 @@
         }
     },
     "gain": {
-        "title": "Vos Avantages",
+        "title": "Avantages",
         "subtitle": "Des bénéfices tangibles pour votre entreprise et vos clients.",
         "trust": {
             "title": "Confiance Inébranlable",
@@ -179,7 +179,7 @@
         },
         "details": {
             "address": "86 Rue Voltaire, 93100 Montreuil, France",
-            "phone": "+33 666820808",
+            "phone": "+33 666820808 (WhatsApp Only)",
             "email": "adn.hvgc@gmail.com"
         },
         "form": {

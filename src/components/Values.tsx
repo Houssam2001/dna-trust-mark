@@ -41,10 +41,10 @@ const Values = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
           <div>
-            <span className="inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4">
+            <span className="inline-block text-primary font-semibold text-sm  tracking-wider mb-4">
               {t('nav.values')}
             </span>
-            <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23]  mb-6">
               {t('values.title')}
             </h2>
             <p className="text-muted-foreground text-lg mb-8">

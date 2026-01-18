@@ -19,7 +19,7 @@ const StatsSection = () => {
                             <div className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter group-hover:text-white/80 transition-colors">
                                 {stat.value}
                             </div>
-                            <div className="text-sm font-bold tracking-[0.2em] uppercase text-white/60">
+                            <div className="text-sm font-bold tracking-[0.2em]  text-white/60">
                                 {stat.label}
                             </div>
                         </div>

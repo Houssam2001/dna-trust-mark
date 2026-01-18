@@ -21,7 +21,7 @@ const TargetAudience = () => {
                         {/* <span className="text-[#EB792D] font-bold tracking-wider text-sm mb-2 block uppercase">
                             {t('home.target.subtitle')}
                         </span> */}
-                        <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] mb-6 md:mb-8 leading-tight uppercase">
+                        <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] mb-6 md:mb-8 leading-tight ">
                             {t('home.target.title')}
                         </h2>
 

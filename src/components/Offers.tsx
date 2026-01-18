@@ -43,7 +43,7 @@ const ServicesGrid = ({ onOpenRequest }: OffersProps) => {
         <div className="grid md:grid-cols-2 gap-12 mb-20 items-end">
           <div>
             {/* <h4 className="text-primary font-bold tracking-widest text-sm mb-4 uppercase">{t("home.services.subtitle")}</h4> */}
-            <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase leading-none">
+            <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23]  leading-none">
               {t("home.services.title")}
             </h2>
           </div>

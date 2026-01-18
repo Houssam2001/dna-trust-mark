@@ -16,7 +16,7 @@ const Contact = () => {
 
             <section className="bg-primary/5 py-16">
                 <div className="container mx-auto px-4 text-center">
-                    <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6">
+                    <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23]  mb-6">
                         {t('contact.title', 'Contact Us')}
                     </h1>
                     <p className="text-xl text-muted-foreground max-w-2xl mx-auto">

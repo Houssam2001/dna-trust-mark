@@ -35,8 +35,8 @@ export const FeaturesBar = () => {
         <section className="py-24 bg-white">
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h4 className="text-primary font-bold tracking-widest text-xs md:text-sm mb-3 md:mb-4 uppercase">{t("home.whyChooseUs.subtitle")}</h4>
-                    <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-6 md:mb-8 leading-tight whitespace-pre-line">
+                    <h4 className="text-primary font-bold tracking-widest text-xs md:text-sm mb-3 md:mb-4 ">{t("home.whyChooseUs.subtitle")}</h4>
+                    <h2 className="text-3xl md:text-5xl font-bold text-[#0D2B23]  mb-6 md:mb-8 leading-tight whitespace-pre-line">
                         {t("home.whyChooseUs.title")}
                     </h2>
                     <p className="text-muted-foreground text-base md:text-lg leading-relaxed mb-6 md:mb-8">
@@ -63,7 +63,7 @@ export const FeaturesBar = () => {
                     {/* Floating badge */}
                     <div className="absolute -bottom-10 -left-10 bg-primary text-white p-10 rounded-[30px] shadow-2xl hidden md:block">
                         <div className="text-5xl font-bold mb-1">{t("home.whyChooseUs.badge.value")}</div>
-                        <div className="text-sm tracking-widest uppercase opacity-80 whitespace-pre-line">{t("home.whyChooseUs.badge.text")}</div>
+                        <div className="text-sm tracking-widest  opacity-80 whitespace-pre-line">{t("home.whyChooseUs.badge.text")}</div>
                     </div>
                 </div>
             </div>

@@ -26,7 +26,7 @@ const CTA = ({ onOpenRequest }: CTAProps) => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <h4 className="text-white font-bold tracking-widest text-sm mb-4 uppercase">{t('home.video.subtitle')}</h4>
+          <h4 className="text-white font-bold tracking-widest text-sm mb-4 ">{t('home.video.subtitle')}</h4>
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-8 max-w-3xl mx-auto leading-tight">
             {t('home.video.title')}
           </h2>
@@ -40,7 +40,7 @@ const CTA = ({ onOpenRequest }: CTAProps) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-8 text-lg uppercase font-bold tracking-wider rounded-none">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-10 py-8 text-lg  font-bold tracking-wider rounded-none">
                 {t('home.video.btn_info')}
               </Button>
             </motion.div>
@@ -54,7 +54,7 @@ const CTA = ({ onOpenRequest }: CTAProps) => {
             whileHover={{ scale: 1.05 }}
           >
             <PlayCircle className="w-16 h-16" strokeWidth={1} />
-            <span className="font-bold uppercase tracking-wider text-sm text-left">
+            <span className="font-bold  tracking-wider text-sm text-left">
               {t('home.video.btn_view')}
             </span>
           </motion.button>

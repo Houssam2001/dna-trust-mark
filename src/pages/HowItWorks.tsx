@@ -42,7 +42,7 @@ const HowItWorks = () => {
                     <div className="grid md:grid-cols-2 gap-12 items-start">
                         {/* Left Column: Title and Steps */}
                         <div>
-                            <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23] uppercase mb-12">
+                            <h1 className="text-3xl md:text-5xl font-bold text-[#0D2B23]  mb-12">
                                 {t('process.title')}
                             </h1>
 

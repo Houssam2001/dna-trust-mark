@@ -17,9 +17,9 @@ const Footer = () => {
                 ADN<span className="text-primary">GUARD</span>
               </span>
             </a>
-            <p className="text-secondary-foreground/70 mb-6 max-w-sm">
+            {/* <p className="text-secondary-foreground/70 mb-6 max-w-sm">
               {t('footer.desc')}
-            </p>
+            </p> */}
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-secondary-foreground/10 rounded-full flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
