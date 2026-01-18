@@ -314,6 +314,7 @@
             "address": "Adresse",
             "city": "Ville",
             "postalCode": "Code postal",
+            "country": "Pays",
             "phone": "Téléphone",
             "email": "Email",
             "message": "Message (optionnel)"
@@ -322,6 +323,7 @@
             "name": "Ex: Boucherie Dupont",
             "address": "12 rue de la République",
             "city": "Paris",
+            "country": "France",
             "message": "Informations complémentaires sur votre établissement..."
         },
         "validation": {

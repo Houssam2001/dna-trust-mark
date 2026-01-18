@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Shield, Mail, Phone, MapPin } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -43,24 +44,34 @@ const Footer = () => {
             <h4 className="font-serif font-bold text-lg mb-4">{t('footer.navigation')}</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#offres" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  {t('nav.offers')}
-                </a>
+                <Link to="/" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                  {t('nav.home')}
+                </Link>
               </li>
               <li>
-                <a href="#process" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  {t('nav.process')}
-                </a>
+                <Link to="/about-us" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                  {t('nav.about')}
+                </Link>
               </li>
               <li>
-                <a href="#valeurs" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  {t('nav.values')}
-                </a>
+                <Link to="/how-it-works" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                  {t('nav.howItWorks')}
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-secondary-foreground/70 hover:text-primary transition-colors">
-                  {t('footer.checkQr')}
-                </a>
+                <Link to="/what-you-gain" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                  {t('nav.whatYouGain')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/verification" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                  {t('nav.verification')}
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-secondary-foreground/70 hover:text-primary transition-colors">
+                  {t('nav.contact')}
+                </Link>
               </li>
             </ul>
           </div>

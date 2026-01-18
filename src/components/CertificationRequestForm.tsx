@@ -40,6 +40,7 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
     address: "",
     city: "",
     postal_code: "",
+    country: "",
     phone: "",
     email: "",
     siret: "",
@@ -52,6 +53,7 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
     address: z.string().trim().min(5, t('form.validation.addressRequired')).max(200),
     city: z.string().trim().min(2, t('form.validation.cityRequired')).max(100),
     postal_code: z.string().trim().max(10).optional(),
+    country: z.string().trim().min(2).max(50).optional(),
     phone: z.string().trim().max(20).optional(),
     email: z.string().trim().email(t('form.validation.emailInvalid')).max(255),
     siret: z.string().trim().max(20).optional(),
@@ -99,6 +101,7 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
         address: "",
         city: "",
         postal_code: "",
+        country: "",
         phone: "",
         email: "",
         siret: "",
@@ -203,6 +206,15 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                     value={form.postal_code}
                     onChange={(e) => setForm({ ...form, postal_code: e.target.value })}
                     placeholder="75001"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label>{t('form.fields.country')}</Label>
+                  <Input
+                    value={form.country}
+                    onChange={(e) => setForm({ ...form, country: e.target.value })}
+                    placeholder={t('form.placeholders.country')}
                   />
                 </div>
 
