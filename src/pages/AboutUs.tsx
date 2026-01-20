@@ -58,15 +58,15 @@ const AboutUs = () => {
                                 <ul className="space-y-4 mt-6">
                                     <li className="flex items-start gap-3">
                                         <span className="text-[#EB792D] text-xl">✓</span>
-                                        <span className="text-gray-700">Détecter toute fraude liée à l’origine de la viande.</span>
+                                        <span className="text-gray-700">{t('about.missionPoint1')}</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <span className="text-[#EB792D] text-xl">✓</span>
-                                        <span className="text-gray-700">S'assurer de l'absence de porc, de sanglier, de chat, de chien.</span>
+                                        <span className="text-gray-700">{t('about.missionPoint2')}</span>
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <span className="text-[#EB792D] text-xl">✓</span>
-                                        <span className="text-gray-700">Fournir des preuves scientifiques indépendantes et fiables.</span>
+                                        <span className="text-gray-700">{t('about.missionPoint3')}</span>
                                     </li>
                                 </ul>
                                 <p className="text-lg text-gray-600 leading-relaxed mt-6">

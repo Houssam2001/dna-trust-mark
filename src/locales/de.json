@@ -2,15 +2,15 @@
     "nav": {
         "home": "Startseite",
         "about": "Über uns",
-        "howItWorks": "Wie es funktioniert",
+        "howItWorks": "So funktioniert's",
         "whatYouGain": "Ihre Vorteile",
-        "verification": "Überprüfung",
+        "verification": "Verifizierung",
         "dashboard": "Dashboard",
         "login": "Anmelden",
         "register": "Registrieren",
         "getLabel": "Label erhalten",
         "offers": "Unsere Angebote",
-        "process": "Prozess",
+        "process": "Ablauf",
         "values": "Werte",
         "contact": "Kontakt",
         "language": "Sprache"
@@ -18,26 +18,26 @@
     "hero": {
         "highlight": "Ein unabhängiger Kontrolldienst",
         "title": "DNA-Analyse für volle Transparenz in Restaurants, Metzgereien und Fleischverarbeitungsbetrieben",
-        "description": "ADNGUARD zertifiziert die Echtheit von Fleisch durch unabhängige DNA-Analysen. Schützen Sie Ihre Kunden, stärken Sie Ihren Ruf.",
+        "description": "ADNGUARD zertifiziert die Echtheit von Fleisch durch unabhängige DNA-Analysen. Schützen Sie Ihre Kunden und stärken Sie Ihren Ruf.",
         "cta": "Label erhalten",
         "discover": "Entdecken"
     },
     "features": {
         "fullTransparency": {
             "title": "Volle Transparenz",
-            "desc": "Wir überprüfen, dass Betriebe keine Produkte auf Schweinefleischbasis servieren."
+            "desc": "Wir verifizieren, dass Betriebe keine Produkte auf Schweinefleischbasis servieren."
         },
         "labTesting": {
             "title": "Laboranalyse",
-            "desc": "Zufällige Fleischproben werden auf Schweinefleischkontamination getestet."
+            "desc": "Zufällige Fleischproben werden auf Kontamination mit Schweinefleisch getestet."
         },
         "surpriseInspections": {
             "title": "Überraschungsinspektionen",
-            "desc": "Unsere Teams führen unerwartete Besuche durch, um die Einhaltung sicherzustellen."
+            "desc": "Unsere Teams führen unangemeldete Besuche durch, um die Einhaltung der Standards sicherzustellen."
         },
         "certification": {
             "title": "Zertifizierung & Erneuerung",
-            "desc": "Betriebe müssen ihre Zertifizierung erneuern, um ihren Status zu behalten."
+            "desc": "Betriebe müssen ihre Zertifizierung erneuern, um ihren Status beizubehalten."
         }
     },
     "stats": {
@@ -54,9 +54,9 @@
             "subtitle": "ÜBER ADNGUARD",
             "title_prefix": "Vertrauen wiederherstellen durch",
             "title_highlight": "Wissenschaft",
-            "desc1": "In den letzten Jahren wurden zahlreiche Lebensmittelbetrügereien aufgedeckt: falsch etikettiertes Fleisch, Austausch von Tierarten und Täuschung über die wahre Zusammensetzung von Produkten. ADNGUARD wurde gegründet, um Verbraucher zu schützen und das Vertrauen in Lebensmittel wiederherzustellen.",
-            "desc2": "Durch unabhängige DNA-Analysen identifiziert ADNGUARD präzise die im Fleisch vorhandenen Tierarten, selbst nach dem Kochen oder der Verarbeitung. Mit ADNGUARD haben Sie einen zuverlässigen wissenschaftlichen Beweis dafür, was Sie wirklich konsumieren. Denn Lebensmitteltransparenz darf keinen Raum für Zweifel lassen. ADNGUARD – Der wissenschaftliche Beweis für Ihr Vertrauen.",
-            "cta": "MEHR LESEN"
+            "desc1": "In den letzten Jahren wurden zahlreiche Lebensmittelbetrügereien aufgedeckt: falsch deklariertes Fleisch, Austausch von Tierarten und Täuschung über die wahre Produktzusammensetzung. ADNGUARD wurde gegründet, um Verbraucher zu schützen und das Vertrauen in Lebensmittel wiederherzustellen.",
+            "desc2": "Durch unabhängige DNA-Analysen identifiziert ADNGUARD präzise die im Fleisch vorhandenen Tierarten, selbst nach Kochen oder Verarbeitung. Mit ADNGUARD haben Sie einen zuverlässigen wissenschaftlichen Beweis dafür, was Sie konsumieren. Denn Lebensmitteltransparenz darf keinen Raum für Zweifel lassen. ADNGUARD – Der wissenschaftliche Beweis für Ihr Vertrauen.",
+            "cta": "MEHR ERFAHREN"
         },
         "target": {
             "subtitle": "FÜR WEN IST",
@@ -64,49 +64,49 @@
             "restaurants": "Restaurants",
             "butchers": "Metzgereien",
             "processing": "Fleischverarbeitungsbetriebe",
-            "wholesalers": "Fleischgroßhändler und -verteiler",
-            "brands": "Lebensmittelmarken, die ihre Kunden beruhigen wollen",
+            "wholesalers": "Fleischgroßhändler und Distributoren",
+            "brands": "Lebensmittelmarken, die ihren Kunden Sicherheit geben wollen",
             "cta": "VORTEILE ENTDECKEN"
         },
         "services": {
             "subtitle": "Was wir tun",
             "title": "Unsere Dienstleistungen",
-            "cta": "MEHR LESEN",
+            "cta": "MEHR ERFAHREN",
             "analysis": {
                 "title": "Unabhängige DNA-Analyse",
-                "desc": "Um vorhandene Tierarten (Schwein, Hund, Katze) zu identifizieren, auch nach dem Kochen."
+                "desc": "Zur Identifizierung vorhandener Tierarten (Schwein, Hund, Katze), auch nach dem Garen."
             },
             "control": {
                 "title": "Unangekündigte Kontrollen",
-                "desc": "Mit Probenahme vor Ort."
+                "desc": "Mit Probenahme direkt vor Ort."
             },
             "report": {
                 "title": "Zuverlässige Berichte",
-                "desc": "Basierend auf wissenschaftlichen Beweisen."
+                "desc": "Basierend auf wissenschaftlichen Fakten."
             },
             "accreditation": {
                 "title": "ADNGUARD Akkreditierung",
-                "desc": "Um Verbraucher zu informieren und zu beruhigen."
+                "desc": "Um Verbraucher zu informieren und ihnen Sicherheit zu bieten."
             }
         },
         "video": {
             "subtitle": "FLEISCH DNA TEST",
             "title": "Schnelles und sicheres Probenahmeverfahren für Analysezwecke.",
-            "btn_info": "Mehr Informationen erhalten",
-            "btn_view": "Promo ansehen"
+            "btn_info": "Weitere Informationen",
+            "btn_view": "Video ansehen"
         },
         "whyChooseUs": {
-            "subtitle": "Warum uns wählen",
+            "subtitle": "Warum wir",
             "title": "⭐ Warum ADNGUARD wählen?",
             "desc": "",
             "features": {
                 "independent": {
                     "title": "Unabhängiger wissenschaftlicher Beweis",
-                    "desc": "DNA-Analysen durchgeführt von Partnerlabors, ohne Interessenkonflikt."
+                    "desc": "DNA-Analysen durch Partnerlabore, ohne Interessenkonflikte."
                 },
                 "reliable": {
                     "title": "Zuverlässige Artenerkennung",
-                    "desc": "Identifizierung von Schweine-, Hunde- oder Katzen-DNA, auch nach dem Kochen oder der Verarbeitung."
+                    "desc": "Nachweis von Schweine-, Hunde- oder Katzen-DNA, auch nach Kochen oder Verarbeitung."
                 },
                 "controls": {
                     "title": "Unangekündigte Kontrollen",
@@ -114,15 +114,15 @@
                 },
                 "transparency": {
                     "title": "Volle Transparenz",
-                    "desc": "Klare, sachliche Berichte basierend auf wissenschaftlichen Daten."
+                    "desc": "Klare, faktenbasierte Berichte auf Grundlage wissenschaftlicher Daten."
                 },
                 "protection": {
                     "title": "Verbraucherschutz",
-                    "desc": "Konkreter Kampf gegen Betrug und Artenaustausch."
+                    "desc": "Konkreter Kampf gegen Betrug und Lebensmittelfälschung."
                 },
                 "value": {
                     "title": "Wertschätzung ehrlicher Profis",
-                    "desc": "Ein glaubwürdiges Werkzeug zur Stärkung des Kundenvertrauens."
+                    "desc": "Ein glaubwürdiges Instrument zur Stärkung des Kundenvertrauens."
                 }
             },
             "badge": {
@@ -133,43 +133,46 @@
         "automation": {
             "subtitle": "Automatisierung",
             "title": "HÖCHSTE STANDARDS\nDER AUTOMATISIERUNG",
-            "desc": "Wir haben 90% unserer Analyseprozesse automatisiert, um menschliche Fehler zu reduzieren und den Durchsatz zu erhöhen. Vom Probeneingang bis zur Ergebnislieferung ist unser Arbeitsablauf nahtlos.",
+            "desc": "Wir haben 90% unserer Analyseprozesse automatisiert, um menschliche Fehler zu minimieren und den Durchsatz zu erhöhen. Vom Probeneingang bis zur Ergebnislieferung ist unser Arbeitsablauf nahtlos.",
             "didYouKnow": {
                 "title": "Wussten Sie schon?",
-                "desc": "Automatisierte DNA-Extraktion liefert im Allgemeinen eine um 30% höhere Reinheit als manuelle Methoden, was eine zuverlässigere nachgelagerte Analyse gewährleistet."
+                "desc": "Die automatisierte DNA-Extraktion liefert im Allgemeinen eine um 30% höhere Reinheit als manuelle Methoden und gewährleistet so zuverlässigere nachgelagerte Analysen."
             }
         }
     },
     "gain": {
         "title": "Ihre Vorteile",
-        "subtitle": "Greifbare Vorteile für Ihr Unternehmen und Ihre Kunden.",
+        "subtitle": "Greifbare Vorteile für Ihr Geschäft und Ihre Kunden.",
         "trust": {
             "title": "Unerschütterliches Vertrauen",
-            "desc": "Durch das Anzeigen des ADNGUARD-Labels beweisen Sie Ihren Kunden, dass Sie nichts zu verbergen haben. Sie heben sich von Wettbewerbern ab, die nur Versprechungen machen."
+            "desc": "Mit dem ADNGUARD-Label beweisen Sie Ihren Kunden, dass Sie nichts zu verbergen haben. Sie heben sich von Mitbewerbern ab, die nur Versprechungen machen."
         },
         "protection": {
             "title": "Markenschutz",
-            "desc": "Schützen Sie Ihren Ruf vor Skandalen in der Lieferkette. Unsere regelmäßigen Kontrollen stellen sicher, dass Ihre Lieferanten konform bleiben."
+            "desc": "Schützen Sie Ihren Ruf vor Skandalen in der Lieferkette. Unsere regelmäßigen Kontrollen stellen sicher, dass Ihre Lieferanten die Standards einhalten."
         },
         "growth": {
             "title": "Geschäftswachstum",
-            "desc": "Verbraucher sind bereit, mehr für zertifizierte Qualität zu zahlen. Binden Sie Kunden und gewinnen Sie neue anspruchsvolle Kunden."
+            "desc": "Verbraucher sind bereit, mehr für zertifizierte Qualität zu zahlen. Binden Sie Kunden und gewinnen Sie neue anspruchsvolle Zielgruppen."
         }
     },
     "about": {
-        "heroTitle": "Das größte DNA-Testservice-Netzwerk",
-        "heroDesc": "Als Reaktion auf die jüngsten Betrügereien — bei denen Metzger falsch etikettiertes Wildschweinfleisch als Halal verkauften und Restaurantbesitzer Kebab mit Schweine- oder Katzenfleisch servierten — wurde ADNGUARD gegründet, um Verbraucher zu schützen und das Vertrauen in die Lebensmittelkette wiederherzustellen.",
+        "heroTitle": "Das größte Netzwerk für DNA-Testservices",
+        "heroDesc": "Als Reaktion auf jüngste Betrugsfälle — bei denen Metzger falsch deklariertes Wildschweinfleisch als Halal verkauften oder Restaurants Döner mit Schweine- oder Katzenfleisch servierten — wurde ADNGUARD ins Leben gerufen, um Verbraucher zu schützen und das Vertrauen in die Lebensmittelkette wiederherzustellen.",
         "missionTitle": "Unsere Mission",
-        "missionDesc1": "Bei ADNGUARD ist unsere Mission einfach: Jeden Betrug im Zusammenhang mit der Fleischherkunft aufzudecken. Sicherstellen, dass kein Schwein, Wildschwein, Katze, Hund oder eine andere verbotene Art vorhanden ist.",
+        "missionDesc1": "Vollständige Transparenz garantieren und objektive wissenschaftliche Beweise liefern, wo Vertrauen allein nicht mehr ausreicht.",
+        "missionPoint1": "Jeden Betrug im Zusammenhang mit der Fleischherkunft aufdecken.",
+        "missionPoint2": "Die Abwesenheit von Schweinen, Wildschweinen, Katzen und Hunden sicherstellen.",
+        "missionPoint3": "Unabhängige und zuverlässige wissenschaftliche Beweise liefern.",
         "missionDesc2": "Wir erinnern alle daran, dass, auch wenn Halal-zertifizierte Restaurants und Metzgereien betroffen sein können, ohne zuverlässige Kontrolle alles möglich ist.",
         "whoAreWeTitle": "WER WIR SIND",
-        "whoAreWeDesc": "Wir erinnern alle daran, dass, auch wenn Halal-zertifizierte Restaurants und Metzgereien betroffen sein können, ohne zuverlässige Kontrolle alles möglich ist. Deshalb bietet ADNGUARD einen DNA-Testservice an, der in der Lage ist, Tierarten im Fleisch zu identifizieren, auch nach dem Kochen oder der Verarbeitung.",
-        "networkTitle": "DNA-Testservice-Netzwerk",
-        "networkDesc": "ADNGUARD bietet einen DNA-Testservice an, der in der Lage ist, Tierarten im Fleisch zu identifizieren, auch nach dem Kochen oder der Verarbeitung, und bietet eine wissenschaftliche, unabhängige und zuverlässige Antwort."
+        "whoAreWeDesc": "Wir erinnern daran, dass selbst bei Halal-zertifizierten Restaurants und Metzgereien ohne zuverlässige Kontrolle Risiken bestehen können. Deshalb bietet ADNGUARD einen DNA-Testservice, der Tierarten in Fleischprodukten identifizieren kann, selbst nach Kochen oder Verarbeitung.",
+        "networkTitle": "Netzwerk für DNA-Testservices",
+        "networkDesc": "ADNGUARD bietet einen DNA-Check an, der Tierarten im Fleisch identifiziert – auch nach Verarbeitung oder Garen – und liefert eine wissenschaftliche, unabhängige und zuverlässige Antwort."
     },
     "contact": {
-        "title": "Kontaktieren Sie uns",
-        "subtitle": "Fragen? Wir sind hier, um zu helfen.",
+        "title": "Kontakt",
+        "subtitle": "Fragen? Wir sind für Sie da.",
         "company": "HV GLOBAL CONSULTING",
         "email": "E-Mail",
         "phone": "Telefon",
@@ -195,19 +198,19 @@
         }
     },
     "footer": {
-        "checkQr": "Etablissement überprüfen",
+        "checkQr": "Betrieb überprüfen",
         "desc": "Die Referenz für Zertifizierung und Rückverfolgbarkeit durch DNA-Analyse.",
         "navigation": "Navigation",
         "rights": "© 2025 – ADNGUARD ist ein Projekt von HV Global Consulting.",
         "legal": "Impressum",
         "terms": "AGB",
         "privacy": "Datenschutz",
-        "links": "Quick Links",
+        "links": "Schnellzugriff",
         "contact": "Kontakt"
     },
     "offers": {
         "title": "Unsere Angebote",
-        "subtitle": "Lösungen angepasst an jeden Unternehmenstyp",
+        "subtitle": "Maßgeschneiderte Lösungen für jeden Betriebstyp",
         "standard": {
             "title": "Abonnement",
             "price": "79€",
@@ -221,15 +224,15 @@
             "dnaControl": "Überraschungskontrollen",
             "certificate": "Offizielle Berichte",
             "sticker": "Offizielles ADNGUARD Logo",
-            "platform": "Kunden QR-Code",
-            "support": "Dedizierter Support"
+            "platform": "Kunden-QR-Code",
+            "support": "Persönlicher Support"
         },
         "starter": {
-            "title": "ENTDECKUNG",
+            "title": "DISCOVERY",
             "price": "Auf Anfrage",
             "features": [
                 "1 Überraschungs-DNA-Probe",
-                "Mehrfacharten-Analyse",
+                "Analyse auf mehrere Tierarten",
                 "Vertraulicher Bericht",
                 "E-Mail-Support"
             ],
@@ -240,82 +243,82 @@
             "price": "Auf Anfrage",
             "features": [
                 "4 Überraschungsproben / Jahr",
-                "Komplettanalyse + Suche nach spezifischen Arten",
-                "ADNGUARD Zertifizierung bei Konformität",
+                "Komplettanalyse + gezielte Artensuche",
+                "ADNGUARD-Zertifikat bei Konformität",
                 "Marketing-Kit (Aufkleber, QR-Code)",
-                "Dedizierter Support"
+                "Persönlicher Support"
             ],
             "cta": "Angebot anfordern"
         },
         "enterprise": {
-            "title": "NETZWERK",
+            "title": "NETWORK",
             "price": "Auf Anfrage",
             "features": [
-                "Maßgeschneidertes Programm",
+                "Individuelles Programm",
                 "Vollständiges Lieferketten-Audit",
                 "Unbegrenzte Analysen",
                 "Mitarbeiterschulung",
-                "API-Zugriff für Ergebnisse"
+                "API-Zugriff auf Ergebnisse"
             ],
             "cta": "Team kontaktieren"
         }
     },
     "process": {
-        "title": "Wie funktioniert die ADNGUARD Kontrolle?",
-        "subtitle": "Ein strenger und transparenter Prozess, um die Echtheit Ihrer Produkte zu garantieren.",
+        "title": "Wie funktioniert die ADNGUARD-Kontrolle?",
+        "subtitle": "Ein strenger und transparenter Prozess, um die Authentizität Ihrer Produkte zu garantieren.",
         "step1": {
-            "title": "Verpflichtung des Etablissements",
-            "desc": "Der Profi entscheidet sich freiwillig, von ADNGUARD in einer Logik der Transparenz kontrolliert zu werden."
+            "title": "Engagement des Betriebs",
+            "desc": "Der Betrieb entscheidet sich freiwillig für die Kontrolle durch ADNGUARD im Sinne der Transparenz."
         },
         "step2": {
             "title": "Unangekündigte Kontrollen",
-            "desc": "ADNGUARD führt überraschende Besuche durch und nimmt Proben vor Ort, ohne Warnung, um die Realität der verkauften Produkte widerzuspiegeln."
+            "desc": "ADNGUARD führt unangemeldete Besuche durch und nimmt Proben direkt vor Ort, um ein realistisches Bild der verkauften Produkte zu erhalten."
         },
         "step3": {
             "title": "Zuverlässige DNA-Analysen",
-            "desc": "Proben werden von unabhängigen Labors analysiert, um die tatsächlich vorhandenen Tierarten zu identifizieren, auch nach Kochen oder Verarbeitung."
+            "desc": "Proben werden von unabhängigen Laboren analysiert, um die tatsächlich enthaltenen Tierarten zu identifizieren, auch nach Garen oder Verarbeitung."
         },
         "step4": {
-            "title": "Klare und vertrauliche Ergebnisse",
-            "desc": "Ergebnisse werden in einem präzisen Bericht festgehalten, der eine ernsthafte und verantwortungsvolle Überwachung gewährleistet."
+            "title": "Klare & vertrauliche Ergebnisse",
+            "desc": "Ergebnisse werden in einem präzisen Bericht dokumentiert, was eine seriöse Überwachung garantiert."
         },
         "step5": {
             "title": "ADNGUARD Akkreditierung",
-            "desc": "Wenn Kontrollen konform sind, erhält das Etablissement eine ADNGUARD-Akkreditierung, sichtbar, um Verbraucher zu informieren und zu beruhigen."
+            "desc": "Bei erfolgreicher Prüfung erhält der Betrieb die ADNGUARD-Akkreditierung, die sichtbar angebracht werden kann, um Kunden Sicherheit zu geben."
         }
     },
     "values": {
         "title": "Unsere Stärken",
         "transparency": {
-            "title": "Überraschend",
-            "desc": "Unsere Kontrollen werden ohne Warnung durchgeführt, um authentische Ergebnisse zu garantieren."
+            "title": "Unangekündigt",
+            "desc": "Unsere Kontrollen erfolgen ohne Vorwarnung, um authentische Ergebnisse zu gewährleisten."
         },
         "scientific": {
             "title": "Wissenschaftlicher Beweis",
-            "desc": "DNA-Analyse ist der einzige unwiderlegbare Beweis für die Zusammensetzung eines Produkts."
+            "desc": "Die DNA-Analyse ist der einzige unwiderlegbare Beweis für die Zusammensetzung eines Produkts."
         },
         "independent": {
             "title": "Unabhängigkeit",
-            "desc": "ADNGUARD ist völlig unabhängig von den kontrollierten Betrieben."
+            "desc": "ADNGUARD ist vollständig unabhängig von den kontrollierten Betrieben."
         }
     },
     "cta_section": {
-        "title": "Bereit, Ihr Qualitätsversprechen zu zeigen?",
-        "desc": "Schließen Sie sich den Betrieben an, die sich für Transparenz entschieden haben. Holen Sie sich noch heute Ihre ADNGUARD-Zertifizierung.",
-        "note": "Erster Test zum Vorzugspreis • Logo angeboten bei Konformität"
+        "title": "Bereit, Qualität zu zeigen?",
+        "desc": "Schließen Sie sich den Betrieben an, die auf Transparenz setzen. Holen Sie sich noch heute Ihre ADNGUARD-Zertifizierung.",
+        "note": "Erster Test zum Vorzugspreis • Logo inklusive bei Konformität"
     },
     "form": {
         "title": "ADNGUARD Label anfordern",
         "loading": "Senden...",
         "submit": "Anfrage senden",
-        "disclaimer": "Mit dem Absenden dieses Formulars stimmen Sie zu, dass unser Team Sie bezüglich Ihrer Anfrage kontaktiert.",
+        "disclaimer": "Mit dem Absenden stimmen Sie zu, dass unser Team Sie bezüglich Ihrer Anfrage kontaktiert.",
         "fields": {
-            "name": "Name des Etablissements",
-            "type": "Art des Etablissements",
-            "siret": "Registrierungsnummer",
+            "name": "Name des Betriebs",
+            "type": "Betriebsart",
+            "siret": "Registrierungsnummer (SIRET)",
             "address": "Adresse",
             "city": "Stadt",
-            "postalCode": "Postleitzahl",
+            "postalCode": "PLZ",
             "phone": "Telefon",
             "email": "E-Mail",
             "message": "Nachricht (optional)"
@@ -324,43 +327,43 @@
             "name": "Bsp: Metzgerei Müller",
             "address": "Hauptstraße 12",
             "city": "Berlin",
-            "message": "Zusätzliche Informationen über Ihr Etablissement..."
+            "message": "Zusätzliche Informationen..."
         },
         "validation": {
-            "nameMin": "Name muss mindestens 2 Zeichen enthalten",
+            "nameMin": "Name muss mindestens 2 Zeichen lang sein",
             "addressRequired": "Adresse ist erforderlich",
             "cityRequired": "Stadt ist erforderlich",
             "emailInvalid": "Ungültige E-Mail"
         },
         "success": {
             "title": "Anfrage gesendet!",
-            "desc": "Ihre Anfrage für die ADNGUARD-Zertifizierung wurde aufgezeichnet. Unser Team wird Sie innerhalb von 48 Stunden kontaktieren.",
+            "desc": "Ihre Anfrage für die ADNGUARD-Zertifizierung ist eingegangen. Unser Team meldet sich innerhalb von 48 Stunden bei Ihnen.",
             "toast": "Anfrage erfolgreich gesendet!"
         },
         "error": {
-            "toast": "Fehler beim Senden der Anfrage: "
+            "toast": "Fehler beim Senden: "
         }
     },
     "common": {
         "close": "Schließen",
-        "readMore": "Mehr lesen"
+        "readMore": "Weiterlesen"
     },
     "types": {
         "boucherie": "Metzgerei",
         "restaurant": "Restaurant",
         "usine": "Lebensmittelfabrik",
         "traiteur": "Catering",
-        "autre": "Andere"
+        "autre": "Sonstiges"
     },
     "verification": {
         "backHome": "Zurück zur Startseite",
-        "title": "Zertifizierungsüberprüfung",
-        "subtitle": "Geben Sie den ADNGUARD-Code des Etablissements ein, um dessen Zertifizierungsstatus zu überprüfen und die Historie der DNA-Kontrollen einzusehen.",
-        "searchLabel": "ADNGUARD-Code des Etablissements",
-        "searchBtn": "Überprüfen",
-        "searchHint": "Der Code befindet sich auf dem im Etablissement angezeigten ADNGUARD-Aufkleber oder auf dem QR-Code.",
-        "notFoundTitle": "Etablissement nicht gefunden",
-        "notFoundDesc": "Kein Etablissement entspricht diesem Code. Bitte überprüfen Sie, ob Sie den auf dem ADNGUARD-Aufkleber angezeigten Code korrekt eingegeben haben.",
+        "title": "Zertifikatsprüfung",
+        "subtitle": "Geben Sie den ADNGUARD-Code des Betriebs ein, um den Zertifizierungsstatus und die Historie der DNA-Kontrollen zu prüfen.",
+        "searchLabel": "ADNGUARD-Code des Betriebs",
+        "searchBtn": "Prüfen",
+        "searchHint": "Den Code finden Sie auf dem ADNGUARD-Aufkleber im Betrieb oder über den QR-Code.",
+        "notFoundTitle": "Betrieb nicht gefunden",
+        "notFoundDesc": "Kein Betrieb mit diesem Code gefunden. Bitte überprüfen Sie die Eingabe des Codes vom ADNGUARD-Aufkleber.",
         "status": {
             "compliant": "Zertifiziert Konform",
             "nonCompliant": "Nicht Konform",
@@ -369,11 +372,11 @@
             "n_existe_plus": "Existiert nicht mehr"
         },
         "statusDesc": {
-            "compliant": "Dieses Etablissement hat alle ADNGUARD DNA-Kontrollen erfolgreich bestanden.",
-            "nonCompliant": "Die letzte DNA-Kontrolle ergab Nichtkonformitäten. Die Zertifizierung ist ausgesetzt.",
-            "suspended": "Die Zertifizierung dieses Etablissements ist vorübergehend ausgesetzt.",
-            "pending": "Eine Kontrolle wird derzeit analysiert.",
-            "n_existe_plus": "Dieses Etablissement existiert nicht mehr oder hat seine Tätigkeit eingestellt."
+            "compliant": "Dieser Betrieb hat alle ADNGUARD DNA-Kontrollen erfolgreich bestanden.",
+            "nonCompliant": "Die letzte DNA-Kontrolle ergab Abweichungen. Die Zertifizierung ist ausgesetzt.",
+            "suspended": "Die Zertifizierung dieses Betriebs ist vorübergehend ausgesetzt.",
+            "pending": "Eine Kontrolle wird derzeit ausgewertet.",
+            "n_existe_plus": "Dieser Betrieb existiert nicht mehr oder hat den Betrieb eingestellt."
         },
         "info": {
             "address": "Adresse",
@@ -382,10 +385,10 @@
         },
         "history": {
             "title": "DNA-Kontrollhistorie",
-            "empty": "Keine Kontrollen für dieses Etablissement aufgezeichnet.",
+            "empty": "Keine Kontrollen für diesen Betrieb verzeichnet.",
             "ref": "Ref",
             "species": "Analysierte Arten",
-            "anomalies": "Anomalien"
+            "anomalies": "Auffälligkeiten"
         },
         "footer": "Daten zertifiziert durch ADNGUARD • Unabhängige DNA-Kontrollen"
     }
