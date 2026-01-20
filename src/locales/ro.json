@@ -1,0 +1,392 @@
+{
+    "nav": {
+        "home": "Acasă",
+        "about": "Despre Noi",
+        "howItWorks": "Cum Funcționează",
+        "whatYouGain": "Beneficiile Tale",
+        "verification": "Verificare",
+        "dashboard": "Panou de Bord",
+        "login": "Autentificare",
+        "register": "Înregistrare",
+        "getLabel": "Obține Eticheta",
+        "offers": "Ofertele Noastre",
+        "process": "Cum Funcționează",
+        "values": "Valorile Noastre",
+        "contact": "Contact",
+        "language": "Limbă"
+    },
+    "hero": {
+        "highlight": "Un Serviciu de Control Independent",
+        "title": "Analiză ADN pentru a Asigura Transparență Totală în Restaurante, Măcelării și Unități de Procesare a Cărnii",
+        "description": "ADNGUARD certifică autenticitatea cărnii prin analize ADN independente. Protejează-ți clienții, consolidează-ți reputația.",
+        "cta": "Obține Eticheta",
+        "discover": "Descoperă"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Transparență Totală",
+            "desc": "Verificăm faptul că unitățile nu servesc produse pe bază de porc."
+        },
+        "labTesting": {
+            "title": "Analiză de Laborator",
+            "desc": "Se testează mostre de carne aleatorii pentru a detecta contaminarea cu porc."
+        },
+        "surpriseInspections": {
+            "title": "Inspecții Surpriză",
+            "desc": "Echipele noastre efectuează vizite neașteptate pentru a asigura conformitatea."
+        },
+        "certification": {
+            "title": "Certificare și Reînnoire",
+            "desc": "Unitățile trebuie să își reînnoiască certificarea pentru a-și menține statutul."
+        }
+    },
+    "stats": {
+        "analyzes": "Analize",
+        "businesses": "Afaceri",
+        "experience": "Ani de Experiență",
+        "centers": "Centre",
+        "scientists": "Oameni de Știință",
+        "testsDone": "Teste Efectuate",
+        "awards": "Premii"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "DESPRE ADNGUARD",
+            "title_prefix": "Restabilim încrederea prin",
+            "title_highlight": "Știință",
+            "desc1": "În ultimii ani, au fost dezvăluite numeroase fraude alimentare: carne etichetată greșit, substituirea speciilor și înșelăciuni cu privire la compoziția produselor. ADNGUARD a fost creat pentru a proteja consumatorii și a restabili încrederea în alimente.",
+            "desc2": "Prin analize ADN independente, ADNGUARD identifică cu precizie speciile de animale prezente în carne, chiar și după gătire sau procesare. Cu ADNGUARD, ai dovada științifică fiabilă a ceea ce consumi. Pentru că transparența alimentară nu ar trebui să lase loc de îndoială. ADNGUARD – Dovada științifică pentru încrederea ta.",
+            "cta": "CITEȘTE MAI MULT"
+        },
+        "target": {
+            "subtitle": "PENTRU CINE ESTE",
+            "title": "ADNGUARD?",
+            "restaurants": "Restaurante",
+            "butchers": "Măcelării",
+            "processing": "Unități de Procesare a Cărnii",
+            "wholesalers": "Angrosiști și Distribuitori de Carne",
+            "brands": "Branduri Alimentare care doresc să își asigure clienții",
+            "cta": "DESCOPERĂ BENEFICIILE"
+        },
+        "services": {
+            "subtitle": "Ce Facem",
+            "title": "Serviciile Noastre",
+            "cta": "CITEȘTE MAI MULT",
+            "analysis": {
+                "title": "Analiză ADN Independentă",
+                "desc": "Pentru a identifica speciile de animale prezente (porc, câine, pisică), chiar și după gătire."
+            },
+            "control": {
+                "title": "Controale Surpriză",
+                "desc": "Cu prelevare de probe la fața locului."
+            },
+            "report": {
+                "title": "Rapoarte Fiabile",
+                "desc": "Bazate pe dovezi științifice."
+            },
+            "accreditation": {
+                "title": "Acreditare ADNGUARD",
+                "desc": "Pentru a informa și asigura consumatorii."
+            }
+        },
+        "video": {
+            "subtitle": "TEST ADN CARNE",
+            "title": "Procedură rapidă și sigură de prelevare a probelor pentru analiză.",
+            "btn_info": "Obține Mai Multe Informații",
+            "btn_view": "Vezi Promo"
+        },
+        "whyChooseUs": {
+            "subtitle": "De Ce Să Ne Alegi",
+            "title": "⭐ De Ce Să Alegi ADNGUARD?",
+            "desc": "",
+            "features": {
+                "independent": {
+                    "title": "Dovadă Științifică Independentă",
+                    "desc": "Analize ADN efectuate de laboratoare partenere, fără conflict de interese."
+                },
+                "reliable": {
+                    "title": "Detecție Fiabilă a Speciilor",
+                    "desc": "Identificarea ADN-ului de porc, câine sau pisică, chiar și după gătire sau procesare."
+                },
+                "controls": {
+                    "title": "Controale Surpriză",
+                    "desc": "Probe prelevate la fața locului în condiții reale."
+                },
+                "transparency": {
+                    "title": "Transparență Totală",
+                    "desc": "Rapoarte clare, factuale, bazate pe date științifice."
+                },
+                "protection": {
+                    "title": "Protecția Consumatorului",
+                    "desc": "Luptă concretă împotriva fraudei și substituirii speciilor."
+                },
+                "value": {
+                    "title": "Valorizarea Profesioniștilor Onești",
+                    "desc": "Un instrument credibil pentru a consolida încrederea clienților."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Precizie\nGarantată"
+            }
+        },
+        "automation": {
+            "subtitle": "Automatizare",
+            "title": "CELE MAI ÎNALTE STANDARDE\nDE AUTOMATIZARE",
+            "desc": "Am automatizat 90% din procesele noastre analitice pentru a reduce eroarea umană și a crește randamentul. De la primirea probelor până la livrarea rezultatelor, fluxul nostru de lucru este continuu.",
+            "didYouKnow": {
+                "title": "Știai Că?",
+                "desc": "Extracția automată a ADN-ului oferă, în general, o puritate cu 30% mai mare decât metodele manuale, asigurând o analiză ulterioară mai fiabilă."
+            }
+        }
+    },
+    "gain": {
+        "title": "Beneficiile Tale",
+        "subtitle": "Beneficii tangibile pentru afacerea ta și clienții tăi.",
+        "trust": {
+            "title": "Încredere De Nezdruncinat",
+            "desc": "Afișând eticheta ADNGUARD, dovedești clienților tăi că nu ai nimic de ascuns. Te diferențiezi de concurenții care fac doar promisiuni."
+        },
+        "protection": {
+            "title": "Protecția Brandului",
+            "desc": "Protejează-ți reputația de scandalurile din lanțul de aprovizionare. Controalele noastre regulate asigură că furnizorii tăi rămân conformi."
+        },
+        "growth": {
+            "title": "Creșterea Afacerii",
+            "desc": "Consumatorii sunt dispuși să plătească mai mult pentru calitatea certificată. Fidelizează clienții și atrage noi clienți exigenți."
+        }
+    },
+    "about": {
+        "heroTitle": "Cea Mai Mare Rețea de Servicii de Testare ADN",
+        "heroDesc": "Ca răspuns la înșelătoriile recente — în care măcelarii vindeau carne de mistreț etichetată fals ca halal, iar proprietarii de restaurante serveau kebaburi conținând carne de porc sau pisică — ADNGUARD a fost creat pentru a proteja consumatorii și a restabili încrederea în lanțul alimentar.",
+        "missionTitle": "Misiunea Noastră",
+        "missionDesc1": "La ADNGUARD, misiunea noastră este simplă: Detectăm orice fraudă legată de originea cărnii. Asigurăm absența porcului, mistrețului, pisicii, câinelui sau a oricărei alte specii interzise.",
+        "missionDesc2": "Reamintim tuturor că, chiar dacă restaurantele și măcelăriile certificate halal pot fi implicate, orice este posibil în absența unui control fiabil.",
+        "whoAreWeTitle": "CINE SUNTEM",
+        "whoAreWeDesc": "Reamintim tuturor că, chiar dacă restaurantele și măcelăriile certificate halal pot fi implicate, orice este posibil în absența unui control fiabil. De aceea, ADNGUARD oferă un serviciu de testare ADN capabil să identifice speciile de animale prezente în carne, chiar și după gătire sau procesare.",
+        "networkTitle": "Rețeaua de Servicii de Testare ADN",
+        "networkDesc": "ADNGUARD oferă un serviciu de testare ADN capabil să identifice speciile de animale prezente în carne, chiar și după gătire sau procesare, oferind un răspuns științific, independent și fiabil."
+    },
+    "contact": {
+        "title": "Contactează-ne",
+        "subtitle": "Întrebări? Suntem aici să te ajutăm.",
+        "company": "HV GLOBAL CONSULTING",
+        "email": "Email",
+        "phone": "Telefon",
+        "address": "Adresă",
+        "hours": {
+            "title": "Program de Lucru",
+            "week": "Luni - Vineri: 9:00 - 18:00",
+            "weekend": "Sâmbătă - Duminică: Închis"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, Franța",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        },
+        "form": {
+            "name": "Nume Complet",
+            "email": "Adresă de Email",
+            "subject": "Subiect",
+            "message": "Mesaj",
+            "send": "Trimite Mesaj",
+            "success": "Mesaj trimis cu succes!",
+            "error": "A apărut o eroare."
+        }
+    },
+    "footer": {
+        "checkQr": "Verifică o Unitate",
+        "desc": "Referința în certificare și trasabilitate prin analiză ADN.",
+        "navigation": "Navigație",
+        "rights": "© 2025 – ADNGUARD este un proiect al HV Global Consulting.",
+        "legal": "Mențiuni Legale",
+        "terms": "Termeni și Condiții",
+        "privacy": "Politica de Confidențialitate",
+        "links": "Link-uri Rapide",
+        "contact": "Contact"
+    },
+    "offers": {
+        "title": "Ofertele Noastre",
+        "subtitle": "Soluții adaptate fiecărui tip de unitate",
+        "standard": {
+            "title": "Abonament",
+            "price": "79€",
+            "period": "/lună"
+        },
+        "premium": {
+            "title": "Premium"
+        },
+        "cta": "Comandă un Test",
+        "features": {
+            "dnaControl": "Controale Surpriză",
+            "certificate": "Rapoarte Oficiale",
+            "sticker": "Logo Oficial ADNGUARD",
+            "platform": "Cod QR Client",
+            "support": "Suport Dedicat"
+        },
+        "starter": {
+            "title": "DESCOPERIRE",
+            "price": "Ofertă",
+            "features": [
+                "1 probă ADN surpriză",
+                "Analiză multi-specie",
+                "Raport confidențial",
+                "Suport prin email"
+            ],
+            "cta": "Solicită o Ofertă"
+        },
+        "pro": {
+            "title": "CERTIFICARE",
+            "price": "Ofertă",
+            "features": [
+                "4 probe surpriză / an",
+                "Analiză completă + căutare specie specifică",
+                "Certificare ADNGUARD dacă este conform",
+                "Kit de Marketing (Sticker, Cod QR)",
+                "Suport Dedicat"
+            ],
+            "cta": "Solicită o Ofertă"
+        },
+        "enterprise": {
+            "title": "REȚEA",
+            "price": "Ofertă",
+            "features": [
+                "Program personalizat",
+                "Audit complet al lanțului de aprovizionare",
+                "Analize nelimitate",
+                "Instruire personal",
+                "Acces API pentru rezultate"
+            ],
+            "cta": "Contactează Echipa"
+        }
+    },
+    "process": {
+        "title": "Cum funcționează controlul ADNGUARD?",
+        "subtitle": "Un proces riguros și transparent pentru a garanta autenticitatea produselor tale.",
+        "step1": {
+            "title": "Angajamentul Unității",
+            "desc": "Profesionistul alege voluntar să fie controlat de ADNGUARD într-o logică a transparenței."
+        },
+        "step2": {
+            "title": "Controale Neanunțate",
+            "desc": "ADNGUARD efectuează vizite surpriză și prelevează probe la fața locului, fără avertisment, pentru a reflecta realitatea produselor vândute."
+        },
+        "step3": {
+            "title": "Analize ADN Fiabile",
+            "desc": "Probele sunt analizate de laboratoare independente pentru a identifica speciile de animale prezente efectiv, chiar și după gătire sau procesare."
+        },
+        "step4": {
+            "title": "Rezultate Clare și Confidențiale",
+            "desc": "Rezultatele sunt înregistrate într-un raport precis, asigurând o monitorizare serioasă și responsabilă."
+        },
+        "step5": {
+            "title": "Acreditare ADNGUARD",
+            "desc": "Când controalele sunt conforme, unitatea primește o acreditare ADNGUARD, vizibilă pentru a informa și asigura consumatorii."
+        }
+    },
+    "values": {
+        "title": "Punctele Noastre Forte",
+        "transparency": {
+            "title": "Neanunțat",
+            "desc": "Controalele noastre sunt efectuate fără avertisment pentru a asigura rezultate autentice."
+        },
+        "scientific": {
+            "title": "Dovadă Științifică",
+            "desc": "Analiza ADN este singura dovadă incontestabilă a compoziției unui produs."
+        },
+        "independent": {
+            "title": "Independență",
+            "desc": "ADNGUARD este complet independent de unitățile controlate."
+        }
+    },
+    "cta_section": {
+        "title": "Ești gata să îți afișezi angajamentul față de calitate?",
+        "desc": "Alătură-te unităților care au ales transparența. Obține certificarea ADNGUARD astăzi.",
+        "note": "Primul test la tarif preferențial • Logo oferit dacă ești conform"
+    },
+    "form": {
+        "title": "Solicită Eticheta ADNGUARD",
+        "loading": "Se trimite...",
+        "submit": "Trimite Solicitarea",
+        "disclaimer": "Prin trimiterea acestui formular, ești de acord să fii contactat de echipa noastră cu privire la solicitarea ta.",
+        "fields": {
+            "name": "Numele Unității",
+            "type": "Tipul Unității",
+            "siret": "Număr de Înregistrare (CUI)",
+            "address": "Adresă",
+            "city": "Oraș",
+            "postalCode": "Cod Postal",
+            "phone": "Telefon",
+            "email": "Email",
+            "message": "Mesaj (opțional)"
+        },
+        "placeholders": {
+            "name": "Ex: Măcelăria Popescu",
+            "address": "Str. Republicii nr. 12",
+            "city": "București",
+            "message": "Informații suplimentare despre unitatea ta..."
+        },
+        "validation": {
+            "nameMin": "Numele trebuie să conțină cel puțin 2 caractere",
+            "addressRequired": "Adresa este obligatorie",
+            "cityRequired": "Orașul este obligatoriu",
+            "emailInvalid": "Email Invalid"
+        },
+        "success": {
+            "title": "Solicitare Trimisă!",
+            "desc": "Solicitarea ta de certificare ADNGUARD a fost înregistrată. Echipa noastră te va contacta în 48h.",
+            "toast": "Solicitare trimisă cu succes!"
+        },
+        "error": {
+            "toast": "Eroare la trimiterea solicitării: "
+        }
+    },
+    "common": {
+        "close": "Închide",
+        "readMore": "Citește Mai Mult"
+    },
+    "types": {
+        "boucherie": "Măcelărie",
+        "restaurant": "Restaurant",
+        "usine": "Unitate de Procesare Alimentară",
+        "traiteur": "Catering",
+        "autre": "Altele"
+    },
+    "verification": {
+        "backHome": "Înapoi Acasă",
+        "title": "Verificarea Certificării",
+        "subtitle": "Introduceți codul ADNGUARD al unității pentru a-i verifica statutul de certificare și pentru a vizualiza istoricul controalelor ADN.",
+        "searchLabel": "Cod ADNGUARD al Unității",
+        "searchBtn": "Verifică",
+        "searchHint": "Codul poate fi găsit pe stickerul ADNGUARD afișat în unitate sau pe codul QR.",
+        "notFoundTitle": "Unitate Negăsită",
+        "notFoundDesc": "Nicio unitate nu corespunde acestui cod. Vă rugăm să verificați dacă ați introdus corect codul afișat pe stickerul ADNGUARD.",
+        "status": {
+            "compliant": "Certificat Conform",
+            "nonCompliant": "Neconform",
+            "suspended": "Certificare Suspendată",
+            "pending": "În Așteptare",
+            "n_existe_plus": "Nu Mai Există"
+        },
+        "statusDesc": {
+            "compliant": "Această unitate a trecut cu succes toate controalele ADN ADNGUARD.",
+            "nonCompliant": "Ultimul control ADN a relevat neconformități. Certificarea este suspendată.",
+            "suspended": "Certificarea acestei unități este temporar suspendată.",
+            "pending": "Un control este momentan în curs de analiză.",
+            "n_existe_plus": "Această unitate nu mai există sau și-a încetat activitatea."
+        },
+        "info": {
+            "address": "Adresă",
+            "certifiedSince": "Certificat Din",
+            "lastControl": "Ultimul Control"
+        },
+        "history": {
+            "title": "Istoric Controale ADN",
+            "empty": "Niciun control înregistrat pentru această unitate.",
+            "ref": "Ref",
+            "species": "Specii Analizate",
+            "anomalies": "Anomalii"
+        },
+        "footer": "Date certificate de ADNGUARD • Controale ADN Independente"
+    }
+}

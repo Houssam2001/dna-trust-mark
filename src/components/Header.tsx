@@ -20,6 +20,9 @@ const languages = [
   { code: "nl", label: "NL", name: "Nederlands", flag: "🇳🇱" },
   { code: "de", label: "DE", name: "Deutsch", flag: "🇩🇪" },
   { code: "tr", label: "TR", name: "Türkçe", flag: "🇹🇷" },
+  { code: "ro", label: "RO", name: "Română", flag: "🇷🇴" },
+  { code: "hu", label: "HU", name: "Magyar", flag: "🇭🇺" },
+  { code: "sk", label: "SK", name: "Slovenčina", flag: "🇸🇰" },
 ];
 
 interface HeaderProps {

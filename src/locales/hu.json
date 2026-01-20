@@ -1,0 +1,392 @@
+{
+    "nav": {
+        "home": "Főoldal",
+        "about": "Rólunk",
+        "howItWorks": "Működés",
+        "whatYouGain": "Előnyök",
+        "verification": "Ellenőrzés",
+        "dashboard": "Vezérlőpult",
+        "login": "Bejelentkezés",
+        "register": "Regisztráció",
+        "getLabel": "Címke megszerzése",
+        "offers": "Ajánlataink",
+        "process": "Működés",
+        "values": "Értékeink",
+        "contact": "Kapcsolat",
+        "language": "Nyelv"
+    },
+    "hero": {
+        "highlight": "Független Ellenőrző Szolgáltatás",
+        "title": "DNS Elemzés a Teljes Átláthatóságért Éttermekben, Hentesüzletekben és Húsfeldolgozó Üzemekben",
+        "description": "Az ADNGUARD független DNS elemzéssel tanúsítja a hús eredetiségét. Védje ügyfeleit, erősítse hírnevét.",
+        "cta": "Címke megszerzése",
+        "discover": "Fedezze fel"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Teljes Átláthatóság",
+            "desc": "Ellenőrizzük, hogy az egységek nem szolgálnak fel sertésalapú termékeket."
+        },
+        "labTesting": {
+            "title": "Laboratóriumi Elemzés",
+            "desc": "Véletlenszerű húsmintákat tesztelünk sertés szennyeződés kimutatására."
+        },
+        "surpriseInspections": {
+            "title": "Meglepetésszerű Ellenőrzések",
+            "desc": "Csapataink váratlan látogatásokat végeznek a megfelelőség biztosítása érdekében."
+        },
+        "certification": {
+            "title": "Tanúsítás és Megújítás",
+            "desc": "Az egységeknek meg kell újítaniuk tanúsítványukat státuszuk fenntartása érdekében."
+        }
+    },
+    "stats": {
+        "analyzes": "Elemzések",
+        "businesses": "Vállalkozások",
+        "experience": "Év Tapasztalat",
+        "centers": "Központok",
+        "scientists": "Tudósok",
+        "testsDone": "Elvégzett Tesztek",
+        "awards": "Díjak"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "AZ ADNGUARD-RÓL",
+            "title_prefix": "Bizalom helyreállítása",
+            "title_highlight": "Tudománnyal",
+            "desc1": "Az elmúlt években számos élelmiszer-csalásra derült fény: tévesen címkézett húsok, fajhelyettesítés és megtévesztés a termékek összetételével kapcsolatban. Az ADNGUARD azért jött létre, hogy megvédje a fogyasztókat és helyreállítsa az élelmiszerekbe vetett bizalmat.",
+            "desc2": "Független DNS elemzéssel az ADNGUARD pontosan azonosítja a húsban jelenlévő állatfajokat, még főzés vagy feldolgozás után is. Az ADNGUARD-dal megbízható tudományos bizonyítékod van arra vonatkozóan, amit fogyasztasz. Mert az élelmiszer-átláthatóság nem hagyhat kétséget. ADNGUARD – Tudományos bizonyíték a bizalmadért.",
+            "cta": "OLVASS TOVÁBB"
+        },
+        "target": {
+            "subtitle": "KINEK SZÓL AZ",
+            "title": "ADNGUARD?",
+            "restaurants": "Éttermek",
+            "butchers": "Hentesüzletek",
+            "processing": "Húsfeldolgozó Üzemek",
+            "wholesalers": "Húsznagykereskedők és Forgalmazók",
+            "brands": "Élelmiszermárkák, akik biztosítani akarják ügyfeleiket",
+            "cta": "ELŐNYÖK FELFEDEZÉSE"
+        },
+        "services": {
+            "subtitle": "Amit Teszünk",
+            "title": "Szolgáltatásaink",
+            "cta": "OLVASS TOVÁBB",
+            "analysis": {
+                "title": "Független DNS Elemzés",
+                "desc": "Az állatfajok azonosítása (sertés, kutya, macska), még főzés után is."
+            },
+            "control": {
+                "title": "Meglepetésszerű Ellenőrzések",
+                "desc": "Helyszíni mintavétellel."
+            },
+            "report": {
+                "title": "Megbízható Jelentések",
+                "desc": "Tudományos bizonyítékokon alapulva."
+            },
+            "accreditation": {
+                "title": "ADNGUARD Akkreditáció",
+                "desc": "A fogyasztók tájékoztatása és megnyugtatása érdekében."
+            }
+        },
+        "video": {
+            "subtitle": "HÚS DNS TESZT",
+            "title": "Gyors és biztonságos mintavételi eljárás elemzési célokra.",
+            "btn_info": "További Információk",
+            "btn_view": "Videó Megtekintése"
+        },
+        "whyChooseUs": {
+            "subtitle": "Miért Válasszon Minket",
+            "title": "⭐ Miért Válassza az ADNGUARD-ot?",
+            "desc": "",
+            "features": {
+                "independent": {
+                    "title": "Független Tudományos Bizonyíték",
+                    "desc": "Partnerlaboratóriumok által végzett DNS elemzések, összeférhetetlenség nélkül."
+                },
+                "reliable": {
+                    "title": "Megbízható Fajdetektálás",
+                    "desc": "Sertés, kutya vagy macska DNS azonosítása, még főzés vagy feldolgozás után is."
+                },
+                "controls": {
+                    "title": "Meglepetésszerű Ellenőrzések",
+                    "desc": "Valós körülmények között vett helyszíni minták."
+                },
+                "transparency": {
+                    "title": "Teljes Átláthatóság",
+                    "desc": "Világos, tényszerű jelentések tudományos adatok alapján."
+                },
+                "protection": {
+                    "title": "Fogyasztóvédelem",
+                    "desc": "Konkrét küzdelem a csalás és a fajhelyettesítés ellen."
+                },
+                "value": {
+                    "title": "A Becsületes Szakemberek Értékelése",
+                    "desc": "Hiteles eszköz az ügyfélbizalom megerősítésére."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Garantált\nPontosság"
+            }
+        },
+        "automation": {
+            "subtitle": "Automatizálás",
+            "title": "A LEGMAGASABB AUTOMATIZÁLÁSI\nSZABVÁNYOK",
+            "desc": "Analitikai folyamataink 90%-át automatizáltuk az emberi hiba csökkentése és a teljesítmény növelése érdekében. A minta átvételétől az eredmény átadásáig munkafolyamatunk zökkenőmentes.",
+            "didYouKnow": {
+                "title": "Tudta?",
+                "desc": "Az automatizált DNS kivonás általában 30%-kal nagyobb tisztaságot eredményez, mint a manuális módszerek, biztosítva a megbízhatóbb további elemzést."
+            }
+        }
+    },
+    "gain": {
+        "title": "Az Ön Előnyei",
+        "subtitle": "Kézzelfogható előnyök vállalkozása és ügyfelei számára.",
+        "trust": {
+            "title": "Megrendíthetetlen Bizalom",
+            "desc": "Az ADNGUARD címke megjelenítésével bizonyítja ügyfeleinek, hogy nincs rejtegetnivalója. Kiemelkedik a versenytársak közül, akik csak ígéreteket tesznek."
+        },
+        "protection": {
+            "title": "Márkavédelem",
+            "desc": "Védje hírnevét az ellátási lánc botrányaitól. Rendszeres ellenőrzéseink biztosítják, hogy beszállítói megfeleljenek az előírásoknak."
+        },
+        "growth": {
+            "title": "Üzleti Növekedés",
+            "desc": "A fogyasztók hajlandóak többet fizetni a tanúsított minőségért. Építsen ki ügyfélhűséget és vonzzon új, igényes ügyfeleket."
+        }
+    },
+    "about": {
+        "heroTitle": "A Legnagyobb DNS Tesztelő Szolgáltatási Hálózat",
+        "heroDesc": "A legutóbbi csalásokra válaszul — ahol hentesek vaddisznóhúst árultak tévesen halal címkével, és étteremtulajdonosok sertés- vagy macskahúst tartalmazó kebabot szolgáltak fel — az ADNGUARD azért jött létre, hogy megvédje a fogyasztókat és helyreállítsa az élelmiszerláncba vetett bizalmat.",
+        "missionTitle": "Küldetésünk",
+        "missionDesc1": "Az ADNGUARD-nál küldetésünk egyszerű: Felderíteni minden hús eredetével kapcsolatos csalást. Biztosítani a sertés, vaddisznó, macska, kutya vagy bármely más tiltott faj hiányát.",
+        "missionDesc2": "Emlékeztetünk mindenkit, hogy még ha halal tanúsítvánnyal rendelkező éttermek és hentesek is érintettek lehetnek, megbízható ellenőrzés hiányában bármi lehetséges.",
+        "whoAreWeTitle": "KIK VAGYUNK",
+        "whoAreWeDesc": "Emlékeztetünk mindenkit, hogy még ha halal tanúsítvánnyal rendelkező éttermek és hentesek is érintettek lehetnek, megbízható ellenőrzés hiányában bármi lehetséges. Ezért kínál az ADNGUARD olyan DNS tesztelő szolgáltatást, amely képes azonosítani az állatfajokat a húsban, még főzés vagy feldolgozás után is.",
+        "networkTitle": "DNS Tesztelő Szolgáltatási Hálózat",
+        "networkDesc": "Az ADNGUARD olyan DNS tesztelő szolgáltatást kínál, amely képes azonosítani az állatfajokat a húsban, még főzés vagy feldolgozás után is, tudományos, független és megbízható választ adva."
+    },
+    "contact": {
+        "title": "Kapcsolat",
+        "subtitle": "Kérdése van? Itt vagyunk, hogy segítsünk.",
+        "company": "HV GLOBAL CONSULTING",
+        "email": "Email",
+        "phone": "Telefon",
+        "address": "Cím",
+        "hours": {
+            "title": "Nyitvatartás",
+            "week": "Hétfő - Péntek: 9:00 - 18:00",
+            "weekend": "Szombat - Vasárnap: Zárva"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, Franciaország",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        },
+        "form": {
+            "name": "Teljes Név",
+            "email": "Email Cím",
+            "subject": "Tárgy",
+            "message": "Üzenet",
+            "send": "Üzenet Küldése",
+            "success": "Üzenet sikeresen elküldve!",
+            "error": "Hiba történt."
+        }
+    },
+    "footer": {
+        "checkQr": "Egység Ellenőrzése",
+        "desc": "A referencia a tanúsításban és nyomonkövethetőségben DNS elemzéssel.",
+        "navigation": "Navigáció",
+        "rights": "© 2025 – Az ADNGUARD a HV Global Consulting projektje.",
+        "legal": "Jogi Nyilatkozat",
+        "terms": "Felhasználási Feltételek",
+        "privacy": "Adatvédelmi Irányelvek",
+        "links": "Gyors Linkek",
+        "contact": "Kapcsolat"
+    },
+    "offers": {
+        "title": "Ajánlataink",
+        "subtitle": "Minden egységtípushoz igazított megoldások",
+        "standard": {
+            "title": "Előfizetés",
+            "price": "79€",
+            "period": "/hó"
+        },
+        "premium": {
+            "title": "Prémium"
+        },
+        "cta": "Teszt Megrendelése",
+        "features": {
+            "dnaControl": "Meglepetésszerű Ellenőrzések",
+            "certificate": "Hivatalos Jelentések",
+            "sticker": "Hivatalos ADNGUARD Logó",
+            "platform": "Ügyfél QR Kód",
+            "support": "Dedikált Támogatás"
+        },
+        "starter": {
+            "title": "FELFEDEZÉS",
+            "price": "Ajánlat",
+            "features": [
+                "1 meglepetés DNS minta",
+                "Többfajos elemzés",
+                "Bizalmas jelentés",
+                "Email támogatás"
+            ],
+            "cta": "Ajánlatkérés"
+        },
+        "pro": {
+            "title": "TANÚSÍTÁS",
+            "price": "Ajánlat",
+            "features": [
+                "4 meglepetés minta / év",
+                "Teljes elemzés + specifikus fajkeresés",
+                "ADNGUARD Tanúsítvány, ha megfelel",
+                "Marketing Készlet (Matrica, QR Kód)",
+                "Dedikált Támogatás"
+            ],
+            "cta": "Ajánlatkérés"
+        },
+        "enterprise": {
+            "title": "HÁLÓZAT",
+            "price": "Ajánlat",
+            "features": [
+                "Személyre szabott program",
+                "Teljes ellátási lánc audit",
+                "Korlátlan elemzések",
+                "Személyzet képzése",
+                "API hozzáférés az eredményekhez"
+            ],
+            "cta": "Csapat Kapcsolata"
+        }
+    },
+    "process": {
+        "title": "Hogyan működik az ADNGUARD ellenőrzés?",
+        "subtitle": "Szigorú és átlátható folyamat a termékek eredetiségének garantálására.",
+        "step1": {
+            "title": "Egység Elkötelezettsége",
+            "desc": "A szakember önként választja az ADNGUARD általi ellenőrzést az átláthatóság jegyében."
+        },
+        "step2": {
+            "title": "Be nem jelentett Ellenőrzések",
+            "desc": "Az ADNGUARD meglepetésszerű látogatásokat végez és helyszíni mintákat vesz, figyelmeztetés nélkül, hogy tükrözze az eladott termékek valóságát."
+        },
+        "step3": {
+            "title": "Megbízható DNS Elemzések",
+            "desc": "A mintákat független laboratóriumok elemzik, hogy azonosítsák a ténylegesen jelenlévő állatfajokat, még főzés vagy feldolgozás után is."
+        },
+        "step4": {
+            "title": "Világos és Bizalmas Eredmények",
+            "desc": "Az eredményeket pontos jelentésben rögzítik, biztosítva a komoly és felelősségteljes nyomon követést."
+        },
+        "step5": {
+            "title": "ADNGUARD Akkreditáció",
+            "desc": "Amikor az ellenőrzések megfelelőek, az egység ADNGUARD akkreditációt kap, amely látható a fogyasztók tájékoztatása és megnyugtatása érdekében."
+        }
+    },
+    "values": {
+        "title": "Erősségeink",
+        "transparency": {
+            "title": "Be nem jelentett",
+            "desc": "Ellenőrzéseinket figyelmeztetés nélkül végezzük a hiteles eredmények biztosítása érdekében."
+        },
+        "scientific": {
+            "title": "Tudományos Bizonyíték",
+            "desc": "A DNS elemzés a termék összetételének egyetlen megdönthetetlen bizonyítéka."
+        },
+        "independent": {
+            "title": "Függetlenség",
+            "desc": "Az ADNGUARD teljesen független az ellenőrzött egységektől."
+        }
+    },
+    "cta_section": {
+        "title": "Készen áll arra, hogy megjelenítse minőségi elkötelezettségét?",
+        "desc": "Csatlakozzon azokhoz az egységekhez, amelyek az átláthatóságot választották. Szerezze meg ADNGUARD tanúsítványát még ma.",
+        "note": "Első teszt kedvezményes áron • Ingyenes logó, ha megfelelő"
+    },
+    "form": {
+        "title": "ADNGUARD Címke Igénylése",
+        "loading": "Küldés...",
+        "submit": "Kérelem Küldése",
+        "disclaimer": "Az űrlap elküldésével beleegyezik, hogy csapatunk felvegye Önnel a kapcsolatot kérésével kapcsolatban.",
+        "fields": {
+            "name": "Egység Neve",
+            "type": "Egység Típusa",
+            "siret": "Cégjegyzékszám",
+            "address": "Cím",
+            "city": "Város",
+            "postalCode": "Irányítószám",
+            "phone": "Telefon",
+            "email": "Email",
+            "message": "Üzenet (opcionális)"
+        },
+        "placeholders": {
+            "name": "Pl: Kovács Hentes",
+            "address": "Kossuth utca 12",
+            "city": "Budapest",
+            "message": "További információk az egységről..."
+        },
+        "validation": {
+            "nameMin": "A névnek legalább 2 karaktert kell tartalmaznia",
+            "addressRequired": "A cím kötelező",
+            "cityRequired": "A város kötelező",
+            "emailInvalid": "Érvénytelen Email"
+        },
+        "success": {
+            "title": "Kérelem Elküldve!",
+            "desc": "Az ADNGUARD tanúsítási kérelmét rögzítettük. Csapatunk 48 órán belül felveszi Önnel a kapcsolatot.",
+            "toast": "Kérelem sikeresen elküldve!"
+        },
+        "error": {
+            "toast": "Hiba a kérelem küldésekor: "
+        }
+    },
+    "common": {
+        "close": "Bezárás",
+        "readMore": "Olvass Tovább"
+    },
+    "types": {
+        "boucherie": "Hentesüzlet",
+        "restaurant": "Étterem",
+        "usine": "Élelmiszer-feldolgozó Üzem",
+        "traiteur": "Vendéglátás",
+        "autre": "Egyéb"
+    },
+    "verification": {
+        "backHome": "Vissza a Főoldalra",
+        "title": "Tanúsítvány Ellenőrzése",
+        "subtitle": "Adja meg az egység ADNGUARD kódját a tanúsítási státusz ellenőrzéséhez és a DNS ellenőrzési előzmények megtekintéséhez.",
+        "searchLabel": "Egység ADNGUARD Kódja",
+        "searchBtn": "Ellenőrzés",
+        "searchHint": "A kód megtalálható az egységben elhelyezett ADNGUARD matricán vagy a QR kódon.",
+        "notFoundTitle": "Az Egység Nem Található",
+        "notFoundDesc": "Nincs ilyen kódhoz tartozó egység. Kérjük, ellenőrizze, hogy helyesen adta-e meg az ADNGUARD matricán szereplő kódot.",
+        "status": {
+            "compliant": "Tanúsított Megfelelő",
+            "nonCompliant": "Nem Megfelelő",
+            "suspended": "Tanúsítvány Felfüggesztve",
+            "pending": "Folyamatban",
+            "n_existe_plus": "Már Nem Létezik"
+        },
+        "statusDesc": {
+            "compliant": "Ez az egység sikeresen átment minden ADNGUARD DNS ellenőrzésen.",
+            "nonCompliant": "Az utolsó DNS ellenőrzés nem-megfelelőséget tárt fel. A tanúsítvány fel van függesztve.",
+            "suspended": "Ennek az egységnek a tanúsítványa ideiglenesen fel van függesztve.",
+            "pending": "Az ellenőrzés jelenleg elemzés alatt áll.",
+            "n_existe_plus": "Ez az egység már nem létezik vagy beszüntette tevékenységét."
+        },
+        "info": {
+            "address": "Cím",
+            "certifiedSince": "Tanúsítva Mióta",
+            "lastControl": "Utolsó Ellenőrzés"
+        },
+        "history": {
+            "title": "DNS Ellenőrzési Előzmények",
+            "empty": "Nincs rögzített ellenőrzés ehhez az egységhez.",
+            "ref": "Hiv",
+            "species": "Elemzett Fajok",
+            "anomalies": "Rendellenességek"
+        },
+        "footer": "Az ADNGUARD által hitelesített adatok • Független DNS Ellenőrzések"
+    }
+}

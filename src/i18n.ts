@@ -9,6 +9,9 @@ import nl from "./locales/nl.json";
 import de from "./locales/de.json";
 import pl from "./locales/pl.json";
 import tr from "./locales/tr.json";
+import ro from "./locales/ro.json";
+import hu from "./locales/hu.json";
+import sk from "./locales/sk.json";
 
 // Standard initialization first
 i18n
@@ -24,6 +27,9 @@ i18n
             de: { translation: de },
             pl: { translation: pl },
             tr: { translation: tr },
+            ro: { translation: ro },
+            hu: { translation: hu },
+            sk: { translation: sk },
         },
         fallbackLng: "fr",
         detection: {
@@ -79,6 +85,9 @@ const detectIpLanguage = async () => {
             NL: "nl", BE: "nl",
             DE: "de", AT: "de", CH: "de",
             TR: "tr",
+            RO: "ro",
+            HU: "hu",
+            SK: "sk",
         };
 
         const detectedLang = countryToLang[countryCode];

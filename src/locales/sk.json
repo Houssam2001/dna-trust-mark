@@ -1,0 +1,392 @@
+{
+    "nav": {
+        "home": "Domov",
+        "about": "O nás",
+        "howItWorks": "Ako to funguje",
+        "whatYouGain": "Vaše Výhody",
+        "verification": "Overenie",
+        "dashboard": "Nástenka",
+        "login": "Prihlásenie",
+        "register": "Registrácia",
+        "getLabel": "Získať Označenie",
+        "offers": "Naše Ponuky",
+        "process": "Ako to funguje",
+        "values": "Naše Hodnoty",
+        "contact": "Kontakt",
+        "language": "Jazyk"
+    },
+    "hero": {
+        "highlight": "Nezávislá Kontrolná Služba",
+        "title": "DNA Analýza pre Úplnú Transparentnosť v Reštauráciách, Mäsiarstvach a Závodoch na Spracovanie Mäsa",
+        "description": "ADNGUARD certifikuje pravosť mäsa prostredníctvom nezávislej DNA analýzy. Chráňte svojich zákazníkov, posilnite svoju reputáciu.",
+        "cta": "Získať Označenie",
+        "discover": "Objaviť"
+    },
+    "features": {
+        "fullTransparency": {
+            "title": "Úplná Transparentnosť",
+            "desc": "Overujeme, či podniky nepodávajú výrobky na báze bravčového mäsa."
+        },
+        "labTesting": {
+            "title": "Laboratórna Analýza",
+            "desc": "Náhodné vzorky mäsa sú testované na detekciu kontaminácie bravčovým mäsom."
+        },
+        "surpriseInspections": {
+            "title": "Neohlásené Inšpekcie",
+            "desc": "Naše tímy vykonávajú nečakané návštevy, aby zabezpečili súlad."
+        },
+        "certification": {
+            "title": "Certifikácia a Obnova",
+            "desc": "Podniky si musia obnovovať certifikáciu, aby si udržali svoj status."
+        }
+    },
+    "stats": {
+        "analyzes": "Analýzy",
+        "businesses": "Podniky",
+        "experience": "Roky Skúseností",
+        "centers": "Centrá",
+        "scientists": "Vedci",
+        "testsDone": "Vykonané Testy",
+        "awards": "Ocenenia"
+    },
+    "home": {
+        "intro": {
+            "subtitle": "O ADNGUARD",
+            "title_prefix": "Obnovujeme dôveru prostredníctvom",
+            "title_highlight": "Vedy",
+            "desc1": "V posledných rokoch bolo odhalených množstvo potravinových podvodov: nesprávne označené mäso, zámena druhov a klamstvá o zložení výrobkov. ADNGUARD bol vytvorený na ochranu spotrebiteľov a obnovenie dôvery v potraviny.",
+            "desc2": "Prostredníctvom nezávislej DNA analýzy ADNGUARD presne identifikuje živočíšne druhy prítomné v mäse, a to aj po varení alebo spracovaní. S ADNGUARD máte spoľahlivý vedecký dôkaz o tom, čo konzumujete. Pretože transparentnosť potravín by nemala ponechávať priestor na pochybnosti. ADNGUARD – Vedecký dôkaz pre vašu dôveru.",
+            "cta": "ČÍTAŤ VIAC"
+        },
+        "target": {
+            "subtitle": "PRE KOHO JE",
+            "title": "ADNGUARD?",
+            "restaurants": "Reštaurácie",
+            "butchers": "Mäsiarstva",
+            "processing": "Závody na Spracovanie Mäsa",
+            "wholesalers": "Veľkoobchodníci a Distribútori Mäsa",
+            "brands": "Potravinárske Značky, ktoré chcú uistiť svojich klientov",
+            "cta": "OBJAVIŤ VÝHODY"
+        },
+        "services": {
+            "subtitle": "Čo Robíme",
+            "title": "Naše Služby",
+            "cta": "ČÍTAŤ VIAC",
+            "analysis": {
+                "title": "Nezávislá DNA Analýza",
+                "desc": "Na identifikáciu prítomných živočíšnych druhov (bravčové, pes, mačka), aj po varení."
+            },
+            "control": {
+                "title": "Neohlásené Kontroly",
+                "desc": "S odberom vzoriek na mieste."
+            },
+            "report": {
+                "title": "Spoľahlivé Správy",
+                "desc": "Založené na vedeckých dôkazoch."
+            },
+            "accreditation": {
+                "title": "Akreditácia ADNGUARD",
+                "desc": "Na informovanie a uistenie spotrebiteľov."
+            }
+        },
+        "video": {
+            "subtitle": "MÄSOVÝ DNA TEST",
+            "title": "Rýchly a bezpečný postup odberu vzoriek na analytické účely.",
+            "btn_info": "Získať Viac Informácií",
+            "btn_view": "Pozrieť Promo"
+        },
+        "whyChooseUs": {
+            "subtitle": "Prečo Si Vybrať Nás",
+            "title": "⭐ Prečo Si Vybrať ADNGUARD?",
+            "desc": "",
+            "features": {
+                "independent": {
+                    "title": "Nezávislý Vedecký Dôkaz",
+                    "desc": "DNA analýzy vykonávané partnerskými laboratóriami bez konfliktu záujmov."
+                },
+                "reliable": {
+                    "title": "Spoľahlivá Detekcia Druhov",
+                    "desc": "Identifikácia DNA bravčového, psa alebo mačky, aj po varení alebo spracovaní."
+                },
+                "controls": {
+                    "title": "Neohlásené Kontroly",
+                    "desc": "Vzorky odobraté na mieste v reálnych podmienkach."
+                },
+                "transparency": {
+                    "title": "Úplná Transparentnosť",
+                    "desc": "Jasné, faktické správy založené na vedeckých údajoch."
+                },
+                "protection": {
+                    "title": "Ochrana Spotrebiteľa",
+                    "desc": "Konkrétny boj proti podvodom a zámene druhov."
+                },
+                "value": {
+                    "title": "Oceňovanie Čestných Profesionálov",
+                    "desc": "Dôveryhodný nástroj na posilnenie dôvery zákazníkov."
+                }
+            },
+            "badge": {
+                "value": "100%",
+                "text": "Zaručená\nPresnosť"
+            }
+        },
+        "automation": {
+            "subtitle": "Automatizácia",
+            "title": "NAJVYŠŠIE ŠTANDARDY\nAUTOMATIZÁCIE",
+            "desc": "Zautomatizovali sme 90% našich analytických procesov, aby sme znížili ľudskú chybu a zvýšili priepustnosť. Od príjmu vzorky po dodanie výsledku je náš pracovný tok plynulý.",
+            "didYouKnow": {
+                "title": "Vedeli ste?",
+                "desc": "Automatizovaná extrakcia DNA všeobecne prináša o 30% vyššiu čistotu ako manuálne metódy, čím zabezpečuje spoľahlivejšiu následnú analýzu."
+            }
+        }
+    },
+    "gain": {
+        "title": "Vaše Výhody",
+        "subtitle": "Hmatateľné výhody pre váš podnik a vašich zákazníkov.",
+        "trust": {
+            "title": "Neotrasiteľná Dôvera",
+            "desc": "Zobrazením označenia ADNGUARD dokazujete svojim zákazníkom, že nemáte čo skrývať. Odlišujete sa od konkurencie, ktorá dáva len sľuby."
+        },
+        "protection": {
+            "title": "Ochrana Značky",
+            "desc": "Chráňte svoju reputáciu pred škandálmi v dodávateľskom reťazci. Naše pravidelné kontroly zabezpečujú, že vaši dodávatelia dodržiavajú predpisy."
+        },
+        "growth": {
+            "title": "Rast Podnikania",
+            "desc": "Spotrebitelia sú ochotní zaplatiť viac za certifikovanú kvalitu. Budujte lojalitu zákazníkov a prilákajte nových náročných klientov."
+        }
+    },
+    "about": {
+        "heroTitle": "Najväčšia Sieť Služieb Testovania DNA",
+        "heroDesc": "V reakcii na nedávne podvody — kde mäsiari predávali mäso z diviaka falošne označené ako halal a majitelia reštaurácií podávali kebab obsahujúci bravčové alebo mačacie mäso — bol vytvorený ADNGUARD na ochranu spotrebiteľov a obnovenie dôvery v potravinový reťazec.",
+        "missionTitle": "Naša Misia",
+        "missionDesc1": "V ADNGUARD je naša misia jednoduchá: Odhaliť akýkoľvek podvod súvisiaci s pôvodom mäsa. Zabezpečiť neprítomnosť bravčového, diviaka, mačky, psa alebo akéhokoľvek iného zakázaného druhu.",
+        "missionDesc2": "Pripomíname všetkým, že aj keď môžu byť zapojené reštaurácie a mäsiarstva s certifikátom halal, bez spoľahlivej kontroly je možné všetko.",
+        "whoAreWeTitle": "KTO SME",
+        "whoAreWeDesc": "Pripomíname všetkým, že aj keď môžu byť zapojené reštaurácie a mäsiarstva s certifikátom halal, bez spoľahlivej kontroly je možné všetko. Preto ADNGUARD ponúka službu testovania DNA schopnú identifikovať živočíšne druhy prítomné v mäse, a to aj po varení alebo spracovaní.",
+        "networkTitle": "Sieť Služieb Testovania DNA",
+        "networkDesc": "ADNGUARD ponúka službu testovania DNA schopnú identifikovať živočíšne druhy prítomné v mäse, a to aj po varení alebo spracovaní, poskytujúc vedeckú, nezávislú a spoľahlivú odpoveď."
+    },
+    "contact": {
+        "title": "Kontaktujte Nás",
+        "subtitle": "Otázky? Sme tu, aby sme pomohli.",
+        "company": "HV GLOBAL CONSULTING",
+        "email": "Email",
+        "phone": "Telefón",
+        "address": "Adresa",
+        "hours": {
+            "title": "Otváracie Hodiny",
+            "week": "Pondelok - Piatok: 9:00 - 18:00",
+            "weekend": "Sobota - Nedeľa: Zatvorené"
+        },
+        "details": {
+            "address": "86 Rue Voltaire, 93100 Montreuil, Francúzsko",
+            "phone": "+33 666820808",
+            "email": "adn.hvgc@gmail.com"
+        },
+        "form": {
+            "name": "Celé Meno",
+            "email": "Emailová Adresa",
+            "subject": "Predmet",
+            "message": "Správa",
+            "send": "Odoslať Správu",
+            "success": "Správa úspešne odoslaná!",
+            "error": "Vyskytla sa chyba."
+        }
+    },
+    "footer": {
+        "checkQr": "Skontrolovať Podnik",
+        "desc": "Referencia v certifikácii a sledovateľnosti prostredníctvom DNA analýzy.",
+        "navigation": "Navigácia",
+        "rights": "© 2025 – ADNGUARD je projekt spoločnosti HV Global Consulting.",
+        "legal": "Právne Upozornenie",
+        "terms": "Podmienky Používania",
+        "privacy": "Zásady Ochrany Osobných Údajov",
+        "links": "Rýchle Odkazy",
+        "contact": "Kontakt"
+    },
+    "offers": {
+        "title": "Naše Ponuky",
+        "subtitle": "Riešenia prispôsobené každému typu podniku",
+        "standard": {
+            "title": "Predplatné",
+            "price": "79€",
+            "period": "/mesiac"
+        },
+        "premium": {
+            "title": "Premium"
+        },
+        "cta": "Objednať Test",
+        "features": {
+            "dnaControl": "Neohlásené Kontroly",
+            "certificate": "Oficiálne Správy",
+            "sticker": "Oficiálne Logo ADNGUARD",
+            "platform": "QR Kód Klienta",
+            "support": "Vyhradená Podpora"
+        },
+        "starter": {
+            "title": "OBJAVOVANIE",
+            "price": "Cenová Ponuka",
+            "features": [
+                "1 prekvapivá vzorka DNA",
+                "Viacdruhová analýza",
+                "Dôverná správa",
+                "Emailová podpora"
+            ],
+            "cta": "Vyžiadať Cenovú Ponuku"
+        },
+        "pro": {
+            "title": "CERTIFIKÁCIA",
+            "price": "Cenová Ponuka",
+            "features": [
+                "4 prekvapivé vzorky / rok",
+                "Kompletná analýza + vyhľadávanie špecifických druhov",
+                "Certifikácia ADNGUARD, ak vyhovuje",
+                "Marketingový Balík (Nálepka, QR Kód)",
+                "Vyhradená Podpora"
+            ],
+            "cta": "Vyžiadať Cenovú Ponuku"
+        },
+        "enterprise": {
+            "title": "SIEŤ",
+            "price": "Cenová Ponuka",
+            "features": [
+                "Program na mieru",
+                "Kompletný audit dodávateľského reťazca",
+                "Neobmedzené analýzy",
+                "Školenie personálu",
+                "Prístup k API pre výsledky"
+            ],
+            "cta": "Kontaktovať Tím"
+        }
+    },
+    "process": {
+        "title": "Ako funguje kontrola ADNGUARD?",
+        "subtitle": "Prísny a transparentný proces na zaručenie pravosti vašich výrobkov.",
+        "step1": {
+            "title": "Záväzok Podniku",
+            "desc": "Odborník sa dobrovoľne rozhodne pre kontrolu ADNGUARD v logike transparentnosti."
+        },
+        "step2": {
+            "title": "Neohlásené Kontroly",
+            "desc": "ADNGUARD vykonáva prekvapivé návštevy a odoberá vzorky na mieste, bez varovania, aby odrážali realitu predávaných výrobkov."
+        },
+        "step3": {
+            "title": "Spoľahlivé DNA Analýzy",
+            "desc": "Vzorky sú analyzované nezávislými laboratóriami na identifikáciu skutočne prítomných živočíšnych druhov, a to aj po varení alebo spracovaní."
+        },
+        "step4": {
+            "title": "Jasné a Dôverné Výsledky",
+            "desc": "Výsledky sú zaznamenané v presnej správe, čo zabezpečuje seriózne a zodpovedné monitorovanie."
+        },
+        "step5": {
+            "title": "Akreditácia ADNGUARD",
+            "desc": "Keď sú kontroly v súlade, podnik získa akreditáciu ADNGUARD, viditeľnú na informovanie a uistenie spotrebiteľov."
+        }
+    },
+    "values": {
+        "title": "Naše Silné Stránky",
+        "transparency": {
+            "title": "Neohlásené",
+            "desc": "Naše kontroly sa vykonávajú bez varovania, aby sa zabezpečili autentické výsledky."
+        },
+        "scientific": {
+            "title": "Vedecký Dôkaz",
+            "desc": "DNA analýza je jediným nevyvrátiteľným dôkazom zloženia výrobku."
+        },
+        "independent": {
+            "title": "Nezávislosť",
+            "desc": "ADNGUARD je úplne nezávislý od kontrolovaných podnikov."
+        }
+    },
+    "cta_section": {
+        "title": "Ste pripravení ukázať svoj záväzok kvalite?",
+        "desc": "Pridajte sa k podnikom, ktoré si vybrali transparentnosť. Získajte svoju certifikáciu ADNGUARD ešte dnes.",
+        "note": "Prvý test za zvýhodnenú cenu • Logo zdarma, ak vyhovuje"
+    },
+    "form": {
+        "title": "Požiadať o Označenie ADNGUARD",
+        "loading": "Odosielanie...",
+        "submit": "Odoslať Žiadosť",
+        "disclaimer": "Odoslaním tohto formulára súhlasíte s tým, aby vás náš tím kontaktoval ohľadom vašej žiadosti.",
+        "fields": {
+            "name": "Názov Podniku",
+            "type": "Typ Podniku",
+            "siret": "IČO",
+            "address": "Adresa",
+            "city": "Mesto",
+            "postalCode": "PSČ",
+            "phone": "Telefón",
+            "email": "Email",
+            "message": "Správa (voliteľné)"
+        },
+        "placeholders": {
+            "name": "Napr: Mäsiarstvo Novák",
+            "address": "Hlavná ulica 12",
+            "city": "Bratislava",
+            "message": "Ďalšie informácie o vašom podniku..."
+        },
+        "validation": {
+            "nameMin": "Názov musí obsahovať aspoň 2 znaky",
+            "addressRequired": "Adresa je povinná",
+            "cityRequired": "Mesto je povinné",
+            "emailInvalid": "Neplatný Email"
+        },
+        "success": {
+            "title": "Žiadosť Odoslaná!",
+            "desc": "Vaša žiadosť o certifikáciu ADNGUARD bola zaznamenaná. Náš tím vás bude kontaktovať do 48 hodín.",
+            "toast": "Žiadosť úspešne odoslaná!"
+        },
+        "error": {
+            "toast": "Chyba pri odosielaní žiadosti: "
+        }
+    },
+    "common": {
+        "close": "Zavrieť",
+        "readMore": "Čítať Viac"
+    },
+    "types": {
+        "boucherie": "Mäsiarstvo",
+        "restaurant": "Reštaurácia",
+        "usine": "Potravinársky Závod",
+        "traiteur": "Catering",
+        "autre": "Iné"
+    },
+    "verification": {
+        "backHome": "Späť na Domov",
+        "title": "Overenie Certifikácie",
+        "subtitle": "Zadajte kód ADNGUARD podniku na overenie jeho statusu certifikácie a zobrazenie histórie DNA kontrol.",
+        "searchLabel": "Kód ADNGUARD Podniku",
+        "searchBtn": "Overiť",
+        "searchHint": "Kód nájdete na nálepke ADNGUARD zobrazenej v podniku alebo na QR kóde.",
+        "notFoundTitle": "Podnik Nenájdený",
+        "notFoundDesc": "Žiadny podnik nezodpovedá tomuto kódu. Skontrolujte, či ste správne zadali kód zobrazený na nálepke ADNGUARD.",
+        "status": {
+            "compliant": "Certifikovaný Vyhovujúci",
+            "nonCompliant": "Nevyhovujúci",
+            "suspended": "Certifikácia Pozastavená",
+            "pending": "Čakajúci",
+            "n_existe_plus": "Už Neexistuje"
+        },
+        "statusDesc": {
+            "compliant": "Tento podnik úspešne prešiel všetkými DNA kontrolami ADNGUARD.",
+            "nonCompliant": "Posledná DNA kontrola odhalila nezhody. Certifikácia je pozastavená.",
+            "suspended": "Certifikácia tohto podniku je dočasne pozastavená.",
+            "pending": "Kontrola sa momentálne analyzuje.",
+            "n_existe_plus": "Tento podnik už neexistuje alebo ukončil činnosť."
+        },
+        "info": {
+            "address": "Adresa",
+            "certifiedSince": "Certifikovaný Od",
+            "lastControl": "Posledná Kontrola"
+        },
+        "history": {
+            "title": "História DNA Kontrol",
+            "empty": "Pre tento podnik nie sú zaznamenané žiadne kontroly.",
+            "ref": "Ref",
+            "species": "Analyzované Druhy",
+            "anomalies": "Anomálie"
+        },
+        "footer": "Údaje certifikované ADNGUARD • Nezávislé DNA Kontroly"
+    }
+}
