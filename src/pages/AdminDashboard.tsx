@@ -39,6 +39,7 @@ import {
 } from "lucide-react";
 import StatisticsPanel from "@/components/admin/StatisticsPanel";
 import UserManagement from "@/components/admin/UserManagement";
+import { ProfileDialog } from "@/components/admin/ProfileDialog";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import api from "@/services/api";
@@ -344,7 +345,8 @@ const AdminDashboard = () => {
             <span className="text-xs px-2 py-1 bg-primary/10 text-primary rounded-full font-medium shrink-0">
               {isAdmin ? "Admin" : "Agent"}
             </span>
-            <Button variant="ghost" size="sm" onClick={signOut} className="shrink-0">
+            <ProfileDialog />
+            <Button variant="ghost" size="sm" onClick={signOut} className="shrink-0" title="Déconnexion">
               <LogOut className="w-4 h-4" />
             </Button>
           </div>

@@ -21,6 +21,7 @@ interface AuthContextType {
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signUp: (email: string, password: string, fullName: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
+  updatePassword: (currentPassword: string, newPassword: string) => Promise<{ error: Error | null }>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -95,6 +96,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
         signIn,
         signUp,
         signOut,
+        updatePassword: async (currentPassword: string, newPassword: string) => {
+          try {
+            await api.put('/auth/password', { currentPassword, newPassword });
+            return { error: null };
+          } catch (error: any) {
+            return { error: new Error(error.response?.data?.message || 'Password update failed') };
+          }
+        },
       }}
     >
       {children}
