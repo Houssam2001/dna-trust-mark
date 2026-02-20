@@ -38,52 +38,8 @@ const Verification = () => {
     setControls([]);
 
     try {
-      // Mock for demo
-      if (code === "REQ-322131") {
-        await new Promise(resolve => setTimeout(resolve, 800)); // Simulate delay
-        setEstablishment({
-          id: "mock-1",
-          name: "Boucherie L'Excellence",
-          type: "boucherie",
-          status: "conforme",
-          address: "15 Avenue des Champs-Élysées",
-          city: "Paris",
-          postalCode: "75008",
-          certifiedSince: "2024-06-15T00:00:00.000Z",
-          lastControlDate: "2025-01-10T00:00:00.000Z",
-          createdAt: "2024-01-01T00:00:00.000Z",
-          updatedAt: "2025-01-10T00:00:00.000Z"
-        });
-        setControls([
-          {
-            id: "ctrl-1",
-            establishmentId: "mock-1",
-            result: "conforme",
-            reportId: "RP-2025-0042",
-            speciesAnalyzed: ["Porc", "Cheval", "Chat", "Chien"],
-            speciesDetected: [],
-            controlDate: "2025-01-10T00:00:00.000Z",
-            createdAt: "2025-01-15T00:00:00.000Z",
-            updatedAt: "2025-01-15T00:00:00.000Z"
-          },
-          {
-            id: "ctrl-2",
-            establishmentId: "mock-1",
-            result: "conforme",
-            reportId: "RP-2024-0891",
-            speciesAnalyzed: ["Porc", "Sanglier"],
-            speciesDetected: [],
-            controlDate: "2024-09-05T00:00:00.000Z",
-            createdAt: "2024-09-10T00:00:00.000Z",
-            updatedAt: "2024-09-10T00:00:00.000Z"
-          }
-        ]);
-        setLoading(false);
-        return;
-      }
-
       // Use the public verification endpoint
-      const response = await api.get<Establishment & { controls: Control[] }>(`/establishments/verify/${code}`);
+      const response = await api.get<Establishment & { controls: Control[], validFrom?: string, validUntil?: string }>(`/establishments/verify/${code}`);
 
       const data = response.data;
       if (data) {
@@ -152,6 +108,13 @@ const Verification = () => {
       month: "long",
       year: "numeric",
     });
+  };
+
+  const calculateRemainingDays = (validUntil: string) => {
+    const validUntilDate = new Date(validUntil);
+    const today = new Date();
+    const timeDiff = validUntilDate.getTime() - today.getTime();
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
   };
 
   const getEstablishmentTypeLabel = (type: string) => {
@@ -289,36 +252,82 @@ const Verification = () => {
                       {getEstablishmentTypeLabel(establishment.type)}
                     </span>
 
-                    <div className="grid md:grid-cols-3 gap-4 mt-6">
-                      <div className="flex items-start gap-3">
-                        <MapPin className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <p className="text-sm text-muted-foreground">{t('verification.info.address')}</p>
-                          <p className="text-foreground">
-                            {establishment.address}
-                            {establishment.postalCode && `, ${establishment.postalCode}`} {establishment.city}
-                          </p>
+                    <div className="grid md:grid-cols-2 gap-6 mt-6">
+                      <div className="space-y-4">
+                        <div className="flex items-start gap-3">
+                          <MapPin className="w-5 h-5 text-primary mt-0.5" />
+                          <div>
+                            <p className="text-sm text-muted-foreground">{t('verification.info.address')}</p>
+                            <p className="text-foreground">
+                              {establishment.address}
+                              {establishment.postalCode && `, ${establishment.postalCode}`} {establishment.city}
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                      <div className="flex items-start gap-3">
-                        <Calendar className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <p className="text-sm text-muted-foreground">{t('verification.info.certifiedSince')}</p>
-                          <p className="text-foreground">{formatDate(establishment.certifiedSince)}</p>
+                        <div className="flex items-start gap-3">
+                          {/* <Calendar className="w-5 h-5 text-primary mt-0.5" /> */}
+                          {/* <div>
+                            <p className="text-sm text-muted-foreground">{t('verification.info.certifiedSince')}</p>
+                            <p className="text-foreground">
+                              {formatDate(establishment.certifiedSince || (establishment as any).validFrom || establishment.createdAt)}
+                            </p>
+                          </div> */}
                         </div>
+                        {/* <div className="flex items-start gap-3">
+                          <FlaskConical className="w-5 h-5 text-primary mt-0.5" />
+                          <div>
+                            <p className="text-sm text-muted-foreground">{t('verification.info.lastControl')}</p>
+                            <p className="text-foreground">
+                              {formatDate(
+                                establishment.lastControlDate ||
+                                (controls.length > 0
+                                  ? [...controls].sort((a, b) => new Date(b.controlDate).getTime() - new Date(a.controlDate).getTime())[0].controlDate
+                                  : null)
+                              )}
+                            </p>
+                          </div>
+                        </div> */}
                       </div>
-                      <div className="flex items-start gap-3">
-                        <FlaskConical className="w-5 h-5 text-primary mt-0.5" />
-                        <div>
-                          <p className="text-sm text-muted-foreground">{t('verification.info.lastControl')}</p>
-                          <p className="text-foreground">{formatDate(establishment.lastControlDate)}</p>
+
+                      {/* Certificate Validity Section */}
+                      {establishment.status === "conforme" && (establishment as any).validFrom && (establishment as any).validUntil && (
+                        <div className="bg-muted/30 rounded-xl p-4 border border-border">
+                          <h3 className="font-semibold mb-3 flex items-center gap-2">
+                            <Shield className="w-4 h-4 text-primary" />
+                            Validité du certificat
+                          </h3>
+                          <div className="space-y-3">
+                            <div className="flex justify-between text-sm">
+                              <span className="text-muted-foreground">Du :</span>
+                              <span className="font-medium">{formatDate((establishment as any).validFrom)}</span>
+                            </div>
+                            <div className="flex justify-between text-sm">
+                              <span className="text-muted-foreground">Au :</span>
+                              <span className="font-medium">{formatDate((establishment as any).validUntil)}</span>
+                            </div>
+
+                            <div className="pt-2 mt-2 border-t border-border">
+                              <div className="flex items-center justify-between">
+                                <span className="text-sm text-muted-foreground flex items-center gap-1.5">
+                                  <Clock className="w-4 h-4" />
+                                  Jours restants :
+                                </span>
+                                <span className={`font-bold ${calculateRemainingDays((establishment as any).validUntil) < 30
+                                  ? "text-destructive"
+                                  : "text-green-600"
+                                  }`}>
+                                  {calculateRemainingDays((establishment as any).validUntil)} jours
+                                </span>
+                              </div>
+                            </div>
+                          </div>
                         </div>
-                      </div>
+                      )}
                     </div>
                   </div>
 
                   {/* Control History */}
-                  {/* <div className="bg-card rounded-2xl shadow-card border border-border p-6 md:p-8">
+                  <div className="bg-card rounded-2xl shadow-card border border-border p-6 md:p-8">
                     <h3 className="text-xl font-serif font-bold text-foreground mb-6">
                       {t('verification.history.title')}
                     </h3>
@@ -335,10 +344,10 @@ const Verification = () => {
                             className={`relative pl-8 pb-4 ${index < controls.length - 1 ? 'border-l-2 border-border ml-2' : 'ml-2'}`}
                           >
                             {/* Timeline dot */}
-                  {/* <div className={`absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full ${control.result === "conforme" ? "bg-primary" : "bg-destructive"
-                              }`} /> */}
+                            <div className={`absolute left-0 -translate-x-1/2 w-4 h-4 rounded-full ${control.result === "conforme" ? "bg-primary" : "bg-destructive"
+                              }`} />
 
-                  {/* <div className="bg-muted/50 rounded-xl p-4">
+                            <div className="bg-muted/50 rounded-xl p-4">
                               <div className="flex flex-wrap items-center gap-3 mb-2">
                                 <span className="font-semibold text-foreground">
                                   {formatDate(control.controlDate)}
@@ -359,9 +368,11 @@ const Verification = () => {
                                     </>
                                   )}
                                 </span>
-                                <span className="text-muted-foreground text-sm">
-                                  {t('verification.history.ref')}: {control.reportId}
-                                </span>
+                                {control.reportId && (
+                                  <span className="text-muted-foreground text-sm">
+                                    {t('verification.history.ref')}: {control.reportId}
+                                  </span>
+                                )}
                               </div>
                               <p className="text-sm text-muted-foreground">
                                 {t('verification.history.species')}: {control.speciesAnalyzed?.join(", ") || "-"}
@@ -372,11 +383,11 @@ const Verification = () => {
                                 </p>
                               )}
                             </div>
-                          </div> */}
-                  {/* ))} */}
-                  {/* </div> */}
-                  {/* )} */}
-                  {/* </div> */}
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
 
                   {/* Trust Footer */}
                   <div className="text-center py-6">

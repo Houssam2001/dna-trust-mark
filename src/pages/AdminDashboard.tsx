@@ -36,6 +36,12 @@ import {
   Check,
   X,
   BarChart3,
+  Calendar,
+  ArrowUpDown,
+  Pencil,
+  Bell,
+  AlertTriangle,
+  Mail
 } from "lucide-react";
 import StatisticsPanel from "@/components/admin/StatisticsPanel";
 import UserManagement from "@/components/admin/UserManagement";
@@ -51,15 +57,18 @@ import { Establishment, Control, CertificationStatus, EstablishmentType } from "
 const AdminDashboard = () => {
   const { user, isAdmin, isAgent, signOut, loading: authLoading } = useAuth();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState<"establishments" | "controls" | "users" | "stats">("establishments");
+  const [activeTab, setActiveTab] = useState<"establishments" | "controls" | "users" | "stats" | "notifications">("establishments");
   const [statusFilter, setStatusFilter] = useState<"all" | CertificationStatus>("all");
   const [establishments, setEstablishments] = useState<Establishment[]>([]);
   const [controls, setControls] = useState<(Control & { establishmentName?: string })[]>([]);
+  const [certifications, setCertifications] = useState<any[]>([]); // Using any for now to match backend response flexibility
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [sortConfig, setSortConfig] = useState<{ key: string; direction: "asc" | "desc" } | null>(null);
 
   // Dialog states
   const [isEstablishmentDialogOpen, setIsEstablishmentDialogOpen] = useState(false);
+  const [isEditEstablishmentDialogOpen, setIsEditEstablishmentDialogOpen] = useState(false);
   const [isControlDialogOpen, setIsControlDialogOpen] = useState(false);
   const [isQRDialogOpen, setIsQRDialogOpen] = useState(false);
   const [isStatusDialogOpen, setIsStatusDialogOpen] = useState(false);
@@ -67,6 +76,18 @@ const AdminDashboard = () => {
 
   // Form states - keys updated to match backend expectation (camelCase)
   const [establishmentForm, setEstablishmentForm] = useState({
+    name: "",
+    type: "boucherie" as EstablishmentType,
+    address: "",
+    city: "",
+    postalCode: "",
+    phone: "",
+    email: "",
+    siret: "",
+  });
+
+  const [editEstablishmentForm, setEditEstablishmentForm] = useState({
+    id: "",
     name: "",
     type: "boucherie" as EstablishmentType,
     address: "",
@@ -86,6 +107,48 @@ const AdminDashboard = () => {
     notes: "",
   });
 
+  const calculateDaysRemaining = (validUntil: string) => {
+    const validUntilDate = new Date(validUntil);
+    const today = new Date();
+    const timeDiff = validUntilDate.getTime() - today.getTime();
+    return Math.ceil(timeDiff / (1000 * 3600 * 24));
+  };
+
+  const getNotifications = () => {
+    return establishments.filter(est => {
+      // Find active certification
+      const cert = certifications.find(c => c.establishmentId === est.id && c.isActive);
+      if (!cert) {
+        // Fallback to establishment validUntil if available
+        if ((est as any).validUntil) {
+          const daysRemaining = calculateDaysRemaining((est as any).validUntil);
+          return daysRemaining <= 60 && daysRemaining > 0;
+        }
+        return false;
+      }
+      const daysRemaining = calculateDaysRemaining(cert.validUntil);
+      // Simplify logic: Notify if within last 2 months (60 days) and not expired
+      return daysRemaining <= 60 && daysRemaining > 0;
+    });
+  };
+
+  const notifications = getNotifications();
+
+  const handleRemind = async (establishment: Establishment) => {
+    try {
+      await api.post(`/establishments/${establishment.id}/notify`);
+      toast.success(`Rappel envoyé à ${establishment.name}`);
+    } catch (error: any) {
+      console.error("Error sending notification:", error);
+      toast.error("Erreur lors de l'envoi du rappel: " + (error.response?.data?.message || error.message));
+
+      // Fallback: Open mail client
+      if (establishment.email) {
+        window.open(`mailto:${establishment.email}?subject=Rappel%20Renouvellement%20Certification%20ADN-Guard&body=Bonjour%20${establishment.name},%0D%0A%0D%0AVotre%20certification%20arrive%20bient%C3%B4t%20%C3%A0%20%C3%A9ch%C3%A9ance.%20Merci%20de%20pr%C3%A9voir%20son%20renouvellement.%0D%0A%0D%0ACordialement,%0D%0AL'%C3%A9quipe%20ADN-Guard`);
+      }
+    }
+  };
+
   useEffect(() => {
     if (!authLoading && !user) {
       navigate("/login");
@@ -101,9 +164,13 @@ const AdminDashboard = () => {
   const fetchData = async () => {
     setLoading(true);
     try {
-      if (activeTab === "establishments") {
-        const response = await api.get<Establishment[]>("/establishments");
-        setEstablishments(response.data);
+      if (activeTab === "establishments" || activeTab === "notifications") {
+        const [estResponse, certResponse] = await Promise.all([
+          api.get<Establishment[]>("/establishments"),
+          api.get<any[]>("/certifications"),
+        ]);
+        setEstablishments(estResponse.data);
+        setCertifications(certResponse.data);
       } else if (activeTab === "controls") {
         const response = await api.get<Control[]>("/controls");
         // Map backend response which includes 'establishment' object
@@ -137,6 +204,60 @@ const AdminDashboard = () => {
         email: "",
         siret: "",
       });
+      fetchData();
+    } catch (error: any) {
+      toast.error("Erreur: " + (error.response?.data?.message || error.message));
+    }
+  };
+
+  const getCertificationDetails = (establishmentId: string) => {
+    const cert = certifications.find((c) => c.establishmentId === establishmentId && c.isActive);
+    if (!cert) return null;
+
+    const validUntilDate = new Date(cert.validUntil);
+    const today = new Date();
+    const timeDiff = validUntilDate.getTime() - today.getTime();
+    const daysRemaining = Math.ceil(timeDiff / (1000 * 3600 * 24));
+
+    return {
+      ...cert,
+      daysRemaining,
+      validFromDate: new Date(cert.validFrom),
+      validUntilDate: validUntilDate,
+    };
+  };
+
+  const handleSort = (key: string) => {
+    let direction: "asc" | "desc" = "asc";
+    if (sortConfig && sortConfig.key === key && sortConfig.direction === "asc") {
+      direction = "desc";
+    }
+    setSortConfig({ key, direction });
+  };
+
+  const openEditDialog = (establishment: Establishment) => {
+    setEditEstablishmentForm({
+      id: establishment.id,
+      name: establishment.name,
+      type: establishment.type,
+      address: establishment.address,
+      city: establishment.city,
+      postalCode: establishment.postalCode || "",
+      phone: establishment.phone || "",
+      email: establishment.email || "",
+      siret: establishment.siret || "",
+    });
+    setIsEditEstablishmentDialogOpen(true);
+  };
+
+  const handleEditEstablishment = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const { id, ...data } = editEstablishmentForm;
+      await api.put(`/establishments/${id}`, data);
+
+      toast.success("Informations modifiées avec succès !");
+      setIsEditEstablishmentDialogOpen(false);
       fetchData();
     } catch (error: any) {
       toast.error("Erreur: " + (error.response?.data?.message || error.message));
@@ -293,6 +414,23 @@ const AdminDashboard = () => {
       e.city.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesStatus = statusFilter === "all" || e.status === statusFilter;
     return matchesSearch && matchesStatus;
+  }).sort((a, b) => {
+    if (!sortConfig) return 0;
+
+    if (sortConfig.key === "daysRemaining") {
+      const detailsA = getCertificationDetails(a.id);
+      const detailsB = getCertificationDetails(b.id);
+
+      const daysA = detailsA ? detailsA.daysRemaining : -Infinity;
+      const daysB = detailsB ? detailsB.daysRemaining : -Infinity;
+
+      if (daysA === daysB) return 0;
+
+      const comparison = daysA < daysB ? -1 : 1;
+      return sortConfig.direction === "asc" ? comparison : -comparison;
+    }
+
+    return 0;
   });
 
   const pendingCount = establishments.filter((e) => e.status === "en_attente").length;
@@ -405,6 +543,21 @@ const AdminDashboard = () => {
               <span className="xs:hidden">Stats</span>
             </Button>
           )}
+          <Button
+            variant={activeTab === "notifications" ? "hero" : "outline"}
+            onClick={() => setActiveTab("notifications")}
+            className="relative text-xs sm:text-sm px-3 sm:px-4 shrink-0"
+            size="sm"
+          >
+            <Bell className="w-3.5 h-3.5 sm:w-4 sm:h-4 mr-1.5 sm:mr-2" />
+            <span className="hidden xs:inline">Notifications</span>
+            <span className="xs:hidden">Notifs</span>
+            {notifications.length > 0 && (
+              <span className="absolute -top-1 -right-1 w-4 h-4 sm:w-5 sm:h-5 bg-destructive text-destructive-foreground text-[10px] sm:text-xs rounded-full flex items-center justify-center">
+                {notifications.length}
+              </span>
+            )}
+          </Button>
         </div>
 
         {/* Content */}
@@ -555,6 +708,115 @@ const AdminDashboard = () => {
                   </form>
                 </DialogContent>
               </Dialog>
+
+              <Dialog open={isEditEstablishmentDialogOpen} onOpenChange={setIsEditEstablishmentDialogOpen}>
+                <DialogContent className="max-w-lg max-h-[90vh] overflow-y-auto mx-2 sm:mx-auto">
+                  <DialogHeader>
+                    <DialogTitle className="text-lg">Modifier les informations</DialogTitle>
+                  </DialogHeader>
+                  <form onSubmit={handleEditEstablishment} className="space-y-3 sm:space-y-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                      <div className="sm:col-span-2 space-y-2">
+                        <Label className="text-sm">Nom de l'établissement *</Label>
+                        <Input
+                          value={editEstablishmentForm.name}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, name: e.target.value })
+                          }
+                          required
+                          className="text-sm"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm">Type *</Label>
+                        <Select
+                          value={editEstablishmentForm.type}
+                          onValueChange={(v: EstablishmentType) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, type: v })
+                          }
+                        >
+                          <SelectTrigger className="text-sm">
+                            <SelectValue />
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="boucherie">Boucherie</SelectItem>
+                            <SelectItem value="restaurant">Restaurant</SelectItem>
+                            <SelectItem value="usine">Usine</SelectItem>
+                            <SelectItem value="traiteur">Traiteur</SelectItem>
+                            <SelectItem value="autre">Autre</SelectItem>
+                          </SelectContent>
+                        </Select>
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm">SIRET</Label>
+                        <Input
+                          value={editEstablishmentForm.siret}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, siret: e.target.value })
+                          }
+                          className="text-sm"
+                        />
+                      </div>
+                      <div className="sm:col-span-2 space-y-2">
+                        <Label className="text-sm">Adresse *</Label>
+                        <Input
+                          value={editEstablishmentForm.address}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, address: e.target.value })
+                          }
+                          required
+                          className="text-sm"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm">Ville *</Label>
+                        <Input
+                          value={editEstablishmentForm.city}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, city: e.target.value })
+                          }
+                          required
+                          className="text-sm"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm">Code postal</Label>
+                        <Input
+                          value={editEstablishmentForm.postalCode}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, postalCode: e.target.value })
+                          }
+                          className="text-sm"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm">Téléphone</Label>
+                        <Input
+                          value={editEstablishmentForm.phone}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, phone: e.target.value })
+                          }
+                          className="text-sm"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label className="text-sm">Email</Label>
+                        <Input
+                          type="email"
+                          value={editEstablishmentForm.email}
+                          onChange={(e) =>
+                            setEditEstablishmentForm({ ...editEstablishmentForm, email: e.target.value })
+                          }
+                          className="text-sm"
+                        />
+                      </div>
+                    </div>
+                    <Button type="submit" variant="hero" className="w-full text-sm">
+                      Enregistrer les modifications
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
             </div>
 
             {/* Mobile Card View + Desktop Table */}
@@ -566,87 +828,125 @@ const AdminDashboard = () => {
               <>
                 {/* Mobile Card View */}
                 <div className="block lg:hidden space-y-3">
-                  {filteredEstablishments.map((establishment) => (
-                    <div key={establishment.id} className="bg-card rounded-xl border border-border p-4">
-                      <div className="flex items-start justify-between gap-3 mb-3">
-                        <div className="min-w-0 flex-1">
-                          <p className="font-mono text-xs text-primary mb-1">{establishment.adnguardCode}</p>
-                          <h3 className="font-medium text-sm truncate">{establishment.name}</h3>
-                          <p className="text-xs text-muted-foreground capitalize">{establishment.type} • {establishment.city}</p>
+                  {filteredEstablishments.map((establishment) => {
+                    const certDetails = getCertificationDetails(establishment.id);
+                    return (
+                      <div key={establishment.id} className="bg-card rounded-xl border border-border p-4">
+                        <div className="flex items-start justify-between gap-3 mb-3">
+                          <div className="min-w-0 flex-1">
+                            <p className="font-mono text-xs text-primary mb-1">{establishment.adnguardCode}</p>
+                            {establishment.status === "conforme" && certDetails && (
+                              <div className="mb-3 text-xs bg-muted/40 p-2 rounded-md">
+                                <div className="flex items-center gap-1.5 mb-1.5">
+                                  <Calendar className="w-3.5 h-3.5 text-muted-foreground" />
+                                  <span className="text-muted-foreground">Validité:</span>
+                                  <span className="font-medium">
+                                    {certDetails.validFromDate.toLocaleDateString("fr-FR")} - {certDetails.validUntilDate.toLocaleDateString("fr-FR")}
+                                  </span>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                  <Clock className="w-3.5 h-3.5 text-muted-foreground" />
+                                  <span className="text-muted-foreground">Restant:</span>
+                                  <span className={`font-medium ${certDetails.daysRemaining < 30 ? "text-destructive" : "text-green-600"}`}>
+                                    {certDetails.daysRemaining} jours
+                                  </span>
+                                </div>
+                              </div>
+                            )}
+                            <h3 className="font-medium text-sm truncate">{establishment.name}</h3>
+
+                            <p className="text-xs text-muted-foreground capitalize">{establishment.type}</p>
+                            <p className="text-xs text-muted-foreground truncate" title={`${establishment.address}, ${establishment.city}`}>
+                              {establishment.address}, {establishment.city}
+                            </p>
+                          </div>
+                          {getStatusBadge(establishment.status)}
                         </div>
-                        {getStatusBadge(establishment.status)}
-                      </div>
-                      <div className="flex flex-wrap gap-1 pt-2 border-t border-border">
-                        {isAdmin && (
+
+                        <div className="flex flex-wrap gap-1 pt-2 border-t border-border">
+                          {isAdmin && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => {
+                                setSelectedEstablishment(establishment);
+                                setIsStatusDialogOpen(true);
+                              }}
+                              className="h-8 px-2 text-xs"
+                            >
+                              <Edit className="w-3.5 h-3.5 mr-1" />
+                              Statut
+                            </Button>
+                          )}
+                          {isAdmin && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => openEditDialog(establishment)}
+                              className="h-8 px-2 text-xs"
+                              title="Modifier infos"
+                            >
+                              <Pencil className="w-3.5 h-3.5 mr-1" />
+                              Infos
+                            </Button>
+                          )}
                           <Button
                             variant="ghost"
                             size="sm"
                             onClick={() => {
                               setSelectedEstablishment(establishment);
-                              setIsStatusDialogOpen(true);
+                              setIsQRDialogOpen(true);
                             }}
                             className="h-8 px-2 text-xs"
                           >
-                            <Edit className="w-3.5 h-3.5 mr-1" />
-                            Statut
+                            <QrCode className="w-3.5 h-3.5 mr-1" />
+                            QR
                           </Button>
-                        )}
-                        <Button
-                          variant="ghost"
-                          size="sm"
-                          onClick={() => {
-                            setSelectedEstablishment(establishment);
-                            setIsQRDialogOpen(true);
-                          }}
-                          className="h-8 px-2 text-xs"
-                        >
-                          <QrCode className="w-3.5 h-3.5 mr-1" />
-                          QR
-                        </Button>
-                        {establishment.status === "conforme" && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleDownloadCertificate(establishment)}
-                            className="h-8 px-2 text-xs text-primary"
-                          >
-                            <FileText className="w-3.5 h-3.5 mr-1" />
-                            PDF
-                          </Button>
-                        )}
-                        {isAdmin && establishment.status === "en_attente" && (
-                          <>
+                          {establishment.status === "conforme" && (
                             <Button
                               variant="ghost"
                               size="sm"
-                              onClick={() => handleUpdateStatus(establishment, "conforme")}
+                              onClick={() => handleDownloadCertificate(establishment)}
                               className="h-8 px-2 text-xs text-primary"
                             >
-                              <Check className="w-3.5 h-3.5" />
+                              <FileText className="w-3.5 h-3.5 mr-1" />
+                              PDF
                             </Button>
+                          )}
+                          {isAdmin && establishment.status === "en_attente" && (
+                            <>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => handleUpdateStatus(establishment, "conforme")}
+                                className="h-8 px-2 text-xs text-primary"
+                              >
+                                <Check className="w-3.5 h-3.5" />
+                              </Button>
+                              <Button
+                                variant="ghost"
+                                size="sm"
+                                onClick={() => handleUpdateStatus(establishment, "non_conforme")}
+                                className="h-8 px-2 text-xs text-destructive"
+                              >
+                                <X className="w-3.5 h-3.5" />
+                              </Button>
+                            </>
+                          )}
+                          {isAdmin && (
                             <Button
                               variant="ghost"
                               size="sm"
-                              onClick={() => handleUpdateStatus(establishment, "non_conforme")}
-                              className="h-8 px-2 text-xs text-destructive"
+                              onClick={() => handleDeleteEstablishment(establishment.id)}
+                              className="h-8 px-2 text-xs text-destructive ml-auto"
                             >
-                              <X className="w-3.5 h-3.5" />
+                              <Trash2 className="w-3.5 h-3.5" />
                             </Button>
-                          </>
-                        )}
-                        {isAdmin && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => handleDeleteEstablishment(establishment.id)}
-                            className="h-8 px-2 text-xs text-destructive ml-auto"
-                          >
-                            <Trash2 className="w-3.5 h-3.5" />
-                          </Button>
-                        )}
+                          )}
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                   {filteredEstablishments.length === 0 && (
                     <div className="text-center py-12 text-muted-foreground text-sm">
                       Aucun établissement trouvé
@@ -662,59 +962,100 @@ const AdminDashboard = () => {
                         <tr>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Code</th>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Établissement</th>
+                          <th
+                            className="text-left px-4 py-3 text-sm font-medium text-muted-foreground cursor-pointer hover:text-foreground transition-colors group"
+                            onClick={() => handleSort("daysRemaining")}
+                          >
+                            <div className="flex items-center gap-1">
+                              Jours restants
+                              <ArrowUpDown className="w-3 h-3 opacity-50 group-hover:opacity-100" />
+                            </div>
+                          </th>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Type</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Adresse</th>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Ville</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Validité</th>
+
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Statut</th>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Actions</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-border">
-                        {filteredEstablishments.map((establishment) => (
-                          <tr key={establishment.id} className="hover:bg-muted/30">
-                            <td className="px-4 py-3 font-mono text-sm text-primary">{establishment.adnguardCode}</td>
-                            <td className="px-4 py-3 font-medium">{establishment.name}</td>
-                            <td className="px-4 py-3 text-sm capitalize">{establishment.type}</td>
-                            <td className="px-4 py-3 text-sm text-muted-foreground">{establishment.city}</td>
-                            <td className="px-4 py-3">{getStatusBadge(establishment.status)}</td>
-                            <td className="px-4 py-3">
-                              <div className="flex gap-1">
-                                {isAdmin && (
-                                  <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsStatusDialogOpen(true); }} title="Modifier le statut">
-                                    <Edit className="w-4 h-4" />
-                                  </Button>
+                        {filteredEstablishments.map((establishment) => {
+                          const certDetails = getCertificationDetails(establishment.id);
+                          return (
+                            <tr key={establishment.id} className="hover:bg-muted/30">
+                              <td className="px-4 py-3 font-mono text-sm text-primary">{establishment.adnguardCode}</td>
+                              <td className="px-4 py-3 font-medium">{establishment.name}</td>
+                              <td className="px-4 py-3 text-xs text-muted-foreground">
+                                {establishment.status === "conforme" && certDetails ? (
+                                  <div className="flex flex-col">
+                                    <span>Du: {certDetails.validFromDate.toLocaleDateString("fr-FR")}</span>
+                                    <span>Au: {certDetails.validUntilDate.toLocaleDateString("fr-FR")}</span>
+                                  </div>
+                                ) : (
+                                  "-"
                                 )}
-                                <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsQRDialogOpen(true); }} title="Voir le QR Code">
-                                  <QrCode className="w-4 h-4" />
-                                </Button>
-                                <Link to={`/verification?code=${establishment.adnguardCode}`}>
-                                  <Button variant="ghost" size="icon" title="Voir la page publique">
-                                    <Eye className="w-4 h-4" />
-                                  </Button>
-                                </Link>
-                                {establishment.status === "conforme" && (
-                                  <Button variant="ghost" size="icon" onClick={() => handleDownloadCertificate(establishment)} title="Télécharger le certificat PDF">
-                                    <FileText className="w-4 h-4 text-primary" />
-                                  </Button>
+                              </td>
+                              <td className="px-4 py-3 text-sm capitalize">{establishment.type}</td>
+                              <td className="px-4 py-3 text-sm text-muted-foreground truncate max-w-[200px]" title={establishment.address}>{establishment.address}</td>
+                              <td className="px-4 py-3 text-sm text-muted-foreground">{establishment.city}</td>
+
+                              <td className="px-4 py-3 text-sm">
+                                {establishment.status === "conforme" && certDetails ? (
+                                  <span className={`font-medium ${certDetails.daysRemaining < 30 ? "text-destructive" : "text-green-600"}`}>
+                                    {certDetails.daysRemaining} jours
+                                  </span>
+                                ) : (
+                                  "-"
                                 )}
-                                {isAdmin && establishment.status === "en_attente" && (
-                                  <>
-                                    <Button variant="ghost" size="icon" onClick={() => handleUpdateStatus(establishment, "conforme")} title="Accepter" className="text-primary hover:text-primary">
-                                      <Check className="w-4 h-4" />
+                              </td>
+                              <td className="px-4 py-3">{getStatusBadge(establishment.status)}</td>
+                              <td className="px-4 py-3">
+                                <div className="flex gap-1">
+                                  {isAdmin && (
+                                    <>
+                                      <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsStatusDialogOpen(true); }} title="Modifier le statut">
+                                        <Edit className="w-4 h-4" />
+                                      </Button>
+                                      <Button variant="ghost" size="icon" onClick={() => openEditDialog(establishment)} title="Modifier les infos">
+                                        <Pencil className="w-4 h-4" />
+                                      </Button>
+                                    </>
+                                  )}
+                                  <Button variant="ghost" size="icon" onClick={() => { setSelectedEstablishment(establishment); setIsQRDialogOpen(true); }} title="Voir le QR Code">
+                                    <QrCode className="w-4 h-4" />
+                                  </Button>
+                                  <Link to={`/verification?code=${establishment.adnguardCode}`}>
+                                    <Button variant="ghost" size="icon" title="Voir la page publique">
+                                      <Eye className="w-4 h-4" />
                                     </Button>
-                                    <Button variant="ghost" size="icon" onClick={() => handleUpdateStatus(establishment, "non_conforme")} title="Refuser" className="text-destructive hover:text-destructive">
-                                      <X className="w-4 h-4" />
+                                  </Link>
+                                  {establishment.status === "conforme" && (
+                                    <Button variant="ghost" size="icon" onClick={() => handleDownloadCertificate(establishment)} title="Télécharger le certificat PDF">
+                                      <FileText className="w-4 h-4 text-primary" />
                                     </Button>
-                                  </>
-                                )}
-                                {isAdmin && (
-                                  <Button variant="ghost" size="icon" onClick={() => handleDeleteEstablishment(establishment.id)} title="Supprimer">
-                                    <Trash2 className="w-4 h-4 text-destructive" />
-                                  </Button>
-                                )}
-                              </div>
-                            </td>
-                          </tr>
-                        ))}
+                                  )}
+                                  {isAdmin && establishment.status === "en_attente" && (
+                                    <>
+                                      <Button variant="ghost" size="icon" onClick={() => handleUpdateStatus(establishment, "conforme")} title="Accepter" className="text-primary hover:text-primary">
+                                        <Check className="w-4 h-4" />
+                                      </Button>
+                                      <Button variant="ghost" size="icon" onClick={() => handleUpdateStatus(establishment, "non_conforme")} title="Refuser" className="text-destructive hover:text-destructive">
+                                        <X className="w-4 h-4" />
+                                      </Button>
+                                    </>
+                                  )}
+                                  {isAdmin && (
+                                    <Button variant="ghost" size="icon" onClick={() => handleDeleteEstablishment(establishment.id)} title="Supprimer">
+                                      <Trash2 className="w-4 h-4 text-destructive" />
+                                    </Button>
+                                  )}
+                                </div>
+                              </td>
+                            </tr>
+                          );
+                        })}
                       </tbody>
                     </table>
                   </div>
@@ -894,6 +1235,75 @@ const AdminDashboard = () => {
         {activeTab === "stats" && isAdmin && (
           <StatisticsPanel />
         )}
+
+        {activeTab === "notifications" && (
+          <div className="space-y-6 animate-fade-up">
+            <div className="bg-card rounded-xl border border-border overflow-hidden">
+              <div className="p-6 border-b border-border">
+                <div className="flex items-center gap-2 mb-2">
+                  <Bell className="w-5 h-5 text-primary" />
+                  <h2 className="text-xl font-serif font-bold">Rappels de renouvellement</h2>
+                </div>
+                <p className="text-muted-foreground">
+                  Clients arrivant à échéance de leur certification (moins de 2 mois restants)
+                </p>
+              </div>
+              <div className="p-6">
+                {notifications.length === 0 ? (
+                  <div className="text-center py-12 text-muted-foreground">
+                    <CheckCircle2 className="w-12 h-12 mx-auto mb-4 text-green-500/50" />
+                    <p>Aucune notification en attente. Tous les certificats sont à jour.</p>
+                  </div>
+                ) : (
+                  <div className="space-y-4">
+                    {notifications.map(est => {
+                      const cert = certifications.find(c => c.establishmentId === est.id && c.isActive);
+                      const validUntil = cert ? cert.validUntil : (est as any).validUntil;
+                      const days = validUntil ? calculateDaysRemaining(validUntil) : 0;
+
+                      const typeLabel: Record<string, string> = {
+                        boucherie: "Boucherie",
+                        restaurant: "Restaurant",
+                        usine: "Usine",
+                        traiteur: "Traiteur",
+                        autre: "Autre",
+                      };
+
+                      return (
+                        <div key={est.id} className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-muted/50 rounded-xl border border-border gap-4 hover:shadow-sm transition-shadow">
+                          <div className="flex items-start gap-4">
+                            <div className="w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center text-orange-600 shrink-0">
+                              <AlertTriangle className="w-5 h-5" />
+                            </div>
+                            <div>
+                              <h4 className="font-semibold text-foreground">{est.name}</h4>
+                              <p className="text-sm text-muted-foreground mb-1">
+                                {est.city} • {typeLabel[est.type] || est.type}
+                              </p>
+                              <div className="flex items-center gap-4 text-sm flex-wrap">
+                                <span className="text-orange-600 font-medium inline-flex items-center gap-1">
+                                  <Clock className="w-3.5 h-3.5" />
+                                  Expire dans {days} jours
+                                </span>
+                                <span className="text-muted-foreground">
+                                  Validité jusqu'au {validUntil ? new Date(validUntil).toLocaleDateString("fr-FR") : "-"}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <Button onClick={() => handleRemind(est)} size="sm" className="gap-2 w-full sm:w-auto shrink-0 shadow-sm">
+                            <Mail className="w-4 h-4" />
+                            Relancer
+                          </Button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* QR Code Dialog */}
@@ -1003,7 +1413,7 @@ const AdminDashboard = () => {
           )}
         </DialogContent>
       </Dialog>
-    </div>
+    </div >
   );
 };
 

@@ -1,5 +1,5 @@
 import { jsPDF } from "jspdf";
-import adnguardLogo from "/image.png";
+const adnguardLogo = "/imgcertif.jpeg";
 
 interface CertificateData {
   establishmentName: string;
@@ -236,38 +236,50 @@ export const generateCertificatePDF = async (data: CertificateData): Promise<voi
 
   // Footer background with gradient effect
   doc.setFillColor(26, 61, 61);
-  doc.rect(0, pageHeight - 38, pageWidth, 38, "F");
+  doc.rect(0, pageHeight - 45, pageWidth, 45, "F");
 
   // Gold accent line at top of footer
   doc.setFillColor(213, 157, 83);
-  doc.rect(0, pageHeight - 38, pageWidth, 2, "F");
+  doc.rect(0, pageHeight - 45, pageWidth, 2, "F");
 
-  // Footer text
+  // Footer text - attestation
   doc.setTextColor(200, 200, 200);
   doc.setFontSize(8);
   doc.setFont("helvetica", "normal");
   doc.text(
     "Ce certificat atteste que l'établissement respecte les normes ADNGUARD",
     pageWidth / 2,
-    pageHeight - 26,
+    pageHeight - 36,
     { align: "center" }
   );
   doc.text(
     "en matière de traçabilité et d'authenticité des viandes certifiées.",
     pageWidth / 2,
-    pageHeight - 20,
+    pageHeight - 32,
     { align: "center" }
   );
 
-  // Brand text with gold color
+  // Company Information
+  doc.setFontSize(7);
+  doc.setTextColor(180, 180, 180);
+
+  // Left column - Company address
+  doc.text("HV GLOBAL CONSULTING", 20, pageHeight - 24);
+  doc.text("86 rue voltaire 93100 Montreuil France", 20, pageHeight - 20);
+  doc.text("Siret 94475466200012 - TVA : FR46944754662", 20, pageHeight - 16);
+
+  // Right column - Contact
+  doc.text("Mail adnguard@gmail.com", pageWidth - 20, pageHeight - 24, { align: "right" });
+  doc.text("What's up : +33 6 66 82 08 08", pageWidth - 20, pageHeight - 20, { align: "right" });
+
+  // Brand text at the very bottom
   doc.setTextColor(213, 157, 83);
   doc.setFont("helvetica", "bold");
-  doc.setFontSize(10);
-  doc.text("ADNGUARD", pageWidth / 2 - 25, pageHeight - 8, { align: "center" });
+  doc.setFontSize(9);
+  doc.text("ADNGUARD", pageWidth / 2 - 25, pageHeight - 6, { align: "center" });
   doc.setTextColor(255, 255, 255);
   doc.setFont("helvetica", "normal");
-  doc.setFontSize(9);
-  doc.text("Certification ADN pour la traçabilité alimentaire", pageWidth / 2 + 20, pageHeight - 8, { align: "center" });
+  doc.text("Certification ADN pour la traçabilité alimentaire", pageWidth / 2 + 20, pageHeight - 6, { align: "center" });
 
   // ===== SAVE =====
   doc.save(`certificat-adnguard-${data.adnguardCode}.pdf`);
