@@ -634,6 +634,11 @@ const AdminDashboard = () => {
                             <SelectItem value="restaurant">Restaurant</SelectItem>
                             <SelectItem value="usine">Usine</SelectItem>
                             <SelectItem value="traiteur">Traiteur</SelectItem>
+                            <SelectItem value="produits_laitiers">Produits laitiers</SelectItem>
+                            <SelectItem value="produits_de_la_mer">Produits de la mer</SelectItem>
+                            <SelectItem value="epiceries">Epiceries</SelectItem>
+                            <SelectItem value="boulangeries">Boulangeries</SelectItem>
+                            <SelectItem value="pharmacies">Pharmacies</SelectItem>
                             <SelectItem value="autre">Autre</SelectItem>
                           </SelectContent>
                         </Select>
@@ -743,6 +748,11 @@ const AdminDashboard = () => {
                             <SelectItem value="restaurant">Restaurant</SelectItem>
                             <SelectItem value="usine">Usine</SelectItem>
                             <SelectItem value="traiteur">Traiteur</SelectItem>
+                            <SelectItem value="produits_laitiers">Produits laitiers</SelectItem>
+                            <SelectItem value="produits_de_la_mer">Produits de la mer</SelectItem>
+                            <SelectItem value="epiceries">Epiceries</SelectItem>
+                            <SelectItem value="boulangeries">Boulangeries</SelectItem>
+                            <SelectItem value="pharmacies">Pharmacies</SelectItem>
                             <SelectItem value="autre">Autre</SelectItem>
                           </SelectContent>
                         </Select>
@@ -962,6 +972,10 @@ const AdminDashboard = () => {
                         <tr>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Code</th>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Établissement</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Validité</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Type</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Adresse</th>
+                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Ville</th>
                           <th
                             className="text-left px-4 py-3 text-sm font-medium text-muted-foreground cursor-pointer hover:text-foreground transition-colors group"
                             onClick={() => handleSort("daysRemaining")}
@@ -971,10 +985,6 @@ const AdminDashboard = () => {
                               <ArrowUpDown className="w-3 h-3 opacity-50 group-hover:opacity-100" />
                             </div>
                           </th>
-                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Type</th>
-                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Adresse</th>
-                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Ville</th>
-                          <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Validité</th>
 
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Statut</th>
                           <th className="text-left px-4 py-3 text-sm font-medium text-muted-foreground">Actions</th>
@@ -1266,6 +1276,11 @@ const AdminDashboard = () => {
                         restaurant: "Restaurant",
                         usine: "Usine",
                         traiteur: "Traiteur",
+                        produits_laitiers: "Produits laitiers",
+                        produits_de_la_mer: "Produits de la mer",
+                        epiceries: "Epiceries",
+                        boulangeries: "Boulangeries",
+                        pharmacies: "Pharmacies",
                         autre: "Autre",
                       };
 

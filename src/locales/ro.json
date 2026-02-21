@@ -353,7 +353,12 @@
         "restaurant": "Restaurant",
         "usine": "Unitate de Procesare Alimentară",
         "traiteur": "Catering",
-        "autre": "Altele"
+        "autre": "Altele",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Înapoi Acasă",

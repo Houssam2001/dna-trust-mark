@@ -350,7 +350,12 @@
         "restaurant": "Restaurante",
         "usine": "Planta de Procesamiento de Alimentos",
         "traiteur": "Servicio de Catering",
-        "autre": "Otro"
+        "autre": "Otro",
+        "produits_laitiers": "Productos lácteos",
+        "produits_de_la_mer": "Mariscos",
+        "epiceries": "Tiendas de comestibles",
+        "boulangeries": "Panaderías",
+        "pharmacies": "Farmacias"
     },
     "verification": {
         "backHome": "Volver al Inicio",

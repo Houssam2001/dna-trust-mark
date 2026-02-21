@@ -350,7 +350,12 @@
         "restaurant": "Restauracja",
         "usine": "Zakład Przetwórstwa",
         "traiteur": "Catering",
-        "autre": "Inne"
+        "autre": "Inne",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Powrót do Strony Głównej",

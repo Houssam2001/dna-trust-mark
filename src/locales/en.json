@@ -353,7 +353,12 @@
         "restaurant": "Restaurant",
         "usine": "Food Processing Plant",
         "traiteur": "Caterer",
-        "autre": "Other"
+        "autre": "Other",
+        "produits_laitiers": "Dairy products",
+        "produits_de_la_mer": "Seafood",
+        "epiceries": "Grocery stores",
+        "boulangeries": "Bakeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Back to Home",

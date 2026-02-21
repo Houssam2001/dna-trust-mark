@@ -22,7 +22,7 @@ import { z } from "zod";
 import api from "@/services/api";
 import { useTranslation } from "react-i18next";
 
-type EstablishmentType = "boucherie" | "restaurant" | "usine" | "traiteur" | "autre";
+import { EstablishmentType } from "@/types";
 
 interface CertificationRequestFormProps {
   open: boolean;
@@ -164,6 +164,11 @@ const CertificationRequestForm = ({ open, onOpenChange }: CertificationRequestFo
                       <SelectItem value="restaurant">{t('types.restaurant')}</SelectItem>
                       <SelectItem value="usine">{t('types.usine')}</SelectItem>
                       <SelectItem value="traiteur">{t('types.traiteur')}</SelectItem>
+                      <SelectItem value="produits_laitiers">{t('types.produits_laitiers')}</SelectItem>
+                      <SelectItem value="produits_de_la_mer">{t('types.produits_de_la_mer')}</SelectItem>
+                      <SelectItem value="epiceries">{t('types.epiceries')}</SelectItem>
+                      <SelectItem value="boulangeries">{t('types.boulangeries')}</SelectItem>
+                      <SelectItem value="pharmacies">{t('types.pharmacies')}</SelectItem>
                       <SelectItem value="autre">{t('types.autre')}</SelectItem>
                     </SelectContent>
                   </Select>

@@ -123,6 +123,11 @@ const Verification = () => {
       restaurant: t('types.restaurant'),
       usine: t('types.usine'),
       traiteur: t('types.traiteur'),
+      produits_laitiers: t('types.produits_laitiers'),
+      produits_de_la_mer: t('types.produits_de_la_mer'),
+      epiceries: t('types.epiceries'),
+      boulangeries: t('types.boulangeries'),
+      pharmacies: t('types.pharmacies'),
       autre: t('types.autre'),
     };
     return labels[type] || type;

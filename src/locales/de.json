@@ -353,7 +353,12 @@
         "restaurant": "Restaurant",
         "usine": "Lebensmittelfabrik",
         "traiteur": "Catering",
-        "autre": "Sonstiges"
+        "autre": "Sonstiges",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Zurück zur Startseite",

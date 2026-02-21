@@ -350,7 +350,12 @@
         "restaurant": "Restoran",
         "usine": "Gıda İşleme Tesisi",
         "traiteur": "Yemek Hizmeti",
-        "autre": "Diğer"
+        "autre": "Diğer",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Ana Sayfaya Dön",

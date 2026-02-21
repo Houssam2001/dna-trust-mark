@@ -353,7 +353,12 @@
         "restaurant": "Étterem",
         "usine": "Élelmiszer-feldolgozó Üzem",
         "traiteur": "Vendéglátás",
-        "autre": "Egyéb"
+        "autre": "Egyéb",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Vissza a Főoldalra",

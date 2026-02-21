@@ -350,7 +350,12 @@
         "restaurant": "مطعم",
         "usine": "مصنع أغذية",
         "traiteur": "ممول حفلات",
-        "autre": "آخر"
+        "autre": "آخر",
+        "produits_laitiers": "منتجات الألبان",
+        "produits_de_la_mer": "المأكولات البحرية",
+        "epiceries": "محلات البقالة",
+        "boulangeries": "المخابز",
+        "pharmacies": "الصيدليات"
     },
     "verification": {
         "backHome": "العودة للرئيسية",

@@ -353,7 +353,12 @@
         "restaurant": "Reštaurácia",
         "usine": "Potravinársky Závod",
         "traiteur": "Catering",
-        "autre": "Iné"
+        "autre": "Iné",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Späť na Domov",

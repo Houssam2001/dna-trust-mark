@@ -350,7 +350,12 @@
         "restaurant": "Restaurant",
         "usine": "Voedselverwerkingsfabriek",
         "traiteur": "Catering",
-        "autre": "Andere"
+        "autre": "Andere",
+        "produits_laitiers": "Produits laitiers",
+        "produits_de_la_mer": "Produits de la mer",
+        "epiceries": "Epiceries",
+        "boulangeries": "Boulangeries",
+        "pharmacies": "Pharmacies"
     },
     "verification": {
         "backHome": "Terug naar Home",
